@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 11 fév. 2021 à 22:25
+-- Généré le : sam. 13 fév. 2021 à 22:37
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -126,7 +126,8 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `id_utilisateur` int(11) NOT NULL,
   `id_like` int(11) NOT NULL,
   `id_dislike` int(11) NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -142,7 +143,8 @@ CREATE TABLE IF NOT EXISTS `likedislike` (
   `id_article` int(11) NOT NULL,
   `id_commentaire` int(11) NOT NULL,
   `likey` int(11) NOT NULL,
-  `dislike` int(11) NOT NULL
+  `dislike` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -171,7 +173,8 @@ CREATE TABLE IF NOT EXISTS `marque` (
   `id` int(11) NOT NULL,
   `nom` varchar(140) NOT NULL,
   `id_image` int(11) NOT NULL,
-  `description` varchar(140) NOT NULL
+  `description` varchar(140) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -185,7 +188,8 @@ CREATE TABLE IF NOT EXISTS `notation` (
   `id` int(11) NOT NULL,
   `id_article` int(11) NOT NULL,
   `id_commentaire` int(11) NOT NULL,
-  `note` int(11) NOT NULL
+  `note` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -199,7 +203,8 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `id` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   `id_article` int(11) NOT NULL,
-  `id_image_article` int(11) NOT NULL
+  `id_image_article` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
