@@ -1,4 +1,17 @@
+<?php
+//LIBRARIES
+$bdd = "../libraries/config/bdd.php";
+$Http = "../libraries/config/Http.php";
+$utils = "../libraries/config/utils.php";
+require('../libraries/Model/Connexion.php');
+require('../libraries/config/utils.php');
+require('../libraries/Controller/Connexion.php');
+
+?>
 <main>
+<?php
+
+?>
         <form class="block" method="POST" action="connexion.php">
             <h1><u>Connexion</u></h1>
 

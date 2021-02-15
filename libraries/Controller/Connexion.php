@@ -3,12 +3,9 @@
 namespace Controller;
 require($Http);
 require_once($utils);
-
-class Connexion
+require("Controller.php");
+class Connexion extends Controller
 {
-    public $login = "";
-    public $password = "";
-    
     public function connect($login, $password)
     {
         $this->login = $_POST['login'];
@@ -17,21 +14,39 @@ class Connexion
 
         if (!empty($login) && !empty($password)) { // il faut remplir les champs sinon $errorLog
 
-            $modelConnection = new \Models\Connexion();
+            $modelConnexion = new \Model\Connexion();
+            $ControllerConnexion = new \Controller\Connexion();
+            
+          
 
-            $login = $modelConnection->secure($login);
-            $password = $modelConnection->secure($password);
+            $login = $ControllerConnexion->secure($login);
+            $password = $ControllerConnexion->secure($password);
 
-            $fetch = $modelConnection->ifDoesntExist($login); // savoir si le compte existe pour etre connecté
+            $fetch = $modelConnexion->existenceCheck($login); // savoir si le compte existe pour etre connecté
             if ($fetch) {
-                $passwordSql = $modelConnection->passwordVerifySql($login);
+                $passwordSql = $modelConnexion->passwordVerifySql($login);
 
                 if (password_verify($password, $passwordSql['password'])) {
                     $_SESSION['connected'] = true;
-                    $utilisateur = $modelConnection->findAll($login);
+                    $utilisateur = $modelConnexion->selectAllWhere('utilisateurs','login',$login);
                     $_SESSION['utilisateur'] = $utilisateur; // la carte d'identité de l'utilisateur à été créer et initialisé dans une $_SESSION
+                    echo "ok";
+                    
+                    var_dump($utilisateur);
+                    echo "ok";
+                    
+                    $this->id = $utilisateur['id'];
+                    $this->nom = $utilisateur['nom'];
+                    $this->prenom = $utilisateur['prenom'];
+                    $this->login = $utilisateur['login'];
+                    $this->email = $utilisateur['email'];
+                    $this->password = $utilisateur['password'];
+                    $this->id_droits = $utilisateur['id_droits'];
+                    $this->anniversaire =$utilisateur['anniversaire'];
+                    $this->id_adresse = $utilisateur['id_adresse'];
+
                     $Http = new \Http();
-                    $Http->redirect('profil.php'); // GG WP
+                    // $Http->redirect('profil.php'); // GG WP
                 } else {
                     $errorLog = "<p class='alert alert-danger' role='alert'>Mot de passe incorrect</p>";
                 }

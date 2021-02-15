@@ -1,6 +1,6 @@
 <?php
 
-namespace Models {
+namespace Model {
 
     require_once("Model.php");
 

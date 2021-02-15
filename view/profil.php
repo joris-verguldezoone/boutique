@@ -1,3 +1,13 @@
+<?php 
+//LIBRARIES
+$utils = "../libraries/config/utils.php";
+$bdd = "../libraries/config/bdd.php";
+$Http = "../libraries/config/Http.php";
+require('../libraries/Model/Profil.php');
+require('../libraries/config/utils.php');
+require('../libraries/Controller/Profil.php');
+?>
+
 <main>
     <form class="block" method="POST" action="profil.php">
         <h1><u>Profil</u></h1>
@@ -25,11 +35,11 @@
             </label>
         </article>
 
-        <input type="submit" id="profilSubmit" value="update" name="register">
+        <input type="submit" id="profilSubmit" value="update" name="update">
             <?php
 
-    if (isset($_POST['register'])) {
-        
+    if (isset($_POST['update'])) {
+        var_dump($_SESSION);
         $newUser = new \Controller\Profil(); 
         $newUser->profil($_POST['login'], $_POST['password'], $_POST['confirm_password'], $_POST['email']);
     }

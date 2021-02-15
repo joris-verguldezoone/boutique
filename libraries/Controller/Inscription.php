@@ -4,22 +4,19 @@ namespace Controller;
 
 // require_once($Http);
 // require_once($utils);
-
-class Inscription // s'appel User
+require("Controller.php");
+class Inscription extends Controller// s'appel User
 {
-    public $login = "";
-    public $password = "";
-    public $email = "";
-    public $id_droits;
-
     public function register($login, $password, $confirm_password, $email)
     {
-        $modelInscription = new \Models\Inscription();
-        $this->login = $modelInscription->secure($_POST['login']);
-        $this->password = $modelInscription->secure($_POST['password']);        //securisé    
-        $this->email = $modelInscription->secure($_POST['email']);
+        $modelInscription = new \Model\Inscription();
+        $controllerInscription = new \Controller\Inscription();
 
-        $confirm_password = $modelInscription->secure($_POST['confirm_password']);                 // récupération valeurs $_POST, son droit est utilisateur a l'inscription
+        $this->login = $controllerInscription->secure($_POST['login']);
+        $this->password = $controllerInscription->secure($_POST['password']);        //securisé    
+        $this->email = $controllerInscription->secure($_POST['email']);
+
+        $confirm_password = $controllerInscription->secure($_POST['confirm_password']);                 // récupération valeurs $_POST, son droit est utilisateur a l'inscription
         $id_droits = 1; // initialisation a utilisateur classique
 
         $errorLog = null;
@@ -34,8 +31,8 @@ class Inscription // s'appel User
 
                 if (($login_len <= 30) && ($password_len <= 30) && ($confirm_password_len <= 30) && ($email_len<=30)) 
                 { // limite maximum de caractere
-                    $existLogin = $modelInscription->ifExist($login); // l'utilisateur existe-t-il ? 
-                    $existEmail = $modelInscription->ifExist($email); // l'email est-il déjà utilisé ?
+                    $existLogin = $modelInscription->alreadyTakenCheck('utilisateur','login',$login); // l'utilisateur existe-t-il ? 
+                    $existEmail = $modelInscription->alreadyTakenCheck('utilisateur','email',$email); // l'email est-il déjà utilisé ?
                     if (!$existLogin) 
                     {
                         if (!$existEmail) 

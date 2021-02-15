@@ -1,5 +1,12 @@
 <?php
+//LIBRARIES
+$utils = "../libraries/config/utils.php";
+$bdd = "../libraries/config/bdd.php";
+$Http = "../libraries/config/Http.php";
+require('../libraries/Model/Inscription.php');
 require('../libraries/config/utils.php');
+require('../libraries/Controller/Inscription.php');
+
 ?>
 <main>
     <form class="block" method="POST" action="inscription.php">
@@ -7,23 +14,23 @@ require('../libraries/config/utils.php');
 
         <article>
             <label for="login" name="login" class="inp">
-                <input type="text" id="ConnexionLogin" name="login" placeholder="&nbsp;" required>
                 <span class="label">Login</span>
+                <input type="text" id="ConnexionLogin" name="login" placeholder="&nbsp;" required>
                 <span class="focus-bg"></span>
             </label>
             <label for="password" name="password" class="inp">
-                <input type="password" id="ConnexionLogin" name="password" placeholder="&nbsp;" required>
                 <span class="label">Password</span>
+                <input type="password" id="ConnexionLogin" name="password" placeholder="&nbsp;" required>
                 <span class="focus-bg"></span>
             </label></br>
             <label for="confirm_password" name="password" class="inp">
-                <input type="password" id="inscriptionConfirm_password" name="confirm_password" placeholder="&nbsp;" required>
                 <span class="label">Confirm Password</span>
+                <input type="password" id="inscriptionConfirm_password" name="confirm_password" placeholder="&nbsp;" required>
                 <span class="focus-bg"></span>
             </label>
             <label for="email" name="email" class="inp">
-                <input type="email" id="inscriptionEmail" name="email" placeholder="&nbsp;" required>
                 <span class="label">Email</span>
+                <input type="email" id="inscriptionEmail" name="email" placeholder="&nbsp;" required>
                 <span class="focus-bg"></span>
             </label>
         </article>

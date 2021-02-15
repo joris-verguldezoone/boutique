@@ -3,14 +3,29 @@
 if(!isset($_SESSION)){ // on met des session la ou y'en a pas
     session_start();
 }
+// DEFINE(FOLDER)
 
+// /**
+//  * Chargement automatiques des instances de Class
+//  */
+//     spl_autoload_register(function($class_name) {
 
-/**
- * Chargement automatiques des instances de Class
- */
-spl_autoload_register(function ($className)
-{
-    $className = str_replace("\\", "/", $className);
+//         // Define an array of directories in the order of their priority to iterate through.
+//         $dirs = array(
+//             'controller/', // Project specific classes (+Core Overrides)
+//             'model/', // Core classes example
+//         );
 
-    require ("$className.php");
-});
+//         // Looping through each directory to load all the class files. It will only require a file once.
+//         // If it finds the same class in a directory later on, IT WILL IGNORE IT! Because of that require once!
+//         foreach( $dirs as $dir ) {
+//             if (file_exists($dir.$class_name.'.php')) {
+//                 require_once($dir.$class_name.'.php');
+//                 return;
+//             }
+//             else{
+//                 echo  $dir. $class_name. 'php<br/>';
+
+//             }
+//         }
+//     });
