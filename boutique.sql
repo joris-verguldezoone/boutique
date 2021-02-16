@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 16 fév. 2021 à 08:25
--- Version du serveur :  10.4.10-MariaDB
--- Version de PHP :  7.3.12
+-- Généré le : mar. 16 fév. 2021 à 19:35
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `boutique`
+-- Base de données : `boutique`
 --
 
 -- --------------------------------------------------------
@@ -57,8 +56,10 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `id_image_type` int(11) NOT NULL,
   `note` int(11) NOT NULL,
   `prix` int(11) NOT NULL,
-  `type` varchar(140) NOT NULL,
-  `id_categorie` int(11) NOT NULL,
+  `id_type` int(11) NOT NULL,
+  `id_gamme` int(11) NOT NULL,
+  `id_marque` int(11) NOT NULL,
+  `id_generation` int(11) NOT NULL,
   `promo` int(11) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`)
@@ -79,21 +80,6 @@ CREATE TABLE IF NOT EXISTS `carte_bleu` (
   `code` int(11) NOT NULL,
   `date` date NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `categories`
---
-
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `gamme` varchar(140) NOT NULL,
-  `generation` varchar(140) NOT NULL,
-  `marque` varchar(140) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -125,10 +111,57 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `titre` varchar(140) NOT NULL,
   `contenu` varchar(140) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
-  `id_article` int(11) NOT NULL,
+  `id_like` int(11) NOT NULL,
+  `id_dislike` int(11) NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `gamme`
+--
+
+DROP TABLE IF EXISTS `gamme`;
+CREATE TABLE IF NOT EXISTS `gamme` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(140) CHARACTER SET latin1 NOT NULL,
+  `id_type` int(11) NOT NULL,
+  `id_marque` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='Cette table permet un tri facultatif selon l''article';
+
+--
+-- Déchargement des données de la table `gamme`
+--
+
+INSERT INTO `gamme` (`id`, `nom`, `id_type`, `id_marque`) VALUES
+(1, '3090', 1, 1),
+(2, 'I-9', 5, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `generation`
+--
+
+DROP TABLE IF EXISTS `generation`;
+CREATE TABLE IF NOT EXISTS `generation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(140) NOT NULL,
+  `id_type` int(11) NOT NULL,
+  `id_marque` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `generation`
+--
+
+INSERT INTO `generation` (`id`, `nom`, `id_type`, `id_marque`) VALUES
+(1, 'RTX 3000', 1, 1),
+(2, 'Intel 10th', 5, 2);
 
 -- --------------------------------------------------------
 
@@ -170,13 +203,20 @@ CREATE TABLE IF NOT EXISTS `liste_de_souhait` (
 
 DROP TABLE IF EXISTS `marque`;
 CREATE TABLE IF NOT EXISTS `marque` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(140) NOT NULL,
   `id_image` int(11) NOT NULL,
-  `id_article` int(11) NOT NULL,
   `description` varchar(140) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `marque`
+--
+
+INSERT INTO `marque` (`id`, `nom`, `id_image`, `description`) VALUES
+(1, 'NVIDIA', 38, 'jkhfgjhfgj'),
+(2, 'Intel', 45, 'intel c bien');
 
 -- --------------------------------------------------------
 
@@ -210,6 +250,28 @@ CREATE TABLE IF NOT EXISTS `panier` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `type`
+--
+
+DROP TABLE IF EXISTS `type`;
+CREATE TABLE IF NOT EXISTS `type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(140) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `type`
+--
+
+INSERT INTO `type` (`id`, `nom`) VALUES
+(1, 'Carte Graphique'),
+(6, 'Intel'),
+(5, 'Processeur');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `utilisateurs`
 --
 
@@ -232,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `login`, `email`, `password`, `id_droits`, `anniversaire`, `id_adresse`) VALUES
-(1, NULL, NULL, 'HARDJOJO', 'HARDJOJO@hihi.fr', '$2y$10$SjKCjoThRWuDKM95j1Rf7O1BRInLCf/VF6iQ/XuEOOco9mDOFy7wO', 1, NULL, NULL);
+(1, NULL, NULL, 'HARDJOJOJ', 'HARDJOJO@ok.fr', '$2y$10$2.Qa6ZJnVclaBpS1ZkgtmurjYkoJ7XXpvF3EFjnCl5CJFi6EenICi', 1, NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
