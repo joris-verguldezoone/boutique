@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 13 fév. 2021 à 22:37
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Généré le :  mar. 16 fév. 2021 à 08:25
+-- Version du serveur :  10.4.10-MariaDB
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `boutique`
+-- Base de données :  `boutique`
 --
 
 -- --------------------------------------------------------
@@ -124,8 +125,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `titre` varchar(140) NOT NULL,
   `contenu` varchar(140) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
-  `id_like` int(11) NOT NULL,
-  `id_dislike` int(11) NOT NULL,
+  `id_article` int(11) NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -173,6 +173,7 @@ CREATE TABLE IF NOT EXISTS `marque` (
   `id` int(11) NOT NULL,
   `nom` varchar(140) NOT NULL,
   `id_image` int(11) NOT NULL,
+  `id_article` int(11) NOT NULL,
   `description` varchar(140) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -187,7 +188,6 @@ DROP TABLE IF EXISTS `notation`;
 CREATE TABLE IF NOT EXISTS `notation` (
   `id` int(11) NOT NULL,
   `id_article` int(11) NOT NULL,
-  `id_commentaire` int(11) NOT NULL,
   `note` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -216,17 +216,23 @@ CREATE TABLE IF NOT EXISTS `panier` (
 DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(140) NOT NULL,
-  `prenom` varchar(140) NOT NULL,
-  `pseudo` varchar(140) NOT NULL,
+  `nom` varchar(140) DEFAULT NULL,
+  `prenom` varchar(140) DEFAULT NULL,
+  `login` varchar(140) NOT NULL,
   `email` varchar(140) NOT NULL,
-  `mdp` varchar(140) NOT NULL,
+  `password` varchar(140) NOT NULL,
   `id_droits` int(140) NOT NULL,
-  `anniversaire` date NOT NULL,
-  `id_adresse` int(11) NOT NULL,
-  `id_commentaire` int(11) NOT NULL,
+  `anniversaire` date DEFAULT NULL,
+  `id_adresse` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `utilisateurs`
+--
+
+INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `login`, `email`, `password`, `id_droits`, `anniversaire`, `id_adresse`) VALUES
+(1, NULL, NULL, 'HARDJOJO', 'HARDJOJO@hihi.fr', '$2y$10$SjKCjoThRWuDKM95j1Rf7O1BRInLCf/VF6iQ/XuEOOco9mDOFy7wO', 1, NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

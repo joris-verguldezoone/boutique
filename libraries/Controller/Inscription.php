@@ -26,13 +26,13 @@ class Inscription extends Controller// s'appel User
             $password_len = strlen($password);
             $confirm_password_len = strlen($confirm_password);
             $email_len = strlen($email);
-            if (($login_len >= 2) && ($password_len  >= 5) && ($confirm_password_len >= 4) && ($email_len>=7)) 
+            if (($login_len >= 2) && ($password_len >= 5) && ($confirm_password_len >= 4) && ($email_len>=7)) 
             { // limite minimum de caractere
 
                 if (($login_len <= 30) && ($password_len <= 30) && ($confirm_password_len <= 30) && ($email_len<=30)) 
                 { // limite maximum de caractere
-                    $existLogin = $modelInscription->alreadyTakenCheck('utilisateur','login',$login); // l'utilisateur existe-t-il ? 
-                    $existEmail = $modelInscription->alreadyTakenCheck('utilisateur','email',$email); // l'email est-il déjà utilisé ?
+                    $existLogin = $modelInscription->alreadyTakenCheck('utilisateurs','login',$login); // l'utilisateur existe-t-il ? 
+                    $existEmail = $modelInscription->alreadyTakenCheck('utilisateurs','email',$email); // l'email est-il déjà utilisé ?
                     if (!$existLogin) 
                     {
                         if (!$existEmail) 
