@@ -46,7 +46,7 @@ class Connexion extends Controller
                     $this->id_adresse = $utilisateur['id_adresse'];
 
                     $Http = new \Http();
-                    // $Http->redirect('profil.php'); // GG WP
+                    $Http->redirect('profil.php'); // GG WP
                 } else {
                     $errorLog = "<p class='alert alert-danger' role='alert'>Mot de passe incorrect</p>";
                 }

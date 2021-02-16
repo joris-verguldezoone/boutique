@@ -3,15 +3,16 @@
 namespace Controller; // sisi le boss
 
 Class Controller{ // spoiler il controlle tout
+    
     protected $id;
-    public $nom = "";
-    public $prenom = "";
-    public $login = "";
-    public $email = "";
-    public $password = "";
-    public $id_droits;
-    public $anniversaire ="";
-    public $id_adresse = "";
+    protected $nom = "";
+    protected $prenom = "";
+    protected $login = "";
+    protected $email = "";
+    protected $password = "";
+    protected $id_droits;
+    protected $anniversaire ="";
+    protected $id_adresse = "";
 
     public function __construct()
     {

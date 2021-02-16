@@ -20,12 +20,6 @@ class Profil extends Controller{
         $this->email = $controllerProfil->secure($_POST['email']);
         $confirm_password = $controllerProfil->secure($_POST['confirm_password']);                 
 
-        echo $this->login."login<br/>";
-        echo $this->password."password<br/>";
-        echo $this->email."email<br/>";
-        echo $this->anniversaire."anniversaire<br/>";
-        echo $this->id."id<br/>";
-
         $errorLog = null;
 
         if (!empty($login) && !empty($password) && !empty($confirm_password) && !empty($email)) { // si les champs sont vides alors $errorLog

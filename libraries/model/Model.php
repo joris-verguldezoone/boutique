@@ -21,16 +21,20 @@ class Model{
 
         return $fetch;
     }
-    
     public function alreadyTakenCheck($nomTable, $colonne, $value) // Est ce que l'utilisateur existe ? 
     {                              // si oui alors on need un new pseudo
-        $sql = "SELECT login FROM $nomTable WHERE $colonne = ?";
+        $sql = "SELECT $colonne FROM $nomTable WHERE $colonne = ?";
         $result = $this->pdo->prepare($sql);
         $result->execute([$value]);
         $fetch = $result->fetch(\PDO::FETCH_ASSOC);
         return $fetch;
     }
-
+// GENERIC INSERT
+    public function insertOneValue($nomTable, $colonne, $value){
+        $sql = "INSERT INTO $nomTable ($colonne) VALUES (?)";
+        $result = $this->pdo->prepare($sql);
+        $result->execute([$value]);
+    }
 
     // protected update
     // protected delete
