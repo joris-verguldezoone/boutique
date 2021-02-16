@@ -12,9 +12,24 @@ class Model{
         $this->pdo = connect();
     }
 // GENRERIC SELECT
-    public function selectAllWhere($nomTable,$colonne,$value){ // select * where value = value
+    public function selectAllNom($nomTable) // on fetch que le 'nom' de la table
+    {
+        $sql = "SELECT * FROM $nomTable";
+        $result = $this->pdo->prepare($sql);
+        $result->execute();
+        $i = 0;
+        while($fetch = $result->fetch(\PDO::FETCH_ASSOC)){
+
+            $tableau[$i][] = $fetch['id'];
+            $tableau[$i][] = $fetch['nom'];
+            $i++;
+            
+        }
+        return $tableau;
+        }
+    public function selectAllWhere($nomTable,$colonne,$value)
+    { // select * where value = value
         $sql = "SELECT * FROM $nomTable WHERE $colonne= ?";
-        echo $sql;
         $result = $this->pdo->prepare($sql);
         $result->execute([$value]);
         $fetch = $result->fetch(\PDO::FETCH_ASSOC);
@@ -34,6 +49,16 @@ class Model{
         $sql = "INSERT INTO $nomTable ($colonne) VALUES (?)";
         $result = $this->pdo->prepare($sql);
         $result->execute([$value]);
+    }
+    public function insertTwoValue($nomTable, $colonne, $value1, $value2){
+        $sql = "INSERT INTO $nomTable ($colonne) VALUES (?, ?)";
+        $result = $this->pdo->prepare($sql);
+        $result->execute([$value1, $value2]);
+    }
+    public function insertThreeValue($nomTable,$colonne1,$colonne2,$colonne3,$value1,$value2,$value3){
+        $sql = "INSERT INTO $nomTable ($colonne1,$colonne2,$colonne3) VALUES (?,?,?)";
+        $result = $this->pdo->prepare($sql);
+        $result->execute([$value1,$value2,$value3]);
     }
 
     // protected update

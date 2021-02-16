@@ -13,6 +13,12 @@ Class Controller{ // spoiler il controlle tout
     protected $id_droits;
     protected $anniversaire ="";
     protected $id_adresse = "";
+    // articles
+    // protected $id_type;
+    // protected $id_generation;
+    // protected $id_gamme;
+    // protected $id_marque;
+
 
     public function __construct()
     {
@@ -25,6 +31,12 @@ Class Controller{ // spoiler il controlle tout
         $this->id_droits;
         $this->anniversaire ="";
         $this->id_adresse = "";
+
+        // $this->id_type;
+        // $this->var ;
+        // $this->id_gamme;
+        // $this->id_marque;
+
     }
     
     public function secure($var) // le sang de la veine

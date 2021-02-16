@@ -16,16 +16,35 @@ $controllerInsert = new \Controller\Admin();
         <input type='submit' name="submitType">
         <?php
         if(isset($_POST['submitType'])){
-           $controllerInsert->verifyAndInsertOne('type_article', 'type' , $_POST['createType']);
+           $controllerInsert->verifyAndInsertOne('type', 'nom' , $_POST['createType']);
         }
         ?>
     </form>
 </section>
+
+<!--GENERATION-->
 <section>
     <form action="" method="POST">
-        <label for="createGeneration">Créer une nouvelle generation d'article</label>
-        <input type="text" name="createGeneration" placeholder="Intel 9th">
+        <label for="NameGeneration">Créer une nouvelle generation d'article</label>
+        <input type="text" name="NameGeneration" placeholder="Intel 9th">
+        
+        <select name="GenerationSelected1">
+        <?php
+            $controllerInsert->displaySelect('type');
+        ?>
+        </select>
+        <select name="GenerationSelected2">
+        <?php
+            $controllerInsert->displaySelect('marque');
+        ?>
+        </select>
         <input type='submit' name="submitGeneration">
+        <?php
+        if(isset($_POST['submitGeneration']))
+        {
+           $controllerInsert->createWithThreeValues('generation' ,$_POST['NameGeneration'], $_POST['GenerationSelected1'] , $_POST['GenerationSelected2']);
+        }
+            ?>
 
     </form>
 </section>
@@ -34,13 +53,44 @@ $controllerInsert = new \Controller\Admin();
         <label for="createGamme">Créer une nouvelle gamme d'article</label>
         <input type="text" name="createGamme" placeholder="I-9 RTX-2080">
         <input type='submit' name="submitGamme">
+        <select name="gammeSelected1">
+        <?php
+        $controllerInsert->displaySelect('type');
+       
+        ?>
+        </select>
+        <select name="gammeSelected2">
+        <?php
+        $controllerInsert->displaySelect('marque');
+        ?>
+        </select>
+        <?php
+        if(isset($_POST['submitGamme']))
+        {
+           $controllerInsert->createWithThreeValues('gamme', $_POST['createGamme'], $_POST['gammeSelected1'] , $_POST['gammeSelected2']);
+        }
+        ?>
     </form>
 </section>
 <section>
     <form action="" method="POST">
-        <label for="createMarque">Insérer une nouvelle marque</label>
-        <input type="text" name="createMarque" placeholder="MSI">
-        <input type='submit' name="submitMarque">
+        <label for="NameBrand">Nom marque</label>
+        <input type="text" name="NameBrand" placeholder="MSI">
+
+        <label for="imageBrand">Image</label>
+        <p>ici normal c insert photo</p>
+        <input type="number" name="imageBrand" placeholder="MSI">
+        <input type='submit' name="submitBrand">
+        
+        <label for="descriptionMarque">Description marque</label>
+        <textarea name="descriptionMarque"></textarea>
+        <?php
+        if(isset($_POST['submitBrand']))
+        {
+           $controllerInsert->verifyAndInsertOne('type', 'nom' , $_POST['NameBrand']);
+           $controllerInsert->createBrand($_POST['NameBrand'], $_POST['imageBrand'], $_POST['descriptionMarque']);
+        }
+        ?>
     </form>
 </section>
 
@@ -67,12 +117,13 @@ $controllerInsert = new \Controller\Admin();
             <input type="number" name="prix" placeholder=""><br />
 
             <label for="type">type</label><br />
-            <select name="type">
-            <option>Stockage/Processeur?</option>
-            <?php
-                //php
-            ?>
-             </select>
+            <select name="typeCreateArticle">
+        <?php
+        $controllerInsert->displaySelect('type');
+       
+        ?>
+        </select>
+            
             <p>Categorie</p>
             <label for="generation">Generation</label><br />
             <select name="generation">
