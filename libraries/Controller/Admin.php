@@ -45,9 +45,46 @@ class Admin extends Controller{
         }
         else
         {
-            echo 'fuck';
+            echo 'wrrronggg uuhhg';
         }
+// 	titre1	description2	image3	note	prix4	id_type5	id_gamme6	id_marque7	id_generation8	promo	date9
     }
+    public function createArticle($titre,$presentation,$description,$image,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation)
+    {    
+        $controllerAdmin = new \Controller\Admin();
+        $titre = $controllerAdmin->secure($titre);
+        $presentation = $controllerAdmin->secure($presentation);
+        $description = $controllerAdmin->secure($description);
+        $image = $controllerAdmin->secure($image);
+        $prix = $controllerAdmin->secure($titre);
+        $id_utilisateur = $controllerAdmin->secure($titre);
+        $id_type = $controllerAdmin->secure($titre);
+        $id_gamme = $controllerAdmin->secure($titre);
+        $id_marque = $controllerAdmin->secure($titre);
+        $id_generation = $controllerAdmin->secure($titre);
+        if(!empty($titre) && !empty($presentation) && !empty($description) && !empty($image) && !empty($prix) && !empty($id_type)){
+$titre_len = strlen($titre);
+            $description_len = strlen($description);
+            $image_len = strlen($image);
+            echo 'passed';
+            if(($titre_len >= 0) && ($description >= 0) && ($image_len >= 0)){
+                if(($titre_len <= 50) && ($description <= 3000) && ($image_len <= 255)){
+                    $modelAdmin = new \Model\Admin();
+                    $modelAdmin->insertArticle($titre,$presentation,$description,$image,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation);
+                    echo 'controller passed';
+                }
+                else{
+                    $errorLog = "Titre 50 caractere maximum, description 3000, image 255";
+                }
+            }
+            else $errorLog = "Titre 3 caracteres minimum, description 25, image 5";
+        }
+        else $errorLog = "Veuillez entrer des caracteres dans les champs";
+    }
+
+        
+        
+    
 }
 
 

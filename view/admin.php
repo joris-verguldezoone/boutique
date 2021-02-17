@@ -2,9 +2,12 @@
 $bdd = "../libraries/config/bdd.php";
 require_once('../libraries/Controller/Admin.php');
 require_once('../libraries/model/Admin.php');
+require_once('../libraries/config/utils.php');
 
 
 $controllerInsert = new \Controller\Admin();
+$ModelTest  = new \Model\Admin();
+var_dump($_SESSION);
 ?>
 
 <main>
@@ -89,9 +92,11 @@ $controllerInsert = new \Controller\Admin();
         {
            $controllerInsert->verifyAndInsertOne('type', 'nom' , $_POST['NameBrand']);
            $controllerInsert->createBrand($_POST['NameBrand'], $_POST['imageBrand'], $_POST['descriptionMarque']);
+        // j'utilise pas insertThreeValue car c'est une fonction specifique aux colonnes qu'elle vise
         }
         ?>
     </form>
+    
 </section>
 
 
@@ -116,41 +121,46 @@ $controllerInsert = new \Controller\Admin();
             <label for="prix">Prix</label><br />
             <input type="number" name="prix" placeholder=""><br />
 
-            <label for="type">type</label><br />
-            <select name="typeCreateArticle">
-        <?php
-        $controllerInsert->displaySelect('type');
-       
-        ?>
-        </select>
-            
             <p>Categorie</p>
+            <label for="typeCreateArticle">type</label><br />
+            <select name="typeCreateArticle">
+                <?php
+                $controllerInsert->displaySelect('type');
+                // $titre,$description,$image,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation
+
+                ?>
+            </select>
             <label for="generation">Generation</label><br />
             <select name="generation">
-            <option>Quelle Architecture?</option>
-            <?php
-            ?>
-             </select>
+                <?php
+                $controllerInsert->displaySelect('generation');
+                ?>
+            </select>
 
              <br /><label for="gamme">Gamme</label><br />
             <select name="gamme">
-            <option>+i3 ou +i9?</option>
-
-            <?php
-                //php
-            ?>
+                <?php
+                    $controllerInsert->displaySelect('gamme');
+                ?>
              </select>
              <br /><label for="marque">Marque</label><br />
             <select name="marque">
-            <option>Pas Apple</option>
-
-            <?php
-                //php
-            ?>
+                <?php
+                    $controllerInsert->displaySelect('marque');
+       
+                ?>
              </select>
-
-
+             <input type='submit' name='submitNewCategorie'>
+             
         </form>
+        <?php
+        if(isset($_POST['submitNewCategorie'])){
+            $id_utilisateur = $_SESSION['utilisateur']['id'];
+             $controllerInsert->createArticle($_POST['title'],$_POST['presentation'],$_POST['description'],$_POST['image']
+             ,$_POST['prix'],$id_utilisateur, $_POST['typeCreateArticle'],$_POST['generation'],$_POST['gamme'],$_POST['marque']);
+        }
+        
+        ?>
     </section>
 
 

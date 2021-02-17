@@ -44,6 +44,7 @@ class Model{
         $fetch = $result->fetch(\PDO::FETCH_ASSOC);
         return $fetch;
     }
+    // public function selectOne($nomTable, $colonne, $value)
 // GENERIC INSERT
     public function insertOneValue($nomTable, $colonne, $value){
         $sql = "INSERT INTO $nomTable ($colonne) VALUES (?)";
@@ -61,9 +62,6 @@ class Model{
         $result->execute([$value1,$value2,$value3]);
     }
 
-    // protected update
-    // protected delete
-    //
 
 
 }
