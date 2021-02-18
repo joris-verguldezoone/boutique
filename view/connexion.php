@@ -23,6 +23,10 @@ $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
+
+//HEADER
+require('require/html_/header.php');
+
 ?>
 <main>
 <?php
