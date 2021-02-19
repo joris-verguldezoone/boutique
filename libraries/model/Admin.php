@@ -14,18 +14,20 @@ class Admin extends Model{
         $result->bindValue(':description',$description,\PDO::PARAM_STR);
         $result->execute();
     }
-    public function insertArticle($titre,$presentation,$description,$image,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation)
+    public function insertArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation)
     {
         
         $id_utilisateur = $_SESSION['utilisateur']['id'];
         $temps = time();
         $date = date('Y-m-d H:i:s', $temps);
-        $sql = "INSERT INTO articles (titre ,presentation ,description ,image ,prix ,id_utilisateur ,id_type ,id_gamme ,id_marque ,id_generation ,date ) VALUES (:titre ,:presentation ,:description ,:image,:prix ,:id_utilisateur ,:id_type ,:id_gamme,:id_marque ,:id_generation ,:date)";
+        $sql = "INSERT INTO articles (titre ,presentation ,description ,image, image_2, image_3,prix ,id_utilisateur ,id_type ,id_gamme ,id_marque ,id_generation ,date ) VALUES (:titre ,:presentation ,:description ,:image, :image_2 , :image_3, :prix ,:id_utilisateur ,:id_type ,:id_gamme,:id_marque ,:id_generation ,:date)";
         $result = $this->pdo->prepare($sql);
         $result->bindvalue(':titre',$titre,\PDO::PARAM_STR);
         $result->bindvalue(':presentation',$presentation,\PDO::PARAM_STR);
         $result->bindvalue(':description',$description,\PDO::PARAM_STR);
         $result->bindvalue(':image',$image,\PDO::PARAM_STR);
+        $result->bindvalue(':image_2',$image_2,\PDO::PARAM_STR);
+        $result->bindvalue(':image_3',$image_3,\PDO::PARAM_STR);
         $result->bindvalue(':prix',$prix,\PDO::PARAM_INT);
         $result->bindvalue(':id_utilisateur',$id_utilisateur,\PDO::PARAM_INT); //special
         $result->bindvalue(':id_type',$id_type,\PDO::PARAM_INT);
@@ -66,6 +68,10 @@ class Admin extends Model{
     //     return $fetch;
 
     // }
+        
+
+
+
 
 }
 

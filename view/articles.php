@@ -2,7 +2,8 @@
 //LIBRARIES
 $bdd = "../libraries/config/bdd.php";
 require_once('../libraries/Controller/Admin.php');
-require_once('../libraries/model/Admin.php');
+require_once('../libraries/model/Display.php');
+require_once('../libraries/Controller/Display.php');
 require_once('../libraries/config/utils.php');
 
 //CSS
@@ -24,3 +25,25 @@ $deconnexion = "../index.php?off=1";
 //HEADER
 require('../require/html_/header.php');
 ?>
+
+<?php
+
+$controllerDisplay = new \Controller\Display(); // impression composante 
+
+    $controllerDisplay->displayComposant();
+
+    //var_dump($controllerDisplay);
+
+
+
+    
+    
+    
+    ?>
+<main>
+    <?php
+    
+    // $controllerDisplay->displayArticles(); // impression
+    ?>
+
+</main>

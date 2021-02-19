@@ -2,7 +2,9 @@
 //LIBRARIES
 $bdd = "../libraries/config/bdd.php";
 require_once('../libraries/Controller/Admin.php');
+require_once('../libraries/Controller/Display.php');
 require_once('../libraries/model/Admin.php');
+require_once('../libraries/model/Display.php');
 require_once('../libraries/config/utils.php');
 
 //CSS
@@ -24,9 +26,12 @@ $deconnexion = "../index.php?off=1";
 //HEADER
 require('../require/html_/header.php');
 
+$controllerAdmin = new \Controller\Admin();
+$modelAdmin  = new \Model\Admin();
 
-$controllerInsert = new \Controller\Admin();
-$ModelTest  = new \Model\Admin();
+$controllerDisplay  = new \Controller\Display();
+$modelDisplay  = new \Model\Display();
+
 var_dump($_SESSION);
 ?>
 
@@ -39,7 +44,7 @@ var_dump($_SESSION);
         <input type='submit' name="submitType">
         <?php
         if(isset($_POST['submitType'])){
-           $controllerInsert->verifyAndInsertOne('type', 'nom' , $_POST['createType']);
+           $controllerAdmin->verifyAndInsertOne('type', 'nom' , $_POST['createType']);
         }
         ?>
     </form>
@@ -53,19 +58,19 @@ var_dump($_SESSION);
         
         <select name="GenerationSelected1">
         <?php
-            $controllerInsert->displaySelect('type');
+            $controllerDisplay->displaySelect('type');
         ?>
         </select>
         <select name="GenerationSelected2">
         <?php
-            $controllerInsert->displaySelect('marque');
+            $controllerDisplay->displaySelect('marque');
         ?>
         </select>
         <input type='submit' name="submitGeneration">
         <?php
         if(isset($_POST['submitGeneration']))
         {
-           $controllerInsert->createWithThreeValues('generation' ,$_POST['NameGeneration'], $_POST['GenerationSelected1'] , $_POST['GenerationSelected2']);
+           $controllerDisplay->createWithThreeValues('generation' ,$_POST['NameGeneration'], $_POST['GenerationSelected1'] , $_POST['GenerationSelected2']);
         }
             ?>
 
@@ -78,19 +83,19 @@ var_dump($_SESSION);
         <input type='submit' name="submitGamme">
         <select name="gammeSelected1">
         <?php
-        $controllerInsert->displaySelect('type');
+        $controllerDisplay->displaySelect('type');
        
         ?>
         </select>
         <select name="gammeSelected2">
         <?php
-        $controllerInsert->displaySelect('marque');
+        $controllerDisplay->displaySelect('marque');
         ?>
         </select>
         <?php
         if(isset($_POST['submitGamme']))
         {
-           $controllerInsert->createWithThreeValues('gamme', $_POST['createGamme'], $_POST['gammeSelected1'] , $_POST['gammeSelected2']);
+           $controllerAdmin->createWithThreeValues('gamme', $_POST['createGamme'], $_POST['gammeSelected1'] , $_POST['gammeSelected2']);
         }
         ?>
     </form>
@@ -110,8 +115,8 @@ var_dump($_SESSION);
         <?php
         if(isset($_POST['submitBrand']))
         {
-           $controllerInsert->verifyAndInsertOne('type', 'nom' , $_POST['NameBrand']);
-           $controllerInsert->createBrand($_POST['NameBrand'], $_POST['imageBrand'], $_POST['descriptionMarque']);
+           $controllerAdmin->verifyAndInsertOne('type', 'nom' , $_POST['NameBrand']);
+           $controllerAdmin->createBrand($_POST['NameBrand'], $_POST['imageBrand'], $_POST['descriptionMarque']);
         // j'utilise pas insertThreeValue car c'est une fonction specifique aux colonnes qu'elle vise
         }
         ?>
@@ -135,8 +140,14 @@ var_dump($_SESSION);
             <label for="description">Description</label><br />
             <input type="text" name="description" placeholder="Caractéristiques techniques" required><br />
 
-            <label for="image">Image</label><br />
+            <label for="image">Image principale</label><br />
             <input type="" name="image" placeholder=""><br />
+
+            <label for="image_2">Image secondaire</label><br />
+            <input type="" name="image_2" placeholder=""><br />
+
+            <label for="image_3">Image tierce</label><br />
+            <input type="" name="image_3" placeholder=""><br />
 
             <label for="prix">Prix</label><br />
             <input type="number" name="prix" placeholder=""><br />
@@ -145,7 +156,7 @@ var_dump($_SESSION);
             <label for="typeCreateArticle">type</label><br />
             <select name="typeCreateArticle">
                 <?php
-                $controllerInsert->displaySelect('type');
+                $controllerDisplay->displaySelect('type');
                 // $titre,$description,$image,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation
 
                 ?>
@@ -153,20 +164,20 @@ var_dump($_SESSION);
             <label for="generation">Generation</label><br />
             <select name="generation">
                 <?php
-                $controllerInsert->displaySelect('generation');
+                $controllerDisplay->displaySelect('generation');
                 ?>
             </select>
 
              <br /><label for="gamme">Gamme</label><br />
             <select name="gamme">
                 <?php
-                    $controllerInsert->displaySelect('gamme');
+                    $controllerDisplay->displaySelect('gamme');
                 ?>
              </select>
              <br /><label for="marque">Marque</label><br />
             <select name="marque">
                 <?php
-                    $controllerInsert->displaySelect('marque');
+                    $controllerDisplay->displaySelect('marque');
        
                 ?>
              </select>
@@ -176,10 +187,26 @@ var_dump($_SESSION);
         <?php
         if(isset($_POST['submitNewCategorie'])){
             $id_utilisateur = $_SESSION['utilisateur']['id'];
-             $controllerInsert->createArticle($_POST['title'],$_POST['presentation'],$_POST['description'],$_POST['image']
+             $controllerAdmin->createArticle($_POST['title'],$_POST['presentation'],$_POST['description'],$_POST['image'],$_POST['image_2'],$_POST['image_3']
              ,$_POST['prix'],$id_utilisateur, $_POST['typeCreateArticle'],$_POST['generation'],$_POST['gamme'],$_POST['marque']);
         }
-        
+
+        echo "<table><tr>
+                <th>id</th>
+                <th>nom</th>
+                <th>prenom</th>
+                <th>login</th>
+                <th>emain</th>
+                <th>password</th>
+                <th>image</th>
+                <th>id_droits</th>
+                <th>anniversaire</th>
+                <th>id_adresse</th>
+            </tr>";
+
+        $controllerDisplay->displayUsers();
+
+        echo "</table>";
         ?>
     </section>
 

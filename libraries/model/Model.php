@@ -3,7 +3,7 @@ namespace Model;
 
 require_once($bdd);
 
-class Model{
+abstract class Model{
     //à revoir les attributs
     protected $pdo = 'NULL';
 
@@ -51,8 +51,8 @@ class Model{
         $result = $this->pdo->prepare($sql);
         $result->execute([$value]);
     }
-    public function insertTwoValue($nomTable, $colonne, $value1, $value2){
-        $sql = "INSERT INTO $nomTable ($colonne) VALUES (?, ?)";
+    public function insertTwoValue($nomTable, $colonne,$colonne2, $value1, $value2){
+        $sql = "INSERT INTO $nomTable ($colonne,$colonne2) VALUES (?, ?)";
         $result = $this->pdo->prepare($sql);
         $result->execute([$value1, $value2]);
     }

@@ -1,6 +1,7 @@
 <?php
 //LIBRARIES
-
+require_once('../libraries/Controller/Display.php');
+require_once('../libraries/Model/Display.php');
 
 //CSS
 $headerCss = "../css/header.css";
@@ -21,3 +22,14 @@ $deconnexion = "../index.php?off=1";
 //HEADER
 require('../require/html_/header.php');
 ?>
+<main>
+	<?php
+$controllerDisplay = new \Controller\Display();
+
+$controllerDisplay->displayComposant();
+
+var_dump($controllerDisplay);
+echo "cc";
+?>
+
+</main>
