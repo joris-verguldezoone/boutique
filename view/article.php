@@ -1,7 +1,7 @@
 <?php
 //LIBRARIES
-require_once('../libraries/Controller/Article.php');
-require_once('../libraries/Model/Article.php');
+require_once('../libraries/Controller/Display.php');
+require_once('../libraries/Model/Display.php');
 
 //CSS
 $headerCss = "../css/header.css";
@@ -24,7 +24,7 @@ require('../require/html_/header.php');
 ?>
 <main>
 	<?php
-$controllerDisplay = new \Controller\Article();
+$controllerDisplay = new \Controller\Display();
 
 $controllerDisplay->displayComposant();
 

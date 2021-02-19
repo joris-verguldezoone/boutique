@@ -10,7 +10,7 @@
         <label id="categorie">Type</label>
     <select name="categories" id="select_creation">
     
-    <?php $modelArticle = new \Models\Article();
+    <?php $modelArticle = new \Models\;
            $tableau = $modelArticle->findAllCategories();
            foreach ($tableau as $key => $value) {
                $nom = $value[0]; // 0 = nom 1 = id
@@ -25,7 +25,7 @@
 
         <?php
          if(isset($_POST['articleSubmit'])){
-            $createArticle = new \Controller\Article();
+            $createArticle = new \Controller\Display();
             $createArticle->createArticle($_POST['titre'],$_POST['article'], $_POST['categories']);
         }
         ?>

@@ -2,8 +2,8 @@
 //LIBRARIES
 $bdd = "../libraries/config/bdd.php";
 require_once('../libraries/Controller/Admin.php');
-require_once('../libraries/model/Article.php');
-require_once('../libraries/Controller/Article.php');
+require_once('../libraries/model/Display.php');
+require_once('../libraries/Controller/Display.php');
 require_once('../libraries/config/utils.php');
 
 //CSS
@@ -28,7 +28,7 @@ require('../require/html_/header.php');
 
 <?php
 
-$controllerDisplay = new \Controller\Article(); // impression composante 
+$controllerDisplay = new \Controller\Display(); // impression composante 
 
     // $controllerDisplay->displayComposant();
 

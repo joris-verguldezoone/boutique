@@ -5,7 +5,7 @@ namespace Controller;
 class Display{
 
     public function displayComposant(){
-        $modelDisplay = new \Model\Article();
+        $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllType();
 var_dump($tab);
 
@@ -17,7 +17,7 @@ var_dump($tab);
         }
     }
     public function displayArticles(){
-        $modelDisplay = new \Model\Article();
+        $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllArticles();
         $i = 0; 
         foreach($tab as $value){
