@@ -191,21 +191,29 @@ var_dump($_SESSION);
              ,$_POST['prix'],$id_utilisateur, $_POST['typeCreateArticle'],$_POST['generation'],$_POST['gamme'],$_POST['marque']);
         }
 
-        echo "<table><tr>
-                <th>id</th>
-                <th>nom</th>
-                <th>prenom</th>
-                <th>login</th>
-                <th>emain</th>
-                <th>password</th>
-                <th>image</th>
-                <th>id_droits</th>
-                <th>anniversaire</th>
-                <th>id_adresse</th>
-            </tr>";
-
+        echo "<table>
+                <tr>
+                    <th>id</th>
+                    <th>nom</th>
+                    <th>prenom</th>
+                    <th>login</th>
+                    <th>emain</th>
+                    <th>password</th>
+                    <th>image</th>
+                    <th>id_droits</th>
+                    <th>anniversaire</th>
+                    <th>id_adresse</th>
+                </tr>";
         $controllerDisplay->displayUsers();
+        echo "</table>";
+        echo"<table>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Image</th>
+                </tr>";
 
+        $controllerDisplay->displayType();
         echo "</table>";
         ?>
     </section>
