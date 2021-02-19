@@ -68,12 +68,12 @@ class Admin extends Controller{
         $image_2 = $controllerAdmin->secure($image_2);
         $image_3 = $controllerAdmin->secure($image_3);
 
-        $prix = $controllerAdmin->secure($titre);
-        $id_utilisateur = $controllerAdmin->secure($titre);
-        $id_type = $controllerAdmin->secure($titre);
-        $id_gamme = $controllerAdmin->secure($titre);
-        $id_marque = $controllerAdmin->secure($titre);
-        $id_generation = $controllerAdmin->secure($titre);
+        $prix = $controllerAdmin->secure($prix);
+        $id_utilisateur = $controllerAdmin->secure($id_utilisateur);
+        $id_type = $controllerAdmin->secure($id_type);
+        $id_gamme = $controllerAdmin->secure($id_gamme);
+        $id_marque = $controllerAdmin->secure($id_marque);
+        $id_generation = $controllerAdmin->secure($id_generation);
         if(!empty($titre) && !empty($presentation) && !empty($description) && !empty($image) && !empty($prix) && !empty($id_type)){
 $titre_len = strlen($titre);
             $description_len = strlen($description);
