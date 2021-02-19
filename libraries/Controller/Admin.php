@@ -23,16 +23,6 @@ class Admin extends Controller{
             echo "Cette donnée existe déjà";
         }
     }
-    public function displaySelect($nomTable){
-        $modelAdmin = new \Model\Admin();
-       $tab = $modelAdmin->selectAllNom($nomTable);
-        var_dump($tab);
-        $i = 0;
-        foreach($tab as $key => $value)
-       {
-        echo "<option value='".$value[0]."'>".$value[1]."</option>";
-       }
-    }
     public function createBrand($nom, $id_image, $description){
         $modelAdmin = new \Model\Admin();
         $count = $modelAdmin->alreadyTakenCheck("marque" , "nom", $nom);
@@ -74,6 +64,7 @@ class Admin extends Controller{
         $id_gamme = $controllerAdmin->secure($id_gamme);
         $id_marque = $controllerAdmin->secure($id_marque);
         $id_generation = $controllerAdmin->secure($id_generation);
+        
         if(!empty($titre) && !empty($presentation) && !empty($description) && !empty($image) && !empty($prix) && !empty($id_type)){
 $titre_len = strlen($titre);
             $description_len = strlen($description);
@@ -94,12 +85,9 @@ $titre_len = strlen($titre);
             else $errorLog = "Titre 3 caracteres minimum, description 25, image 5";
         }
         else $errorLog = "Veuillez entrer des caracteres dans les champs";
-    }
-
-        
-        
-    
+    }    
 }
+
 
 
 

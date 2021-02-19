@@ -3,7 +3,7 @@ namespace Model;
 
 require_once($bdd);
 
-class Model{
+abstract class Model{
     //à revoir les attributs
     protected $pdo = 'NULL';
 

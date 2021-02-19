@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-class Article{
+class Display{
 
     public function displayComposant(){
         $modelDisplay = new \Model\Article();
@@ -38,8 +38,38 @@ var_dump($tab);
 
         }
     }
+    public function displayUsers(){
+        $modelDisplay = new \Model\Display();
+        $tab = $modelDisplay->findAllUsers();
+        $i = 0; 
+        foreach($tab as $value){
+            echo "<tr>"; 
+            echo "<td>".$value[0]."</td>"; // peut etre en hidden input
+            echo "<td>".$value[1]."</td>";
+            echo "<td>".$value[2]."</td>";
+            echo "<td>".$value[3]."</td>";
+            echo "<td>".$value[4]."</td>";
+            echo "<td>".$value[5]."</td>";
+            echo "<td><img src='$value[6]'></td>";
+            echo "<td>".$value[7]."</td>";
+            echo "<td>".$value[8]."</td>";
+            echo "<td>".$value[9]."</td>";
+            echo "</tr>";
+        
+    
+        }
+    }
+    public function displaySelect($nomTable){
+        $modelAdmin = new \Model\Admin();
+       $tab = $modelAdmin->selectAllNom($nomTable);
+        var_dump($tab);
+        $i = 0;
+        foreach($tab as $key => $value)
+       {
+        echo "<option value='".$value[0]."'>".$value[1]."</option>";
+       }
 
-
+    }
 }
 
 ?>
