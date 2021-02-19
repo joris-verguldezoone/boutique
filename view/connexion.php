@@ -7,6 +7,26 @@ require('../libraries/Model/Connexion.php');
 require('../libraries/config/utils.php');
 require('../libraries/Controller/Connexion.php');
 
+//CSS
+$headerCss = "../css/header.css";
+$pageCss = "../css/connexion.css";
+$Pagenom = "Connexion";
+$footer = "../css/footer.css";
+
+//PATHS
+$index = "../index.php";
+$inscription = "inscription.php";
+$connexion = "connexion.php";
+$profil = "profil.php";
+$articles = "articles.php";
+$commande = "commande.php";
+$panier = "panier.php";
+$admin = "admin.php";
+$deconnexion = "../index.php?off=1";
+
+//HEADER
+require('../require/html_/header.php');
+
 ?>
 <main>
 <?php

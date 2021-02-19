@@ -1,12 +1,10 @@
 <?php
 //LIBRARIES
-require_once('../libraries/Controller/Article.php');
-require_once('../libraries/Model/Article.php');
 
 //CSS
 $headerCss = "../css/header.css";
-$pageCss = "../css/article.css";
-$Pagenom = "Article";
+$pageCss = "../css/commande.css";
+$Pagenom = "Commande";
 $footer = "../css/footer.css";
 
 //PATHS
@@ -22,14 +20,3 @@ $deconnexion = "../index.php?off=1";
 //HEADER
 require('../require/html_/header.php');
 ?>
-<main>
-	<?php
-$controllerDisplay = new \Controller\Article();
-
-$controllerDisplay->displayComposant();
-
-var_dump($controllerDisplay);
-echo "cc";
-?>
-
-</main>

@@ -65,6 +65,9 @@ class Admin extends Controller{
         $presentation = $controllerAdmin->secure($presentation);
         $description = $controllerAdmin->secure($description);
         $image = $controllerAdmin->secure($image);
+        $image_2 = $controllerAdmin->secure($image_2);
+        $image_3 = $controllerAdmin->secure($image_3);
+
         $prix = $controllerAdmin->secure($titre);
         $id_utilisateur = $controllerAdmin->secure($titre);
         $id_type = $controllerAdmin->secure($titre);
@@ -75,9 +78,11 @@ class Admin extends Controller{
 $titre_len = strlen($titre);
             $description_len = strlen($description);
             $image_len = strlen($image);
+            $image_2_len = strlen($image_2);
+            $image_3_len = strlen($image_3);
             echo 'passed';
             if(($titre_len >= 0) && ($description >= 0) && ($image_len >= 0)){
-                if(($titre_len <= 50) && ($description <= 3000) && ($image_len <= 255)){
+                if(($titre_len <= 50) && ($description <= 3000) && ($image_len <= 255) && ($image_2_len <= 255) && ($image_3_len <= 255)){
                     $modelAdmin = new \Model\Admin();
                     $modelAdmin->insertArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation);
                     echo 'controller passed';
