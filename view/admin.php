@@ -16,10 +16,14 @@ var_dump($_SESSION);
     <form action="" method="POST">
         <label for="createType">Créer un nouveau type d'article</label>
         <input type="text" name="createType" placeholder="TELEVISION">
+
+        <label for="typeImage">Image</label>
+        <input type="text" name="typeImage" placeholder='un url d image'>
+     
         <input type='submit' name="submitType">
         <?php
         if(isset($_POST['submitType'])){
-           $controllerInsert->verifyAndInsertOne('type', 'nom' , $_POST['createType']);
+           $controllerInsert->verifyAndInsertTwo('type', 'nom' , 'image', $_POST['createType'], $_POST['typeImage']);
         }
         ?>
     </form>
@@ -77,8 +81,8 @@ var_dump($_SESSION);
 </section>
 <section>
     <form action="" method="POST">
-        <label for="NameBrand">Nom marque</label>
-        <input type="text" name="NameBrand" placeholder="MSI">
+        <label for="nameBrand">Nom marque</label>
+        <input type="text" name="nameBrand" placeholder="MSI">
 
         <label for="imageBrand">Image</label>
         <p>ici normal c insert photo</p>
@@ -90,7 +94,7 @@ var_dump($_SESSION);
         <?php
         if(isset($_POST['submitBrand']))
         {
-           $controllerInsert->verifyAndInsertOne('type', 'nom' , $_POST['NameBrand']);
+           $controllerInsert->verifyAndInsertOne('type', 'nom' , $_POST['nameBrand']);
            $controllerInsert->createBrand($_POST['NameBrand'], $_POST['imageBrand'], $_POST['descriptionMarque']);
         // j'utilise pas insertThreeValue car c'est une fonction specifique aux colonnes qu'elle vise
         }
@@ -115,8 +119,14 @@ var_dump($_SESSION);
             <label for="description">Description</label><br />
             <input type="text" name="description" placeholder="Caractéristiques techniques" required><br />
 
-            <label for="image">Image</label><br />
-            <input type="" name="image" placeholder=""><br />
+            <label for="image">Image principale</label><br />
+            <input type="" name="image" placeholder="photo principale"><br />
+
+            <label for="image_2">Image secondaire </label><br />
+            <input type="" name="image_2" placeholder=""><br />
+
+            <label for="image_3">Image tierce</label><br />
+            <input type="" name="image_3" placeholder=""><br />
 
             <label for="prix">Prix</label><br />
             <input type="number" name="prix" placeholder=""><br />
@@ -156,7 +166,7 @@ var_dump($_SESSION);
         <?php
         if(isset($_POST['submitNewCategorie'])){
             $id_utilisateur = $_SESSION['utilisateur']['id'];
-             $controllerInsert->createArticle($_POST['title'],$_POST['presentation'],$_POST['description'],$_POST['image']
+             $controllerInsert->createArticle($_POST['title'],$_POST['presentation'],$_POST['description'],$_POST['image'], $_POST['image_2'] , $_POST['image_3']
              ,$_POST['prix'],$id_utilisateur, $_POST['typeCreateArticle'],$_POST['generation'],$_POST['gamme'],$_POST['marque']);
         }
         

@@ -1,6 +1,6 @@
 <?php 
 
-namespace Model {
+namespace Model; 
 
     require_once("Model.php");
 
@@ -32,7 +32,5 @@ namespace Model {
         return $fetch;
     }
 
-
     }
 
-}

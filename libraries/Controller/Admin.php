@@ -14,6 +14,15 @@ class Admin extends Controller{
             echo "Cette donnée existe déjà";
         }
     }
+    public function verifyAndInsertTwo($nomTable, $colonne,$colonne2, $value, $value2){
+        $modelAdmin = new \Model\Admin();
+        $count = $modelAdmin->alreadyTakenCheck($nomTable , $colonne, $value);
+        if(!$count){
+            $modelAdmin->insertTwoValue($nomTable, $colonne,$colonne2, $value,$value2);
+        }else{
+            echo "Cette donnée existe déjà";
+        }
+    }
     public function displaySelect($nomTable){
         $modelAdmin = new \Model\Admin();
        $tab = $modelAdmin->selectAllNom($nomTable);
@@ -49,7 +58,7 @@ class Admin extends Controller{
         }
 // 	titre1	description2	image3	note	prix4	id_type5	id_gamme6	id_marque7	id_generation8	promo	date9
     }
-    public function createArticle($titre,$presentation,$description,$image,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation)
+    public function createArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation)
     {    
         $controllerAdmin = new \Controller\Admin();
         $titre = $controllerAdmin->secure($titre);
@@ -70,7 +79,7 @@ $titre_len = strlen($titre);
             if(($titre_len >= 0) && ($description >= 0) && ($image_len >= 0)){
                 if(($titre_len <= 50) && ($description <= 3000) && ($image_len <= 255)){
                     $modelAdmin = new \Model\Admin();
-                    $modelAdmin->insertArticle($titre,$presentation,$description,$image,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation);
+                    $modelAdmin->insertArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation);
                     echo 'controller passed';
                 }
                 else{

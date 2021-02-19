@@ -17,8 +17,6 @@ class Connexion extends Controller
             $modelConnexion = new \Model\Connexion();
             $ControllerConnexion = new \Controller\Connexion();
             
-          
-
             $login = $ControllerConnexion->secure($login);
             $password = $ControllerConnexion->secure($password);
 
