@@ -44,6 +44,13 @@ Class Controller{ // spoiler il controlle tout
         $var = htmlspecialchars(trim($var));
         return $var;
     }
+    public function characterLimit($value, $numberLimit){ // on estime 150 pour une description 15 pour un mot avec lequel on ne souhaite pas interagir
+
+        $rest = substr($value, 0, $numberLimit);   // limit le nbr de caractere dans une chaine
+        $rest = substr_replace($rest, '...', -3);
+       return $rest;
+   }
+
 
 }
 

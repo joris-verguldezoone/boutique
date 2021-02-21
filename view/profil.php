@@ -6,6 +6,27 @@ $Http = "../libraries/config/Http.php";
 require('../libraries/Model/Profil.php');
 require('../libraries/config/utils.php');
 require('../libraries/Controller/Profil.php');
+
+//CSS
+$headerCss = "../css/header.css";
+$pageCss = "../css/profil.css";
+$Pagenom = "Profil";
+$footer = "../css/footer.css";
+
+//PATHS
+$index = "../index.php";
+$inscription = "inscription.php";
+$connexion = "connexion.php";
+$profil = "profil.php";
+$articles = "articles.php";
+$commande = "commande.php";
+$panier = "panier.php";
+$admin = "admin.php";
+$deconnexion = "../index.php?off=1";
+
+//HEADER
+require('../require/html_/header.php');
+
 ?>
 
 <main>

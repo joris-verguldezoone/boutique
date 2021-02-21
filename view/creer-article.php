@@ -10,7 +10,7 @@
         <label id="categorie">Type</label>
     <select name="categories" id="select_creation">
     
-    <?php $modelArticle = new \Models\Article();
+    <?php $modelArticle = new \Models\Display();
            $tableau = $modelArticle->findAllCategories();
            foreach ($tableau as $key => $value) {
                $nom = $value[0]; // 0 = nom 1 = id

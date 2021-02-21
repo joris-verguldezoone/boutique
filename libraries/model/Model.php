@@ -3,7 +3,7 @@ namespace Model;
 
 require_once($bdd);
 
-class Model{
+abstract class Model{
     //à revoir les attributs
     protected $pdo = 'NULL';
 
@@ -44,14 +44,15 @@ class Model{
         $fetch = $result->fetch(\PDO::FETCH_ASSOC);
         return $fetch;
     }
+    // public function selectOne($nomTable, $colonne, $value)
 // GENERIC INSERT
     public function insertOneValue($nomTable, $colonne, $value){
         $sql = "INSERT INTO $nomTable ($colonne) VALUES (?)";
         $result = $this->pdo->prepare($sql);
         $result->execute([$value]);
     }
-    public function insertTwoValue($nomTable, $colonne, $value1, $value2){
-        $sql = "INSERT INTO $nomTable ($colonne) VALUES (?, ?)";
+    public function insertTwoValue($nomTable, $colonne,$colonne2, $value1, $value2){
+        $sql = "INSERT INTO $nomTable ($colonne,$colonne2) VALUES (?, ?)";
         $result = $this->pdo->prepare($sql);
         $result->execute([$value1, $value2]);
     }
@@ -60,10 +61,12 @@ class Model{
         $result = $this->pdo->prepare($sql);
         $result->execute([$value1,$value2,$value3]);
     }
-
-    // protected update
-    // protected delete
-    //
+    public function deleteOneWhereId($nomTable, $id){
+        $sql = "DELETE FROM $nomTable WHERE id = :id";
+        $result = $this->pdo->prepare($sql);
+        $result->bindvalue(':id', $id, \PDO::PARAM_INT);
+        $result->execute();
+    }
 
 
 }
