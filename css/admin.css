@@ -1,0 +1,23 @@
+.display_img_size_backOffice{
+    height:70px;
+    width:70px;
+    border-radius: 3em;
+}
+.adminInterface{
+    height:5%;
+    width:10%;
+    border-radius: 1em;
+    border: 2px solid black;
+    background-color: teal;
+    color:whitesmoke;
+    box-shadow: 1px 1px 1px black;
+}
+.cleanButton{
+    height:3%;
+    width:5%;
+    border-radius: 1em;
+    border: 2px solid black;
+    background-color: green;
+    color:whitesmoke;
+    box-shadow: 1px 1px 1px black;
+}
