@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-class Display{
+class Display extends Controller{
 
     public function displayComposant(){ // ->articles 
         $modelDisplay = new \Model\Display();
@@ -18,13 +18,58 @@ class Display{
     public function displayType(){ // ->admin
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllType();
-
+        echo"<table>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Image</th>
+                </tr>";
         foreach($tab as $value){ 
-            
-            echo "<tr><td>".$value[0]."</td>"; // peut etre en hidden input
-            echo "<td>".$value[1]."</td>";
-            echo "<td>".$value[2]."</td></tr>";  
-        }
+            echo "<form action='' method='GET'>";
+            $_GET['typeImg'] = $value[2];
+                echo "<tr><td><input type='number' name='typeId' value='".$value[0]."'></td>"; // peut etre en hidden input
+                echo "<td><input type='text' name='typeNom' value='".$value[1]."'></td>";
+                echo "<td><img class='display_img_size_backOffice' src='".$value[2]."'></td>";
+                echo "<td><input name='typeImg' type='text' value='".$value[2]."' placeholder='Nouvelle img?'></td>
+                    <td>
+                        <input type='submit' id='Modifier' value='modifier'>
+                        <input type='hidden' name='TypeName' id='hiddenId' value='".$value[0]."'> 
+                            
+                        <input type='submit' name='deleteType' value='supprimer'>
+                        <input type='hidden' name='TypeIdTracker' id='suppr' value='".$value[0]."'>
+                    </td></tr></form>";  
+                    echo "</table>";
+                    // echo $_POST['typeImg'].$_POST['typeNom'].$_POST['typeId'];
+                if(isset($_GET['TypeName'])){
+         
+                       $modelAdmin = new \Model\Admin();
+                       
+                       $modelAdmin->typeUpdate($_GET['typeId'],$_GET['typeNom'],$_GET['typeImg']);
+                      
+                    //    $modelHttp = new \Http();
+                    //    $modelHttp->redirect('admin.php');
+                }
+            }
+        // if(isset($_GET['TypeIdTracker'])){
+        //     $nom = $_GET['selectCategory'];
+        //     $nom = str_replace('_', ' ', $nom);
+        //     echo "Êtes-vous sûr de vouloir supprimer la catégorie ".$nom."?";
+        //     echo "  <form action='' method=POST>
+        //             <input type='submit' name='yes' value='Oui'>
+        //             <input type='submit' name='cancel' value='Annuler'>
+        //             </form>";
+        //             if(isset($_POST['yes'])){
+        //                 $modelDelete = new \Models\Admin();
+        //                 $modelDelete->deleteCategory($nom);
+                        
+        //                 $modelHttp = new \Http();
+        //                 $modelHttp->redirect('admin.php');
+        //             }
+        //             elseif(isset($_POST['cancel'])){
+        //                 $modelHttp = new \Http();
+        //                 $modelHttp->redirect('admin.php');
+        //             }
+        // }
     }
     public function displayArticles(){
         $modelDisplay = new \Model\Display();
@@ -51,20 +96,24 @@ class Display{
     public function displayUsers(){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllUsers();
+        // $controllerDisplay = new \Controller\Display();
         $i = 0; 
         foreach($tab as $value){
+            $mdp = $this->characterLimit($value[5],8);
+            echo "<form action='' method=''POST>";
             echo "<tr>"; 
-            echo "<td>".$value[0]."</td>"; // peut etre en hidden input
-            echo "<td>".$value[1]."</td>";
-            echo "<td>".$value[2]."</td>";
-            echo "<td>".$value[3]."</td>";
-            echo "<td>".$value[4]."</td>";
-            echo "<td>".$value[5]."</td>";
-            echo "<td><img src='$value[6]'></td>";
-            echo "<td>".$value[7]."</td>";
-            echo "<td>".$value[8]."</td>";
-            echo "<td>".$value[9]."</td>";
+            echo "<td><input type='number' value='".$value[0]."'></td>"; // peut etre en hidden input
+            echo "<td><input type='text' value='".$value[1]."'></td>";
+            echo "<td><input type='text' value='".$value[2]."'></td>";
+            echo "<td><input type='text' value='".$value[3]."'</td>";
+            echo "<td><input type='text' value='".$value[4]."'</td>";
+            echo "<td>".$mdp."</td>"; // mdp 
+            echo "<td><img class='display_img_size_backOffice' src='$value[6]'></td>";
+            echo "<td><input type='number' value='".$value[7]."'</td>";
+            echo "<td><input type='text' value='".$value[8]."'</td>";
+            echo "<td><input type='number' value='".$value[9]."'</td>";
             echo "</tr>";
+            echo "</form>";
         
     
         }

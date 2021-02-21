@@ -35,39 +35,20 @@ class Admin extends Model{
         $result->bindvalue(':id_marque',$id_marque,\PDO::PARAM_INT);
         $result->bindvalue(':id_generation',$id_generation,\PDO::PARAM_INT);
         $result->bindvalue(':date',$date,\PDO::PARAM_STR); //special
-        var_dump($sql);
-        var_dump($result);
+    
         $result->execute();
-        // while($fetch = $result->fetch(\PDO::FETCH_ASSOC)){
-
-        //     $tableau[$i][] = $fetch['titre'];
-        //     $tableau[$i][] = $fetch['presentation'];
-        //     $tableau[$i][] = $fetch['description'];
-        //     $tableau[$i][] = $fetch['image'];
-        //     $tableau[$i][] = $fetch['prix'];
-        //     $tableau[$i][] = $fetch['id_utilisateur'];
-        //     $tableau[$i][] = $fetch['id_type'];
-        //     $tableau[$i][] = $fetch['id_gamme'];
-        //     $tableau[$i][] = $fetch['id_marque'];
-        //     $tableau[$i][] = $fetch['id_generation'];
-        //     $tableau[$i][] = $fetch['date'];
-
-        //     $i++;
-            
-        // }
-        // return $tableau;
+    }
+    public function typeUpdate($id,$nom,$img){
+        $sql = "UPDATE type SET nom =:nom, image =:img WHERE id =:id";
+        $result = $this->pdo->prepare($sql);
+        $result->bindvalue(':id',$id,\PDO::PARAM_INT);
+        $result->bindvalue(':nom',$nom,\PDO::PARAM_STR);
+        $result->bindvalue(':img',$img,\PDO::PARAM_STR);
+        
+        $result->execute();
+        
     }
 
-    // public function kk($nom){
-    //     $sql = "SELECT image FROM marque WHERE nom = '$nom'";
-    //     $result = $this->pdo->prepare($sql);
-    //     $result->bindValue(':nom',$nom ,\PDO::PARAM_STR);
-    //     $result->execute();
-
-    //     $fetch = $result->fetch(\PDO::FETCH_ASSOC);
-    //     return $fetch;
-
-    // }
         
 
 

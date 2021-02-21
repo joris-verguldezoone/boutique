@@ -206,15 +206,10 @@ var_dump($_SESSION);
                 </tr>";
         $controllerDisplay->displayUsers();
         echo "</table>";
-        echo"<table>
-                <tr>
-                    <th>Id</th>
-                    <th>Nom</th>
-                    <th>Image</th>
-                </tr>";
+        var_dump($_POST);
+        
 
         $controllerDisplay->displayType();
-        echo "</table>";
         ?>
     </section>
 
