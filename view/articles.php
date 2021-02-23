@@ -30,7 +30,7 @@ require('../require/html_/header.php');
 
 $controllerDisplay = new \Controller\Display(); // impression composante 
 
-    // $controllerDisplay->displayComposant();
+$controllerDisplay->displayComposant();
 
     // var_dump($controllerDisplay);
     // echo "cc";

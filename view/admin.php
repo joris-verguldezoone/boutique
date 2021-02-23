@@ -256,9 +256,50 @@ var_dump($_SESSION);
             }
         ?>
     </section>
-
-
-
+    <!-- Gamme -->
+    <section>
+            <form method='POST' action=''>
+                <button type='submit' class='adminInterface' name='Gamme'>Voir les gammes de produits</button>
+            </form>
+            <?php
+            if(isset($_POST['Gamme'])){
+        $controllerDisplay->displayGamme();
+            }
+        ?>
+    </section>
+  <!-- Marque -->
+  <section>
+            <form method='POST' action=''>
+                <button type='submit' class='adminInterface' name='Marque'>Voir les Marques</button>
+            </form>
+            <?php
+            if(isset($_POST['Marque'])){
+        $controllerDisplay->displayMarque();
+            }
+        ?>
+    </section>
+     <!-- Generation -->
+  <section>
+            <form method='POST' action=''>
+                <button type='submit' class='adminInterface' name='Generation'>Voir les Generation</button>
+            </form>
+            <?php
+            if(isset($_POST['Generation'])){
+        $controllerDisplay->displayGeneration();
+            }
+        ?>
+    </section>
+     <!-- Article -->
+     <section>
+            <form method='POST' action=''>
+                <button type='submit' class='adminInterface' name='Article'>Voir les Generation</button>
+            </form>
+            <?php
+            if(isset($_POST['Article'])){
+        $controllerDisplay->displayArticle();
+            }
+        ?>
+    </section>
 
 
 

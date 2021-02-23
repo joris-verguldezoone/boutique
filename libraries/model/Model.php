@@ -67,7 +67,33 @@ abstract class Model{
         $result->bindvalue(':id', $id, \PDO::PARAM_INT);
         $result->execute();
     }
-
+// GENERIC UPDATE 
+public function updateThreeValue($nomTable,$colonne1,$colonne2,$colonne3,$value1,$value2,$value3){ // STR
+    $sql = "UPDATE $nomTable SET $colonne1 = :value1,$colonne2 = :value2,$colonne3 = :value3 WHERE id= :value1";
+    $result = $this->pdo->prepare($sql);
+    $result->bindValue(":value1",$value1,\PDO::PARAM_INT);
+    $result->bindValue(":value2",$value2,\PDO::PARAM_STR);
+    $result->bindValue(":value3",$value3,\PDO::PARAM_STR);
+    $result->execute();
+}
+public function updateFourValueStr($nomTable,$colonne1,$colonne2,$colonne3,$colonne4,$value1,$value2,$value3,$value4){ // STR
+    $sql = "UPDATE $nomTable SET  $colonne1 = :value1,$colonne2 = :value2,$colonne3 = :value3, $colonne4 = :value4 WHERE id= :value1";
+    $result = $this->pdo->prepare($sql);
+    $result->bindValue(":value1",$value1,\PDO::PARAM_INT);
+    $result->bindValue(":value2",$value2,\PDO::PARAM_STR);
+    $result->bindValue(":value3",$value3,\PDO::PARAM_STR);
+    $result->bindValue(":value4",$value4,\PDO::PARAM_STR);
+    $result->execute();
+}
+public function updateFourValueInt($nomTable,$colonne1,$colonne2,$colonne3,$colonne4,$value1,$value2,$value3,$value4){ // INT
+    $sql = "UPDATE $nomTable SET  $colonne1 = :value1,$colonne2 = :value2,$colonne3 = :value3, $colonne4 = :value4 WHERE id= :value1";
+    $result = $this->pdo->prepare($sql);
+    $result->bindValue(":value1",$value1,\PDO::PARAM_INT);
+    $result->bindValue(":value2",$value2,\PDO::PARAM_STR);
+    $result->bindValue(":value3",$value3,\PDO::PARAM_INT);
+    $result->bindValue(":value4",$value4,\PDO::PARAM_INT);
+    $result->execute();
+}
 
 }
 ?>

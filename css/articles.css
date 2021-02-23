@@ -1,0 +1,18 @@
+.dimension_image{
+    width: 20%;
+    margin-top: 1%;
+}
+
+.form_composant{
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+}
+.block{
+    display: flex;
+    flex-direction: column;
+}
+.rowSection{
+    display: flex;
+    flex-direction: row;
+}
