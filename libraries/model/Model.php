@@ -44,7 +44,13 @@ abstract class Model{
         $fetch = $result->fetch(\PDO::FETCH_ASSOC);
         return $fetch;
     }
-    // public function selectOne($nomTable, $colonne, $value)
+    public function selectOne($nomTable, $colonne,$colonne2, $value){
+
+        $sql = "SELECT $colonne FROM $nomTable WHERE $colonne2 = ?";
+        $result = $this->pdo->prepare($sql);
+        $result->execute([$value]);
+        $fetch = $result->fetch(\PDO::FETCH_ASSOC);
+        return $fetch;    }
 // GENERIC INSERT
     public function insertOneValue($nomTable, $colonne, $value){
         $sql = "INSERT INTO $nomTable ($colonne) VALUES (?)";

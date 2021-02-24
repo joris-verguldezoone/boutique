@@ -54,16 +54,20 @@ var_dump($_SESSION);
 <form method="POST" action=''>
     <button name="addElement" class='adminInterface' type="submit">Ajouter un élément</button>
 </form>
-<?php if(isset($_POST['addElement'])){ 
-    echo '<form action="" method="POST">
-                <label for="createType">Créer un nouveau type d article</label>
-                <input type="text" name="createType" placeholder="TELEVISION">
-                <input type="submit" name="submitType">
-            </form>';
-        
-        if(isset($_POST['submitType'])){
-           $controllerAdmin->verifyAndInsertOne('type', 'nom' , $_POST['createType']);
-        }?>
+<?php 
+if(isset($_POST['addElement'])){ 
+echo '<form action="" method="GET">
+            <label for="createType">Créer un nouveau type d article</label>
+            <input type="text" name="createType" placeholder="TELEVISION">
+            <input type="text" name="createTypeImg" placeholder="Url img">
+            <input type="submit" name="submitType">
+        </form>';
+    
+    if(isset($_GET  ['submitType'])){
+       $controllerAdmin->verifyAndInsertTwo('type', 'nom' ,'image' ,$_GET['createType'], $_GET['createTypeImg']);
+       
+    }
+    ?>
 <!-- Insérer une generation -->
 <section>
 
@@ -116,7 +120,7 @@ var_dump($_SESSION);
         ?>
     </form>
 </section>
-<!-- Insérer un type -->
+<!-- Insérer une marque -->
 <section>
     <form action="" method="POST">
         <label for="NameBrand">Nom marque</label>
@@ -152,7 +156,7 @@ var_dump($_SESSION);
         if(isset($_POST['addProduct'])){
            
             ?>
-            <form action= "" method="POST">
+            <form action= "" method="GET">
             <label for="title">Titre</label><br />
             <input type="text" name="title" placeholder="Ordinateur quantique" required><br />
             		
@@ -207,10 +211,10 @@ var_dump($_SESSION);
              
         </form>
         <?php
-        if(isset($_POST['submitNewCategorie'])){
+        if(isset($_GET['submitNewCategorie'])){
             $id_utilisateur = $_SESSION['utilisateur']['id'];
-             $controllerAdmin->createArticle($_POST['title'],$_POST['presentation'],$_POST['description'],$_POST['image'],$_POST['image_2'],$_POST['image_3']
-             ,$_POST['prix'],$id_utilisateur, $_POST['typeCreateArticle'],$_POST['generation'],$_POST['gamme'],$_POST['marque']);
+             $controllerAdmin->createArticle($_GET['title'],$_GET['presentation'],$_GET['description'],$_GET['image'],$_GET['image_2'],$_GET['image_3']
+             ,$_GET['prix'],$id_utilisateur, $_GET['typeCreateArticle'],$_GET['generation'],$_GET['gamme'],$_GET['marque']);
         }
         
         }
@@ -292,11 +296,11 @@ var_dump($_SESSION);
      <!-- Article -->
      <section>
             <form method='POST' action=''>
-                <button type='submit' class='adminInterface' name='Article'>Voir les Generation</button>
+                <button type='submit' class='adminInterface' name='Article'>Voir les Articles</button>
             </form>
             <?php
             if(isset($_POST['Article'])){
-        $controllerDisplay->displayArticle();
+        $controllerDisplay->displayArticlesAdmin();
             }
         ?>
     </section>
@@ -312,5 +316,6 @@ var_dump($_SESSION);
 
 </main>
 <?php
+// il me reste tout ça a faire: commande     commentaires   liste_de_souhait    adress      carte_bleu      likedislike     notation    panier 
 ob_end_flush();
 ?>

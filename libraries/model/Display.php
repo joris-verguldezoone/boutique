@@ -61,7 +61,7 @@ class Display extends Model{
         while($fetch = $result->fetch(\PDO::FETCH_ASSOC)){
             $tableau[$i][] = $fetch['id'];
             $tableau[$i][] = $fetch['nom'];
-            $tableau[$i][] = $fetch['id_type']; 
+            $tableau[$i][] = $fetch['image']; 
             $tableau[$i][] = $fetch['description'];     
 
             $i++;

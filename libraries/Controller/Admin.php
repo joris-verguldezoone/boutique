@@ -16,6 +16,7 @@ class Admin extends Controller{
     }
     public function verifyAndInsertTwo($nomTable, $colonne,$colonne2, $value, $value2){
         $modelAdmin = new \Model\Admin();
+        
         $count = $modelAdmin->alreadyTakenCheck($nomTable , $colonne, $value);
         if(!$count){
             $modelAdmin->insertTwoValue($nomTable, $colonne,$colonne2, $value,$value2);
@@ -72,8 +73,8 @@ $titre_len = strlen($titre);
             $image_2_len = strlen($image_2);
             $image_3_len = strlen($image_3);
             echo 'passed';
-            if(($titre_len >= 0) && ($description >= 0) && ($image_len >= 0)){
-                if(($titre_len <= 50) && ($description <= 3000) && ($image_len <= 255) && ($image_2_len <= 255) && ($image_3_len <= 255)){
+            if(($titre_len >= 0) && ($description_len >= 0) && ($image_len >= 0)){
+                if(($titre_len <= 50) && ($description_len <= 3000) && ($image_len <= 255) && ($image_2_len <= 255) && ($image_3_len <= 255)){
                     $modelAdmin = new \Model\Admin();
                     $modelAdmin->insertArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation);
                     echo 'controller passed';

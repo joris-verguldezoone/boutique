@@ -14,7 +14,7 @@ class Display extends Controller{
         echo '<section  class="rowSection">';
         foreach($tab as $key => $value){
                 
-                if($temp == 4){
+                if($temp == 4){ //  ça c'est le fun qui peut me test svp ??
                     $temp = 1;
                 }
                                     
@@ -159,8 +159,8 @@ class Display extends Controller{
                         $modelHttp->redirect('admin.php');
                    
                 }
-            }  
-            echo "</table>";
+        }  
+        echo "</table>";
     }
     public function displayGeneration()
     { // ->admin
@@ -300,13 +300,30 @@ class Display extends Controller{
     public function displayArticlesAdmin(){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllArticles();
+                //	id titre presentation description image image_2 image_3 note prix id_utilisateur id_type id_gamme id_marque id_generation promo date
 
         echo"<table>
         <tr>
             <th>Id</th>
-            <th>Nom</th>	
-            <th>image</th>	
-            <th>description</th>	                   
+            <th>Titre</th>	
+            <th>Presentation</th>	
+            <th>Description</th>	                   
+            <th>Image_1</th>
+            <th>Image_1</th>
+            <th>Image_2</th>
+            <th>Image_2</th>
+            <th>Image_3</th>
+            <th>Image_3</th>	                   
+            <th>Note</th>	                   
+            <th>Prix</th>	                   
+            <th>Id_utilisateur</th>	                   
+            <th>id_type</th>	                   
+            <th>id_gamme</th>	                   
+            <th>id_marque</th>	                   
+            <th>id_generation</th>	                   
+            <th>promo</th>	                   
+            <th>date</th>	                   
+                         
         </tr>";
 foreach($tab as $value)
 { 
@@ -317,21 +334,64 @@ foreach($tab as $value)
                     <input type='number' name='ArticleId' value='".$value[0]."'>
                 </td>"; // peut etre en hidden input
         echo "  <td>
-                    <input type='text' name='ArticleNom' value='".$value[1]."'>
-                </td>";
-                echo "
+                    <input type='text' name='ArticleTitre' value='".$value[1]."'>
+                </td>"; // titre
+        echo "  <td>
+                    <input type='text' name='ArticlePresentation' value='".$value[2]."'>
+                </td>"; // presentation
+        echo "  <td>
+                    <input type='text' name='ArticleDescription' value='".$value[3]."'>
+                </td>"; // description 
+        echo "
                 <td>
-                    <img src='".$value[2]."' class='display_img_size_backOffice'>
+                    <img src='".$value[4]."' class='display_img_size_backOffice'>
+                </td>"; // img 1
+        echo "  <td>
+                    <input name='Article_Img_1' type='text' value='".$value[4]."'>
+                </td>";
+        echo "
+                <td>
+                    <img src='".$value[5]."' class='display_img_size_backOffice'>
+                </td>"; // img 2
+        echo "  <td>
+                    <input name='Article_Img_2' type='text' value='".$value[5]."'>
+                </td>";
+        echo "
+                <td>
+                    <img src='".$value[6]."' class='display_img_size_backOffice'>
+                </td>"; // img 3
+        echo "  <td>
+                    <input name='Article_Img_3' type='text' value='".$value[6]."'>
                 </td>";
         echo "  <td>
-                    <input name='Article_Img' type='text' value='".$value[2]."'>
-                </td>";
-                echo $value[2];
-                echo "  
-                <td>
-                    <input name='Article_description' type='text' value='".$value[3]."'>
-                </td>
-                <td>
+                    <input type='number' name='ArticleNote' value='".$value[7]."'>
+                </td>"; // note
+        echo "  <td>
+                    <input type='number' name='ArticlePrix' value='".$value[8]."'>
+                </td>"; // prix
+        echo "  <td>
+                <input type='number' name='ArticleId_Utilisateur' value='".$value[9]."'>
+                </td>"; // id_utilisateur
+        echo "  <td>
+                    <input type='number' name='Article_Id_Type' value='".$value[10]."'>
+                </td>"; // id_type
+        echo "  <td>
+                    <input type='number' name='Article_gamme' value='".$value[11]."'>
+                </td>"; // gamme
+        echo "  <td>
+                    <input type='number' name='Article__marque' value='".$value[12]."'>
+                </td>"; // marque 
+        echo "  <td>
+                    <input type='number' name='Article_generation' value='".$value[13]."'>
+                </td>"; // generation
+        echo "  <td>
+                    <input type='number' name='Article_promo' value='".$value[14]."'>
+                </td>"; // promo
+        echo "  <td>
+                    <input type='text' name='Article_date' value='".$value[15]."'>
+                </td>"; // date
+
+        echo"   <td>
                     <input type='submit' id='Modifier' name='modifyArticle' value='modifier'>
                     <input type='hidden' name='ArticleName' id='hiddenId' value='".$value[0]."'> 
                 </td>
@@ -348,7 +408,6 @@ foreach($tab as $value)
             $modelAdmin = new \Model\Admin();
             
             $modelAdmin->updateFourValueStr('Article','id','nom','image','description',$_GET['MarqueId'],$_GET['MarqueNom'],$_GET['Marque_Img'],$_GET['Marque_description']);
-          // Textes complets id Croissant titre presentation description image image_2 image_3 note prix id_utilisateur id_type id_gamme id_marque id_generation promo date
             $modelHttp = new \Http();
             $modelHttp->redirect('admin.php');
         }
@@ -357,7 +416,7 @@ foreach($tab as $value)
             $nom = $value[1];
             echo "<p>Êtes-vous sûr de vouloir supprimer la marque ".$nom."?</p>";
                 $modelAdmin = new \Model\Admin();
-                $modelAdmin->deleteOneWhereId('Article', $_GET['ArticleIdTracker']);
+                $modelAdmin->deleteOneWhereId('articles', $_GET['ArticleIdTracker']);
                 
                 $modelHttp = new \Http();
                 $modelHttp->redirect('admin.php');
@@ -366,10 +425,6 @@ foreach($tab as $value)
     }  
     echo "</table>";
 }
-
-
-        }
-    
     public function displayArticles(){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllArticles();
@@ -389,7 +444,6 @@ foreach($tab as $value)
             echo $value[12]."<br />";
             echo $value[13]."<br />";
             echo $value[15]."<br />";
-
         }
     }
     public function displayUsers(){
@@ -399,27 +453,59 @@ foreach($tab as $value)
         $i = 0; 
         foreach($tab as $value){
             $mdp = $this->characterLimit($value[5],8);
-            echo "<form action='' method=''POST>";
             echo "<tr>"; 
-            echo "<td><input type='number' value='".$value[0]."'></td>"; // peut etre en hidden input
-            echo "<td><input type='text' value='".$value[1]."'></td>";
-            echo "<td><input type='text' value='".$value[2]."'></td>";
-            echo "<td><input type='text' value='".$value[3]."'</td>";
-            echo "<td><input type='text' value='".$value[4]."'</td>";
-            echo "<td>".$mdp."</td>"; // mdp 
-            echo "<td><img class='display_img_size_backOffice' src='$value[6]'></td>";
-            echo "<td><input type='number' value='".$value[7]."'</td>";
-            echo "<td><input type='text' value='".$value[8]."'</td>";
-            echo "<td><input type='number' value='".$value[9]."'</td>";
-            echo "</tr>";
-            echo "</form>";
-        
-    
+                echo "<form action='' method='GET'>";
+                    echo "<td><input type='number' name='UtilisateurId' value='".$value[0]."'></td>"; // peut etre en hidden input
+                    echo "<td><input type='text' name='UtilisateurNom' value='".$value[1]."'></td>";
+                    echo "<td><input type='text' name='UtilisateurPrenom' value='".$value[2]."'></td>";
+                    echo "<td><input type='text' name='UtilisateurLogin' value='".$value[3]."'</td>";
+                    echo "<td><input type='text' name='UtilisateurEmail'  value='".$value[4]."'</td>";
+                    echo "<td>".$mdp."</td>"; // mdp 
+                    echo "<td><img class='display_img_size_backOffice' src='$value[6]'></td>";
+                    echo "<td><input type='text' name='UtilisateurImage'  value='".$value[6]."'</td>"; 
+                    echo "<td><input type='number' name='UtilisateurId_droits' value='".$value[7]."'</td>"; 
+                    echo "<td><input type='date' name='UtilisateurAnniversaire' value='".$value[8]."'</td>";
+                    echo "<td><input type='number' name='UtilisateurAdresse' value='".$value[9]."'</td>";
+
+            echo"   <td>
+                <input type='submit' id='Modifier' name='modifyUtilisateur' value='modifier'>
+                <input type='hidden' name='UtilisateurName' id='hiddenId' value='".$value[0]."'> 
+                    </td>
+                </form>
+    <form action ='' method='GET'>
+        <td>
+                <input type='submit' value='supprimer'>
+                <input type='hidden' name='UtilisateurIdTracker' id='suppr' value='".$value[0]."'>
+        </td>
+    </form>
+</tr>";
+        if(isset($_GET['UtilisateurName']))
+        {
+            $modelAdmin = new \Model\Admin();
+            
+            $modelAdmin->updateUtilisateur($_GET['UtilisateurName'],$_GET['UtilisateurNom'],$_GET['UtilisateurPrenom'],$_GET['UtilisateurLogin'],$_GET['UtilisateurEmail'],$_GET['UtilisateurImage'],$_GET['UtilisateurId_droits'],$_GET['UtilisateurAnniversaire'],$_GET['UtilisateurAdresse']);
+          
+            // $modelHttp = new \Http();
+            // $modelHttp->redirect('admin.php');
         }
-    }
-    public function displaySelect($nomTable){
+        if(isset($_GET['UtilisateurIdTracker']))
+        {
+            $nom = $value[3]; // login pas nom [1]
+            echo "<p>Êtes-vous sûr de vouloir supprimer cet(te) Utilisateur(e) ".$nom."?</p>";
+                $modelAdmin = new \Model\Admin();
+                $modelAdmin->deleteOneWhereId('Utilisateur', $_GET['UtilisateurIdTracker']);
+                
+                $modelHttp = new \Http();
+                $modelHttp->redirect('admin.php');
+           
+        }
+    }  
+    echo "</table>";
+}
+
+   public function displaySelect($nomTable){
         $modelAdmin = new \Model\Admin();
-       $tab = $modelAdmin->selectAllNom($nomTable);
+        $tab = $modelAdmin->selectAllNom($nomTable);
         var_dump($tab);
         $i = 0;
         foreach($tab as $key => $value)

@@ -48,7 +48,26 @@ class Admin extends Model{
         $result->execute();
         
     }
+    public function updateUtilisateur($id,$nom,$prenom,$login,$email,$image,$id_droits,$anniversaire,$id_adresse){
+        $anniversaire = date('Y-m-d H:i:s');
+	
+        $sql = "UPDATE utilisateurs SET id = :id, nom = :nom, prenom = :prenom ,login = :login ,email = :email,image = :image,id_droits = :id_droits,anniversaire = :anniversaire,id_adresse = :id_adresse WHERE id=:id";
+        var_dump($sql);
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(':id',$id,\PDO::PARAM_INT);
+        $result->bindValue(':nom',$nom,\PDO::PARAM_STR);
+        $result->bindValue(':prenom',$prenom,\PDO::PARAM_STR);
+        $result->bindValue(':login',$login,\PDO::PARAM_STR);
+        $result->bindValue(':email',$email,\PDO::PARAM_STR);
+        $result->bindValue(':image',$image,\PDO::PARAM_STR);
+        $result->bindValue(':id_droits',$id_droits,\PDO::PARAM_INT);
+        $result->bindValue(':anniversaire',$anniversaire,\PDO::PARAM_STR);
+        $result->bindValue(':id_adresse',$id_droits,\PDO::PARAM_INT);
+        
+        $result->execute();
     
+    
+    }
 
 
 
