@@ -49,10 +49,18 @@ class Admin extends Model{
         
     }
     public function updateUtilisateur($id,$nom,$prenom,$login,$email,$image,$id_droits,$anniversaire,$id_adresse){
-        $anniversaire = date('Y-m-d H:i:s');
+        $dateTime = new \DateTime();
+
+        $dateTime = \DateTime::createFromFormat('d/m/Y', $anniversaire);
+        // var_dump($anniversaire);
+
+        // $tsAnniversaire = strtotime($anniversaire);
+        
+        // var_dump($tsAnniversaire);
+        // $dateTime->format('Y-m-d');
 	
         $sql = "UPDATE utilisateurs SET id = :id, nom = :nom, prenom = :prenom ,login = :login ,email = :email,image = :image,id_droits = :id_droits,anniversaire = :anniversaire,id_adresse = :id_adresse WHERE id=:id";
-        var_dump($sql);
+
         $result = $this->pdo->prepare($sql);
         $result->bindValue(':id',$id,\PDO::PARAM_INT);
         $result->bindValue(':nom',$nom,\PDO::PARAM_STR);
@@ -65,7 +73,6 @@ class Admin extends Model{
         $result->bindValue(':id_adresse',$id_droits,\PDO::PARAM_INT);
         
         $result->execute();
-    
     
     }
 

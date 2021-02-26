@@ -69,7 +69,7 @@ class Display extends Model{
         return $tableau;
     }
     public function findAllArticles(){
-        $sql = "SELECT * FROM articles";
+        $sql = "SELECT * FROM articles ";
         $result = $this->pdo->prepare($sql);
         $result->execute();
 

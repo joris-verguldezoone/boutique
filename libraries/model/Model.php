@@ -44,13 +44,16 @@ abstract class Model{
         $fetch = $result->fetch(\PDO::FETCH_ASSOC);
         return $fetch;
     }
-    public function selectOne($nomTable, $colonne,$colonne2, $value){
-
-        $sql = "SELECT $colonne FROM $nomTable WHERE $colonne2 = ?";
+    public function selectOne($nomTable, $colonne,$colonne2, $value){ // peut etre utilisé pour selection tous les articles d'un seul type
+        // articles', '*', 'id',$id
+        // SELECT * FROM articles WHERE id = id
+        $sql = "SELECT $colonne FROM $nomTable WHERE $colonne2 = ? ";
+        var_dump($sql);
         $result = $this->pdo->prepare($sql);
         $result->execute([$value]);
-        $fetch = $result->fetch(\PDO::FETCH_ASSOC);
-        return $fetch;    }
+        $fetch = $result->fetchAll();
+        return $fetch;    
+    }
 // GENERIC INSERT
     public function insertOneValue($nomTable, $colonne, $value){
         $sql = "INSERT INTO $nomTable ($colonne) VALUES (?)";

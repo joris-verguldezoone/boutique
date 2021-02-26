@@ -242,6 +242,7 @@ echo '<form action="" method="GET">
                     <th>emain</th>
                     <th>password</th>
                     <th>image</th>
+                    <th>Url</th>
                     <th>id_droits</th>
                     <th>anniversaire</th>
                     <th>id_adresse</th>

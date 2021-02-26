@@ -1,8 +1,8 @@
 <?php
 //LIBRARIES
+$bdd = "../libraries/config/bdd.php";
 require_once('../libraries/Controller/Display.php');
 require_once('../libraries/Model/Display.php');
-
 //CSS
 $headerCss = "../css/header.css";
 $pageCss = "../css/article.css";
@@ -26,9 +26,9 @@ require('../require/html_/header.php');
 	<?php
 $controllerDisplay = new \Controller\Display();
 
-$controllerDisplay->displayComposant();
+$controllerDisplay->displayOneArticle($_GET['articleSelected']);
 
-var_dump($controllerDisplay);
+var_dump($_GET);
 echo "cc";
 ?>
 

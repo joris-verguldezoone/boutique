@@ -2,7 +2,7 @@
 
 namespace Controller; // sisi le boss
 
-Class Controller{ // spoiler il controlle tout
+abstract Class Controller{ // spoiler il controlle tout
     
     protected $id;
     protected $nom = "";

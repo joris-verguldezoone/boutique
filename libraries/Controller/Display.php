@@ -2,14 +2,14 @@
 
 namespace Controller;
 
+require_once('Controller.php');
+
 class Display extends Controller{
 
     public function displayComposant(){ // ->articles 
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllType();
 
-        
-            
         $temp = 1; 
         echo '<section  class="rowSection">';
         foreach($tab as $key => $value){
@@ -18,8 +18,8 @@ class Display extends Controller{
                     $temp = 1;
                 }
                                     
-                echo "<form action='article.php' method='get' class='form_composant'>";
-                echo "<button type='submit' name='".$value[2]."'>";
+                echo "<form action='' method='get' class='form_composant'>";
+                echo "<button type='submit' name='typeArticleSelected' value= '".$value[0]."'>";
                 // echo $value[0]; // peut etre en hidden input
                 echo "<p>".$value[1]."</p>";
                 echo "<img src='$value[2]' class='dimension_image'>
@@ -485,8 +485,8 @@ foreach($tab as $value)
             
             $modelAdmin->updateUtilisateur($_GET['UtilisateurName'],$_GET['UtilisateurNom'],$_GET['UtilisateurPrenom'],$_GET['UtilisateurLogin'],$_GET['UtilisateurEmail'],$_GET['UtilisateurImage'],$_GET['UtilisateurId_droits'],$_GET['UtilisateurAnniversaire'],$_GET['UtilisateurAdresse']);
           
-            // $modelHttp = new \Http();
-            // $modelHttp->redirect('admin.php');
+            $modelHttp = new \Http();
+            $modelHttp->redirect('admin.php');
         }
         if(isset($_GET['UtilisateurIdTracker']))
         {
@@ -513,6 +513,42 @@ foreach($tab as $value)
         echo "<option value='".$value[0]."'>".$value[1]."</option>";
        }
 
+    }
+    public function displayOneTypeOfArticle($where,$id){
+        $modelArticle = new \Model\Display();
+        $tab = $modelArticle->selectOne('articles', '*', $where ,$id );
+        var_dump($tab);
+        foreach($tab as $key => $value){
+            echo" <form action='article.php' method='GET'> 
+            <button type='submit' name='articleSelected' value='".$value['id']."'>
+            <br />
+            ".$value['titre']."<br />
+             <img src='".$value['image']."'>
+             ".$value['prix']."<br />
+             </button>
+             </form>";
+        }
+
+    }
+    public function DisplayOneArticle($id){
+        $modelArticle = new \Model\Display();
+        $tab = $modelArticle->selectOne('articles', '*', 'id' ,$id );
+        foreach($tab as $key => $value){
+            //	id titre presentation description image  image_2 image_3 note prix id_utilisateur id_type  id_gamme  id_marque id_generation promo date 
+            echo" <section> 
+            
+            <p>".$value['titre']."</p>
+            <p>".$value['presentation']."</p>
+            <p>".$value['description']."</p>
+            <img src='".$value['image']."'>
+            <img src='".$value['image_2']."'>
+            <img src='".$value['image_3']."'>
+            <p>".$value['note']."</p>
+            <p>".$value['prix']."</p>
+         
+            
+             </section>";
+        }
     }
 }
 
