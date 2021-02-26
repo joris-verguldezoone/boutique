@@ -4,18 +4,38 @@ namespace Controller;
 
 class Display{
 
-    public function displayComposant(){
+    public function displayComposant(){ // ->articles
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllType();
-var_dump($tab);
 
-        foreach($tab as $value){
-            
-            echo $value[0]; // peut etre en hidden input
-            echo $value[1];
-            echo "<img src='$value[2]'>";  
+
+
+        $temp = 1;
+        echo '<section  class="rowSection">';
+        foreach($tab as $key => $value){
+
+            if($temp == 4){
+                $temp = 1;
+            }
+
+            echo "<form action='article.php' method='get' class='form_composant'>";
+            echo "<button type='submit' name='".$value[2]."' class='buttom_comp'>";
+            // echo $value[0]; // peut etre en hidden input
+            echo "<p class='typo_comp'>".$value[1]."</p>";
+            echo "<img src='$value[2]' class='dimension_image'>
+                </button>";
+            echo "</form>";
+
+            if($temp % 3 === 0 ){
+                echo '</section>';
+                echo '<section  class="rowSection">';
+            }
+
+            $temp++;
         }
+
     }
+
     public function displayArticles(){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllArticles();
