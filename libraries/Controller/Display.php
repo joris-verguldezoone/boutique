@@ -14,7 +14,7 @@ class Display extends Controller{
         echo '<section  class="rowSection">';
         foreach($tab as $key => $value){
                 
-                if($temp == 4){ //  莽a c'est le fun qui peut me test svp ??
+                if($temp == 4){ //  鏰 c'est le fun qui peut me test svp ??
                     $temp = 1;
                 }
                                     
@@ -87,7 +87,7 @@ class Display extends Controller{
                 if(isset($_GET['TypeIdTracker']))
                 {
                     $nom = $value[1];
-                    echo "<p>脢tes-vous s没r de vouloir supprimer la cat茅gorie ".$nom."?</p>";
+                    echo "<p>蕋es-vous s鹯 de vouloir supprimer la cat間orie ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
                         $modelAdmin->deleteOneWhereId('type', $_GET['TypeIdTracker']);
                         
@@ -151,7 +151,7 @@ class Display extends Controller{
                 if(isset($_GET['GammeIdTracker']))
                 {
                     $nom = $value[1];
-                    echo "<p>脢tes-vous s没r de vouloir supprimer la gamme ".$nom."?</p>";
+                    echo "<p>蕋es-vous s鹯 de vouloir supprimer la gamme ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
                         $modelAdmin->deleteOneWhereId('gamme', $_GET['GammeIdTracker']);
                         
@@ -215,7 +215,7 @@ class Display extends Controller{
                 if(isset($_GET['GenerationIdTracker']))
                 {
                     $nom = $value[1];
-                    echo "<p>脢tes-vous s没r de vouloir supprimer la Generation ".$nom."?</p>";
+                    echo "<p>蕋es-vous s鹯 de vouloir supprimer la Generation ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
                         $modelAdmin->deleteOneWhereId('generation', $_GET['GenerationIdTracker']);
                         
@@ -286,7 +286,7 @@ class Display extends Controller{
                 if(isset($_GET['MarqueIdTracker']))
                 {
                     $nom = $value[1];
-                    echo "<p>脢tes-vous s没r de vouloir supprimer la marque ".$nom."?</p>";
+                    echo "<p>蕋es-vous s鹯 de vouloir supprimer la marque ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
                         $modelAdmin->deleteOneWhereId('marque', $_GET['MarqueIdTracker']);
                         
@@ -414,7 +414,7 @@ foreach($tab as $value)
         if(isset($_GET['ArticleIdTracker']))
         {
             $nom = $value[1];
-            echo "<p>脢tes-vous s没r de vouloir supprimer la marque ".$nom."?</p>";
+            echo "<p>蕋es-vous s鹯 de vouloir supprimer la marque ".$nom."?</p>";
                 $modelAdmin = new \Model\Admin();
                 $modelAdmin->deleteOneWhereId('articles', $_GET['ArticleIdTracker']);
                 
@@ -491,7 +491,7 @@ foreach($tab as $value)
         if(isset($_GET['UtilisateurIdTracker']))
         {
             $nom = $value[3]; // login pas nom [1]
-            echo "<p>脢tes-vous s没r de vouloir supprimer cet(te) Utilisateur(e) ".$nom."?</p>";
+            echo "<p>蕋es-vous s鹯 de vouloir supprimer cet(te) Utilisateur(e) ".$nom."?</p>";
                 $modelAdmin = new \Model\Admin();
                 $modelAdmin->deleteOneWhereId('Utilisateur', $_GET['UtilisateurIdTracker']);
                 

@@ -27,6 +27,10 @@ $deconnexion = "../index.php?off=1";
 //HEADER
 require('../require/html_/header.php');
 
+$newUserModel = new \Model\Profil();
+$newUserController = new \Controller\Profil();
+var_dump($_POST);
+
 ?>
 
 <main>
@@ -34,22 +38,22 @@ require('../require/html_/header.php');
         <h1><u>Profil</u></h1>
 
         <article>
-            <label for="login" name="login" class="inp">
+            <label for="login" class="inp">
                 <input type="text" id="profilLogin" name="login" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['login'];?>">
                 <span class="label">New Login</span>
                 <span class="focus-bg"></span>
             </label>
-            <label for="password" name="password" class="inp">
+            <label for="password" class="inp">
                 <input type="password" id="profilPassword" name="password" placeholder="&nbsp;">
                 <span class="label">New Password</span>
                 <span class="focus-bg"></span>
             </label></br>
-            <label for="confirm_password" name="password" class="inp">
+            <label for="confirm_password" class="inp">
                 <input type="password" id="profilConfirm_password" name="confirm_password" placeholder="&nbsp;">
                 <span class="label">Confirm New Password</span>
                 <span class="focus-bg"></span>
             </label>
-            <label for="email" name="email" class="inp">
+            <label for="email" class="inp">
                 <input type="text" id="inscriptionEmail" name="email" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['email'];?>">
                 <span class="label">New Email</span>
                 <span class="focus-bg"></span>
@@ -60,10 +64,173 @@ require('../require/html_/header.php');
             <?php
 
     if (isset($_POST['update'])) {
-        var_dump($_SESSION);
-        $newUser = new \Controller\Profil(); 
-        $newUser->profil($_POST['login'], $_POST['password'], $_POST['confirm_password'], $_POST['email']);
+        $newUserController->profil($_POST['login'], $_POST['password'], $_POST['confirm_password'], $_POST['email']);
     }
     ?>
         </form>
+
+<!-- INFO PERSONNEL -->
+
+    <form class="block" method="POST" action="profil.php">
+
+        <article>
+            <label for="nom" class="inp">
+                <input type="text" id="profilNom" name="nom" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['nom'];?>">
+                <span class="label">Nom</span>
+                <span class="focus-bg"></span>
+            </label>
+            <label for="prenom" class="inp">
+                <input type="text" id="profilPrenom" name="prenom" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['prenom'];?>">
+                <span class="label">Prénom</span>
+                <span class="focus-bg"></span>
+            </label></br>
+            <label for="anniversaire" class="inp">
+                <input type="date" id="profilAnniv" name="anniversaire" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['anniversaire'];?>">
+                <span class="label">Anniv</span>
+                <span class="focus-bg"></span>
+            </label>
+            <label for="email" class="inp">
+                <input type="text" id="profilEmail" name="email" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['email'];?>">
+                <span class="label">Email</span>
+                <span class="focus-bg"></span>
+            </label>
+        </article>
+
+        <input type="submit" id="profilSubmit" value="Modifier" name="updateInfoPersonnel">
+
+        <?php
+
+        if (isset($_POST['updateInfoPersonnel'])) {
+            $newUserModel->update($_POST['nom'], $_POST['prenom'], $_POST['anniversaire'], $_POST['email']);
+        }
+        ?>
+    </form>
+
+    <!-- CARTE BLEU -->
+
+    <!-- <form class="block" method="POST" action="">
+        <article>
+            <label for="type_carte" class="inp">
+                <input type="text" id="CarteBleuType_carte" name="type_carte" placeholder="&nbsp;" value="">
+                <span class="label">Type de carte</span>
+                <span class="focus-bg"></span>
+            </label>
+            <label for="titulaire" class="inp">
+                <input type="text" id="CarteBleuTitulaire" name="titulaire" placeholder="&nbsp;" value=" ">
+                <span class="label">Titulaire de la carte</span>
+                <span class="focus-bg"></span>
+            </label></br>
+            <label for="numero" class="inp">
+                <input type="text" id="CarteBleuNumero" name="numero" placeholder="&nbsp;" value="  ">
+                <span class="label">Numéro de carte</span>
+                <span class="focus-bg"></span>
+            </label>
+            <label for="codeSecurite" class="inp">
+                <input type="text" id="CarteBleuCodeSecurite" name="codeSecurite" placeholder="&nbsp;">
+                <span class="label">Code de sécurité</span>
+                <span class="focus-bg"></span>
+            </label>
+            <label for="date" class="inp">
+                <input type="date" id="CarteBleuDate" name="date" placeholder="&nbsp;" value="">
+                <span class="label">Date d'expiration</span>
+                <span class="focus-bg"></span>
+            </label>
+        </article>
+
+        <input type="submit" id="profilSubmit" value="Modifier" name="update_carte_bleu">
+        <input type="submit" id="profilSubmit" value="Enregistrer" name="insert_carte_bleu">
+
+        <?php
+//         if (isset($_POST['update_carte_bleu'])) {
+//             $newUserModel->updateCarteBleu($_POST['type_carte'], $_POST['titulaire'], $_POST['numero'], $_POST['codeSecurite'], $_POST['date']);
+//         }
+// var_dump($_POST);
+//         if (isset($_POST['insert_carte_bleu'])){
+//             $newUserModel->InsertCarteBleu($_POST['type_carte'], $_POST['titulaire'], $_POST['numero'], $_POST['codeSecurite'], $_POST['date']);
+//         }
+        ?>
+    </form> -->
+
+    <!-- ADRESSE -->
+
+    
+
+        <?php
+        if (isset($_POST['insertAdress'])) {
+            $newUserModel->adresseInsert($_POST['nom'], $_POST['prenom'], $_POST['batiment'], $_POST['rue'], $_POST['code_postal'], $_POST['ville'], $_POST['pays'], $_POST['info_sup'], $_POST['telephone']);
+        }
+        // On vérifie si l'utilisateur possède déjà une adresse pour l'afficher et éviter les erreurs 
+      $answer = $newUserModel->alreadyTakenCheck('adresse', 'id_utilisateur', $_SESSION['utilisateur']['id']);
+      var_dump($answer);
+      if(!$answer){
+          $newUserModel->selectAllWhere('$nomTable,$colonne,$value')
+          echo'
+        <form class="block" method="POST" action="profil.php">
+        <article>
+            <label for="nom" class="">Nom</label>
+                <input type="text" id="AdresseNom" name="nom" >
+            <label for="prenom" > Prenom </label>
+                <input type="text" id="AdressePrenom" name="prenom" >
+         
+            <label for="batiment" > Batiment </label>
+                <input type="text" id="AdresseBatiment" name="batiment">
+        
+            <label for="rue" >Rue </label>
+                <input type="text" id="AdresseRue" name="rue">
+              
+            <label for="code_postal"> Code Postal </label>
+                <input type="text" id="AdresseCodePostal" name="code_postal" >
+              
+            <label for="ville"> Ville </label>
+                <input type="text" id="AdresseVille" name="ville">
+                
+            <label for="pays"> Pays </label>
+                <input type="text" id="AdressePays" name="pays">
+                
+            <label for="info_sup"> Informations supplémentaire </label>
+                <input type="text" id="AdresseInfoSup" name="info_sup">
+            <label for="telephone"> Téléphone </label>
+                <input type="tel" id="AdresseTelephone" name="telephone" >
+        </article>
+
+        <input type="submit" id="profilSubmit" value="Modifier" name="insertAdress">
+        </form>';
+      }
+      elseif($answer == true){
+          echo'
+        <form class="block" method="POST" action="profil.php">
+        <article>
+            <label for="nom" class="">Nom</label>
+                <input type="text" id="AdresseNom" name="nom" value="'..'" >
+            <label for="prenom" > Prenom </label>
+                <input type="text" id="AdressePrenom" name="prenom" >
+         
+            <label for="batiment" > Batiment </label>
+                <input type="text" id="AdresseBatiment" name="batiment">
+        
+            <label for="rue" >Rue </label>
+                <input type="text" id="AdresseRue" name="rue">
+              
+            <label for="code_postal"> Code Postal </label>
+                <input type="text" id="AdresseCodePostal" name="code_postal" >
+              
+            <label for="ville"> Ville </label>
+                <input type="text" id="AdresseVille" name="ville">
+                
+            <label for="pays"> Pays </label>
+                <input type="text" id="AdressePays" name="pays">
+                
+            <label for="info_sup"> Informations supplémentaire </label>
+                <input type="text" id="AdresseInfoSup" name="info_sup">
+            <label for="telephone"> Téléphone </label>
+                <input type="tel" id="AdresseTelephone" name="telephone" >
+        </article>
+
+        <input type="submit" id="profilSubmit" value="Modifier" name="insertAdress">
+        </form>';
+      }
+        ?>
+
+
+
 </main>

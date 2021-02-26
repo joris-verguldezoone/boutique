@@ -1,13 +1,19 @@
+@font-face {
+    font-family: 'gaming.ttf';
+    src: url("../fonts/gaming.ttf");
+}
+
 .dimension_image{
-    width: 20%;
+    width: 50%;
     margin-top: 1%;
 }
 
 .form_composant{
     display: flex;
     flex-direction: column;
-    background-color: aquamarine;
+    margin: 1%;
 }
+
 .block{
     display: flex;
     flex-direction: column;
@@ -15,4 +21,16 @@
 .rowSection{
     display: flex;
     flex-direction: row;
+    margin: 2%;
 }
+
+.buttom_comp{
+    background-color: white;
+    border: 0px;
+}
+
+.typo_comp{
+    font-family: 'gaming.ttf';
+    
+}
+

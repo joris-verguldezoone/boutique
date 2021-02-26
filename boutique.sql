@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
+<<<<<<< HEAD
 -- Généré le :  Dim 21 fév. 2021 à 12:11
+=======
+-- Généré le :  ven. 19 fév. 2021 à 09:39
+>>>>>>> c2d73ba6eb8dabdea46646823d618294601bf924
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -304,7 +308,11 @@ CREATE TABLE IF NOT EXISTS `type` (
 
 INSERT INTO `type` (`id`, `nom`, `image`) VALUES
 (1, 'Carte Graphique', 'https://www.hardwarecooking.fr/wp-content/uploads/2020/11/msi-geforce-rtx-serie-3000-suprim.jpg'),
+<<<<<<< HEAD
 (5, 'Processeurrrrrrr', 'https://www.rueducommerce.fr/media/images/web/produit/3211627/20210201072202/z590_vision_g_4_1140x1140.png'),
+=======
+(5, 'Processeur', 'https://images.idgesg.net/images/article/2018/03/blue-mother-board_circuitry_computer-chip_processor_harddrive-100751586-large.jpg'),
+>>>>>>> c2d73ba6eb8dabdea46646823d618294601bf924
 (8, 'Stockage', 'https://hardzone.es/app/uploads-hardzone.es/2019/01/Magnetic-Hard-Drive-vs-SATA-SSD-vs-M2-NVMe.jpg'),
 (9, 'RAM', 'https://www.gamertech.fr/wp-content/uploads/2020/03/ram-memoire-pc-gamer.png'),
 (10, 'Ecran', 'https://images-na.ssl-images-amazon.com/images/I/71KS5M77puL._AC_SX425_.jpg'),
@@ -339,7 +347,11 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `login`, `email`, `password`, `image`, `id_droits`, `anniversaire`, `id_adresse`) VALUES
+<<<<<<< HEAD
 (1, NULL, NULL, 'HARDJOJOJ', 'HARDJOJO@ok.fr', '$2y$10$2.Qa6ZJnVclaBpS1ZkgtmurjYkoJ7XXpvF3EFjnCl5CJFi6EenICi', 'https://cutewallpaper.org/21/netero-training-episode/Isaac-Netero-Wallpapers-Wallpaper-Cave.png', 1, NULL, NULL);
+=======
+(1, NULL, NULL, 'HARDJOJOJ', 'HARDJOJO@ok.fr', '$2y$10$2.Qa6ZJnVclaBpS1ZkgtmurjYkoJ7XXpvF3EFjnCl5CJFi6EenICi', '', 1, NULL, NULL);
+>>>>>>> c2d73ba6eb8dabdea46646823d618294601bf924
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
