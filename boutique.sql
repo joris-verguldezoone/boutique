@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
-<<<<<<< HEAD
--- Généré le :  Dim 21 fév. 2021 à 12:11
-=======
--- Généré le :  ven. 19 fév. 2021 à 09:39
->>>>>>> c2d73ba6eb8dabdea46646823d618294601bf924
+-- Généré le :  sam. 27 fév. 2021 à 11:13
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -36,15 +32,17 @@ DROP TABLE IF EXISTS `adresse`;
 CREATE TABLE IF NOT EXISTS `adresse` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_utilisateur` int(11) NOT NULL,
+  `nom` varchar(140) NOT NULL,
+  `prenom` varchar(140) NOT NULL,
   `batiment` varchar(200) NOT NULL,
   `rue` varchar(200) NOT NULL,
   `code_postal` int(11) NOT NULL,
   `pays` varchar(140) NOT NULL,
   `ville` varchar(140) NOT NULL,
   `info_sup` varchar(200) NOT NULL,
-  `tel` int(11) NOT NULL,
+  `tel` char(13) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -71,16 +69,16 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `promo` int(11) DEFAULT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `articles`
 --
 
 INSERT INTO `articles` (`id`, `titre`, `presentation`, `description`, `image`, `image_2`, `image_3`, `note`, `prix`, `id_utilisateur`, `id_type`, `id_gamme`, `id_marque`, `id_generation`, `promo`, `date`) VALUES
-(1, '3090 FE', 'il etait une fois une carte', 'Elle a plus de coeur cuda que nimporte ki', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', '', '', NULL, 3090, 1, 3090, 3090, 3090, 3090, NULL, '2021-02-17'),
-(4, '3060 FE', 'il etait une fois une carte', 'Elle a plus de coeur cuda que nimporte ki', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://user.oc-static.com/files/381001_382000/381064.png', 'http://localhost/phpmyadmin/themes/pmahomme/img/logo_left.png', NULL, 3060, 1, 3060, 3060, 3060, 3060, NULL, '2021-02-19'),
-(5, '3060 FE', 'il etait une fois une carte', 'Elle a plus de coeur cuda que nimporte ki', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://user.oc-static.com/files/381001_382000/381064.png', 'http://localhost/phpmyadmin/themes/pmahomme/img/logo_left.png', NULL, 400, 1, 1, 1, 5, 1, NULL, '2021-02-19');
+(8, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://images.itnewsinfo.com/lmi/articles/grande/000000075100.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl8M82Wg0dA45Bj307DUbKsxMtvw7mK3X9xg&amp;usqp=CAU', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24'),
+(9, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24'),
+(10, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24');
 
 -- --------------------------------------------------------
 
@@ -97,20 +95,6 @@ CREATE TABLE IF NOT EXISTS `carte_bleu` (
   `code` int(11) NOT NULL,
   `date` date NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `categories`
---
-
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `gamme` varchar(140) NOT NULL,
-  `generation` varchar(140) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -300,26 +284,22 @@ CREATE TABLE IF NOT EXISTS `type` (
   `nom` varchar(140) NOT NULL,
   `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `type`
 --
 
 INSERT INTO `type` (`id`, `nom`, `image`) VALUES
-(1, 'Carte Graphique', 'https://www.hardwarecooking.fr/wp-content/uploads/2020/11/msi-geforce-rtx-serie-3000-suprim.jpg'),
-<<<<<<< HEAD
-(5, 'Processeurrrrrrr', 'https://www.rueducommerce.fr/media/images/web/produit/3211627/20210201072202/z590_vision_g_4_1140x1140.png'),
-=======
-(5, 'Processeur', 'https://images.idgesg.net/images/article/2018/03/blue-mother-board_circuitry_computer-chip_processor_harddrive-100751586-large.jpg'),
->>>>>>> c2d73ba6eb8dabdea46646823d618294601bf924
-(8, 'Stockage', 'https://hardzone.es/app/uploads-hardzone.es/2019/01/Magnetic-Hard-Drive-vs-SATA-SSD-vs-M2-NVMe.jpg'),
-(9, 'RAM', 'https://www.gamertech.fr/wp-content/uploads/2020/03/ram-memoire-pc-gamer.png'),
-(10, 'Ecran', 'https://images-na.ssl-images-amazon.com/images/I/71KS5M77puL._AC_SX425_.jpg'),
-(11, 'PC portable', 'https://image.jeuxvideo.com/medias-md/160647/1606471034-1133-card.jpg'),
-(12, 'PC fixe', 'https://www.hebergementwebs.com/image/d2/d20d03a174ae5af65c42ade1133329d1.jpg/obtenez-un-pc-de-jeu-pre-construit-rtx-3070-ou-rtx-3080-chez-newegg-13.jpg'),
-(13, 'Alimentation', 'https://www.alternate.fr/p/600x600/t/Corsair_CX_Series_CX750F_RGB_unit__d_alimentation_d__nergie_750_W_20_pin_ATX_ATX_Noir__Alimentation_PC@@tn7v6c04.jpg'),
-(14, 'Carte mère', 'https://www.rueducommerce.fr/media/images/web/produit/3211627/20210201072202/z590_vision_g_4_1140x1140.png');
+(28, 'Carte Graphique', 'http://www.laflecheinformatique.fr/catalogue/92-large_default/carte-video-gtx-1080ti-11go.jpg'),
+(27, 'Carte Graphique', 'http://www.laflecheinformatique.fr/catalogue/92-large_default/carte-video-gtx-1080ti-11go.jpg'),
+(17, 'Stockage', 'https://hardzone.es/app/uploads-hardzone.es/2019/01/Magnetic-Hard-Drive-vs-SATA-SSD-vs-M2-NVMe.jpg'),
+(18, 'RAM', 'https://www.gamertech.fr/wp-content/uploads/2020/03/ram-memoire-pc-gamer.png'),
+(19, 'Ecran', 'https://images-na.ssl-images-amazon.com/images/I/71KS5M77puL._AC_SX425_.jpg'),
+(20, 'PC portable', 'https://image.jeuxvideo.com/medias-md/160647/1606471034-1133-card.jpg'),
+(21, 'PC fixe', 'https://www.hebergementwebs.com/image/d2/d20d03a174ae5af65c42ade1133329d1.jpg/obtenez-un-pc-de-jeu-pre-construit-rtx-3070-ou-rtx-3080-chez-newegg-13.jpg'),
+(22, 'Alimentation', 'https://www.alternate.fr/p/600x600/t/Corsair_CX_Series_CX750F_RGB_unit__d_alimentation_d__nergie_750_W_20_pin_ATX_ATX_Noir__Alimentation_PC@@tn7v6c04.jpg'),
+(23, 'Carte mère', 'https://www.rueducommerce.fr/media/images/web/produit/3211627/20210201072202/z590_vision_g_4_1140x1140.png');
 
 -- --------------------------------------------------------
 
@@ -335,23 +315,18 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `login` varchar(140) NOT NULL,
   `email` varchar(140) NOT NULL,
   `password` varchar(140) NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `id_droits` int(140) NOT NULL,
   `anniversaire` date DEFAULT NULL,
-  `id_adresse` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `login`, `email`, `password`, `image`, `id_droits`, `anniversaire`, `id_adresse`) VALUES
-<<<<<<< HEAD
-(1, NULL, NULL, 'HARDJOJOJ', 'HARDJOJO@ok.fr', '$2y$10$2.Qa6ZJnVclaBpS1ZkgtmurjYkoJ7XXpvF3EFjnCl5CJFi6EenICi', 'https://cutewallpaper.org/21/netero-training-episode/Isaac-Netero-Wallpapers-Wallpaper-Cave.png', 1, NULL, NULL);
-=======
-(1, NULL, NULL, 'HARDJOJOJ', 'HARDJOJO@ok.fr', '$2y$10$2.Qa6ZJnVclaBpS1ZkgtmurjYkoJ7XXpvF3EFjnCl5CJFi6EenICi', '', 1, NULL, NULL);
->>>>>>> c2d73ba6eb8dabdea46646823d618294601bf924
+INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `login`, `email`, `password`, `image`, `id_droits`, `anniversaire`) VALUES
+(2, NULL, NULL, 'HARDJOJO', 'HARDJOJO@gmail.com', '$2y$10$TfG7tt8ZDc./v.zAXTZMZe6rXx8XXR7VmwooddV.dDBl0Ln4i8wHq', NULL, 1, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

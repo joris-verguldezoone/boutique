@@ -113,6 +113,37 @@ public function adresseInsert($nom, $prenom,$batiment, $rue , $code_postal, $pay
     var_dump($sql);
     $result->execute();
 }
+          //	id id_utilisateur  nom prenom batiment rue code_postal   pays ville info_sup tel
+
+public function fetchAdress(){
+
+    $id_utilisateur = $_SESSION['utilisateur']['id'];
+    
+    $sql = "SELECT * FROM adresse WHERE id_utilisateur = :id_utilisateur";
+    $result = $this->pdo->prepare($sql);
+    $result->bindValue(':id_utilisateur', $id_utilisateur, \PDO::PARAM_INT);
+    $result->execute();
+    $i = 0;
+    while($fetch = $result->fetch(\PDO::FETCH_ASSOC)){
+        $tableau[$i][] = $fetch['id'];
+        $tableau[$i][] = $fetch['id_utilisateur'];
+        $tableau[$i][] = $fetch['nom'];
+        $tableau[$i][] = $fetch['prenom'];
+        $tableau[$i][] = $fetch['batiment'];
+        $tableau[$i][] = $fetch['rue'];
+        $tableau[$i][] = $fetch['code_postal'];
+        $tableau[$i][] = $fetch['pays'];
+        $tableau[$i][] = $fetch['ville'];
+        $tableau[$i][] = $fetch['info_sup'];
+        $tableau[$i][] = $fetch['tel'];
+   
+
+        $i++;
+    }
+    return $tableau;
+
+}
+
 
 
 

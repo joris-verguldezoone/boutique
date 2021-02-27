@@ -1,0 +1,12 @@
+.adressMenuBlock{
+    height:20vh; 
+    width:40vh; 
+    background-color: blanchedalmond;
+    border-radius: 1em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+}
+main{
+    display: flex;
+    flex-direction: row;
+}

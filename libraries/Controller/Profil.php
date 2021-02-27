@@ -77,4 +77,47 @@ class Profil extends Controller{
         }
     echo $errorLog;
     }
+
+    public function createAdresse($nom, $prenom, $batiment , $rue , $code_postal, $ville, $pays, $info_sup, $telephone){
+        $modelProfil = new \Model\Profil();
+        $id_utilisateur = $_SESSION['utilisateur']['id'];
+        $errorLog = "";
+        $this->secure($nom);
+        $this->secure($prenom);
+        $this->secure($batiment);
+        $this->secure($rue);
+        $this->secure($code_postal); // possible erreur a cause de trim()
+        $this->secure($ville);
+        $this->secure($pays);
+        $this->secure($info_sup);
+        $this->secure($telephone);
+        
+        if(!empty($nom) && !empty($prenom) && !empty($batiment) && !empty($rue) && !empty($code_postal) && !empty($ville) && !empty($pays) &&!empty($telephone)){
+            $nom_len = strlen($nom);
+            $prenom_len = strlen($prenom);
+            $batiment_len = strlen($batiment);
+            $rue_len = strlen($rue);
+            $ville_len = strlen($ville);
+            $pays_len = strlen($pays);
+            if (($nom_len >= 2) && ($prenom_len >= 2) && ($batiment_len >= 3) && ($rue_len>=3) && ($ville_len >= 3) && ($pays_len >= 3)){
+                if (($nom_len <= 30) && ($prenom_len <= 30) && ($batiment_len <= 25) && ($rue_len <= 25 ) && ($ville_len  <= 20) && ($pays_len <= 20)){
+
+                $rowCount = $modelProfil->rowCount('adresse','id_utilisateur', $id_utilisateur);
+                    if($rowCount <= 3){
+                        $modelProfil->adresseInsert($nom, $prenom , $batiment, $rue, $code_postal, $ville, $pays , $info_sup, $telephone);
+                        $Http = new \Http();
+                        $Http->redirect('profil.php');
+                    }
+                    else  $errorLog = "Vous ne pouvez posséder plus de 3 adresses sur le meme compte";                
+                }
+                else $errorLog = "Vous avez dépassé le nombre de caractères autorisé pour l'un des champs";
+            }
+            else $errorLog = "Veuillez utiliser + de caracteres pour compléter votre adresse ";
+        }
+        else 
+        {
+            $errorLog = "Veuillez remplir les champs avant des nous les transmettre";
+        }
+        echo $errorLog;
+    }
 }
