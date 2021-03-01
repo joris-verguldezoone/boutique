@@ -1,8 +1,14 @@
 <?php
 //LIBRARIES
+
+require_once("../libraries/config/utils.php");
+$Http = "../libraries/config/Http.php";
+// require('../libraries/config/utils.php');
 $bdd = "../libraries/config/bdd.php";
 require_once('../libraries/Controller/Display.php');
 require_once('../libraries/Model/Display.php');
+require_once('../libraries/model/Article.php');
+
 //CSS
 $headerCss = "../css/header.css";
 $pageCss = "../css/article.css";

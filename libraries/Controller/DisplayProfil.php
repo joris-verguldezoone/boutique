@@ -6,10 +6,8 @@ class DisplayProfil {
 
     public function displayAdress(){
         $newUserModel = new \Model\Profil();
-        $newUserController = new \Controller\Profil();
+        $ControllerProfil = new \Controller\Profil();
         $answer = $newUserModel->alreadyTakenCheck('adresse', 'id_utilisateur', $_SESSION['utilisateur']['id']);
-        var_dump($answer);
-        echo 'coucou';
         if(!$answer){
           echo'
         <form class="block" method="POST" action="profil.php">
@@ -47,7 +45,6 @@ class DisplayProfil {
         echo "<section class='adressMenuBlock'></section>";
         echo "<section class='adressMenuBlock'></section>";
         $fetchAdress = $newUserModel->fetchAdress();
-        var_dump($fetchAdress);
           echo'
         <section class="adressMenuBlock">
             <form class="block" method="POST" action="profil.php">
@@ -81,12 +78,12 @@ class DisplayProfil {
             <input type="submit" id="profilSubmit" value="Modifier" name="insertAdress">
             </form>
         </section>';
-
-        if (isset($_POST['insertAdress'])) {
-            // $newUserController->adresseInsertVerif
-            $newUserController->createAdress($_POST['nom'], $_POST['prenom'], $_POST['batiment'], $_POST['rue'], $_POST['code_postal'], $_POST['ville'], $_POST['pays'], $_POST['info_sup'], $_POST['telephone']);
-        }
-      }
+    }
+    if (isset($_POST['insertAdress'])) {
+        // $newUserController->adresseInsertVerif
+        echo 'form';
+        $ControllerProfil->createAdresse($_POST['nom'], $_POST['prenom'], $_POST['batiment'], $_POST['rue'], $_POST['code_postal'], $_POST['ville'], $_POST['pays'], $_POST['info_sup'], $_POST['telephone']);
+    }
     }
 }
 

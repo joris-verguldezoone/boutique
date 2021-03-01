@@ -41,7 +41,6 @@ class Connexion extends Controller
                     $this->password = $utilisateur['password'];
                     $this->id_droits = $utilisateur['id_droits'];
                     $this->anniversaire =$utilisateur['anniversaire'];
-                    $this->id_adresse = $utilisateur['id_adresse'];
 
                     $Http = new \Http();
                     $Http->redirect('profil.php'); // GG WP

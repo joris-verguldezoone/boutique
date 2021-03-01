@@ -1,11 +1,11 @@
 <?php
 //LIBRARIES
+ob_start(); // pour mes fonction qui s'éxécutent pendant les headerlocation
 $bdd = "../libraries/config/bdd.php";
 require_once('../libraries/Controller/Admin.php');
 require_once('../libraries/model/Display.php');
 require_once('../libraries/Controller/Display.php');
 require_once('../libraries/config/utils.php');
-
 //CSS
 $headerCss = "../css/header.css";
 $pageCss = "../css/articles.css";
@@ -54,3 +54,6 @@ if(!isset($_GET['typeArticleSelected'])){
     ?>
 
 </main>
+<?php 
+ob_end_flush();
+?>

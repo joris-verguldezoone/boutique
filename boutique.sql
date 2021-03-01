@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 27 fév. 2021 à 11:13
+-- Généré le :  lun. 01 mars 2021 à 10:42
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -40,9 +40,18 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `pays` varchar(140) NOT NULL,
   `ville` varchar(140) NOT NULL,
   `info_sup` varchar(200) NOT NULL,
-  `tel` char(13) NOT NULL,
+  `tel` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=67 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `adresse`
+--
+
+INSERT INTO `adresse` (`id`, `id_utilisateur`, `nom`, `prenom`, `batiment`, `rue`, `code_postal`, `pays`, `ville`, `info_sup`, `tel`) VALUES
+(26, 1, 'Verguldezoone', 'Joris', '7 résidence Le Club', '139 François Mauriac', 13002, 'marseille', 'France', 'faut passer la rue du Dr Riera', 770739000),
+(27, 1, 'Verguldezoone', 'Joris', '7 résidence Le Club', '139 François Mauriac', 13002, 'marseille', 'France', 'faut passer la rue du Dr Riera', 770739000),
+(65, 1, 'Verguldezoone', 'Verguldezoone', 'Verguldezoone', 'Verguldezoone', 54254354, 'Verguldezoone', 'Verguldezoone', 'Verguldezoone', 654455000);
 
 -- --------------------------------------------------------
 
@@ -68,6 +77,9 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `id_generation` int(11) NOT NULL,
   `promo` int(11) DEFAULT NULL,
   `date` date NOT NULL,
+  `vues` varchar(11) NOT NULL DEFAULT '0',
+  `likey` varchar(11) DEFAULT NULL,
+  `dislike` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
@@ -75,10 +87,10 @@ CREATE TABLE IF NOT EXISTS `articles` (
 -- Déchargement des données de la table `articles`
 --
 
-INSERT INTO `articles` (`id`, `titre`, `presentation`, `description`, `image`, `image_2`, `image_3`, `note`, `prix`, `id_utilisateur`, `id_type`, `id_gamme`, `id_marque`, `id_generation`, `promo`, `date`) VALUES
-(8, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://images.itnewsinfo.com/lmi/articles/grande/000000075100.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl8M82Wg0dA45Bj307DUbKsxMtvw7mK3X9xg&amp;usqp=CAU', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24'),
-(9, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24'),
-(10, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24');
+INSERT INTO `articles` (`id`, `titre`, `presentation`, `description`, `image`, `image_2`, `image_3`, `note`, `prix`, `id_utilisateur`, `id_type`, `id_gamme`, `id_marque`, `id_generation`, `promo`, `date`, `vues`, `likey`, `dislike`) VALUES
+(8, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://images.itnewsinfo.com/lmi/articles/grande/000000075100.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl8M82Wg0dA45Bj307DUbKsxMtvw7mK3X9xg&amp;usqp=CAU', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24', '3', NULL, NULL),
+(9, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24', '16', NULL, NULL),
+(10, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24', '1', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -197,10 +209,10 @@ DROP TABLE IF EXISTS `likedislike`;
 CREATE TABLE IF NOT EXISTS `likedislike` (
   `id` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
-  `id_article` int(11) NOT NULL,
-  `id_commentaire` int(11) NOT NULL,
-  `likey` int(11) NOT NULL,
-  `dislike` int(11) NOT NULL,
+  `id_article` int(11) DEFAULT NULL,
+  `id_commentaire` int(11) DEFAULT NULL,
+  `likey` tinyint(1) DEFAULT NULL,
+  `dislike` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -327,6 +339,46 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `login`, `email`, `password`, `image`, `id_droits`, `anniversaire`) VALUES
 (2, NULL, NULL, 'HARDJOJO', 'HARDJOJO@gmail.com', '$2y$10$TfG7tt8ZDc./v.zAXTZMZe6rXx8XXR7VmwooddV.dDBl0Ln4i8wHq', NULL, 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vues`
+--
+
+DROP TABLE IF EXISTS `vues`;
+CREATE TABLE IF NOT EXISTS `vues` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_article` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `vues`
+--
+
+INSERT INTO `vues` (`id`, `id_article`, `id_utilisateur`) VALUES
+(1, 8, 2),
+(2, 8, 2),
+(3, 9, 2),
+(4, 9, 2),
+(5, 9, 2),
+(6, 9, 2),
+(7, 9, 2),
+(8, 9, 2),
+(9, 9, 2),
+(10, 9, 2),
+(11, 9, 2),
+(12, 9, 2),
+(13, 9, 2),
+(14, 9, 2),
+(15, 9, 2),
+(16, 9, 2),
+(17, 9, 2),
+(18, 9, 2),
+(19, 8, 2),
+(20, 10, 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -14,7 +14,7 @@ class Display extends Controller{
         echo '<section  class="rowSection">';
         foreach($tab as $key => $value){
                 
-                if($temp == 4){ //  ça c'est le fun qui peut me test svp ??
+                if($temp == 4){ //  ï¿½a c'est le fun qui peut me test svp ??
                     $temp = 1;
                 }
                                     
@@ -87,7 +87,7 @@ class Display extends Controller{
                 if(isset($_GET['TypeIdTracker']))
                 {
                     $nom = $value[1];
-                    echo "<p>Êtes-vous sûr de vouloir supprimer la catégorie ".$nom."?</p>";
+                    echo "<p>ï¿½tes-vous sï¿½r de vouloir supprimer la catï¿½gorie ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
                         $modelAdmin->deleteOneWhereId('type', $_GET['TypeIdTracker']);
                         
@@ -151,7 +151,7 @@ class Display extends Controller{
                 if(isset($_GET['GammeIdTracker']))
                 {
                     $nom = $value[1];
-                    echo "<p>Êtes-vous sûr de vouloir supprimer la gamme ".$nom."?</p>";
+                    echo "<p>ï¿½tes-vous sï¿½r de vouloir supprimer la gamme ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
                         $modelAdmin->deleteOneWhereId('gamme', $_GET['GammeIdTracker']);
                         
@@ -215,7 +215,7 @@ class Display extends Controller{
                 if(isset($_GET['GenerationIdTracker']))
                 {
                     $nom = $value[1];
-                    echo "<p>Êtes-vous sûr de vouloir supprimer la Generation ".$nom."?</p>";
+                    echo "<p>ï¿½tes-vous sï¿½r de vouloir supprimer la Generation ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
                         $modelAdmin->deleteOneWhereId('generation', $_GET['GenerationIdTracker']);
                         
@@ -286,7 +286,7 @@ class Display extends Controller{
                 if(isset($_GET['MarqueIdTracker']))
                 {
                     $nom = $value[1];
-                    echo "<p>Êtes-vous sûr de vouloir supprimer la marque ".$nom."?</p>";
+                    echo "<p>ï¿½tes-vous sï¿½r de vouloir supprimer la marque ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
                         $modelAdmin->deleteOneWhereId('marque', $_GET['MarqueIdTracker']);
                         
@@ -414,7 +414,7 @@ foreach($tab as $value)
         if(isset($_GET['ArticleIdTracker']))
         {
             $nom = $value[1];
-            echo "<p>Êtes-vous sûr de vouloir supprimer la marque ".$nom."?</p>";
+            echo "<p>ï¿½tes-vous sï¿½r de vouloir supprimer la marque ".$nom."?</p>";
                 $modelAdmin = new \Model\Admin();
                 $modelAdmin->deleteOneWhereId('articles', $_GET['ArticleIdTracker']);
                 
@@ -491,7 +491,7 @@ foreach($tab as $value)
         if(isset($_GET['UtilisateurIdTracker']))
         {
             $nom = $value[3]; // login pas nom [1]
-            echo "<p>Êtes-vous sûr de vouloir supprimer cet(te) Utilisateur(e) ".$nom."?</p>";
+            echo "<p>Ãªtes-vous sur de vouloir supprimer cet(te) Utilisateur(e) ".$nom."?</p>";
                 $modelAdmin = new \Model\Admin();
                 $modelAdmin->deleteOneWhereId('Utilisateur', $_GET['UtilisateurIdTracker']);
                 
@@ -533,6 +533,10 @@ foreach($tab as $value)
     public function DisplayOneArticle($id){
         $modelArticle = new \Model\Display();
         $tab = $modelArticle->selectOne('articles', '*', 'id' ,$id );
+        
+            $modelArticle = new \Model\Article();
+            $modelArticle->IncrementView($id,$_SESSION['utilisateur']['id']);
+        
         foreach($tab as $key => $value){
             //	id titre presentation description image  image_2 image_3 note prix id_utilisateur id_type  id_gamme  id_marque id_generation promo date 
             echo" <section> 
@@ -548,6 +552,16 @@ foreach($tab as $value)
          
             
              </section>";
+             echo "<form action='' method='GET'>
+             <button name='like' type='submit'></button>
+             <button name='dislike' type='submit'></button>
+             </form>";
+             if(isset($_GET['like'])){
+                 
+            }
+            if(isset($_GET['dislike'])){
+                 
+            }
         }
     }
 }

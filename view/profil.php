@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 //LIBRARIES
 $utils = "../libraries/config/utils.php";
 $bdd = "../libraries/config/bdd.php";
@@ -168,3 +169,6 @@ var_dump($_POST);
 
 
 </main>
+<?php
+ob_end_flush();
+?>
