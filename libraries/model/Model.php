@@ -77,6 +77,16 @@ abstract class Model{
             $result->execute();
         }
     // GENERIC UPDATE 
+    // utilisateurs', 'login','id', $login, $_SESSION['utilisateur']['id']
+    public function updateOneValue($nomTable, $colonne1,$colonne2, $value1,$value2){
+        
+        $sql = "UPDATE $nomTable SET $colonne1 = :value1 WHERE $colonne2= :value2";
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(":value1",$value1,\PDO::PARAM_STR);  
+        $result->bindValue(":value2",$value2,\PDO::PARAM_INT);  
+        $result->execute();
+        var_dump($sql);
+    }
     public function updateThreeValue($nomTable,$colonne1,$colonne2,$colonne3,$value1,$value2,$value3){ // STR
         $sql = "UPDATE $nomTable SET $colonne1 = :value1,$colonne2 = :value2,$colonne3 = :value3 WHERE id= :value1";
         $result = $this->pdo->prepare($sql);
@@ -111,41 +121,41 @@ abstract class Model{
         $fetch = $result->fetchAll();
         return $fetch;  
     }
-    public function like($id_utilisateur, $element ,$likedislike){
+    // public function like($id_utilisateur, $element ,$likedislike){
         
-        $existArticle = alreadyTakenCheck('likedislike','id',$id_article);
-        // $existArticle = alreadyTakenCheck('likedislike','id',$id_commentaire);
+    //     $existArticle = alreadyTakenCheck('likedislike','id',$id_article);
+    //     // $existArticle = alreadyTakenCheck('likedislike','id',$id_commentaire);
 
-        $sql = "INSERT INTO likedislike (id_article, id_utilisateur, like) VALUES (:id_article, :id_utilisateur, 1)";
-        $result = $this->pdo->prepare($sql);
-        $result->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
-        $result->bindValue(':id_utilisateur',$id_utilisateur,\PDO::PARAM_INT);
+    //     $sql = "INSERT INTO likedislike (id_article, id_utilisateur, like) VALUES (:id_article, :id_utilisateur, 1)";
+    //     $result = $this->pdo->prepare($sql);
+    //     $result->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
+    //     $result->bindValue(':id_utilisateur',$id_utilisateur,\PDO::PARAM_INT);
 
-        $result->execute();
+    //     $result->execute();
         
-        $sql2 = "INSERT INTO likedislike (id_article, id_utilisateur, like) VALUES (:id_article, :id_utilisateur, 1)";
-        $result2 = $this->pdo->prepare($sql2);
-        $result2->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
-        $result2->bindValue(':id_utilisateur',$id_utilisateur,\PDO::PARAM_INT);
+    //     $sql2 = "INSERT INTO likedislike (id_article, id_utilisateur, like) VALUES (:id_article, :id_utilisateur, 1)";
+    //     $result2 = $this->pdo->prepare($sql2);
+    //     $result2->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
+    //     $result2->bindValue(':id_utilisateur',$id_utilisateur,\PDO::PARAM_INT);
 
-        $result2->execute();
+    //     $result2->execute();
 
-        $sql2 = "SELECT COUNT(id) FROM vues WHERE id_article = :id_article";
-        $result2 = $this->pdo->prepare($sql2);
-        $result2->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
+    //     $sql2 = "SELECT COUNT(id) FROM vues WHERE id_article = :id_article";
+    //     $result2 = $this->pdo->prepare($sql2);
+    //     $result2->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
 
-        $result2->execute();
+    //     $result2->execute();
 
-        $vues = $result2->fetchAll();
-        var_dump($vues);
+    //     $vues = $result2->fetchAll();
+    //     var_dump($vues);
 
-        $sql3 = "UPDATE articles SET vues = :vues WHERE id = :id_article";
-        $result3 = $this->pdo->prepare($sql3);
-        $result3->bindValue(':vues', $vues[0]['COUNT(id)'], \PDO::PARAM_STR);
-        $result3->bindValue(':id_article', $id_article, \PDO::PARAM_INT);
+    //     $sql3 = "UPDATE articles SET vues = :vues WHERE id = :id_article";
+    //     $result3 = $this->pdo->prepare($sql3);
+    //     $result3->bindValue(':vues', $vues[0]['COUNT(id)'], \PDO::PARAM_STR);
+    //     $result3->bindValue(':id_article', $id_article, \PDO::PARAM_INT);
         
-        $result3->execute();
-    }
+    //     $result3->execute();
+    // }
 
 }
 ?>
