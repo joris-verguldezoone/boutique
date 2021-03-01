@@ -29,13 +29,31 @@ $deconnexion = "../index.php?off=1";
 require('../require/html_/header.php');
 ?>
 <main>
+<form action='' method='POST'>
+	<button name='likeArticle' type='submit'>coucou</button>
+</form>
+<!-- <form action='' method='POST'>
+	<button name='likeArticle' type='submit'>coucou</button>
+</form> -->
 	<?php
 $controllerDisplay = new \Controller\Display();
 
 $controllerDisplay->displayOneArticle($_GET['articleSelected']);
 
+
+
 var_dump($_GET);
 echo "cc";
+
+if(isset($_POST['likeArticle'])){
+	$model = new \Model\Article();
+	$model->like($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
+}
+// if(isset($_POST['NoteArticle'])){
+// 	$model = new \Model\Article();
+// 	$model->note($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
+// }
 ?>
+
 
 </main>

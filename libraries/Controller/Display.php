@@ -14,14 +14,14 @@ class Display extends Controller{
         echo '<section  class="rowSection">';
         foreach($tab as $key => $value){
                 
-                if($temp == 4){ //  �a c'est le fun qui peut me test svp ??
+                if($temp == 4){ //  ?a c'est le fun qui peut me test svp ??
                     $temp = 1;
                 }
                                     
                 echo "<form action='' method='get' class='form_composant'>";
-                echo "<button type='submit' name='typeArticleSelected' value= '".$value[0]."'>";
+                echo "<button type='submit' class='buttom_comp' name='typeArticleSelected' value= '".$value[0]."'>";
                 // echo $value[0]; // peut etre en hidden input
-                echo "<p>".$value[1]."</p>";
+            	echo "<p class='typo_comp'><u>".$value[1]."</u></p>";
                 echo "<img src='$value[2]' class='dimension_image'>
                 </button>";
                 echo "</form>";
@@ -87,7 +87,7 @@ class Display extends Controller{
                 if(isset($_GET['TypeIdTracker']))
                 {
                     $nom = $value[1];
-                    echo "<p>�tes-vous s�r de vouloir supprimer la cat�gorie ".$nom."?</p>";
+                    echo "<p>?tes-vous s?r de vouloir supprimer la cat?gorie ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
                         $modelAdmin->deleteOneWhereId('type', $_GET['TypeIdTracker']);
                         
@@ -151,7 +151,7 @@ class Display extends Controller{
                 if(isset($_GET['GammeIdTracker']))
                 {
                     $nom = $value[1];
-                    echo "<p>�tes-vous s�r de vouloir supprimer la gamme ".$nom."?</p>";
+                    echo "<p>?tes-vous s?r de vouloir supprimer la gamme ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
                         $modelAdmin->deleteOneWhereId('gamme', $_GET['GammeIdTracker']);
                         
@@ -215,7 +215,7 @@ class Display extends Controller{
                 if(isset($_GET['GenerationIdTracker']))
                 {
                     $nom = $value[1];
-                    echo "<p>�tes-vous s�r de vouloir supprimer la Generation ".$nom."?</p>";
+                    echo "<p>?tes-vous s?r de vouloir supprimer la Generation ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
                         $modelAdmin->deleteOneWhereId('generation', $_GET['GenerationIdTracker']);
                         
@@ -235,7 +235,7 @@ class Display extends Controller{
         echo"<table>
                 <tr>
                     <th>Id</th>
-                    <th>Nom</th>	
+                    <th>Constructeur</th>	
                     <th>image</th>	
                     <th>description</th>	                   
                 </tr>";
@@ -286,9 +286,80 @@ class Display extends Controller{
                 if(isset($_GET['MarqueIdTracker']))
                 {
                     $nom = $value[1];
-                    echo "<p>�tes-vous s�r de vouloir supprimer la marque ".$nom."?</p>";
+                    echo "<p>?tes-vous s?r de vouloir supprimer la marque ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
                         $modelAdmin->deleteOneWhereId('marque', $_GET['MarqueIdTracker']);
+                        
+                        $modelHttp = new \Http();
+                        $modelHttp->redirect('admin.php');
+                   
+                }
+            }  
+            echo "</table>";
+    }
+    public function displayEditeur()
+    { // ->admin
+        $modelDisplay = new \Model\Display();
+        $tab = $modelDisplay->findAllEditeur();
+    	
+
+        echo"<table>
+                <tr>
+                    <th>Id</th>
+                    <th>Editeur</th>	
+                    <th>image</th>	
+                    <th>description</th>	                   
+                </tr>";
+        foreach($tab as $value)
+        { 
+        
+            echo "<tr>
+                    <form action='' method='GET'>
+                        <td>
+                            <input type='number' name='MarqueIdEditeur' value='".$value[0]."'>
+                        </td>"; // peut etre en hidden input
+                echo "  <td>
+                            <input type='text' name='MarqueEditeur' value='".$value[1]."'>
+                        </td>";
+                        echo "
+                        <td>
+                            <img src='".$value[2]."' class='display_img_size_backOffice'>
+                        </td>";
+                echo "  <td>
+                            <input name='Marque_ImgEditeur' type='text' value='".$value[2]."'>
+                        </td>";
+                        echo $value[2];
+                        echo "  
+                        <td>
+                            <input name='Marque_descriptionEditeur' type='text' value='".$value[3]."'>
+                        </td>
+                        <td>
+                            <input type='submit' id='Modifier' name='modifyMarqueEditeur' value='modifier'>
+                            <input type='hidden' name='MarqueNameEditeur' id='hiddenId' value='".$value[0]."'> 
+                        </td>
+                    </form>
+                    <form action ='' method='GET'>
+                            <td>
+                                <input type='submit' value='supprimer'>
+                                <input type='hidden' name='MarqueIdTrackerEditeur' id='suppr' value='".$value[0]."'>
+                            </td>
+                        </form>
+                </tr>";
+                if(isset($_GET['modifyMarqueEditeur']))
+                {
+                    $modelAdmin = new \Model\Admin();
+                    
+                    $modelAdmin->updateFourValueStr('editeur','id','nom','image','description',$_GET['MarqueIdEditeur'],$_GET['MarqueEditeur'],$_GET['Marque_ImgEditeur'],$_GET['Marque_descriptionEditeur']);
+                  
+                    $modelHttp = new \Http();
+                    $modelHttp->redirect('admin.php');
+                }
+                if(isset($_GET['MarqueIdTrackerEditeur']))
+                {
+                    $nom = $value[1];
+                    echo "<p>etes-vous syr de vouloir supprimer la cet Editeur ".$nom."?</p>";
+                        $modelAdmin = new \Model\Admin();
+                        $modelAdmin->deleteOneWhereId('editeur', $_GET['MarqueIdTrackerEditeur']);
                         
                         $modelHttp = new \Http();
                         $modelHttp->redirect('admin.php');
@@ -414,7 +485,7 @@ foreach($tab as $value)
         if(isset($_GET['ArticleIdTracker']))
         {
             $nom = $value[1];
-            echo "<p>�tes-vous s�r de vouloir supprimer la marque ".$nom."?</p>";
+            echo "<p>?tes-vous s?r de vouloir supprimer la marque ".$nom."?</p>";
                 $modelAdmin = new \Model\Admin();
                 $modelAdmin->deleteOneWhereId('articles', $_GET['ArticleIdTracker']);
                 
@@ -491,7 +562,7 @@ foreach($tab as $value)
         if(isset($_GET['UtilisateurIdTracker']))
         {
             $nom = $value[3]; // login pas nom [1]
-            echo "<p>êtes-vous sur de vouloir supprimer cet(te) Utilisateur(e) ".$nom."?</p>";
+            echo "<p>�tes-vous sur de vouloir supprimer cet(te) Utilisateur(e) ".$nom."?</p>";
                 $modelAdmin = new \Model\Admin();
                 $modelAdmin->deleteOneWhereId('Utilisateur', $_GET['UtilisateurIdTracker']);
                 

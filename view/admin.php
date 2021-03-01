@@ -51,24 +51,66 @@ var_dump($_SESSION);
     ?>
 </section>
 <section>
-<form method="POST" action=''>
+<form method="GET" action=''>
     <button name="addElement" class='adminInterface' type="submit">Ajouter un élément</button>
 </form>
 <?php 
-if(isset($_POST['addElement'])){ 
+if(isset($_GET['addElement'])){ 
 echo '<form action="" method="GET">
             <label for="createType">Créer un nouveau type d article</label>
             <input type="text" name="createType" placeholder="TELEVISION">
-            <input type="text" name="createTypeImg" placeholder="Url img">
+            <input type="text" name="createTypeImg" placeholder="Url image">
             <input type="submit" name="submitType">
         </form>';
     
-    if(isset($_GET  ['submitType'])){
+    if(isset($_GET['submitType'])){
        $controllerAdmin->verifyAndInsertTwo('type', 'nom' ,'image' ,$_GET['createType'], $_GET['createTypeImg']);
        
     }
+    // ajouter une nouvelle gamme
     ?>
-<!-- Insérer une generation -->
+        <section>
+            <form action="" method="POST">
+                <label for="NameBrand">Nom marque</label>
+                <input type="text" name="NameBrand" placeholder="INTEL">
+
+                <label for="NameEditor">Nom Editeur</label>
+                <input type="text" name="NameEditor" placeholder="MSI">
+                    
+                <label for="imageBrand">Image</label>
+                <input type="text" name="imageBrand" placeholder="MSI">
+                
+                <img class='display_img_size_backOffice' src='https://www.electroguide.com/images/icones-marques/logo-msi.jpg'>
+                
+                <label for="descriptionMarque">Description marque</label>
+                <textarea name="descriptionMarque"></textarea>
+                
+                <input type='submit' name="submitBrand">
+                <?php
+                if(isset($_POST['submitBrand']))
+                {   $isEmpty = strlen($_POST['NameEditor']);
+                    echo $isEmpty;
+                    if($isEmpty == 0){
+                    echo "ee";
+                        
+                        // $controllerAdmin->verifyAndInsertOne('type', 'nom' , $_POST['NameBrand']);
+                        $controllerAdmin->createBrand($_POST['NameBrand'], $_POST['imageBrand'], $_POST['descriptionMarque']);
+                        // j'utilise pas insertThreeValue car c'est une fonction specifique aux colonnes qu'elle vise
+                        
+                    }
+                    else{
+                    echo $isEmpty;
+                        
+                        // $controllerAdmin->verifyAndInsertOne('type', 'nom' , $_POST['NameBrand']);
+                        $controllerAdmin->createEditor($_POST['NameEditor'], $_POST['imageBrand'], $_POST['descriptionMarque']);
+                        // j'utilise pas insertThreeValue car c'est une fonction specifique aux colonnes qu'elle vise
+                    }
+                }
+                ?>
+            </form>
+            
+        </section>
+                <!-- Insérer une generation -->
 <section>
 
     <form action="" method="POST">
@@ -89,7 +131,8 @@ echo '<form action="" method="GET">
         <?php
         if(isset($_POST['submitGeneration']))
         {
-           $controllerAdmin->createWithThreeValues('generation' ,$_POST['NameGeneration'], $_POST['GenerationSelected1'] , $_POST['GenerationSelected2']);
+            echo 'coucou';
+           $controllerAdmin->createWithThreeValues('generation','nom','id_type','id_marque',$_POST['NameGeneration'], $_POST['GenerationSelected1'] , $_POST['GenerationSelected2']);
         }
             ?>
 
@@ -112,51 +155,35 @@ echo '<form action="" method="GET">
         $controllerDisplay->displaySelect('marque');
         ?>
         </select>
+        <select name="gammeSelected3">
+        <?php
+        $controllerDisplay->displaySelect('editeur');
+        ?>
+        </select>
         <?php
         if(isset($_POST['submitGamme']))
         {
-           $controllerAdmin->createWithThreeValues('gamme', $_POST['createGamme'], $_POST['gammeSelected1'] , $_POST['gammeSelected2']);
+           $controllerAdmin->createWithFourValues('gamme', 'nom','id_type','id_marque','id_editeur', $_POST['createGamme'], $_POST['gammeSelected1'] , $_POST['gammeSelected2'], $_POST['gammeSelected3']);
         }
         ?>
     </form>
 </section>
 <!-- Insérer une marque -->
-<section>
-    <form action="" method="POST">
-        <label for="NameBrand">Nom marque</label>
-        <input type="text" name="NameBrand" placeholder="MSI">
-
-        <label for="imageBrand">Image</label>
-        <p>ici normal c insert photo</p>
-        <input type="number" name="imageBrand" placeholder="MSI">
-        <input type='submit' name="submitBrand">
-        
-        <label for="descriptionMarque">Description marque</label>
-        <textarea name="descriptionMarque"></textarea>
-        <?php
-        if(isset($_POST['submitBrand']))
-        {
-           $controllerAdmin->verifyAndInsertOne('type', 'nom' , $_POST['NameBrand']);
-           $controllerAdmin->createBrand($_POST['NameBrand'], $_POST['imageBrand'], $_POST['descriptionMarque']);
-        // j'utilise pas insertThreeValue car c'est une fonction specifique aux colonnes qu'elle vise
-        }
-        ?>
-    </form>
-    
-</section>
     <?php } ?>
 </section>
 <!-- Ici ce sera creation article-->
     <section>
-        <form method='POST' action=''>
+        <form method='GET' action=''>
             <button name='addProduct' type='submit' class='adminInterface'> Ajouter un produit </button>
         </form>
+        <form method='POST' action=''>
+            <button name='addProduct_POST' type='submit' class='adminInterface'> Afficher</button>
+        </form>
         <?php
-        
-        if(isset($_POST['addProduct'])){
+        if(isset($_GET['addProduct'])|| isset($_POST['addProduct_POST'])){
            
             ?>
-            <form action= "" method="GET">
+            <form action= "" method="POST">
             <label for="title">Titre</label><br />
             <input type="text" name="title" placeholder="Ordinateur quantique" required><br />
             		
@@ -198,23 +225,30 @@ echo '<form action="" method="GET">
             <select name="gamme">
                 <?php
                     $controllerDisplay->displaySelect('gamme');
-                ?>
+                    ?>
              </select>
              <br /><label for="marque">Marque</label><br />
-            <select name="marque">
-                <?php
+             <select name="marque">
+                 <?php
                     $controllerDisplay->displaySelect('marque');
-       
-                ?>
+                    
+                    ?>
+             </select>
+             <select name="editeur">
+                 <?php
+                    
+                    $controllerDisplay->displaySelect('editeur');
+                    ?>
              </select>
              <input type='submit' name='submitNewCategorie'>
              
         </form>
         <?php
-        if(isset($_GET['submitNewCategorie'])){
+        if(isset($_POST['submitNewCategorie'])){
             $id_utilisateur = $_SESSION['utilisateur']['id'];
-             $controllerAdmin->createArticle($_GET['title'],$_GET['presentation'],$_GET['description'],$_GET['image'],$_GET['image_2'],$_GET['image_3']
-             ,$_GET['prix'],$id_utilisateur, $_GET['typeCreateArticle'],$_GET['generation'],$_GET['gamme'],$_GET['marque']);
+
+             $controllerAdmin->createArticle($_POST['title'],$_POST['presentation'],$_POST['description'],$_POST['image'],$_POST['image_2'],$_POST['image_3']
+                                        ,$_POST['prix'],$id_utilisateur, $_POST['typeCreateArticle'],$_POST['generation'],$_POST['gamme'],$_POST['marque'] , $_POST['editeur']);
         }
         
         }
@@ -226,12 +260,12 @@ echo '<form action="" method="GET">
     </section>
 
 <section>
-        <form method='POST' action=''>
+        <form method='GET' action=''>
             <button type='submit' class='adminInterface' name='Utilisateurs'>Voir les utilisateurs</button>
         </form>
 
     <?php
-        if(isset($_POST['Utilisateurs'])){
+        if(isset($_GET['Utilisateurs'])){
 
         echo "<table>
                 <tr>

@@ -8,11 +8,8 @@ require_once("Controller.php");
 
 class Profil extends Controller{
 
-    
-
     public function profil($login, $password, $confirm_password, $email)
     {
-
         $controllerProfil = new \Controller\Profil();
 
         $this->login = $controllerProfil->secure($_POST['login']);
@@ -22,14 +19,13 @@ class Profil extends Controller{
 
         $errorLog = null;
 
-            $login_len = strlen($login);
-            $password_len = strlen($password);
-            $confirm_password_len = strlen($confirm_password);
-            $email_len = strlen($email);
+        $login_len = strlen($login);
+        $password_len = strlen($password);
+        $confirm_password_len = strlen($confirm_password);
+        $email_len = strlen($email);
 
-            $modelProfil = new \Model\Profil();
+        $modelProfil = new \Model\Profil();
 
-            // updateOneValue
             if(!empty($login)){
                 if($login_len >= 2){
                     if($login_len <= 30){

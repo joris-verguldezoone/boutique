@@ -70,6 +70,12 @@ abstract class Model{
             $result = $this->pdo->prepare($sql);
             $result->execute([$value1,$value2,$value3]);
         }
+
+        public function insertFourValue($nomTable, $colonne1,$colonne2,$colonne3,$colonne4,$value1, $value2, $value3,$value4){
+            $sql = "INSERT INTO $nomTable ($colonne1,$colonne2,$colonne3,$colonne4) VALUES (?,?,?,?)";
+            $result = $this->pdo->prepare($sql);
+            $result->execute([$value1,$value2,$value3,$value4]);
+        }
         public function deleteOneWhereId($nomTable, $id){
             $sql = "DELETE FROM $nomTable WHERE id = :id";
             $result = $this->pdo->prepare($sql);
@@ -121,24 +127,47 @@ abstract class Model{
         $fetch = $result->fetchAll();
         return $fetch;  
     }
-    // public function like($id_utilisateur, $element ,$likedislike){
+    public function likeCheck($nomTable, $colonne1, $colonne2,$value1, $value2){
+        $sql = "SELECT * FROM $nomTable WHERE $colonne1 = :value1 AND $colonne2 = :value2 ";
+        var_dump($sql);
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(":value1",$value1);
+        $result->bindValue(":value2",$value2);
+        $result->execute();
+        $fetch = $result->fetch(\PDO::FETCH_ASSOC);
+        return $fetch;
+
+    }
+
+    public function like($id_article, $id_utilisateur){
+        $modelLike = new \Model\Article();
+
+        var_dump($id_article);
+        $existArticle = $modelLike->likeCheck('likey','id_article', 'id_utilisateur',$id_article, $id_utilisateur);
+        echo 'yes';
+        var_dump($existArticle);
+        echo 'yes';
+        // $existArticle = alreadyTakenCheck('likedislike','id',$id_commentaire);
+        if(!$existArticle){
+
+            echo'top';
+            $sql = "INSERT INTO likey (id_article, id_utilisateur) VALUES (:id_article, :id_utilisateur)";
+            $result = $this->pdo->prepare($sql);
+            $result->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
+            $result->bindValue(':id_utilisateur',$id_utilisateur,\PDO::PARAM_INT);
+    
+            $result->execute();
+        }
+        else{
+            $sql = "DELETE FROM likey WHERE id_article = :id_article AND id_utilisateur = :id_utilisateur";
+            $result = $this->pdo->prepare($sql);
+            $result->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
+            $result->bindValue(':id_utilisateur',$id_utilisateur,\PDO::PARAM_INT);
+    
+            $result->execute();        
+        }
         
-    //     $existArticle = alreadyTakenCheck('likedislike','id',$id_article);
-    //     // $existArticle = alreadyTakenCheck('likedislike','id',$id_commentaire);
-
-    //     $sql = "INSERT INTO likedislike (id_article, id_utilisateur, like) VALUES (:id_article, :id_utilisateur, 1)";
-    //     $result = $this->pdo->prepare($sql);
-    //     $result->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
-    //     $result->bindValue(':id_utilisateur',$id_utilisateur,\PDO::PARAM_INT);
-
-    //     $result->execute();
-        
-    //     $sql2 = "INSERT INTO likedislike (id_article, id_utilisateur, like) VALUES (:id_article, :id_utilisateur, 1)";
-    //     $result2 = $this->pdo->prepare($sql2);
-    //     $result2->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
-    //     $result2->bindValue(':id_utilisateur',$id_utilisateur,\PDO::PARAM_INT);
-
-    //     $result2->execute();
+ 
 
     //     $sql2 = "SELECT COUNT(id) FROM vues WHERE id_article = :id_article";
     //     $result2 = $this->pdo->prepare($sql2);
@@ -157,5 +186,6 @@ abstract class Model{
     //     $result3->execute();
     // }
 
+}
 }
 ?>

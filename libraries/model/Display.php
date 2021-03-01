@@ -68,6 +68,22 @@ class Display extends Model{
         }
         return $tableau;
     }
+    public function findAllEditeur(){
+        $sql = "SELECT * FROM editeur";
+        $result = $this->pdo->prepare($sql);
+        $result->execute();
+
+        $i = 0;
+        while($fetch = $result->fetch(\PDO::FETCH_ASSOC)){
+            $tableau[$i][] = $fetch['id'];
+            $tableau[$i][] = $fetch['nom'];
+            $tableau[$i][] = $fetch['image']; 
+            $tableau[$i][] = $fetch['description'];     
+
+            $i++;
+        }
+        return $tableau;
+    }
     public function findAllArticles(){
         $sql = "SELECT * FROM articles ";
         $result = $this->pdo->prepare($sql);

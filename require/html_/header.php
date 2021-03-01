@@ -14,9 +14,7 @@ echo "
 </head>
 <body>
     <header>
-
-
-
+<!--
 <a class='a_header' href='$index'>Index</a>
 
 <a class='a_header' href='$inscription'>Inscription</a>
@@ -29,6 +27,29 @@ echo "
 <a class='a_header' href='$panier'>Panier</a>
 
 <a class='a_header' href='$admin'>Admin</a>
-<a class='a_header' href='$deconnexion'>Déconnexion</a>";
+<a class='a_header' href='$deconnexion'>Déconnexion</a>-->
+<nav>
+  <ul>
+    <li class='deroulant'><a href='#'>Nos produits &ensp;</a>
+        <ul class='sous'>
+            <li class='deroulant_compo'><a href='#'>Nos composants &#9658;</a>
+        <li><a href='#'>Carte Graphique</a></li>
+        <li><a href='#'>Processeur</a></li>
+        <li><a href='#'>Stockage</a></li>
+        <li><a href='#'>RAM</a></li>
+        <li><a href='#'>Ecran</a></li>
+        <li><a href='#'>PC Portable</a></li>
+        <li><a href='#'>PC Fixe</a></li>
+        <li><a href='#'>Alimentation</a></li>
+        <li><a href='#'>Carte mère</a></li>
+
+        
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+               
+";
 
 ?>
