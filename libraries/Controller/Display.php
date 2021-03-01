@@ -21,7 +21,7 @@ class Display{
             echo "<form action='article.php' method='get' class='form_composant'>";
             echo "<button type='submit' name='".$value[2]."' class='buttom_comp'>";
             // echo $value[0]; // peut etre en hidden input
-            echo "<p class='typo_comp'>".$value[1]."</p>";
+            echo "<p class='typo_comp'><u>".$value[1]."</u></p>";
             echo "<img src='$value[2]' class='dimension_image'>
                 </button>";
             echo "</form>";
