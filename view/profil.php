@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 //LIBRARIES
 $utils = "../libraries/config/utils.php";
 $bdd = "../libraries/config/bdd.php";
@@ -6,6 +7,8 @@ $Http = "../libraries/config/Http.php";
 require('../libraries/Model/Profil.php');
 require('../libraries/config/utils.php');
 require('../libraries/Controller/Profil.php');
+require('../libraries/Controller/DisplayProfil.php');
+
 
 //CSS
 $headerCss = "../css/header.css";
@@ -29,6 +32,7 @@ require('../require/html_/header.php');
 
 $newUserModel = new \Model\Profil();
 $newUserController = new \Controller\Profil();
+var_dump($_POST);
 
 ?>
 
@@ -36,27 +40,18 @@ $newUserController = new \Controller\Profil();
     <form class="block" method="POST" action="profil.php">
         <h1><u>Profil</u></h1>
 
-        <article>
-            <label for="login" class="inp">
-                <input type="text" id="profilLogin" name="login" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['login'];?>">
-                <span class="label">New Login</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="password" class="inp">
-                <input type="password" id="profilPassword" name="password" placeholder="&nbsp;">
-                <span class="label">New Password</span>
-                <span class="focus-bg"></span>
-            </label></br>
-            <label for="confirm_password" class="inp">
-                <input type="password" id="profilConfirm_password" name="confirm_password" placeholder="&nbsp;">
-                <span class="label">Confirm New Password</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="email" class="inp">
-                <input type="text" id="inscriptionEmail" name="email" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['email'];?>">
-                <span class="label">New Email</span>
-                <span class="focus-bg"></span>
-            </label>
+        <article class='InfoGenerales'>
+            <label for="login">Login</label>
+                <input type="text" id="profilLogin" name="login" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['login'];?>"><br />
+           
+            <label for="password">Mot de passe</label>
+                <input type="password" id="profilPassword" name="password" placeholder="&nbsp;"><br />
+             
+            <label for="confirm_password">Confirmation du mot de passe</label>
+                <input type="password" id="profilConfirm_password" name="confirm_password" placeholder="&nbsp;"><br />
+           
+            <label for="email">Email</label>
+                <input type="text" id="inscriptionEmail" name="email" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['email'];?>"><br />
         </article>
 
         <input type="submit" id="profilSubmit" value="update" name="update">
@@ -71,28 +66,20 @@ $newUserController = new \Controller\Profil();
 <!-- INFO PERSONNEL -->
 
     <form class="block" method="POST" action="profil.php">
+        <article class='InfoSupplementaire'>
 
-        <article>
-            <label for="nom" class="inp">
-                <input type="text" id="profilNom" name="nom" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['nom'];?>">
-                <span class="label">Nom</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="prenom" class="inp">
-                <input type="text" id="profilPrenom" name="prenom" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['prenom'];?>">
-                <span class="label">Prénom</span>
-                <span class="focus-bg"></span>
-            </label></br>
-            <label for="anniversaire" class="inp">
-                <input type="date" id="profilAnniv" name="anniversaire" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['anniversaire'];?>">
-                <span class="label">Anniv</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="email" class="inp">
-                <input type="text" id="profilEmail" name="email" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['email'];?>">
-                <span class="label">Email</span>
-                <span class="focus-bg"></span>
-            </label>
+            <label for="nom">Nom</label>
+                <input type="text" id="profilNom" name="nom" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['nom'];?>"><br />
+               
+            <label for="prenom">Prenom</label>
+                <input type="text" id="profilPrenom" name="prenom" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['prenom'];?>"><br />
+                
+            <label for="anniversaire">Anniversaire</label>
+                <input type="date" id="profilAnniv" name="anniversaire" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['anniversaire'];?>"><br />
+               
+            <label for="email">Email</label>
+                <input type="text" id="profilEmail" name="email" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['email'];?>"><br />
+
         </article>
 
         <input type="submit" id="profilSubmit" value="Modifier" name="updateInfoPersonnel">
@@ -107,7 +94,7 @@ $newUserController = new \Controller\Profil();
 
     <!-- CARTE BLEU -->
 
-    <form class="block" method="POST" action="">
+    <!-- <form class="block" method="POST" action="">
         <article>
             <label for="type_carte" class="inp">
                 <input type="text" id="CarteBleuType_carte" name="type_carte" placeholder="&nbsp;" value="">
@@ -136,80 +123,35 @@ $newUserController = new \Controller\Profil();
             </label>
         </article>
 
-        <!--<input type="submit" id="profilSubmit" value="Modifier" name="update_carte_bleu">-->
+        <input type="submit" id="profilSubmit" value="Modifier" name="update_carte_bleu">
         <input type="submit" id="profilSubmit" value="Enregistrer" name="insert_carte_bleu">
 
         <?php
-        if (isset($_POST['update_carte_bleu'])) {
-            $newUserModel->updateCarteBleu($_POST['type_carte'], $_POST['titulaire'], $_POST['numero'], $_POST['codeSecurite'], $_POST['date']);
-        }
-var_dump($_POST);
-        if (isset($_POST['insert_carte_bleu'])){
-            $newUserModel->InsertCarteBleu($_POST['type_carte'], $_POST['titulaire'], $_POST['numero'], $_POST['codeSecurite'], $_POST['date']);
-        }
+//         if (isset($_POST['update_carte_bleu'])) {
+//             $newUserModel->updateCarteBleu($_POST['type_carte'], $_POST['titulaire'], $_POST['numero'], $_POST['codeSecurite'], $_POST['date']);
+//         }
+// var_dump($_POST);
+//         if (isset($_POST['insert_carte_bleu'])){
+//             $newUserModel->InsertCarteBleu($_POST['type_carte'], $_POST['titulaire'], $_POST['numero'], $_POST['codeSecurite'], $_POST['date']);
+//         }
         ?>
-    </form>
+    </form> -->
 
     <!-- ADRESSE -->
 
-    <form class="block" method="POST" action="profil.php">
-        <article>
-            <label for="nom" class="inp">
-                <input type="text" id="AdresseNom" name="nom" placeholder="&nbsp;" value="">
-                <span class="label">Nom</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="prenom" class="inp">
-                <input type="text" id="AdressePrenom" name="nom" placeholder="&nbsp;" value="">
-                <span class="label">Prénom</span>
-                <span class="focus-bg"></span>
-            </label></br>
-            <label for="batiment" class="inp">
-                <input type="text" id="AdresseBatiment" name="batiment" placeholder="&nbsp;" value="">
-                <span class="label">Numméro de carte</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="rue" class="inp">
-                <input type="text" id="AdresseRue" name="rue" placeholder="&nbsp;" value="">
-                <span class="label">N° de Rue</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="code_postal" class="inp">
-                <input type="text" id="AdresseCodePostal" name="code_postal" placeholder="&nbsp;" value="">
-                <span class="label">Code Postal</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="ville" class="inp">
-                <input type="text" id="AdresseVille" name="ville" placeholder="&nbsp;" value="">
-                <span class="label">Ville</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="pays" class="inp">
-                <input type="text" id="AdressePays" name="pays" placeholder="&nbsp;" value="">
-                <span class="label">Pays</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="info_sup" class="inp">
-                <input type="text" id="AdresseInfoSup" name="info_sup" placeholder="&nbsp;" value="">
-                <span class="label">Info Supplémentaire</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="telephone" class="inp">
-                <input type="text" id="AdresseTelephone" name="telephone" placeholder="&nbsp;" value="">
-                <span class="label">Téléphone</span>
-                <span class="focus-bg"></span>
-            </label>
-        </article>
-
-        <input type="submit" id="profilSubmit" value="Modifier" name="update_adresse">
+    
 
         <?php
-        if (isset($_POST['update_adresse'])) {
-            $newUser->profil($_POST['nom'], $_POST['prenom'], $_POST['batiment'], $_POST['rue'], $_POST['code_postal'], $_POST['ville'], $_POST['pays'], $_POST['info_sup'], $_POST['telephone']);
-        }
+        $controllerDisplayProfil = new \Controller\DisplayProfil();
+        $controllerDisplayProfil->displayAdress();
+        
+        // On vérifie si l'utilisateur possède déjà une adresse pour l'afficher et éviter les erreurs 
+      
         ?>
-    </form>
 
 
 
 </main>
+<?php
+ob_end_flush();
+?>
