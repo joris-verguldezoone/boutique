@@ -14,42 +14,73 @@ echo "
 </head>
 <body>
     <header>
-<!--
-<a class='a_header' href='$index'>Index</a>
-
-<a class='a_header' href='$inscription'>Inscription</a>
-<a class='a_header' href='$connexion'>Connexion</a>
-
-<a class='a_header' href='$profil'>Profil</a>
-
-<a class='a_header' href='$articles'>Articles</a>
-<a class='a_header' href='$commande'>Commande</a>
-<a class='a_header' href='$panier'>Panier</a>
-
-<a class='a_header' href='$admin'>Admin</a>
-<a class='a_header' href='$deconnexion'>Déconnexion</a>-->
-<nav>
-  <ul>
-    <li class='deroulant'><a href='#'>Nos produits &ensp;</a>
-        <ul class='sous'>
-            <li class='deroulant_compo'><a href='#'>Nos composants &#9658;</a>
-        <li><a href='#'>Carte Graphique</a></li>
-        <li><a href='#'>Processeur</a></li>
-        <li><a href='#'>Stockage</a></li>
-        <li><a href='#'>RAM</a></li>
-        <li><a href='#'>Ecran</a></li>
-        <li><a href='#'>PC Portable</a></li>
-        <li><a href='#'>PC Fixe</a></li>
-        <li><a href='#'>Alimentation</a></li>
-        <li><a href='#'>Carte mère</a></li>
-
-        
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-               
+        <nav>
+            <div id='menu' style='margin-left:150px;'>
+                <ul class='niveau1'>
+                    <li class='sousmenu'><a href='#'>Nos produits &#8594;</a>
+                        <ul class='niveau2'>
+                            <li class='sousmenu'><a href='#'>Carte Graphique</a>
+                                <ul class='niveau3'>
+                                    <li><a href='#'>NVIDIA</a></li>
+                                    <li><a href='#'>AMD</a></li>
+                                </ul>
+                            </li>
+                            <li class='sousmenu'><a href='#'>Processeur</a>
+                                <ul class='niveau3'>
+                                    <li><a href='#'>NVIDIA</a></li>
+                                    <li><a href='#'>AMD</a></li>
+                                </ul>
+                            </li>                    
+                            <li class='sousmenu'><a href='#'>Stockage</a>
+                                <ul class='niveau3'>
+                                    <li><a href='#'>NVIDIA</a></li>
+                                    <li><a href='#'>AMD</a></li>
+                                </ul>
+                            </li>
+                            <li class='sousmenu'><a href='#'>RAM</a>
+                                <ul class='niveau3'>
+                                    <li><a href='#'>NVIDIA</a></li>
+                                    <li><a href='#'>AMD</a></li>
+                                </ul>
+                            </li>
+                            <li class='sousmenu'><a href='#'>Ecran</a>
+                                <ul class='niveau3'>
+                                    <li><a href='#'>NVIDIA</a></li>
+                                    <li><a href='#'>AMD</a></li>
+                                </ul>
+                            </li>
+                            <li class='sousmenu'><a href='#'>PC Portable</a>
+                                <ul class='niveau3'>
+                                    <li><a href='#'>NVIDIA</a></li>
+                                    <li><a href='#'>AMD</a></li>
+                                </ul>
+                            </li>
+                            <li class='sousmenu'><a href='#'>PC Fixe</a>
+                                <ul class='niveau3'>
+                                    <li><a href='#'>NVIDIA</a></li>
+                                    <li><a href='#'>AMD</a></li>
+                                </ul>
+                            </li>
+                            <li class='sousmenu'><a href='#'>Alimentation</a>
+                                <ul class='niveau3'>
+                                    <li><a href='#'>NVIDIA</a></li>
+                                    <li><a href='#'>AMD</a></li>
+                                </ul>
+                            </li>
+                            <li class='sousmenu'><a href='#'>Carte mère</a>
+                                <ul class='niveau3'>
+                                    <li><a href='#'>NVIDIA</a></li>
+                                    <li><a href='#'>AMD</a></li>
+                                </ul>
+                            </li>                    
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div>
+            
+</div>
+        </nav> 
 ";
 
 ?>
