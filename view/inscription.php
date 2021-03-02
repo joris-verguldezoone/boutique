@@ -3,6 +3,7 @@
 $utils = "../libraries/config/utils.php";
 $bdd = "../libraries/config/bdd.php";
 $Http = "../libraries/config/http.php";
+// $Http = "../libraries/config/Http.php";
 require('../libraries/Model/Inscription.php');
 require('../libraries/config/utils.php');
 require('../libraries/Controller/Inscription.php');

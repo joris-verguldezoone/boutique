@@ -35,3 +35,8 @@ main{
     display: flex;
     flex-direction: row;
 }
+.img_profil{
+    height:100px;
+    width:100px;
+    border-radius: 4em;
+}

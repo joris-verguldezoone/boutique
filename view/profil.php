@@ -41,6 +41,11 @@ var_dump($_POST);
         <h1><u>Profil</u></h1>
 
         <article class='InfoGenerales'>
+
+        <label for="login">Photo de profil</label>
+                <img class='img_profil' src='<?php echo $_SESSION['utilisateur']['image'];?>'>
+                <input type="text" id="profilimage" name="image" value="<?php echo $_SESSION['utilisateur']['image'];?>"><br />
+
             <label for="login">Login</label>
                 <input type="text" id="profilLogin" name="login" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['login'];?>"><br />
            
@@ -58,7 +63,7 @@ var_dump($_POST);
             <?php
 
     if (isset($_POST['update'])) {
-        $newUserController->profil($_POST['login'], $_POST['password'], $_POST['confirm_password'], $_POST['email']);
+        $newUserController->profil($_POST['login'], $_POST['password'], $_POST['confirm_password'], $_POST['email'], $_POST['image']);
     }
     ?>
         </form>

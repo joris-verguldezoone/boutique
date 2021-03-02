@@ -8,7 +8,7 @@ require_once("Controller.php");
 
 class Profil extends Controller{
 
-    public function profil($login, $password, $confirm_password, $email)
+    public function profil($login, $password, $confirm_password, $email, $image)
     {
         $controllerProfil = new \Controller\Profil();
 
@@ -16,6 +16,7 @@ class Profil extends Controller{
         $this->password = $controllerProfil->secure($_POST['password']);        //securisé    
         $this->email = $controllerProfil->secure($_POST['email']);
         $confirm_password = $controllerProfil->secure($_POST['confirm_password']);                 
+        $this->image = $controllerProfil->secure($_POST['image']);
 
         $errorLog = null;
 
@@ -23,6 +24,7 @@ class Profil extends Controller{
         $password_len = strlen($password);
         $confirm_password_len = strlen($confirm_password);
         $email_len = strlen($email);
+        $image_len = strlen($image);
 
         $modelProfil = new \Model\Profil();
 
@@ -53,8 +55,6 @@ class Profil extends Controller{
                     {
                         if ($password == $confirm_password) 
                         {
-
-                            $controllerProfil->secure($password);
                             $cryptedpassword = password_hash($password, PASSWORD_BCRYPT);
 
                             $modelProfil->updateOneValue('utilisateurs', 'password','id', $cryptedpassword, $_SESSION['utilisateur']['id']);
@@ -62,9 +62,7 @@ class Profil extends Controller{
                             $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs','id',$_SESSION['utilisateur']['id']); // je trouve mon id en dehors des session 
                             $_SESSION['utilisateur'] = $fetch_utilisateur;
                             echo "changement(s) effectué(s) password";
-
-                        } 
-                        
+                        }         
                         else {
                             $errorLog = "<p>Confirmation du mot de passe incorrect</p>";
                         }
@@ -81,22 +79,43 @@ class Profil extends Controller{
 
                     $new_email = $modelProfil->alreadyTakenCheck('utilisateurs','email',$email);
 
-
                     if (!$new_email) {
-                        $controllerProfil->secure($email);
 
                             $modelProfil->updateOneValue('utilisateurs', 'email','id', $email, $_SESSION['utilisateur']['id']);
 
                             $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs','id',$_SESSION['utilisateur']['id']); // je trouve mon id en dehors des session 
                             $_SESSION['utilisateur'] = $fetch_utilisateur;
                             echo "changement(s) effectué(s) email";
-
                     }else{
                         $errorLog = "Cet email est déjà utilisé par un autre utilisateur";
                     }
                 }
             }
 
+            if(!empty($image))
+            {
+                if($image_len>=255)
+                {
+                    if($image_len<=3)
+                    {
+                    $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs','login',$login); // je trouve mon id en dehors des session 
+
+                            $modelProfil->updateOneValue('utilisateurs', 'image','id', $image, $_SESSION['utilisateur']['id']);
+
+                            $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs','id',$_SESSION['utilisateur']['id']); // je trouve mon id en dehors des session 
+                            $_SESSION['utilisateur'] = $fetch_utilisateur;
+                            echo "changement(s) effectué(s) image";                       
+                        }else{
+                        $errorLog = 'url trop court';
+                    }
+                }
+                else{
+                    $errorLog ='Nombre de caractères maximum pour url fixé à 255';
+                }
+            }
+        }
+        echo $errorLog;
+    }
             // { // limite minimum de caractere
 
             //     if ( &&  &&  && ) 
@@ -139,9 +158,8 @@ class Profil extends Controller{
         //  else {
         //     $errorLog = "<p>Veuillez entrer des caracteres dans les champs</p>";
         // }
-            }
-    echo $errorLog;
-    }
+            
+   
 
     public function createAdresse($nom, $prenom, $batiment , $rue , $code_postal, $ville, $pays, $info_sup, $telephone){
 
