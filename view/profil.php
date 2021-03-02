@@ -40,27 +40,18 @@ var_dump($_POST);
     <form class="block" method="POST" action="profil.php">
         <h1><u>Profil</u></h1>
 
-        <article>
-            <label for="login" class="inp">
-                <input type="text" id="profilLogin" name="login" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['login'];?>">
-                <span class="label">New Login</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="password" class="inp">
-                <input type="password" id="profilPassword" name="password" placeholder="&nbsp;">
-                <span class="label">New Password</span>
-                <span class="focus-bg"></span>
-            </label></br>
-            <label for="confirm_password" class="inp">
-                <input type="password" id="profilConfirm_password" name="confirm_password" placeholder="&nbsp;">
-                <span class="label">Confirm New Password</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="email" class="inp">
-                <input type="text" id="inscriptionEmail" name="email" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['email'];?>">
-                <span class="label">New Email</span>
-                <span class="focus-bg"></span>
-            </label>
+        <article class='InfoGenerales'>
+            <label for="login">Login</label>
+                <input type="text" id="profilLogin" name="login" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['login'];?>"><br />
+           
+            <label for="password">Mot de passe</label>
+                <input type="password" id="profilPassword" name="password" placeholder="&nbsp;"><br />
+             
+            <label for="confirm_password">Confirmation du mot de passe</label>
+                <input type="password" id="profilConfirm_password" name="confirm_password" placeholder="&nbsp;"><br />
+           
+            <label for="email">Email</label>
+                <input type="text" id="inscriptionEmail" name="email" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['email'];?>"><br />
         </article>
 
         <input type="submit" id="profilSubmit" value="update" name="update">
@@ -75,28 +66,20 @@ var_dump($_POST);
 <!-- INFO PERSONNEL -->
 
     <form class="block" method="POST" action="profil.php">
+        <article class='InfoSupplementaire'>
 
-        <article>
-            <label for="nom" class="inp">
-                <input type="text" id="profilNom" name="nom" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['nom'];?>">
-                <span class="label">Nom</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="prenom" class="inp">
-                <input type="text" id="profilPrenom" name="prenom" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['prenom'];?>">
-                <span class="label">Prénom</span>
-                <span class="focus-bg"></span>
-            </label></br>
-            <label for="anniversaire" class="inp">
-                <input type="date" id="profilAnniv" name="anniversaire" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['anniversaire'];?>">
-                <span class="label">Anniv</span>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="email" class="inp">
-                <input type="text" id="profilEmail" name="email" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['email'];?>">
-                <span class="label">Email</span>
-                <span class="focus-bg"></span>
-            </label>
+            <label for="nom">Nom</label>
+                <input type="text" id="profilNom" name="nom" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['nom'];?>"><br />
+               
+            <label for="prenom">Prenom</label>
+                <input type="text" id="profilPrenom" name="prenom" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['prenom'];?>"><br />
+                
+            <label for="anniversaire">Anniversaire</label>
+                <input type="date" id="profilAnniv" name="anniversaire" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['anniversaire'];?>"><br />
+               
+            <label for="email">Email</label>
+                <input type="text" id="profilEmail" name="email" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['email'];?>"><br />
+
         </article>
 
         <input type="submit" id="profilSubmit" value="Modifier" name="updateInfoPersonnel">

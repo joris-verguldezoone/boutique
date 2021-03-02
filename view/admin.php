@@ -9,6 +9,8 @@ require_once('../libraries/model/Admin.php');
 require_once('../libraries/model/Display.php');
 require_once('../libraries/config/utils.php');
 
+
+
 //CSS
 $headerCss = "../css/header.css";
 $pageCss = "../css/admin.css";
@@ -94,7 +96,7 @@ echo '<form action="" method="GET">
                     echo "ee";
                         
                         // $controllerAdmin->verifyAndInsertOne('type', 'nom' , $_POST['NameBrand']);
-                        $controllerAdmin->createBrand($_POST['NameBrand'], $_POST['imageBrand'], $_POST['descriptionMarque']);
+                        $controllerAdmin->verifyAndInsertThree('marque', 'nom', 'image', 'description', $_POST['NameBrand'], $_POST['imageBrand'], $_POST['descriptionMarque']);
                         // j'utilise pas insertThreeValue car c'est une fonction specifique aux colonnes qu'elle vise
                         
                     }
@@ -102,7 +104,7 @@ echo '<form action="" method="GET">
                     echo $isEmpty;
                         
                         // $controllerAdmin->verifyAndInsertOne('type', 'nom' , $_POST['NameBrand']);
-                        $controllerAdmin->createEditor($_POST['NameEditor'], $_POST['imageBrand'], $_POST['descriptionMarque']);
+                        $controllerAdmin->verifyAndInsertThree( 'editeur', 'nom', 'image', 'description', $_POST['NameEditor'], $_POST['imageBrand'], $_POST['descriptionMarque']);
                         // j'utilise pas insertThreeValue car c'est une fonction specifique aux colonnes qu'elle vise
                     }
                 }

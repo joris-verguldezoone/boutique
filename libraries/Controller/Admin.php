@@ -24,32 +24,22 @@ class Admin extends Controller{
             echo "Cette donnée existe déjà";
         }
     }
+    public function verifyAndInsertThree($nomTable, $colonne1,$colonne2,$colonne3,$value1, $value2, $value3){
+        $modelAdmin = new \Model\Admin();
+        
+        $count = $modelAdmin->alreadyTakenCheck($nomTable , $colonne1, $value1);
+        if(!$count){
+            $modelAdmin->insertThreeValue($nomTable, $colonne1, $colonne2, $colonne3, $value1, $value2, $value3);
+        }else{
+            echo "Cette donnée existe déjà";
+        }
+    }
     public function verifyAndInsertFour($nomTable, $colonne1,$colonne2,$colonne3,$colonne4,$value1, $value2, $value3,$value4){
         $modelAdmin = new \Model\Admin();
         
         $count = $modelAdmin->alreadyTakenCheck($nomTable , $colonne1, $value1);
         if(!$count){
             $modelAdmin->insertTwoValue($nomTable, $colonne1,$colonne2,$colonne3,$colonne4,$value1, $value2, $value3,$value4);
-        }else{
-            echo "Cette donnée existe déjà";
-        }
-    }
-    public function createBrand($nom, $id_image, $description){
-        $modelAdmin = new \Model\Admin();
-        $count = $modelAdmin->alreadyTakenCheck("marque" , "nom", $nom);
-        if(!$count){
-            $modelAdmin->insertBrand($nom, $id_image, $description);
-
-        }else{
-            echo "Cette donnée existe déjà";
-        }
-    }
-    public function createEditor($nom, $id_image, $description){
-        $modelAdmin = new \Model\Admin();
-        $count = $modelAdmin->alreadyTakenCheck("editeur" , "nom", $nom);
-        if(!$count){
-            $modelAdmin->insertEditor($nom, $id_image, $description);
-
         }else{
             echo "Cette donnée existe déjà";
         }
@@ -84,6 +74,7 @@ class Admin extends Controller{
     }
     public function createArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation, $id_editeur)
     {    
+        DEFINE('DEFAULT_IMAGE', 'https://m.media-amazon.com/images/S/aplus-media/vc/45b772ea-9925-4af1-b325-8d5f4b4826a0.__CR0,30,970,600_PT0_SX970_V1___.jpg');
         $controllerAdmin = new \Controller\Admin();
         $titre = $controllerAdmin->secure($titre);
         $presentation = $controllerAdmin->secure($presentation);
@@ -111,6 +102,12 @@ class Admin extends Controller{
             if(($titre_len >= 0) && ($description_len >= 0) && ($image_len >= 0)){
                 if(($titre_len <= 50) && ($description_len <= 3000) && ($image_len <= 255) && ($image_2_len <= 255) && ($image_3_len <= 255)){
                     $modelAdmin = new \Model\Admin();
+                    if(empty($image_2)){
+                        $image_2 = DEFAULT_IMAGE;
+                    }
+                    if(empty($image_3)){
+                        $image_3 = DEFAULT_IMAGE;
+                    }
                     $modelAdmin->insertArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation, $id_editeur);
                     echo 'controller passed';
                 }

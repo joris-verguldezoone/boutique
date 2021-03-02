@@ -635,6 +635,24 @@ foreach($tab as $value)
             }
         }
     }
+    public function showFivePopularArticles(){
+        $modelArticle = new \Model\Article();
+        $tab = $modelArticle->findFivePopularArticles();
+        var_dump($tab);
+        foreach($tab as $key => $value)
+        {
+            echo"
+            <p>".$value[1]."</p>
+            <p>".$value[2]."</p>
+            <p>".$value[3]."</p>
+            <img class='main_img' src='".$value[4]."'>
+            <img class='second_img' src='".$value[5]."'>
+            <img class='tierce_img' src='".$value[6]."'>
+            <p>".$value[7]."</p>
+            <p>".$value[8]."</p>
+            <p>".$value[12]."</p>";
+        }
+    }
 }
 
 ?>

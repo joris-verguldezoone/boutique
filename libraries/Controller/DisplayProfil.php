@@ -11,34 +11,34 @@ class DisplayProfil {
         if(!$answer){
           echo'
         <form class="block" method="POST" action="profil.php">
-        <article>
+        <article class="adressMenuBlock">
             <label for="nom" class="">Nom</label>
-                <input type="text" id="AdresseNom" name="nom" >
+                <input type="text" id="AdresseNom" name="nom" ><br />
             <label for="prenom" > Prenom </label>
-                <input type="text" id="AdressePrenom" name="prenom" >
+                <input type="text" id="AdressePrenom" name="prenom"><br />
          
             <label for="batiment" > Batiment </label>
-                <input type="text" id="AdresseBatiment" name="batiment">
+                <input type="text" id="AdresseBatiment" name="batiment"><br />
         
             <label for="rue" >Rue </label>
-                <input type="text" id="AdresseRue" name="rue">
+                <input type="text" id="AdresseRue" name="rue"><br />
               
             <label for="code_postal"> Code Postal </label>
-                <input type="text" id="AdresseCodePostal" name="code_postal" >
+                <input type="text" id="AdresseCodePostal" name="code_postal" ><br />
               
             <label for="ville"> Ville </label>
-                <input type="text" id="AdresseVille" name="ville">
+                <input type="text" id="AdresseVille" name="ville"><br />
                 
             <label for="pays"> Pays </label>
-                <input type="text" id="AdressePays" name="pays">
+                <input type="text" id="AdressePays" name="pays"><br />
                 
             <label for="info_sup"> Informations supplémentaire </label>
-                <input type="text" id="AdresseInfoSup" name="info_sup">
+                <input type="text" id="AdresseInfoSup" name="info_sup"><br />
             <label for="telephone"> Téléphone </label>
-                <input type="tel" id="AdresseTelephone" name="telephone" >
+                <input type="tel" id="AdresseTelephone" name="telephone" ><br />
         </article>
 
-        <input type="submit" id="profilSubmit" value="Modifier" name="insertAdress">
+        <input type="submit" id="profilSubmit" value="Modifier" name="insertAdress"><br />
         </form>';
       }
       elseif($answer == true){
