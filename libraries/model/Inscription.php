@@ -8,13 +8,17 @@ namespace Model {
     {
         public function insert($login, $cryptedpass, $email, $id_droits) //insertion dans la bdd
         {
-            $sql = "INSERT INTO utilisateurs (login, password, email, id_droits) VALUES (:login, :password, :email, :id_droits)"; 
+            DEFINE('IMG_USER_START', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png');
+            $image = IMG_USER_START;
+            
+            $sql = "INSERT INTO utilisateurs (login, password, email, id_droits, image) VALUES (:login, :password, :email, :id_droits, :image)"; 
             $result = $this->pdo->prepare($sql);
     
             $result->bindvalue(':login', $login, \PDO::PARAM_STR);
             $result->bindvalue(':password', $cryptedpass, \PDO::PARAM_STR);
             $result->bindvalue(':email', $email, \PDO::PARAM_STR);
             $result->bindvalue(':id_droits', $id_droits, \PDO::PARAM_INT);
+            $result->bindvalue(':image', $image, \PDO::PARAM_STR);
     
             $result->execute();
             

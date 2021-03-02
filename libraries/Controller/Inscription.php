@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-// require_once($Http);
+require_once($Http);
 // require_once($utils);
 require("Controller.php");
 class Inscription extends Controller// s'appel User

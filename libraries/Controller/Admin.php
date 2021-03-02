@@ -16,6 +16,7 @@ class Admin extends Controller{
     }
     public function verifyAndInsertTwo($nomTable, $colonne,$colonne2, $value, $value2){
         $modelAdmin = new \Model\Admin();
+        
         $count = $modelAdmin->alreadyTakenCheck($nomTable , $colonne, $value);
         if(!$count){
             $modelAdmin->insertTwoValue($nomTable, $colonne,$colonne2, $value,$value2);
@@ -23,33 +24,57 @@ class Admin extends Controller{
             echo "Cette donnée existe déjà";
         }
     }
-    public function createBrand($nom, $id_image, $description){
+    public function verifyAndInsertThree($nomTable, $colonne1,$colonne2,$colonne3,$value1, $value2, $value3){
         $modelAdmin = new \Model\Admin();
-        $count = $modelAdmin->alreadyTakenCheck("marque" , "nom", $nom);
+        
+        $count = $modelAdmin->alreadyTakenCheck($nomTable , $colonne1, $value1);
         if(!$count){
-            $modelAdmin->insertBrand($nom, $id_image,$description);
-
+            $modelAdmin->insertThreeValue($nomTable, $colonne1, $colonne2, $colonne3, $value1, $value2, $value3);
         }else{
             echo "Cette donnée existe déjà";
         }
     }
-    public function createWithThreeValues($nomTable, $nom, $id_type, $id_marque)
+    public function verifyAndInsertFour($nomTable, $colonne1,$colonne2,$colonne3,$colonne4,$value1, $value2, $value3,$value4){
+        $modelAdmin = new \Model\Admin();
+        
+        $count = $modelAdmin->alreadyTakenCheck($nomTable , $colonne1, $value1);
+        if(!$count){
+            $modelAdmin->insertTwoValue($nomTable, $colonne1,$colonne2,$colonne3,$colonne4,$value1, $value2, $value3,$value4);
+        }else{
+            echo "Cette donnée existe déjà";
+        }
+    }
+    public function createWithThreeValues($nomTable,$colonne1,$colonne2,$colonne3, $nom, $id_type, $id_marque)
     {
         $modelAdmin = new \Model\Admin();
         $count = $modelAdmin->alreadyTakenCheck($nomTable , "nom", $nom);
         echo $count.'test';
         if(!$count)
         {
-            $modelAdmin->insertThreeValue($nomTable,'nom','id_type','id_marque', $nom, $id_type, $id_marque);
+            $modelAdmin->insertFourValue($nomTable,$colonne1,$colonne2,$colonne3, $nom, $id_type, $id_marque);
         }
         else
         {
             echo 'wrrronggg uuhhg';
         }
-// 	titre1	description2	image3	note	prix4	id_type5	id_gamme6	id_marque7	id_generation8	promo	date9
     }
-    public function createArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation)
+        public function createWithFourValues($nomTable,$colonne1,$colonne2,$colonne3, $colonne4, $nom, $id_type, $id_marque, $id_editeur)
+    {
+        $modelAdmin = new \Model\Admin();
+        $count = $modelAdmin->alreadyTakenCheck($nomTable , "nom", $nom);
+        echo $count.'test';
+        if(!$count)
+        {
+            $modelAdmin->insertThreeValue($nomTable,$colonne1,$colonne2,$colonne3, $colonne4, $nom, $id_type, $id_marque, $id_editeur);
+        }
+        else
+        {
+            echo 'wrrronggg uuhhg';
+        }
+    }
+    public function createArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation, $id_editeur)
     {    
+        DEFINE('DEFAULT_IMAGE', 'https://m.media-amazon.com/images/S/aplus-media/vc/45b772ea-9925-4af1-b325-8d5f4b4826a0.__CR0,30,970,600_PT0_SX970_V1___.jpg');
         $controllerAdmin = new \Controller\Admin();
         $titre = $controllerAdmin->secure($titre);
         $presentation = $controllerAdmin->secure($presentation);
@@ -64,18 +89,26 @@ class Admin extends Controller{
         $id_gamme = $controllerAdmin->secure($id_gamme);
         $id_marque = $controllerAdmin->secure($id_marque);
         $id_generation = $controllerAdmin->secure($id_generation);
+        $id_editeur = $controllerAdmin->secure($id_editeur);
         
         if(!empty($titre) && !empty($presentation) && !empty($description) && !empty($image) && !empty($prix) && !empty($id_type)){
-$titre_len = strlen($titre);
+            
+            $titre_len = strlen($titre);
             $description_len = strlen($description);
             $image_len = strlen($image);
             $image_2_len = strlen($image_2);
             $image_3_len = strlen($image_3);
             echo 'passed';
-            if(($titre_len >= 0) && ($description >= 0) && ($image_len >= 0)){
-                if(($titre_len <= 50) && ($description <= 3000) && ($image_len <= 255) && ($image_2_len <= 255) && ($image_3_len <= 255)){
+            if(($titre_len >= 0) && ($description_len >= 0) && ($image_len >= 0)){
+                if(($titre_len <= 50) && ($description_len <= 3000) && ($image_len <= 255) && ($image_2_len <= 255) && ($image_3_len <= 255)){
                     $modelAdmin = new \Model\Admin();
-                    $modelAdmin->insertArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation);
+                    if(empty($image_2)){
+                        $image_2 = DEFAULT_IMAGE;
+                    }
+                    if(empty($image_3)){
+                        $image_3 = DEFAULT_IMAGE;
+                    }
+                    $modelAdmin->insertArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation, $id_editeur);
                     echo 'controller passed';
                 }
                 else{

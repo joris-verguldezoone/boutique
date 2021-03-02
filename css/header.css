@@ -1,0 +1,95 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+/*----------------MENU-----------------*/
+div#menu a{
+    color: #000000;
+    font-weight:bold;
+}
+div#menu li {
+    position: relative;
+    list-style:none;
+    margin:0px;
+    border-bottom: 1px solid #CCC;
+}
+
+div#menu li:hover {
+    background: #EBB;
+}
+div#menu li.sousmenu:hover {
+    background-color: #EDD;
+}
+div#menu ul a {
+    width: inherit;
+}
+div#menu ul ul {
+    position: absolute;
+    top: 2.60em;
+}
+
+/*TAILLE PREMIERE COLONNE*/
+
+div#menu ul {
+    margin: 0;
+    padding: 0;
+    width: 9em;
+    background: white;
+    border: 1px solid;
+}
+
+div#menu ul ul {
+    bottom: 9em;
+    display:none;
+    background-color: white;
+}
+
+div#menu li a {
+    display: block;
+    padding: 1.25em 0 0.25em 0.5em;
+    text-decoration: none;
+    border-left: 0.5em solid #BBB;
+}
+
+/*TAILLE DEUXIEME COLONE*/
+div#menu ul.niveau2 ul {
+    left: 13em;
+}
+
+div#menu ul.niveau1 li.sousmenu:hover ul.niveau2 {
+    width:13em;
+    display:block
+}
+
+
+
+/*TAILLE TROISIEME COLONNE*/
+div#menu ul.niveau2 li.sousmenu:hover ul.niveau3 {
+    width:10em;
+    display:block;
+}
+
+/*TAILLE DEUXIEME COLONE BIS*/
+div#menu ul.niveau2bis ul {
+    left: 10em;
+}
+div#menu ul.niveau1 li.sousmenu:hover ul.niveau2bis {
+    display:block;
+    width:10em;
+}
+div#menu ul.niveau2bis li a {
+    width: 10em;
+}
+
+/*COULEUR DES BORDURES*/
+div#menu li a:hover {
+    border-left-color: red;
+}
+div#menu ul ul li a:hover {
+    border-left-color: #00FF00;
+}
+div#menu ul ul ul li a:hover {
+    border-left-color: #0000FF;
+}

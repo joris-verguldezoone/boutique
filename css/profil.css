@@ -1,0 +1,42 @@
+.InfoGenerales{
+    height:20vh; 
+    width:40vh; 
+    background-color: teal;
+    border-radius: 1em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+    padding:20px;
+}
+.InfoSupplementaire{
+    height:20vh; 
+    width:40vh; 
+    background-color: teal;
+    border-radius: 1em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+    padding:20px;
+}
+.adressMenuBlock{
+    height:60vh; 
+    width:40vh; 
+    background-color: blanchedalmond;
+    border-radius: 1em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+input[type=text], input[type=tel], input[type=date]{
+    min-width:30vh;
+}
+main{
+    display: flex;
+    flex-direction: row;
+}
+.img_profil{
+    height:100px;
+    width:100px;
+    border-radius: 4em;
+}

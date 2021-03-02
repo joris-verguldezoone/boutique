@@ -20,8 +20,72 @@ class Display extends Model{
         }
         return $tableau;
     }
+    public function findAllGamme(){
+        $sql = "SELECT * FROM gamme";
+        $result = $this->pdo->prepare($sql);
+        $result->execute();
+
+        $i = 0;
+        while($fetch = $result->fetch(\PDO::FETCH_ASSOC)){
+            $tableau[$i][] = $fetch['id'];
+            $tableau[$i][] = $fetch['nom'];
+            $tableau[$i][] = $fetch['id_type']; 
+            $tableau[$i][] = $fetch['id_marque'];     
+
+            $i++;
+        }
+        return $tableau;
+    }
+    public function findAllGeneration(){
+        $sql = "SELECT * FROM generation";
+        $result = $this->pdo->prepare($sql);
+        $result->execute();
+
+        $i = 0;
+        while($fetch = $result->fetch(\PDO::FETCH_ASSOC)){
+            $tableau[$i][] = $fetch['id'];
+            $tableau[$i][] = $fetch['nom'];
+            $tableau[$i][] = $fetch['id_type']; 
+            $tableau[$i][] = $fetch['id_marque'];     
+
+            $i++;
+        }
+        return $tableau;
+    }
+    public function findAllMarque(){
+        $sql = "SELECT * FROM marque";
+        $result = $this->pdo->prepare($sql);
+        $result->execute();
+
+        $i = 0;
+        while($fetch = $result->fetch(\PDO::FETCH_ASSOC)){
+            $tableau[$i][] = $fetch['id'];
+            $tableau[$i][] = $fetch['nom'];
+            $tableau[$i][] = $fetch['image']; 
+            $tableau[$i][] = $fetch['description'];     
+
+            $i++;
+        }
+        return $tableau;
+    }
+    public function findAllEditeur(){
+        $sql = "SELECT * FROM editeur";
+        $result = $this->pdo->prepare($sql);
+        $result->execute();
+
+        $i = 0;
+        while($fetch = $result->fetch(\PDO::FETCH_ASSOC)){
+            $tableau[$i][] = $fetch['id'];
+            $tableau[$i][] = $fetch['nom'];
+            $tableau[$i][] = $fetch['image']; 
+            $tableau[$i][] = $fetch['description'];     
+
+            $i++;
+        }
+        return $tableau;
+    }
     public function findAllArticles(){
-        $sql = "SELECT * FROM articles";
+        $sql = "SELECT * FROM articles ";
         $result = $this->pdo->prepare($sql);
         $result->execute();
 

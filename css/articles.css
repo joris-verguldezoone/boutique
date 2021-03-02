@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'gaming.ttf';
+    src: url("../fonts/gaming.ttf");
+}
+
+.dimension_image{
+    width: 250px;
+    margin-top: 1%;
+}
+
+.form_composant{
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+}
+.rowSection{
+    display: flex;
+    flex-direction: row;
+    margin: 2%;
+    justify-content: space-evenly;
+}
+
+.buttom_comp{
+    background-color: white;
+    border: 0px;
+}
+
+.typo_comp{
+    font-family: 'gaming.ttf';
+    font-size: 23px;
+}
+
+.typo_comp:hover{
+    color: red;
+}
