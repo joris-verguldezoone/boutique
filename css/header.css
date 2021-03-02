@@ -27,33 +27,29 @@ div#menu ul a {
 }
 div#menu ul ul {
     position: absolute;
-    top: -1px;
+    top: 2.60em;
 }
 
 /*TAILLE PREMIERE COLONNE*/
-div#menu {
-    float: left;
-    width: 7em;
-}
 
 div#menu ul {
     margin: 0;
     padding: 0;
-    width: 7em;
+    width: 9em;
     background: white;
     border: 1px solid;
 }
 
 div#menu ul ul {
-    left: 7em;
-    display:none
+    bottom: 9em;
+    display:none;
+    background-color: white;
 }
 
 div#menu li a {
     display: block;
-    padding: 0.25em 0 0.25em 0.5em;
+    padding: 1.25em 0 0.25em 0.5em;
     text-decoration: none;
-    width: 7em;
     border-left: 0.5em solid #BBB;
 }
 
@@ -67,9 +63,7 @@ div#menu ul.niveau1 li.sousmenu:hover ul.niveau2 {
     display:block
 }
 
-div#menu ul.niveau2 li a {
-    width: 13em;
-}
+
 
 /*TAILLE TROISIEME COLONNE*/
 div#menu ul.niveau2 li.sousmenu:hover ul.niveau3 {
