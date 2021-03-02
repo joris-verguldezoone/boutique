@@ -4,9 +4,13 @@ body
     padding: 0;
 }
 
+ul li{
+    background-color: white;
+}
+
 /*----------------MENU-----------------*/
 div#menu a{
-    color: #000000;
+    color: black;
     font-weight:bold;
 }
 div#menu li {
@@ -37,7 +41,6 @@ div#menu ul {
     padding: 0;
     width: 9em;
     background: white;
-    border: 1px solid;
 }
 
 div#menu ul ul {
@@ -55,7 +58,8 @@ div#menu li a {
 
 /*TAILLE DEUXIEME COLONE*/
 div#menu ul.niveau2 ul {
-    left: 13em;
+    left: 12.5em;
+    top: -0;
 }
 
 div#menu ul.niveau1 li.sousmenu:hover ul.niveau2 {

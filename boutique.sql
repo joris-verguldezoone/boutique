@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 01 mars 2021 à 21:12
+-- Généré le : mar. 02 mars 2021 à 13:56
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -88,10 +88,10 @@ CREATE TABLE IF NOT EXISTS `articles` (
 --
 
 INSERT INTO `articles` (`id`, `titre`, `presentation`, `description`, `image`, `image_2`, `image_3`, `note`, `prix`, `id_utilisateur`, `id_type`, `id_gamme`, `id_marque`, `id_generation`, `promo`, `date`, `vues`, `likey`, `dislike`, `id_editeur`) VALUES
-(8, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://images.itnewsinfo.com/lmi/articles/grande/000000075100.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl8M82Wg0dA45Bj307DUbKsxMtvw7mK3X9xg&amp;usqp=CAU', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24', '48', NULL, NULL, NULL),
+(8, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://images.itnewsinfo.com/lmi/articles/grande/000000075100.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl8M82Wg0dA45Bj307DUbKsxMtvw7mK3X9xg&amp;usqp=CAU', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24', '49', NULL, NULL, NULL),
 (12, 'I-7 10700K', 'La 10ème génération de processeur Intel Core Comet Lake-S propose plus de coeurs et l\'Hyper Threading depuis le Core i3 jusqu\'au Core i9. Performances de haute volée dans les Jeux, réalité virtuelle, multitâche intensif, les processeurs Intel Core de 10ème génération sont ultra polyvalent.', 'Le processeur Intel Core i7-10700K propose des performances éblouissantes avec sa fréquence de base à 3.8 GHz et jusqu\' à 5.1 GHz en mode Turbo, ses 8 Coeurs et 16 threads et ses 16 Mo de cache. Son TDP de 125W lui permet d\'offrir des fréquences de fonctionnement élevées tout en gardant une consommation électrique maitrisée.', 'https://media.ldlc.com/r374/ld/products/00/05/66/87/LD0005668781_1.jpg', 'https://www.universmartphone.com/wp-content/uploads/2020/08/review-intels-core-i7-10700k-is-among-the-best-cpus-for-pc-gaming.jpg', '', NULL, 380, 2, 29, 2, 12, 2, NULL, '2021-03-01', '0', NULL, NULL, NULL),
 (13, 'I-3 10100', 'La 10ème génération de processeur Intel Core Comet Lake-S propose plus de coeurs et l\'Hyper Threading depuis le Core i3 jusqu\'au Core i9. Performances de haute volée dans les Jeux, réalité virtuelle, multitâche intensif, les processeurs Intel Core de 10ème génération sont ultra polyvalent.', 'Le processeur Intel Core i3-10100 propose des performances éblouissantes avec sa fréquence de base à 3.6 GHz et jusqu\' à 4.3 GHz en mode Turbo, ses 4 Coeurs et 8 threads et ses 6 Mo de cache. Son TDP de 65W lui permet d\'offrir des fréquences de fonctionnement élevées tout en gardant une consommation électrique maitrisée.', 'https://media.ldlc.com/r374/ld/products/00/05/67/33/LD0005673301_1.jpg', 'https://media.ldlc.com/r374/ld/products/00/05/67/33/LD0005673303_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/67/33/LD0005673302_1.jpg', NULL, 138, 2, 29, 2, 14, 2, NULL, '2021-03-01', '0', NULL, NULL, NULL),
-(14, 'MSI GeForce RTX 3080 SUPRIM X 10G', 'La carte graphique MSI GeForce RTX 3080 SUPRIM X 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'La carte graphique MSI GeForce RTX 3080 SUPRIM X 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme. jouer à vos jeux préférés dans les meilleures conditions, sans lag et sans surchauffe. 3 ventilateurs MSI TORX 4.0 assurent le flux d\'air et l\'évacuation de la chaleur tandis qu\'un backplate aluminium fait office de dissipateur et de plaque rigide pour le dessous du PCB.', 'https://media.ldlc.com/r374/ld/products/00/05/75/25/LD0005752590_1.jpg', 'https://media.ldlc.com/bo/images/fiches/carte_graphique/msi/msi_geforce-rtx-3070-suprim-x-8g_001.jpg', 'https://media.ldlc.com/r374/ld/products/00/05/75/25/LD0005752593_1.jpg', NULL, 1000, 2, 27, 1, 4, 1, NULL, '2021-03-01', '0', NULL, NULL, NULL),
+(14, 'MSI GeForce RTX 3080 SUPRIM X 10G', 'La carte graphique MSI GeForce RTX 3080 SUPRIM X 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'La carte graphique MSI GeForce RTX 3080 SUPRIM X 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme. jouer à vos jeux préférés dans les meilleures conditions, sans lag et sans surchauffe. 3 ventilateurs MSI TORX 4.0 assurent le flux d\'air et l\'évacuation de la chaleur tandis qu\'un backplate aluminium fait office de dissipateur et de plaque rigide pour le dessous du PCB.', 'https://media.ldlc.com/r374/ld/products/00/05/75/25/LD0005752590_1.jpg', 'https://media.ldlc.com/bo/images/fiches/carte_graphique/msi/msi_geforce-rtx-3070-suprim-x-8g_001.jpg', 'https://media.ldlc.com/r374/ld/products/00/05/75/25/LD0005752593_1.jpg', NULL, 1000, 2, 27, 1, 4, 1, NULL, '2021-03-01', '1', NULL, NULL, NULL),
 (15, 'mlkjmlkjmlkjmkljm', 'mlkjmlkmlkj', 'mlkjmlkjmlkjmklj', 'mlkjmlkjmljmlkj', '', '', NULL, 547, 2, 27, 1, 4, 1, NULL, '2021-03-01', '0', NULL, NULL, 1);
 
 -- --------------------------------------------------------
@@ -384,14 +384,16 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `id_droits` int(140) NOT NULL,
   `anniversaire` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `login`, `email`, `password`, `image`, `id_droits`, `anniversaire`) VALUES
-(2, NULL, NULL, 'HARDJOJO', 'HARDJOJO@gmail.com', '$2y$10$BxC/CLkzNaf0H283lQmDyOFryepAZNx7hPveTWc3GGUOHcN3Dugay', 'https://i.pinimg.com/originals/4b/73/66/4b7366b13494b6d442a4aa41c189a2da.png', 1, NULL);
+(5, NULL, NULL, 'Okran', 'Okran@holynation.fr', '$2y$10$Ez4VasQXO/xdUr.aznqgKuupBSTgCmuh97PL5DIXfgA4mWUnFudcC', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, NULL),
+(6, NULL, NULL, 'testtest', 'testtest@testtest.fr', '$2y$10$vyNe30ZgLvgKQUC6Jz0NHu6u96F/e.HCO/h1.3yMZEFxcNLRXCCjW', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, NULL),
+(7, NULL, NULL, 'okokokokokk', 'okokokokokk@f.Fr', '$2y$10$.ZEEsPwIu1F71FM4dSizB.b6h1vavHfpS.1RM4cipLxufM0S45AWe', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -405,7 +407,7 @@ CREATE TABLE IF NOT EXISTS `vues` (
   `id_article` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=69 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `vues`
@@ -479,7 +481,9 @@ INSERT INTO `vues` (`id`, `id_article`, `id_utilisateur`) VALUES
 (65, 8, 2),
 (66, 8, 2),
 (67, 8, 2),
-(68, 8, 2);
+(68, 8, 2),
+(69, 8, 2),
+(70, 14, 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
