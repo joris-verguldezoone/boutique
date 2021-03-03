@@ -316,6 +316,7 @@ echo '<form action="" method="GET">
             <?php
             if(isset($_POST['Marque'])){
         $controllerDisplay->displayMarque();
+        $controllerDisplay->displayEditeur();
             }
         ?>
     </section>

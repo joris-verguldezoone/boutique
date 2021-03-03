@@ -47,16 +47,16 @@ var_dump($_POST);
                 <input type="text" id="profilimage" name="image" value="<?php echo $_SESSION['utilisateur']['image'];?>"><br />
 
             <label for="login">Login</label>
-                <input type="text" id="profilLogin" name="login" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['login'];?>"><br />
+                <input type="text" id="profilLogin" name="login" value="<?php echo $_SESSION['utilisateur']['login'];?>"><br />
            
             <label for="password">Mot de passe</label>
                 <input type="password" id="profilPassword" name="password" placeholder="&nbsp;"><br />
              
             <label for="confirm_password">Confirmation du mot de passe</label>
-                <input type="password" id="profilConfirm_password" name="confirm_password" placeholder="&nbsp;"><br />
+                <input type="password" id="profilConfirm_password" name="confirm_password" ><br />
            
             <label for="email">Email</label>
-                <input type="text" id="inscriptionEmail" name="email" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['email'];?>"><br />
+                <input type="text" id="inscriptionEmail" name="email" value="<?php echo $_SESSION['utilisateur']['email'];?>"><br />
         </article>
 
         <input type="submit" id="profilSubmit" value="update" name="update">
@@ -123,9 +123,7 @@ var_dump($_POST);
             </label>
             <label for="date" class="inp">
                 <input type="date" id="CarteBleuDate" name="date" placeholder="&nbsp;" value="">
-                <span class="label">Date d'expiration</span>
-                <span class="focus-bg"></span>
-            </label>
+                
         </article>
 
         <input type="submit" id="profilSubmit" value="Modifier" name="update_carte_bleu">

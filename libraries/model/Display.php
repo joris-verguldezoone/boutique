@@ -72,7 +72,7 @@ class Display extends Model{
         $sql = "SELECT * FROM editeur";
         $result = $this->pdo->prepare($sql);
         $result->execute();
-
+    
         $i = 0;
         while($fetch = $result->fetch(\PDO::FETCH_ASSOC)){
             $tableau[$i][] = $fetch['id'];
@@ -82,6 +82,7 @@ class Display extends Model{
 
             $i++;
         }
+        
         return $tableau;
     }
     public function findAllArticles(){
@@ -107,6 +108,9 @@ class Display extends Model{
             $tableau[$i][] = $fetch['id_generation'];
             $tableau[$i][] = $fetch['promo'];
             $tableau[$i][] = $fetch['date'];
+            $tableau[$i][] = $fetch['vues'];
+            $tableau[$i][] = $fetch['likey'];
+            $tableau[$i][] = $fetch['id_editeur'];
 
             $i++;
         }
@@ -119,19 +123,31 @@ class Display extends Model{
         $result->execute();
         $i=0;   
         while($fetch = $result->fetch(\PDO::FETCH_ASSOC)){
-         $tableau[$i][] = $fetch['id'];
-         $tableau[$i][] = $fetch['nom'];
-         $tableau[$i][] = $fetch['prenom'];
-         $tableau[$i][] = $fetch['login'];
-         $tableau[$i][] = $fetch['email'];
-         $tableau[$i][] = $fetch['password'];
-         $tableau[$i][] = $fetch['image'];
-         $tableau[$i][] = $fetch['id_droits'];
-         $tableau[$i][] = $fetch['anniversaire'];
-         $tableau[$i][] = $fetch['id_adresse'];
+            $tableau[$i][] = $fetch['id'];
+            $tableau[$i][] = $fetch['nom'];
+            $tableau[$i][] = $fetch['prenom'];
+            $tableau[$i][] = $fetch['login'];
+            $tableau[$i][] = $fetch['email'];
+            $tableau[$i][] = $fetch['password'];
+            $tableau[$i][] = $fetch['image'];
+            $tableau[$i][] = $fetch['id_droits'];
+            $tableau[$i][] = $fetch['anniversaire'];
+
+            $i++;
         }
         return $tableau;
      }
+
+
+
+
+
+
+
+
+
+
+     
 }
 
 

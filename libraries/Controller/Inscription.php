@@ -45,6 +45,7 @@ class Inscription extends Controller// s'appel User
 
                                 $Http = new \Http();
                                 $Http->redirect('connexion.php'); // GG WP
+                                
                             } else $errorLog = "<p>Confirmation du mot de passe incorrect</p>";
                             
                         } else $errorLog = "<p>Email déjà utilisé</p>";

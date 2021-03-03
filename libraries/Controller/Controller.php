@@ -13,6 +13,9 @@ abstract Class Controller{ // spoiler il controlle tout
     protected $id_droits;
     protected $anniversaire ="";
     protected $id_adresse = "";
+    const PAR_PAGE = 5;
+    const DEFAULT_PRODUCT_IMAGE = 'https://m.media-amazon.com/images/S/aplus-media/vc/45b772ea-9925-4af1-b325-8d5f4b4826a0.__CR0,30,970,600_PT0_SX970_V1___.jpg';
+
     // articles
     // protected $id_type;
     // protected $id_generation;

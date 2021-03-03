@@ -1,5 +1,6 @@
 <?php
 //LIBRARIES
+ob_start();
 $utils = "../libraries/config/utils.php";
 $bdd = "../libraries/config/bdd.php";
 $Http = "../libraries/config/http.php";
@@ -74,4 +75,5 @@ if (isset($_POST['register'])) {
 $img_cindy = '../images/rondoudou.png';
 $img_joris = '../images/netero.png';
 require_once('../require/html_/footer.php');
+ob_end_flush();
 ?>

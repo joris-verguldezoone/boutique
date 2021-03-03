@@ -60,7 +60,7 @@ class Admin extends Model{
         $result->execute();
         
     }
-    public function updateUtilisateur($id,$nom,$prenom,$login,$email,$image,$id_droits,$anniversaire,$id_adresse){
+    public function updateUtilisateur($id,$nom,$prenom,$login,$email,$image,$id_droits,$anniversaire){
         $dateTime = new \DateTime();
 
         $dateTime = \DateTime::createFromFormat('d/m/Y', $anniversaire);
@@ -71,7 +71,7 @@ class Admin extends Model{
         // var_dump($tsAnniversaire);
         // $dateTime->format('Y-m-d');
 	
-        $sql = "UPDATE utilisateurs SET id = :id, nom = :nom, prenom = :prenom ,login = :login ,email = :email,image = :image,id_droits = :id_droits,anniversaire = :anniversaire,id_adresse = :id_adresse WHERE id=:id";
+        $sql = "UPDATE utilisateurs SET id = :id, nom = :nom, prenom = :prenom ,login = :login ,email = :email,image = :image,id_droits = :id_droits,anniversaire = :anniversaire WHERE id=:id";
 
         $result = $this->pdo->prepare($sql);
         $result->bindValue(':id',$id,\PDO::PARAM_INT);
@@ -82,10 +82,38 @@ class Admin extends Model{
         $result->bindValue(':image',$image,\PDO::PARAM_STR);
         $result->bindValue(':id_droits',$id_droits,\PDO::PARAM_INT);
         $result->bindValue(':anniversaire',$anniversaire,\PDO::PARAM_STR);
-        $result->bindValue(':id_adresse',$id_droits,\PDO::PARAM_INT);
         
         $result->execute();
-    
+    }
+    public function modifyArticleAdmin($id,$titre, $presentation, $description, $image ,$image_2 ,$image_3, $note, $prix, $id_utilisateur, $id_type, $id_gamme, $id_marque, $id_generation ,$promo, $date , $vues ,$likey ,$id_editeur){
+        
+        $sql = "UPDATE articles SET titre = :titre, presentation= :presentation, description= :description, image = :image ,image_2 = :image_2
+        ,image_3 = :image_3,note = :note, prix = :prix, id_utilisateur = :id_utilisateur, id_type = :id_type, id_gamme = :id_gamme,
+        id_marque = :id_marque, id_generation = :id_generation , promo = :promo, date = :date , vues = :vues ,likey = :likey
+        ,id_editeur = :id_editeur WHERE id = :id"; 
+        var_dump($sql);
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(':id',$id,\PDO::PARAM_INT);
+        $result->bindvalue(':titre',$titre,\PDO::PARAM_STR);
+        $result->bindvalue(':presentation',$presentation,\PDO::PARAM_STR);
+        $result->bindvalue(':description',$description,\PDO::PARAM_STR);
+        $result->bindvalue(':image',$image,\PDO::PARAM_STR);
+        $result->bindvalue(':image_2',$image_2,\PDO::PARAM_STR);
+        $result->bindvalue(':image_3',$image_3,\PDO::PARAM_STR);
+        $result->bindvalue(':note',$note,\PDO::PARAM_INT);
+        $result->bindvalue(':prix',$prix,\PDO::PARAM_INT);
+        $result->bindvalue(':id_utilisateur',$id_utilisateur,\PDO::PARAM_INT); //special
+        $result->bindvalue(':id_type',$id_type,\PDO::PARAM_INT);
+        $result->bindvalue(':id_gamme',$id_gamme,\PDO::PARAM_INT);
+        $result->bindvalue(':id_marque',$id_marque,\PDO::PARAM_INT);
+        $result->bindvalue(':id_generation',$id_generation,\PDO::PARAM_INT);
+        $result->bindvalue(':promo',$promo,\PDO::PARAM_INT);
+        $result->bindvalue(':date',$date,\PDO::PARAM_STR); //special
+        $result->bindvalue(':vues',$vues,\PDO::PARAM_INT); //special
+        $result->bindvalue(':likey',$likey,\PDO::PARAM_STR); //special
+        $result->bindvalue(':id_editeur',$id_editeur,\PDO::PARAM_INT); //special
+        
+        $result->execute();
     }
 
 

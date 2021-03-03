@@ -33,14 +33,14 @@ class Connexion extends Controller
                     var_dump($utilisateur);
                     echo "ok";
                     
-                    $this->id = $utilisateur['id'];
-                    $this->nom = $utilisateur['nom'];
-                    $this->prenom = $utilisateur['prenom'];
-                    $this->login = $utilisateur['login'];
-                    $this->email = $utilisateur['email'];
-                    $this->password = $utilisateur['password'];
-                    $this->id_droits = $utilisateur['id_droits'];
-                    $this->anniversaire =$utilisateur['anniversaire'];
+                    $this->id = $utilisateur['utilisateur']['id'];
+                    $this->nom = $utilisateur['utilisateur']['nom'];
+                    $this->prenom = $utilisateur['utilisateur']['prenom'];
+                    $this->login = $utilisateur['utilisateur']['login'];
+                    $this->email = $utilisateur['utilisateur']['email'];
+                    $this->password = $utilisateur['utilisateur']['password'];
+                    $this->id_droits = $utilisateur['utilisateur']['id_droits'];
+                    $this->anniversaire =$utilisateur['utilisateur']['anniversaire'];
 
                     $Http = new \Http();
                     $Http->redirect('profil.php'); // GG WP

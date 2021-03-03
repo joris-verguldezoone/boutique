@@ -46,12 +46,20 @@ class Admin extends Controller{
     }
     public function createWithThreeValues($nomTable,$colonne1,$colonne2,$colonne3, $nom, $id_type, $id_marque)
     {
+        echo "<br/>".$nomTable."<br />";
+        echo $colonne1."<br />";
+        echo $colonne2."<br />";
+        echo $colonne3."<br />";
+        echo $nom."<br />";
+        echo $id_type."<br />";
+        echo $id_marque."<br />";
+
         $modelAdmin = new \Model\Admin();
         $count = $modelAdmin->alreadyTakenCheck($nomTable , "nom", $nom);
-        echo $count.'test';
+        echo 'test'.$count.'test';
         if(!$count)
         {
-            $modelAdmin->insertFourValue($nomTable,$colonne1,$colonne2,$colonne3, $nom, $id_type, $id_marque);
+            $modelAdmin->insertThreeValue($nomTable,$colonne1,$colonne2,$colonne3, $nom, $id_type, $id_marque);
         }
         else
         {
@@ -74,7 +82,6 @@ class Admin extends Controller{
     }
     public function createArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation, $id_editeur)
     {    
-        DEFINE('DEFAULT_IMAGE', 'https://m.media-amazon.com/images/S/aplus-media/vc/45b772ea-9925-4af1-b325-8d5f4b4826a0.__CR0,30,970,600_PT0_SX970_V1___.jpg');
         $controllerAdmin = new \Controller\Admin();
         $titre = $controllerAdmin->secure($titre);
         $presentation = $controllerAdmin->secure($presentation);
@@ -103,10 +110,10 @@ class Admin extends Controller{
                 if(($titre_len <= 50) && ($description_len <= 3000) && ($image_len <= 255) && ($image_2_len <= 255) && ($image_3_len <= 255)){
                     $modelAdmin = new \Model\Admin();
                     if(empty($image_2)){
-                        $image_2 = DEFAULT_IMAGE;
+                        $image_2 = self::DEFAULT_PRODUCT_IMAGE;
                     }
                     if(empty($image_3)){
-                        $image_3 = DEFAULT_IMAGE;
+                        $image_3 = self::DEFAULT_PRODUCT_IMAGE;
                     }
                     $modelAdmin->insertArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation, $id_editeur);
                     echo 'controller passed';
