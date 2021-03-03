@@ -4,9 +4,19 @@ body
     padding: 0;
 }
 
+ul li{
+    background-color: white;
+}
+
+nav{
+    background-color: darkblue;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
 /*----------------MENU-----------------*/
 div#menu a{
-    color: #000000;
+    color: black;
     font-weight:bold;
 }
 div#menu li {
@@ -37,7 +47,6 @@ div#menu ul {
     padding: 0;
     width: 9em;
     background: white;
-    border: 1px solid;
 }
 
 div#menu ul ul {
@@ -55,7 +64,8 @@ div#menu li a {
 
 /*TAILLE DEUXIEME COLONE*/
 div#menu ul.niveau2 ul {
-    left: 13em;
+    left: 12.5em;
+    top: -0;
 }
 
 div#menu ul.niveau1 li.sousmenu:hover ul.niveau2 {
@@ -93,3 +103,4 @@ div#menu ul ul li a:hover {
 div#menu ul ul ul li a:hover {
     border-left-color: #0000FF;
 }
+

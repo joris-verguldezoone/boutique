@@ -48,7 +48,7 @@ abstract class Model{
         // articles', '*', 'id',$id
         // SELECT * FROM articles WHERE id = id
         $sql = "SELECT $colonne FROM $nomTable WHERE $colonne2 = ? ";
-        var_dump($sql);
+        // var_dump($sql);
         $result = $this->pdo->prepare($sql);
         $result->execute([$value]);
         $fetch = $result->fetchAll();

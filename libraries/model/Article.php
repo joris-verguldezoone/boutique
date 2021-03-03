@@ -23,7 +23,7 @@ class Article extends Model{
         $result2->execute();
 
         $vues = $result2->fetchAll();
-        var_dump($vues);
+        // var_dump($vues);
 
         $sql3 = "UPDATE articles SET vues = :vues WHERE id = :id_article";
         $result3 = $this->pdo->prepare($sql3);

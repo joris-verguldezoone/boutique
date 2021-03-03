@@ -9,6 +9,7 @@ echo "
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='$headerCss'>
     <link rel='stylesheet' href='$pageCss'>
+
     <link rel='icon' type='png' href='../images/logo.png' />    
     <title>$Pagenom</title>
 </head>
@@ -17,7 +18,7 @@ echo "
         <nav>
             <div id='menu' style='margin-left:150px;'>
                 <ul class='niveau1'>
-                    <li class='sousmenu'><a href='#'>Nos produits &#8594;</a>
+                    <li class='sousmenu'><a href='#'>Nos produits &#8595;</a>
                         <ul class='niveau2'>
                             <li class='sousmenu'><a href='#'>Carte Graphique</a>
                                 <ul class='niveau3'>
@@ -78,7 +79,7 @@ echo "
                 </ul>
             </div>
             <div>
-            
+            <i class='fa fa-camera-retro fa-3x'></i>
 </div>
         </nav> 
 ";

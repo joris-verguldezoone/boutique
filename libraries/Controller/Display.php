@@ -891,19 +891,31 @@ $page_item = '';
     }
     public function displayOneTypeOfArticle($where,$id){
         $modelArticle = new \Model\Display();
-        $tab = $modelArticle->selectOne('articles', '*', $where ,$id );
-        var_dump($tab);
-        foreach($tab as $key => $value){
-            echo" <form action='article.php' method='GET'> 
-            <button type='submit' name='articleSelected' value='".$value['id']."'>
-            <br />
-            ".$value['titre']."<br />
-             <img src='".$value['image']."'>
-             ".$value['prix']."<br />
-             </button>
-             </form>";
-        }
+        $tab = $modelArticle->selectOne('articles', '*', $where, $id);
+        // var_dump($tab);
+        $temp = 1;
+        echo '<section  class="rowSection">';
+        foreach ($tab as $key => $value) {
 
+            if ($temp == 4) { //  ?a c'est le fun qui peut me test svp ??
+                $temp = 1;
+            }
+            echo " <form action='article.php' method='GET' class='form_composant'> 
+            <button type='submit' name='articleSelected' value='" . $value['id'] . " class='buttom_comp'>
+            <br />
+            <p class='typo_comp'><u>" . $value['titre'] . "</u></p>
+            <img src='" . $value['image'] . "' class='dimension_image'>
+            <p class='typo_comp'>" . $value['prix'] . "€</p><br />
+            </button>
+            </form>";
+
+            if ($temp % 3 === 0) {
+                echo '</section>';
+                echo '<section  class="rowSection">';
+            }
+
+            $temp++;
+        }
     }
     public function DisplayOneArticle($id){
         $modelArticle = new \Model\Display();
@@ -916,16 +928,28 @@ $page_item = '';
             //	id titre presentation description image  image_2 image_3 note prix id_utilisateur id_type  id_gamme  id_marque id_generation promo date 
             echo" <section> 
             
-            <p>".$value['titre']."</p>
-            <p>".$value['presentation']."</p>
-            <p>".$value['description']."</p>
-            <img src='".$value['image']."'>
-            <img src='".$value['image_2']."'>
-            <img src='".$value['image_3']."'>
-            <p>".$value['note']."</p>
-            <p>".$value['prix']."</p>
-         
-            
+            <div class='box_article_titre'>
+                <h1 class='titre_article'>".$value['titre']."</h1>
+            </div>
+            <div class='flex_presentation'>
+                <div class='flex_box_image_article'>            
+                    <img class='img_article_principale' src='".$value['image']."'>
+                        <div class='img_flex_article'>
+                            <picture>
+                                <img class='img_article_secondaire' src='".$value['image_2']."'>            
+                                <img class='img_article_secondaire' src='".$value['image_3']."'>
+                            </picture>
+                        </div>
+                </div>
+            <div class='presention_prix_article'>
+            <p class='presentation_article'>".$value['presentation']."</p>
+            <p class='prix_article'>".$value['prix']."€</p>
+            </div>
+            <p class='note_article'>".$value['note']."</p>
+            </div>            
+
+                        <p class='suite_presentation_article'>".$value['description']."</p>
+
              </section>";
              echo "<form action='' method='GET'>
              <button name='like' type='submit'></button>
@@ -939,10 +963,11 @@ $page_item = '';
             }
         }
     }
+            
     public function showFivePopularArticles(){
         $modelArticle = new \Model\Article();
         $tab = $modelArticle->findFivePopularArticles();
-        foreach($tab as $key => $value)
+            foreach($tab as $key => $value)
         {
             echo"
             <p>".$value[1]."</p>

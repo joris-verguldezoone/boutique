@@ -26,6 +26,11 @@ $deconnexion = "../index.php?off=1";
 require('../require/html_/header.php');
 ?>
 <main>
+    <aside>
+        <form>
+
+        </form>
+    </aside>
 
 <?php
 if(!isset($_GET['typeArticleSelected'])){
@@ -41,7 +46,7 @@ if(!isset($_GET['typeArticleSelected'])){
     if(isset($_GET['typeArticleSelected'])){
 
     $controllerDisplay = new \Controller\Display();
-    var_dump($_GET);
+    //var_dump($_GET);
     $controllerDisplay->displayOneTypeOfArticle('id_type',$_GET['typeArticleSelected']);
 }
 
