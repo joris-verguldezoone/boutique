@@ -14,6 +14,7 @@ $headerCss = "../css/header.css";
 $pageCss = "../css/article.css";
 $Pagenom = "Article";
 $footer = "../css/footer.css";
+$linkawesome = "../fonts/font-awesome-4.7.0/css/font-awesome.css";
 
 //PATHS
 $index = "../index.php";
@@ -29,9 +30,9 @@ $deconnexion = "../index.php?off=1";
 require('../require/html_/header.php');
 ?>
 <main>
-<form action='' method='POST'>
+<!--<form action='' method='POST'>
 	<button name='likeArticle' type='submit'>coucou</button>
-</form>
+</form>-->
 <!-- <form action='' method='POST'>
 	<button name='likeArticle' type='submit'>coucou</button>
 </form> -->
@@ -42,8 +43,8 @@ $controllerDisplay->displayOneArticle($_GET['articleSelected']);
 
 
 
-var_dump($_GET);
-echo "cc";
+//var_dump($_GET);
+// echo "cc";
 
 if(isset($_POST['likeArticle'])){
 	$model = new \Model\Article();
@@ -54,6 +55,5 @@ if(isset($_POST['likeArticle'])){
 // 	$model->note($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
 // }
 ?>
-
-
+    <i class="fas fa-thumbs-up">oui</i>
 </main>

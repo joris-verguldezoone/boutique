@@ -8,6 +8,12 @@ ul li{
     background-color: white;
 }
 
+nav{
+    background-color: darkblue;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
 /*----------------MENU-----------------*/
 div#menu a{
     color: black;
@@ -97,3 +103,4 @@ div#menu ul ul li a:hover {
 div#menu ul ul ul li a:hover {
     border-left-color: #0000FF;
 }
+
