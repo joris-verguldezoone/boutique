@@ -8,6 +8,8 @@ $Http = "../libraries/config/http.php";
 require('../libraries/Model/Inscription.php');
 require('../libraries/config/utils.php');
 require('../libraries/Controller/Inscription.php');
+require_once('../libraries/Controller/DisplayArticle.php');
+
 
 //CSS
 $headerCss = "../css/header.css";
@@ -27,7 +29,7 @@ $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
 
 //HEADER
-require('../require/html_/header.php');
+$typePath = 'articles.php?typeSelected';require('../require/html_/header.php');
 
 ?>
 <main>

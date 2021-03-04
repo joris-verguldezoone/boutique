@@ -1,5 +1,6 @@
 <?php
 //LIBRARIES
+require_once('../libraries/Controller/DisplayArticle.php');
 
 //CSS
 $headerCss = "../css/header.css";

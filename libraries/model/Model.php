@@ -12,6 +12,14 @@ abstract class Model{
         $this->pdo = connect();
     }
 // GENRERIC SELECT
+    public function selectOneColumn($nomTable, $colonne1){
+        $sql = "SELECT $colonne1 FROM $nomTable ORDER BY $colonne1 DESC";
+        $result = $this->pdo->prepare($sql);
+        $result->execute();
+        $fetch = $result->fetchAll();
+
+        return $fetch;
+    }
     public function selectAllNom($nomTable) // on fetch que le 'nom' de la table
     {
         $sql = "SELECT * FROM $nomTable";
@@ -33,6 +41,15 @@ abstract class Model{
         $result = $this->pdo->prepare($sql);
         $result->execute([$value]);
         $fetch = $result->fetch(\PDO::FETCH_ASSOC);
+
+        return $fetch;
+    }
+    public function FetchAllselectAllWhere($nomTable,$colonne,$value)
+    { // select * where value = value
+        $sql = "SELECT * FROM $nomTable WHERE $colonne= ?";
+        $result = $this->pdo->prepare($sql);
+        $result->execute([$value]);
+        $fetch = $result->fetchAll();
 
         return $fetch;
     }

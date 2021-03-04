@@ -760,7 +760,8 @@ $page_item = '';
     echo $page_item;
 
     echo "</form>";
-}    public function displayArticles(){
+}    
+public function displayArticles(){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllArticles();
         $i = 0; 
@@ -772,8 +773,8 @@ $page_item = '';
             if($temp == 4){ //  ?a c'est le fun qui peut me test svp ??
                 $temp = 1;
             }
-            echo "<form action='' method='get' class='form_article'>";
-            echo "<button type='submit' class='buttom_comp' name='typeArticleSelected' value= '".$value[0]."'>";
+            echo "<form action='article.php' method='get' class='form_article'>";
+            echo "<button type='submit' class='buttom_comp' name='articleSelected' value= '".$value[0]."'>";
           
                
             
@@ -805,6 +806,56 @@ $page_item = '';
             $temp++;
         }
     }
+
+    public function displayArticlesByType($get){
+        $modelDisplay = new \Model\Display();
+        var_dump($get);
+        $tab = $modelDisplay->FetchAllselectAllWhere('articles' , 'id_type' , $get);
+        $i = 0; 
+        // var_dump($tab);
+        
+        $temp = 1; 
+        echo '<section class="rowSection">';
+        foreach($tab as $value){
+            if($temp == 4){ //  ?a c'est le fun qui peut me test svp ??
+                $temp = 1;
+            }
+            echo "<form action='article.php' method='get' class='form_article'>";
+            echo "<button type='submit' class='buttom_comp' name='articleSelected' value= '".$tab[$i]['id']."'>";
+          
+               
+            
+                echo "<p class='typo_comp'>". $tab[$i]['titre'] ."<u></u></p>";
+
+            // echo "<p class='typo_comp'><u>".$titre."</u></p>";
+                echo "<img src='".$tab[$i]['image']."' class='dimension_image'>";
+           
+            // echo $value[2]."<br />";
+            // echo $value[3]."<br />";
+            // echo "<img src='$value[5]'>";
+            // echo "<img src='$value[6]'>";
+            // echo $value[7]."<br />";
+            echo $tab[$i]['note']."<br />";
+            // echo $value[10]."<br />";
+            // echo $value[11]."<br />";
+            // echo $value[12]."<br />";
+            // echo $value[13]."<br />";  
+            echo $tab[$i]['prix']."€<br />";  
+            echo $tab[$i]['date']."<br />";
+            echo "</button>";
+            echo "</form>";
+            
+            if($temp % 3 === 0 ){
+                echo '</section>';
+                echo '<section  class="rowSection">';
+            } 
+            
+            $temp++;
+            $i++;
+        }
+
+    }
+
     public function displayUsers(){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllUsers();

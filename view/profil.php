@@ -8,6 +8,7 @@ require('../libraries/Model/Profil.php');
 require('../libraries/config/utils.php');
 require('../libraries/Controller/Profil.php');
 require('../libraries/Controller/DisplayProfil.php');
+require_once('../libraries/Controller/DisplayArticle.php');
 
 
 //CSS
@@ -28,11 +29,11 @@ $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
 
 //HEADER
+$typePath = 'articles.php?typeSelected';
 require('../require/html_/header.php');
 
 $newUserModel = new \Model\Profil();
 $newUserController = new \Controller\Profil();
-var_dump($_SESSION);
 
 ?>
 

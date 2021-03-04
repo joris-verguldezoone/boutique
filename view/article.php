@@ -8,6 +8,7 @@ $bdd = "../libraries/config/bdd.php";
 require_once('../libraries/Controller/Display.php');
 require_once('../libraries/Model/Display.php');
 require_once('../libraries/model/Article.php');
+require_once('../libraries/Controller/DisplayArticle.php');
 
 //CSS
 $headerCss = "../css/header.css";
@@ -25,8 +26,18 @@ $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
+
+$carteGraphique = 'articles.php?carteGraphique';
+$processeur = 'articles.php?processeur';
+$stockage = 'articles.php?stockage';
+$ram = 'articles.php?ram';
+$ecran = 'articles.php?ecran';
+$portable = 'articles.php?portable';
+$pcFixe = 'articles.php?pcFixe';
+$alimentation = 'articles.php?alimentation';
+$carteMere = 'articles.php?carteMere';
 //HEADER
-require('../require/html_/header.php');
+$typePath = 'articles.php?typeSelected';require('../require/html_/header.php');
 ?>
 <main>
 <!--<form action='' method='POST'>
@@ -37,12 +48,13 @@ require('../require/html_/header.php');
 </form> -->
 	<?php
 $controllerDisplay = new \Controller\Display();
+if(isset($_GET['articleSelected'])){
+	$controllerDisplay->displayOneArticle($_GET['articleSelected']);
 
-$controllerDisplay->displayOneArticle($_GET['articleSelected']);
+}
 
 
-
-//var_dump($_GET);
+// var_dump($_GET);
 // echo "cc";
 
 if(isset($_POST['likeArticle'])){

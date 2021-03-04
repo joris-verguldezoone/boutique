@@ -8,6 +8,7 @@ require_once('../libraries/Controller/Display.php');
 require_once('../libraries/model/Admin.php');
 require_once('../libraries/model/Display.php');
 require_once('../libraries/config/utils.php');
+require_once('../libraries/Controller/DisplayArticle.php');
 
 
 
@@ -28,6 +29,7 @@ $panier = "panier.php";
 $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
 //HEADER
+$typePath = 'articles.php?typeSelected';
 require('../require/html_/header.php');
 
 $controllerAdmin = new \Controller\Admin();
@@ -37,7 +39,6 @@ $controllerDisplay  = new \Controller\Display();
 $modelDisplay  = new \Model\Display();
 
 var_dump($_SESSION);
-session_destroy();
 ?>
 
 <main>

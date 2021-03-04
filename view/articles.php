@@ -6,6 +6,7 @@ require_once('../libraries/Controller/Admin.php');
 require_once('../libraries/model/Display.php');
 require_once('../libraries/Controller/Display.php');
 require_once('../libraries/config/utils.php');
+require_once('../libraries/Controller/DisplayArticle.php');
 //CSS
 $headerCss = "../css/header.css";
 $pageCss = "../css/articles.css";
@@ -22,6 +23,9 @@ $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
+
+$typePath = 'articles.php?typeSelected';
+
 //HEADER
 require('../require/html_/header.php');
 ?>
@@ -33,7 +37,15 @@ require('../require/html_/header.php');
     </aside>
 
 <?php
-if(!isset($_GET['articleSelected'])){
+
+
+
+if(isset($_GET['typeSelected'])){
+    $controllerDisplay = new \Controller\Display(); // impression composante 
+    
+    $controllerDisplay->displayArticlesByType($_GET['typeSelected']);
+}
+if(!isset($_GET['articleSelected']) && !isset($_GET['typeSelected'])){
 
     $controllerDisplay = new \Controller\Display(); // impression composante 
     
@@ -50,7 +62,7 @@ if(isset($_GET['articleSelected'])){
     $controllerDisplay->displayOneTypeOfArticle('id_type',$_GET['articleSelected']);
 }
 
-$controllerDisplay->displayComposant();
+// $controllerDisplay->diSsplayComposant();
     
     
     ?>
