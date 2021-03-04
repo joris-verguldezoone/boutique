@@ -56,7 +56,6 @@ class Admin extends Controller{
 
         $modelAdmin = new \Model\Admin();
         $count = $modelAdmin->alreadyTakenCheck($nomTable , "nom", $nom);
-        echo 'test'.$count.'test';
         if(!$count)
         {
             $modelAdmin->insertThreeValue($nomTable,$colonne1,$colonne2,$colonne3, $nom, $id_type, $id_marque);

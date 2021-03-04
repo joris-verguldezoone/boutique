@@ -33,7 +33,7 @@ require('../require/html_/header.php');
     </aside>
 
 <?php
-if(!isset($_GET['type'])){
+if(!isset($_GET['articleSelected'])){
 
     $controllerDisplay = new \Controller\Display(); // impression composante 
     
@@ -43,14 +43,14 @@ if(!isset($_GET['type'])){
     // echo "cc";
     
 }
-if(isset($_GET['type'])){
+if(isset($_GET['articleSelected'])){
     
     $controllerDisplay = new \Controller\Display();
     //var_dump($_GET);
-    $controllerDisplay->displayOneTypeOfArticle('id_type',$_GET['type']);
+    $controllerDisplay->displayOneTypeOfArticle('id_type',$_GET['articleSelected']);
 }
 
-// $controllerDisplay->displayComposant();
+$controllerDisplay->displayComposant();
     
     
     ?>

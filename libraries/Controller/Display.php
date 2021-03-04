@@ -769,35 +769,15 @@ $page_item = '';
         $temp = 1; 
         echo '<section class="rowSection">';
         foreach($tab as $value){
-            $z = 0;
-            $result = "";
-            $titreArray= explode(" ", $value[1]);
-            $taille = count($titreArray); // nbr index dans le tableau 
-            echo $taille.'tailleTableau';
             if($temp == 4){ //  ?a c'est le fun qui peut me test svp ??
                 $temp = 1;
             }
             echo "<form action='' method='get' class='form_article'>";
             echo "<button type='submit' class='buttom_comp' name='typeArticleSelected' value= '".$value[0]."'>";
-            var_dump($titreArray);
-            // $titre_len = 0;
-            $result = $result . ' ' . $titreArray[$z];
-            $z = 1;
-            while( $z<$taille){
-                $titre_len = strlen($result); 
-                echo $titre_len.'tailleChar';
-
+          
                
-                if ($titre_len % 10 == 0 ){
-                    
-                    $result = $result . ' ' . $titreArray[$z] . '<br/ >';
-                    
-                }else{
-                    $result = $result . ' ' . $titreArray[$z];
-                }
-                $z++;
-            }
-                echo "<p class='typo_comp'>". $result ."<u></u></p>";
+            
+                echo "<p class='typo_comp'>". $value[1] ."<u></u></p>";
 
             // echo "<p class='typo_comp'><u>".$titre."</u></p>";
                 echo "<img src='$value[2]' class='dimension_image'>";
@@ -925,8 +905,11 @@ $page_item = '';
         $tab = $modelAdmin->selectAllNom($nomTable);
         var_dump($tab);
         $i = 0;
+        echo "<option value='0'>Aucun</option>";
+
         foreach($tab as $key => $value)
        {
+
         echo "<option value='".$value[0]."'>".$value[1]."</option>";
        }
 

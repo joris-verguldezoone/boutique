@@ -74,6 +74,7 @@ abstract class Model{
 
         public function insertFourValue($nomTable, $colonne1,$colonne2,$colonne3,$colonne4,$value1, $value2, $value3,$value4){
             $sql = "INSERT INTO $nomTable ($colonne1,$colonne2,$colonne3,$colonne4) VALUES (?,?,?,?)";
+            var_dump($sql);
             $result = $this->pdo->prepare($sql);
             $result->execute([$value1,$value2,$value3,$value4]);
         }
