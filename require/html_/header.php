@@ -1,5 +1,5 @@
 <?php
-
+// require_once($headerNavDisplay); // controller et model de display 
 
 echo "
 <!DOCTYPE HTML>
@@ -34,43 +34,47 @@ echo "
                             </li>                    
                             <li class='sousmenu'><a href='#'>Stockage</a>
                                 <ul class='niveau3'>
-                                    <li><a href='#'>NVIDIA</a></li>
-                                    <li><a href='#'>AMD</a></li>
+                                    <li><a href='#'>NVME</a></li>
+                                    <li><a href='#'>SSD</a></li>
+                                    <li><a href='#'>HDD</a></li>
                                 </ul>
                             </li>
                             <li class='sousmenu'><a href='#'>RAM</a>
                                 <ul class='niveau3'>
-                                    <li><a href='#'>NVIDIA</a></li>
-                                    <li><a href='#'>AMD</a></li>
+                                    <li><a href='#'>2000</a></li>
+                                    <li><a href='#'>3000</a></li>
                                 </ul>
                             </li>
                             <li class='sousmenu'><a href='#'>Ecran</a>
                                 <ul class='niveau3'>
-                                    <li><a href='#'>NVIDIA</a></li>
-                                    <li><a href='#'>AMD</a></li>
+                                    <li><a href='#'>60ips</a></li>
+                                    <li><a href='#'>144ips</a></li>
                                 </ul>
                             </li>
                             <li class='sousmenu'><a href='#'>PC Portable</a>
                                 <ul class='niveau3'>
-                                    <li><a href='#'>NVIDIA</a></li>
-                                    <li><a href='#'>AMD</a></li>
+                                    <li><a href='#'>Bas de gamme</a></li>
+                                    <li><a href='#'>Moyen de gamme</a></li>
+                                    <li><a href='#'>Haut de gamme</a></li>
                                 </ul>
                             </li>
                             <li class='sousmenu'><a href='#'>PC Fixe</a>
                                 <ul class='niveau3'>
-                                    <li><a href='#'>NVIDIA</a></li>
-                                    <li><a href='#'>AMD</a></li>
+                                <li><a href='#'>Bas de gamme</a></li>
+                                <li><a href='#'>Moyen de gamme</a></li>
+                                <li><a href='#'>Haut de gamme</a></li>
                                 </ul>
                             </li>
                             <li class='sousmenu'><a href='#'>Alimentation</a>
                                 <ul class='niveau3'>
-                                    <li><a href='#'>NVIDIA</a></li>
-                                    <li><a href='#'>AMD</a></li>
+                                    <li><a href='#'>520</a></li>
+                                    <li><a href='#'>750</a></li>
+                                    <li><a href='#'>850</a></li>
                                 </ul>
                             </li>
                             <li class='sousmenu'><a href='#'>Carte mère</a>
                                 <ul class='niveau3'>
-                                    <li><a href='#'>NVIDIA</a></li>
+                                    <li><a href='#'>Intel</a></li>
                                     <li><a href='#'>AMD</a></li>
                                 </ul>
                             </li>                    

@@ -73,7 +73,7 @@ class Admin extends Controller{
         echo $count.'test';
         if(!$count)
         {
-            $modelAdmin->insertThreeValue($nomTable,$colonne1,$colonne2,$colonne3, $colonne4, $nom, $id_type, $id_marque, $id_editeur);
+            $modelAdmin->insertFourValue($nomTable,$colonne1,$colonne2,$colonne3, $colonne4, $nom, $id_type, $id_marque, $id_editeur);
         }
         else
         {

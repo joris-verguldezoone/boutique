@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 02 mars 2021 à 13:56
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Généré le :  jeu. 04 mars 2021 à 12:52
+-- Version du serveur :  10.4.10-MariaDB
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `boutique`
+-- Base de données :  `boutique`
 --
 
 -- --------------------------------------------------------
@@ -78,21 +79,24 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `date` date NOT NULL,
   `vues` varchar(11) NOT NULL DEFAULT '0',
   `likey` varchar(11) DEFAULT NULL,
-  `dislike` varchar(11) DEFAULT NULL,
   `id_editeur` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `articles`
 --
 
-INSERT INTO `articles` (`id`, `titre`, `presentation`, `description`, `image`, `image_2`, `image_3`, `note`, `prix`, `id_utilisateur`, `id_type`, `id_gamme`, `id_marque`, `id_generation`, `promo`, `date`, `vues`, `likey`, `dislike`, `id_editeur`) VALUES
-(8, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://images.itnewsinfo.com/lmi/articles/grande/000000075100.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl8M82Wg0dA45Bj307DUbKsxMtvw7mK3X9xg&amp;usqp=CAU', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24', '49', NULL, NULL, NULL),
-(12, 'I-7 10700K', 'La 10ème génération de processeur Intel Core Comet Lake-S propose plus de coeurs et l\'Hyper Threading depuis le Core i3 jusqu\'au Core i9. Performances de haute volée dans les Jeux, réalité virtuelle, multitâche intensif, les processeurs Intel Core de 10ème génération sont ultra polyvalent.', 'Le processeur Intel Core i7-10700K propose des performances éblouissantes avec sa fréquence de base à 3.8 GHz et jusqu\' à 5.1 GHz en mode Turbo, ses 8 Coeurs et 16 threads et ses 16 Mo de cache. Son TDP de 125W lui permet d\'offrir des fréquences de fonctionnement élevées tout en gardant une consommation électrique maitrisée.', 'https://media.ldlc.com/r374/ld/products/00/05/66/87/LD0005668781_1.jpg', 'https://www.universmartphone.com/wp-content/uploads/2020/08/review-intels-core-i7-10700k-is-among-the-best-cpus-for-pc-gaming.jpg', '', NULL, 380, 2, 29, 2, 12, 2, NULL, '2021-03-01', '0', NULL, NULL, NULL),
-(13, 'I-3 10100', 'La 10ème génération de processeur Intel Core Comet Lake-S propose plus de coeurs et l\'Hyper Threading depuis le Core i3 jusqu\'au Core i9. Performances de haute volée dans les Jeux, réalité virtuelle, multitâche intensif, les processeurs Intel Core de 10ème génération sont ultra polyvalent.', 'Le processeur Intel Core i3-10100 propose des performances éblouissantes avec sa fréquence de base à 3.6 GHz et jusqu\' à 4.3 GHz en mode Turbo, ses 4 Coeurs et 8 threads et ses 6 Mo de cache. Son TDP de 65W lui permet d\'offrir des fréquences de fonctionnement élevées tout en gardant une consommation électrique maitrisée.', 'https://media.ldlc.com/r374/ld/products/00/05/67/33/LD0005673301_1.jpg', 'https://media.ldlc.com/r374/ld/products/00/05/67/33/LD0005673303_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/67/33/LD0005673302_1.jpg', NULL, 138, 2, 29, 2, 14, 2, NULL, '2021-03-01', '0', NULL, NULL, NULL),
-(14, 'MSI GeForce RTX 3080 SUPRIM X 10G', 'La carte graphique MSI GeForce RTX 3080 SUPRIM X 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'La carte graphique MSI GeForce RTX 3080 SUPRIM X 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme. jouer à vos jeux préférés dans les meilleures conditions, sans lag et sans surchauffe. 3 ventilateurs MSI TORX 4.0 assurent le flux d\'air et l\'évacuation de la chaleur tandis qu\'un backplate aluminium fait office de dissipateur et de plaque rigide pour le dessous du PCB.', 'https://media.ldlc.com/r374/ld/products/00/05/75/25/LD0005752590_1.jpg', 'https://media.ldlc.com/bo/images/fiches/carte_graphique/msi/msi_geforce-rtx-3070-suprim-x-8g_001.jpg', 'https://media.ldlc.com/r374/ld/products/00/05/75/25/LD0005752593_1.jpg', NULL, 1000, 2, 27, 1, 4, 1, NULL, '2021-03-01', '1', NULL, NULL, NULL),
-(15, 'mlkjmlkjmlkjmkljm', 'mlkjmlkmlkj', 'mlkjmlkjmlkjmklj', 'mlkjmlkjmljmlkj', '', '', NULL, 547, 2, 27, 1, 4, 1, NULL, '2021-03-01', '0', NULL, NULL, 1);
+INSERT INTO `articles` (`id`, `titre`, `presentation`, `description`, `image`, `image_2`, `image_3`, `note`, `prix`, `id_utilisateur`, `id_type`, `id_gamme`, `id_marque`, `id_generation`, `promo`, `date`, `vues`, `likey`, `id_editeur`) VALUES
+(8, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://images.itnewsinfo.com/lmi/articles/grande/000000075100.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl8M82Wg0dA45Bj307DUbKsxMtvw7mK3X9xg&amp;usqp=CAU', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24', '48', NULL, NULL),
+(12, 'I-7 10700K', 'La 10ème génération de processeur Intel Core Comet Lake-S propose plus de coeurs et l', 'Le processeur Intel Core i7-10700K propose des performances éblouissantes avec sa fréquence de base à 3.8 GHz et jusqu', 'https://media.ldlc.com/r374/ld/products/00/05/66/87/LD0005668781_1.jpg', 'https://www.universmartphone.com/wp-content/uploads/2020/08/review-intels-core-i7-10700k-is-among-the-best-cpus-for-pc-gaming.jpg', 'https://www.universmartphone.com/wp-content/uploads/2020/08/review-intels-core-i7-10700k-is-among-the-best-cpus-for-pc-gaming.jpg', 0, 380, 2, 29, 2, 12, 2, 0, '2021-03-01', '0', '', 0),
+(13, 'I-3 10100', 'La 10ème génération de processeur Intel Core Comet Lake-S propose plus de coeurs et l\'Hyper Threading depuis le Core i3 jusqu\'au Core i9. Performances de haute volée dans les Jeux, réalité virtuelle, multitâche intensif, les processeurs Intel Core de 10ème génération sont ultra polyvalent.', 'Le processeur Intel Core i3-10100 propose des performances éblouissantes avec sa fréquence de base à 3.6 GHz et jusqu\' à 4.3 GHz en mode Turbo, ses 4 Coeurs et 8 threads et ses 6 Mo de cache. Son TDP de 65W lui permet d\'offrir des fréquences de fonctionnement élevées tout en gardant une consommation électrique maitrisée.', 'https://media.ldlc.com/r374/ld/products/00/05/67/33/LD0005673301_1.jpg', 'https://media.ldlc.com/r374/ld/products/00/05/67/33/LD0005673303_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/67/33/LD0005673302_1.jpg', NULL, 138, 2, 29, 2, 14, 2, NULL, '2021-03-01', '1', NULL, NULL),
+(14, 'MSI GeForce RTX 3080 SUPRIM X 10G', 'La carte graphique MSI GeForce RTX 3080 SUPRIM X 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'La carte graphique MSI GeForce RTX 3080 SUPRIM X 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme. jouer à vos jeux préférés dans les meilleures conditions, sans lag et sans surchauffe. 3 ventilateurs MSI TORX 4.0 assurent le flux d\'air et l\'évacuation de la chaleur tandis qu\'un backplate aluminium fait office de dissipateur et de plaque rigide pour le dessous du PCB.', 'https://media.ldlc.com/r374/ld/products/00/05/75/25/LD0005752590_1.jpg', 'https://media.ldlc.com/bo/images/fiches/carte_graphique/msi/msi_geforce-rtx-3070-suprim-x-8g_001.jpg', 'https://media.ldlc.com/r374/ld/products/00/05/75/25/LD0005752593_1.jpg', NULL, 1000, 2, 27, 1, 4, 1, NULL, '2021-03-01', '4', NULL, NULL),
+(21, 'I-3 10100', 'La 10ème génération de processeur Intel Core Comet Lake-S propose plus de coeurs et l\'Hyper Threading depuis le Core i3 jusqu\'au Core i9. Performances de haute volée dans les Jeux, réalité virtuelle, multitâche intensif, les processeurs Intel Core de 10ème génération sont ultra polyvalent.', 'Le processeur Intel Core i3-10100 propose des performances éblouissantes avec sa fréquence de base à 3.6 GHz et jusqu\' à 4.3 GHz en mode Turbo, ses 4 Coeurs et 8 threads et ses 6 Mo de cache. Son TDP de 65W lui permet d\'offrir des fréquences de fonctionnement élevées tout en gardant une consommation électrique maitrisée.', 'https://media.ldlc.com/r374/ld/products/00/05/67/33/LD0005673301_1.jpg', 'https://media.ldlc.com/r374/ld/products/00/05/67/33/LD0005673303_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/67/33/LD0005673302_1.jpg', NULL, 138, 2, 29, 2, 14, 2, NULL, '2021-03-01', '1', NULL, NULL),
+(19, '3070 FE', 'Meilleur rapport qualité prix Nvidia', 'La Nvidia GeForce RTX 3070 a été présentée en septembre 2020, il s\'agit d\'un des premières modèles de cartes graphiques conçus avec l\'architecture Ampere. Selon Nvidia, ses performances sont équivalentes à celle d’un RTX 2080 Ti. La RTX 3070 possède 8 Go de Mémoire GDDR6 avec 5888 coeurs Nvidia Cuda.', 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-300-t.png', 'https://images.itnewsinfo.com/lmi/articles/grande/000000075100.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl8M82Wg0dA45Bj307DUbKsxMtvw7mK3X9xg&amp;usqp=CAU', NULL, 519, 1, 27, 1, 3, 1, NULL, '2021-02-24', '48', NULL, NULL),
+(20, 'I-7 10700K', 'La 10ème génération de processeur Intel Core Comet Lake-S propose plus de coeurs et l', 'Le processeur Intel Core i7-10700K propose des performances éblouissantes avec sa fréquence de base à 3.8 GHz et jusqu', 'https://media.ldlc.com/r374/ld/products/00/05/66/87/LD0005668781_1.jpg', 'https://www.universmartphone.com/wp-content/uploads/2020/08/review-intels-core-i7-10700k-is-among-the-best-cpus-for-pc-gaming.jpg', 'https://www.universmartphone.com/wp-content/uploads/2020/08/review-intels-core-i7-10700k-is-among-the-best-cpus-for-pc-gaming.jpg', 0, 380, 2, 29, 2, 12, 2, 0, '2021-03-01', '0', '', 0),
+(22, 'MSI GeForce RTX 3080 SUPRIM X 10G', 'La carte graphique MSI GeForce RTX 3080 SUPRIM X 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'La carte graphique MSI GeForce RTX 3080 SUPRIM X 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme. jouer à vos jeux préférés dans les meilleures conditions, sans lag et sans surchauffe. 3 ventilateurs MSI TORX 4.0 assurent le flux d\'air et l\'évacuation de la chaleur tandis qu\'un backplate aluminium fait office de dissipateur et de plaque rigide pour le dessous du PCB.', 'https://media.ldlc.com/r374/ld/products/00/05/75/25/LD0005752590_1.jpg', 'https://media.ldlc.com/bo/images/fiches/carte_graphique/msi/msi_geforce-rtx-3070-suprim-x-8g_001.jpg', 'https://media.ldlc.com/r374/ld/products/00/05/75/25/LD0005752593_1.jpg', NULL, 1000, 2, 27, 1, 4, 1, NULL, '2021-03-01', '4', NULL, NULL),
+(23, 'testtest', 'testtesttesttest', 'testtesttesttest', 'testtesttesttest', 'testtesttesttest', 'testtesttesttest', NULL, 666, 2, 20, 6, 12, 7, NULL, '2021-03-04', '0', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -173,15 +177,14 @@ CREATE TABLE IF NOT EXISTS `editeur` (
   `image` varchar(500) NOT NULL,
   `description` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `editeur`
 --
 
 INSERT INTO `editeur` (`id`, `nom`, `image`, `description`) VALUES
-(1, 'Msi', 'https://www.electroguide.com/images/icones-marques/logo-msi.jpg', 'En tant que marque leader du secteur informatique, MSI continue à placer la barre très haut en termes de design et d\'innovation de ses produits de gamme Gaming. Ces efforts ont d\'ailleurs résulté en un sponsoring de plusieurs équipes de eSport. La collaboration entre les services de recherche et développement et les joueurs professionnels a permis la création de nombre des produits MSI Gaming actuellement sur le marché.'),
-(2, 'kljhkljhkljhlkhj', 'lkjhlkjhlkjhlkjh', 'kljhlkjhlkjh');
+(1, 'Msi', 'https://www.electroguide.com/images/icones-marques/logo-msi.jpg', 'En tant que marque leader du secteur informatique, MSI continue à placer la barre très haut en termes de design et d\'innovation de ses produits de gamme Gaming. Ces efforts ont d\'ailleurs résulté en un sponsoring de plusieurs équipes de eSport. La collaboration entre les services de recherche et développement et les joueurs professionnels a permis la création de nombre des produits MSI Gaming actuellement sur le marché.');
 
 -- --------------------------------------------------------
 
@@ -197,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `gamme` (
   `id_marque` int(11) NOT NULL,
   `id_editeur` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='Cette table permet un tri facultatif selon l''article';
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='Cette table permet un tri facultatif selon l''article';
 
 --
 -- Déchargement des données de la table `gamme`
@@ -232,7 +235,7 @@ CREATE TABLE IF NOT EXISTS `generation` (
   `id_type` int(11) NOT NULL,
   `id_marque` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `generation`
@@ -243,7 +246,25 @@ INSERT INTO `generation` (`id`, `nom`, `id_type`, `id_marque`) VALUES
 (2, 'Intel 10th', 5, 2),
 (4, 'Intel 8th', 29, 2),
 (5, 'Intel 9th', 29, 2),
-(6, 'Intel 7th', 29, 2);
+(6, 'Intel 7th', 29, 2),
+(9, 'lkjmlhlkhjgkj', 20, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `likedislike`
+--
+
+DROP TABLE IF EXISTS `likedislike`;
+CREATE TABLE IF NOT EXISTS `likedislike` (
+  `id` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  `id_article` int(11) DEFAULT NULL,
+  `id_commentaire` int(11) DEFAULT NULL,
+  `likey` tinyint(1) DEFAULT NULL,
+  `dislike` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -295,7 +316,7 @@ CREATE TABLE IF NOT EXISTS `marque` (
   `image` varchar(500) NOT NULL,
   `description` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `marque`
@@ -384,16 +405,15 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `id_droits` int(140) NOT NULL,
   `anniversaire` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `login`, `email`, `password`, `image`, `id_droits`, `anniversaire`) VALUES
-(5, NULL, NULL, 'Okran', 'Okran@holynation.fr', '$2y$10$Ez4VasQXO/xdUr.aznqgKuupBSTgCmuh97PL5DIXfgA4mWUnFudcC', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, NULL),
-(6, NULL, NULL, 'testtest', 'testtest@testtest.fr', '$2y$10$vyNe30ZgLvgKQUC6Jz0NHu6u96F/e.HCO/h1.3yMZEFxcNLRXCCjW', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, NULL),
-(7, NULL, NULL, 'okokokokokk', 'okokokokokk@f.Fr', '$2y$10$.ZEEsPwIu1F71FM4dSizB.b6h1vavHfpS.1RM4cipLxufM0S45AWe', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, NULL);
+(2, NULL, NULL, '', 'HARDJOJO@gmail.com', '', 'https://i.pinimg.com/originals/4b/73/66/4b7366b13494b6d442a4aa41c189a2da.png', 1, NULL),
+(3, NULL, NULL, 'TestTest', 'TestTest@ok.fr', '$2y$10$487VcE6QPmC6u633DBKvV.phhbze9NYdZAw6dJIz96gxYMUsam/Ou', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -407,7 +427,7 @@ CREATE TABLE IF NOT EXISTS `vues` (
   `id_article` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `vues`
@@ -482,8 +502,15 @@ INSERT INTO `vues` (`id`, `id_article`, `id_utilisateur`) VALUES
 (66, 8, 2),
 (67, 8, 2),
 (68, 8, 2),
-(69, 8, 2),
-(70, 14, 2);
+(69, 16, 2),
+(70, 16, 2),
+(71, 16, 2),
+(72, 17, 2),
+(73, 14, 2),
+(74, 13, 2),
+(75, 14, 2),
+(76, 14, 2),
+(77, 14, 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

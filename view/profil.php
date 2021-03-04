@@ -32,7 +32,7 @@ require('../require/html_/header.php');
 
 $newUserModel = new \Model\Profil();
 $newUserController = new \Controller\Profil();
-var_dump($_POST);
+var_dump($_SESSION);
 
 ?>
 

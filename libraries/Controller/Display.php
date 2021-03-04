@@ -17,7 +17,6 @@ class Display extends Controller{
                 if($temp == 4){ //  ?a c'est le fun qui peut me test svp ??
                     $temp = 1;
                 }
-                                    
                 echo "<form action='' method='get' class='form_composant'>";
                 echo "<button type='submit' class='buttom_comp' name='typeArticleSelected' value= '".$value[0]."'>";
                 // echo $value[0]; // peut etre en hidden input
@@ -761,26 +760,69 @@ $page_item = '';
     echo $page_item;
 
     echo "</form>";
-}
-    public function displayArticles(){
+}    public function displayArticles(){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllArticles();
         $i = 0; 
+        // var_dump($tab);
+        
+        $temp = 1; 
+        echo '<section class="rowSection">';
         foreach($tab as $value){
-            
-            echo $value[1]."<br />"; // peut etre en hidden input
-            echo $value[2]."<br />";
-            echo $value[3]."<br />";
-            echo "<img src='$value[4]'>";
-            echo "<img src='$value[5]'>";
-            echo "<img src='$value[6]'>";
-            echo $value[7]."<br />";
+            $z = 0;
+            $result = "";
+            $titreArray= explode(" ", $value[1]);
+            $taille = count($titreArray); // nbr index dans le tableau 
+            echo $taille.'tailleTableau';
+            if($temp == 4){ //  ?a c'est le fun qui peut me test svp ??
+                $temp = 1;
+            }
+            echo "<form action='' method='get' class='form_article'>";
+            echo "<button type='submit' class='buttom_comp' name='typeArticleSelected' value= '".$value[0]."'>";
+            var_dump($titreArray);
+            // $titre_len = 0;
+            $result = $result . ' ' . $titreArray[$z];
+            $z = 1;
+            while( $z<$taille){
+                $titre_len = strlen($result); 
+                echo $titre_len.'tailleChar';
+
+               
+                if ($titre_len % 10 == 0 ){
+                    
+                    $result = $result . ' ' . $titreArray[$z] . '<br/ >';
+                    
+                }else{
+                    $result = $result . ' ' . $titreArray[$z];
+                }
+                $z++;
+            }
+                echo "<p class='typo_comp'>". $result ."<u></u></p>";
+
+            // echo "<p class='typo_comp'><u>".$titre."</u></p>";
+                echo "<img src='$value[2]' class='dimension_image'>";
+           
+            // echo $value[2]."<br />";
+            // echo $value[3]."<br />";
+            echo "<img class='dimension_image' src='$value[4]'>";
+            // echo "<img src='$value[5]'>";
+            // echo "<img src='$value[6]'>";
+            // echo $value[7]."<br />";
             echo $value[8]."<br />";
-            echo $value[10]."<br />";
-            echo $value[11]."<br />";
-            echo $value[12]."<br />";
-            echo $value[13]."<br />";
+            // echo $value[10]."<br />";
+            // echo $value[11]."<br />";
+            // echo $value[12]."<br />";
+            // echo $value[13]."<br />";    
             echo $value[15]."<br />";
+            echo "</button>";
+            echo "</form>";
+            
+            if($temp % 3 === 0 ){
+                echo '</section>';
+                echo '<section  class="rowSection">';
+            } 
+            
+            $temp++;
         }
     }
     public function displayUsers(){

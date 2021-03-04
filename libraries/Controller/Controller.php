@@ -53,6 +53,12 @@ abstract Class Controller{ // spoiler il controlle tout
         $rest = substr_replace($rest, '...', -3);
        return $rest;
    }
+   public function descriptionLimit($value){
+
+    $rest = substr($value, 0, 150);   // limit le nbr de caractere dans une chaine
+    $rest = substr_replace($rest, '...', -3);
+   return $rest;
+}
 
 
 }

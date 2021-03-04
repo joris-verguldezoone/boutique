@@ -37,7 +37,7 @@ $controllerDisplay  = new \Controller\Display();
 $modelDisplay  = new \Model\Display();
 
 var_dump($_SESSION);
-
+session_destroy();
 ?>
 
 <main>
@@ -165,7 +165,7 @@ echo '<form action="" method="GET">
         <?php
         if(isset($_POST['submitGamme']))
         {
-           $controllerAdmin->createWithFourValues('gamme', 'nom','id_type','id_marque','id_editeur', $_POST['createGamme'], $_POST['gammeSelected1'] , $_POST['gammeSelected2'], $_POST['gammeSelected3']);
+           $controllerAdmin->createWithFourValues('gamme','nom','id_type','id_marque','id_editeur', $_POST['createGamme'], $_POST['gammeSelected1'] , $_POST['gammeSelected2'], $_POST['gammeSelected3']);
         }
         ?>
     </form>

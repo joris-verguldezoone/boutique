@@ -1,4 +1,5 @@
 <?php
+ob_start();
 //LIBRARIES
 $bdd = "../libraries/config/bdd.php";
 $Http = "../libraries/config/Http.php";
@@ -57,3 +58,4 @@ if (isset($_POST['register'])) {
     $newUser = new \Controller\Connexion(); // prend pas le bon
     $newUser->connect($_POST['login'], $_POST['password']);
 }
+ob_end_flush();

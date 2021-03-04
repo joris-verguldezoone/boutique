@@ -67,6 +67,7 @@ abstract class Model{
         }
         public function insertThreeValue($nomTable,$colonne1,$colonne2,$colonne3,$value1,$value2,$value3){
             $sql = "INSERT INTO $nomTable ($colonne1,$colonne2,$colonne3) VALUES (?,?,?)";
+            var_dump($sql);
             $result = $this->pdo->prepare($sql);
             $result->execute([$value1,$value2,$value3]);
         }
