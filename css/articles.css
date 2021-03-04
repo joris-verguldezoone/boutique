@@ -35,6 +35,7 @@
 .typo_comp{
     font-family: 'gaming.ttf';
     font-size: 23px;
+    width: 25vh;
 }
 
 .typo_comp:hover{

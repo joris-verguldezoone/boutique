@@ -634,14 +634,17 @@ class Display extends Controller
                         </div>
                 </div>
             <div class='presention_prix_article'>
-            <p class='presentation_article'>".$value['presentation']."</p>
-            <p class='prix_article'>".$value['prix']."€</p>
+            <!-- faire une ancre pour le commentaire ? -->
+                <p class='presentation_article'><i class='fas fa-heart'></i>Tant de likes / Posez une question<br>".$value['presentation']."</p>
+                <p class='prix_article'>".$value['prix']."€</p>
+                
             </div>
-            <p class='note_article'>".$value['note']."</p>
-            </div>            
-
-                        <p class='suite_presentation_article'>".$value['description']."</p>
-
+                <p class='note_article'>".$value['note']."</p>
+            </div>
+            <div class='flex_presentation_description'>
+                <h1 class='titre_article'>Description</h1>
+                <p class='suite_presentation_article'>".$value['description']."</p>
+            </div>
              </section>";
              echo "<form action='' method='GET'>
              <button name='like' type='submit'></button>

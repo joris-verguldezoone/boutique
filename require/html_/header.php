@@ -9,7 +9,7 @@ echo "
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='$headerCss'>
     <link rel='stylesheet' href='$pageCss'>
-    <link rel='stylesheet' href='$linkawesome'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'/>
 
     <link rel='icon' type='png' href='../images/logo.png' />    
     <title>$Pagenom</title>
@@ -19,7 +19,7 @@ echo "
         <nav>
             <div id='menu' style='margin-left:150px;'>
                 <ul class='niveau1'>
-                    <li class='sousmenu'><a href='#'>Nos produits &#8595;</a>
+                    <li class='sousmenu'><a href='#'>Nos produits &nbsp; <i class='fas fa-chevron-down' class='fleche_menu'></i></a>
                         <ul class='niveau2'>
                             <li class='sousmenu'><a href='#'>Carte Graphique</a>
                                 <ul class='niveau3'>
@@ -79,10 +79,15 @@ echo "
                     </li>
                 </ul>
             </div>
+            <div class='logo_header'>
+                <i class='fas fa-user' class='profil_logo'></i>
+            </div>
             <div>
-            <i class='fa fa-camera-retro fa-3x'></i>
-</div>
-        </nav> 
+                <i class='fas fa-shopping-cart' class='shopping_logo'></i>
+            </div>
+        </nav>
+
+       
 ";
 
 ?>
