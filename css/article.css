@@ -1,12 +1,22 @@
-body{
-    background-color: #CCCCCC;
+@font-face {
+    font-family: 'gaming.ttf';
+    src: url("../fonts/gaming.ttf");
 }
 
-.box_article_titre{
-    background-color: #BBBBBB;
+.titre_article{
+    font-family: 'gaming.ttf';
+    font-size: 28px;
+}
+
+body{
+    background-color: #F0F0F0;
+}
+
+.box_article_titre {
+    background-color: #bbbbbb;
     padding-bottom: 0.25em;
-    margin-left: 15%;
-    margin-right: 15%;
+    width: 74%;
+    margin-left: 13%;
 }
 
 .titre_article{
@@ -17,7 +27,7 @@ body{
 .img_flex_article{
     display: flex;
     flex-direction: row;
-    margin-left: 15%;
+    margin-left: 27%;
 }
 
 .flex_box_image_article{
@@ -51,20 +61,38 @@ body{
 .flex_presentation {
     display: flex;
     flex-direction: row;
-    background-color: white;
+    background-color: whitesmoke;
     margin-left: 14%;
-    margin-right: 14%;
+    width: 70%;
     margin-top: 2%;
     padding: 1% 1% 0 1%;
 }
+.flex_presentation_description{
+    background-color: whitesmoke;
+    margin-left: 14%;
+    width: 70%;
+    margin-top: 2%;
+    padding: 0 1% 0 1%;
+}
+
+.suite_presentation_article{
+    font-size: 20px;
+    margin-top: 3%;
+    letter-spacing: 1px;
+    text-indent: 3%;
+}
+
+.fa-heart{
+    font-size: 30px;
+    color: red;
+    margin-bottom: 5%;
+}
 
 .presentation_article {
-    /* margin-left: -25em; */
-    /* padding-right: 27%; */
     color: #969696;
     font-size: 20px;
-    /* text-align: justify; */
     margin-top: 6%;
+    letter-spacing: 1px;
 }
 
 .presention_prix_article{
@@ -73,9 +101,8 @@ body{
 }
 
 .prix_article {
-    background-color: #0000FF;
+    background-color: #d9eef4;
     font-size: 30px;
-    margin-right: 3%;
     margin-left: 3%;
     padding: 5em 5em 13em 5em;
 }

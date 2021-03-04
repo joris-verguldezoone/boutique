@@ -14,7 +14,6 @@ $headerCss = "../css/header.css";
 $pageCss = "../css/article.css";
 $Pagenom = "Article";
 $footer = "../css/footer.css";
-$linkawesome = "../fonts/font-awesome-4.7.0/css/font-awesome.css";
 
 //PATHS
 $index = "../index.php";
@@ -55,5 +54,4 @@ if(isset($_POST['likeArticle'])){
 // 	$model->note($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
 // }
 ?>
-    <i class="fas fa-thumbs-up">oui</i>
 </main>

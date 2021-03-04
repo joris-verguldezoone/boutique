@@ -11,9 +11,22 @@ ul li{
 }
 
 nav{
-    background-color: darkblue;
+    background-color: #0a3782;
     padding-top: 3em;
     padding-bottom: 3em;
+    display: flex;
+    flex-direction: row;
+}
+
+.fa-user,
+.fa-shopping-cart {
+    font-size: 42px;
+    margin-left: 10vh;
+    color: white;
+}
+
+.logo_header{
+    margin-left: 60%;
 }
 
 /*----------------MENU-----------------*/
@@ -106,3 +119,6 @@ div#menu ul ul ul li a:hover {
     border-left-color: #0000FF;
 }
 
+.fleche_menu{
+    color: #3b3939;
+}
