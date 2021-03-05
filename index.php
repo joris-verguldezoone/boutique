@@ -12,6 +12,7 @@ require('libraries/Controller/Display.php');
 require('libraries/Model/Article.php');
 require_once('libraries/config/utils.php');
 require_once('libraries/config/http.php');
+require_once('libraries/model/Display.php');
 require_once('libraries/Controller/DisplayArticle.php');
 
 //PATHS
@@ -25,16 +26,10 @@ $panier = "view/panier.php";
 $admin = "view/admin.php";
 $deconnexion = "index.php?off=1";
 
-//HEADER NAV
-$carteGraphique = 'view/articles.php?carteGraphique';
-$processeur = 'view/articles.php?processeur';
-$stockage = 'view/articles.php?stockage';
-$ram = 'view/articles.php?ram';
-$ecran = 'view/articles.php?ecran';
-$portable = 'view/articles.php?portable';
-$pcFixe = 'view/articles.php?pcFixe';
-$alimentation = 'view/articles.php?alimentation';
-$carteMere = 'view/articles.php?carteMere';
+//HEADER
+$typePath = 'view/articles.php?typeSelected';
+$marquePath = 'view/articles.php?marqueSelected';
+$gammePath =  'view/articles.php?gammeSelected';
 
 
 

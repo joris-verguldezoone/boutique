@@ -30,6 +30,8 @@ $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
 //HEADER
 $typePath = 'articles.php?typeSelected';
+$marquePath = 'articles.php?marqueSelected';
+$gammePath =  'articles.php?gammeSelected';
 require('../require/html_/header.php');
 
 $controllerAdmin = new \Controller\Admin();
@@ -251,7 +253,7 @@ echo '<form action="" method="GET">
             $id_utilisateur = $_SESSION['utilisateur']['id'];
 
              $controllerAdmin->createArticle($_POST['title'],$_POST['presentation'],$_POST['description'],$_POST['image'],$_POST['image_2'],$_POST['image_3']
-                                        ,$_POST['prix'],$id_utilisateur, $_POST['typeCreateArticle'],$_POST['generation'],$_POST['gamme'],$_POST['marque'] , $_POST['editeur']);
+                                        ,$_POST['prix'],$id_utilisateur, $_POST['typeCreateArticle'],$_POST['gamme'],$_POST['marque'],$_POST['generation'] , $_POST['editeur']);
         }
         
         }

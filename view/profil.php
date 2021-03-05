@@ -30,6 +30,8 @@ $deconnexion = "../index.php?off=1";
 
 //HEADER
 $typePath = 'articles.php?typeSelected';
+$marquePath = 'articles.php?marqueSelected';
+$gammePath =  'articles.php?gammeSelected';
 require('../require/html_/header.php');
 
 $newUserModel = new \Model\Profil();

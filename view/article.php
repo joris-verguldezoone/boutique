@@ -38,6 +38,8 @@ $alimentation = 'articles.php?alimentation';
 $carteMere = 'articles.php?carteMere';
 //HEADER
 $typePath = 'articles.php?typeSelected';
+$marquePath = 'articles.php?marqueSelected';
+$gammePath =  'articles.php?gammeSelected';
 require('../require/html_/header.php');
 ?>
 <main>

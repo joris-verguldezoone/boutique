@@ -29,7 +29,11 @@ $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
 
 //HEADER
-$typePath = 'articles.php?typeSelected';require('../require/html_/header.php');
+$typePath = 'articles.php?typeSelected';
+$marquePath = 'articles.php?marqueSelected';
+$gammePath =  'articles.php?gammeSelected';
+
+require('../require/html_/header.php');
 
 ?>
 <main>

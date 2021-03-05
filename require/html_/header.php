@@ -6,6 +6,7 @@ $allGamme = $controllerDisplayArticle->transfertID('gamme');
 $allMarque = $controllerDisplayArticle->transfertID('marque');
 
 var_dump($allMarque);
+var_dump($allMarque[4]['id']);
 echo "
 <!DOCTYPE HTML>
 <html lang='fr'>
