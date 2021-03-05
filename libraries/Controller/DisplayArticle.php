@@ -15,7 +15,7 @@ class DisplayArticle extends Controller{
     public function displayArticlesBy($get, $column){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->FetchAllselectAllWhere('articles' , $column , $get);
-        var_dump($tab);
+        // var_dump($tab);
         $i = 0; 
         // var_dump($tab);
         

@@ -208,7 +208,7 @@ echo '<form action="" method="GET">
             <input type="" name="image_3" placeholder=""><br />
 
             <label for="prix">Prix</label><br />
-            <input type="number" name="prix" placeholder=""><br />
+            <input type="number" step=".01" name="prix" placeholder=""><br />
 
             <p>Categorie</p>
             <label for="typeCreateArticle">type</label><br />

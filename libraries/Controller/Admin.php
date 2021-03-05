@@ -116,7 +116,6 @@ class Admin extends Controller{
                     }
                     $modelAdmin->insertArticle($titre,$presentation,$description,$image,$image_2,$image_3,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation, $id_editeur);
                     echo 'controller passed';
-                    echo $_GET['gamme'];
 
                 }
                 else{

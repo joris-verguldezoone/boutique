@@ -5,8 +5,8 @@ $allType = $controllerDisplayArticle->transfertID('type');
 $allGamme = $controllerDisplayArticle->transfertID('gamme');
 $allMarque = $controllerDisplayArticle->transfertID('marque');
 
-var_dump($allMarque);
-var_dump($allMarque[4]['id']);
+// var_dump($allMarque);
+// var_dump($allMarque[4]['id']);
 echo "
 <!DOCTYPE HTML>
 <html lang='fr'>
@@ -47,9 +47,9 @@ echo "
                             </li>                    
                             <li class='sousmenu'><a href='".$typePath."=".$allType[3]['id']."'>Alimentation</a>
                                 <ul class='niveau3'>
-                                    <li><a href='".$typePath."=".$allGamme[0]['id']."'>520</a></li>
+                                    <li><a href='".$typePath."=".$allGamme[0]['id']."'>550</a></li>
+                                    <li><a href='".$typePath."=".$allGamme[0]['id']."'>650</a></li>
                                     <li><a href='".$typePath."=".$allGamme[0]['id']."'>750</a></li>
-                                    <li><a href='".$typePath."=".$allGamme[0]['id']."'>850</a></li>
                                 </ul>
                             </li>
                             <li class='sousmenu'><a href='".$typePath."=".$allType[4]['id']."'>PC Fixe</a>
