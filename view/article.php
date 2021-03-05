@@ -37,7 +37,8 @@ $pcFixe = 'articles.php?pcFixe';
 $alimentation = 'articles.php?alimentation';
 $carteMere = 'articles.php?carteMere';
 //HEADER
-$typePath = 'articles.php?typeSelected';require('../require/html_/header.php');
+$typePath = 'articles.php?typeSelected';
+require('../require/html_/header.php');
 ?>
 <main>
 <!--<form action='' method='POST'>

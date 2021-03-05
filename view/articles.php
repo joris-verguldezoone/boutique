@@ -24,9 +24,10 @@ $panier = "panier.php";
 $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
 
-$typePath = 'articles.php?typeSelected';
-
 //HEADER
+$typePath = 'articles.php?typeSelected';
+$marquePath = 'articles.php?marqueSelected';
+$gammePath =  'articles.php?gammeSelected';
 require('../require/html_/header.php');
 ?>
 <main>
@@ -38,23 +39,33 @@ require('../require/html_/header.php');
 
 <?php
 
-
+$controllerDisplay = new \Controller\DisplayArticle(); // impression composante 
 
 if(isset($_GET['typeSelected'])){
-    $controllerDisplay = new \Controller\Display(); // impression composante 
     
-    $controllerDisplay->displayArticlesByType($_GET['typeSelected']);
+    $controllerDisplay->displayArticlesBy($_GET['typeSelected'], 'id_type');
 }
-if(!isset($_GET['articleSelected']) && !isset($_GET['typeSelected'])){
+if(isset($_GET['marqueSelected'])){
+    
+    $controllerDisplay->displayArticlesBy($_GET['marqueSelected'], 'id_marque');
+}
+if(isset($_GET['gammeSelected'])){
+    
+    $controllerDisplay->displayArticlesBy($_GET['gammeSelected'], 'id_gamme');
+}
 
-    $controllerDisplay = new \Controller\Display(); // impression composante 
+
+
+// if(!isset($_GET['articleSelected']) && !isset($_GET['typeSelected'])){
+
+//     $controllerDisplay = new \Controller\Display(); // impression composante 
     
-    $controllerDisplay->displayArticles();
+//     $controllerDisplay->displayArticles();
     
-    // var_dump($controllerDisplay);
-    // echo "cc";
+//     // var_dump($controllerDisplay);
+//     // echo "cc";
     
-}
+// }
 if(isset($_GET['articleSelected'])){
     
     $controllerDisplay = new \Controller\Display();
