@@ -5,9 +5,11 @@ $bdd = "../libraries/config/bdd.php";
 $Http = "../libraries/config/Http.php";
 $utils = "../libraries/config/utils.php";
 require('../libraries/Model/Connexion.php');
+require('../libraries/Model/Display.php');
 require('../libraries/config/utils.php');
 require('../libraries/Controller/Connexion.php');
 require_once('../libraries/Controller/DisplayArticle.php');
+
 
 //CSS
 $headerCss = "../css/header.css";

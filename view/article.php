@@ -56,14 +56,20 @@ if(isset($_GET['articleSelected'])){
 
 }
 
+$model = new \Model\Article();
+$coucou = $model->detectLike($_SESSION['utilisateur']['id'],$_GET['articleSelected']);
+var_dump($coucou);
+
 
 // var_dump($_GET);
 // echo "cc";
 
-if(isset($_POST['likeArticle'])){
+if(isset($_GET['like'])){
 	$model = new \Model\Article();
 	$model->like($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
+	echo 'like envoyé';
 }
+var_dump($_SESSION);
 // if(isset($_POST['NoteArticle'])){
 // 	$model = new \Model\Article();
 // 	$model->note($_GET['articleSelected'], $_SESSION['utilisateur']['id']);

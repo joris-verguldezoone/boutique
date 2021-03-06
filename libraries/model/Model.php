@@ -148,7 +148,7 @@ abstract class Model{
     }
     public function likeCheck($nomTable, $colonne1, $colonne2,$value1, $value2){
         $sql = "SELECT * FROM $nomTable WHERE $colonne1 = :value1 AND $colonne2 = :value2 ";
-        var_dump($sql);
+        // var_dump($sql);
         $result = $this->pdo->prepare($sql);
         $result->bindValue(":value1",$value1);
         $result->bindValue(":value2",$value2);
@@ -157,16 +157,24 @@ abstract class Model{
         return $fetch;
 
     }
+    public function detectLike($id_utilisateur, $id_article){
+        $sql = "SELECT id FROM likey WHERE id_utilisateur = :id_utilisateur AND id_article = :id_article";
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(':id_utilisateur', $id_utilisateur,\PDO::PARAM_INT);
+        $result->bindValue(':id_article', $id_article,\PDO::PARAM_INT);
 
+        $result->execute();
+        $fetch = $result->fetchAll();
+        return $fetch;
+    }
     public function like($id_article, $id_utilisateur){
         $modelLike = new \Model\Article();
 
-        var_dump($id_article);
+        // var_dump($id_article);
         $existArticle = $modelLike->likeCheck('likey','id_article', 'id_utilisateur',$id_article, $id_utilisateur);
         echo 'yes';
-        var_dump($existArticle);
+        // var_dump($existArticle);
         echo 'yes';
-        // $existArticle = alreadyTakenCheck('likedislike','id',$id_commentaire);
         if(!$existArticle){
 
             echo'top';

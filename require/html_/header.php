@@ -29,7 +29,7 @@ echo "
                         <ul class='niveau2'>
                         <li class='sousmenu'><a href='".$typePath."=".$allType[0]['id']."'>Processeur</a>
                             <ul class='niveau3'>
-                                <li><a href='".$marquePath."=".$allMarque[3]['id']."'>Intel</a></li>
+                                <li><a href='".$marquePath."=".$allMarque[9]['id']."'>Intel</a></li>
                                 <li><a href='".$marquePath."=".$allMarque[2]['id']."'>AMD</a></li>
                             </ul>
                         </li>                    

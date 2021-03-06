@@ -950,9 +950,16 @@ $page_item = '';
         $modelArticle = new \Model\Display();
         $tab = $modelArticle->selectOne('articles', '*', 'id' ,$id );
         
+           $coucou = $modelArticle->detectLike($_SESSION['utilisateur']['id'],$id);
             $modelArticle = new \Model\Article();
             $modelArticle->IncrementView($id,$_SESSION['utilisateur']['id']);
-        
+            if($coucou){
+
+                $heartLike = 'far fa-heart';
+            }else{
+                
+                $heartLike = 'fas fa-heart';
+            }
         foreach($tab as $key => $value){
             //	id titre presentation description image  image_2 image_3 note prix id_utilisateur id_type  id_gamme  id_marque id_generation promo date 
             echo" <section> 
@@ -968,11 +975,11 @@ $page_item = '';
                                 <img class='img_article_secondaire' src='".$value['image_2']."'>            
                                 <img class='img_article_secondaire' src='".$value['image_3']."'>
                             </picture>
-                        </div>
+                        </div>  
                 </div>
             <div class='presention_prix_article'>
             <!-- faire une ancre pour le commentaire ? -->
-                <p class='presentation_article'><i class='fas fa-heart'></i>Tant de likes / Posez une question<br>".$value['presentation']."</p>
+                <p class='presentation_article'><a href='article.php?articleSelected=".$_GET['articleSelected']."&like='><i class='$heartLike'></i></a>Tant de likes / Posez une question<br>".$value['presentation']."</p>
                 <p class='prix_article'>".$value['prix']."€</p>
                 
             </div>

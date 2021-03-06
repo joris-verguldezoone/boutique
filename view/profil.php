@@ -9,6 +9,7 @@ require('../libraries/config/utils.php');
 require('../libraries/Controller/Profil.php');
 require('../libraries/Controller/DisplayProfil.php');
 require_once('../libraries/Controller/DisplayArticle.php');
+require('../libraries/Model/Display.php');
 
 
 //CSS
