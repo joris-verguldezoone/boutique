@@ -61,7 +61,6 @@ abstract class Model{
         $result->bindValue(":value2",$value2,\PDO::PARAM_INT);
         $result->execute();
         $fetch = $result->fetchAll();
-        var_dump($fetch);   
         return $fetch;
     }
     public function alreadyTakenCheck($nomTable, $colonne, $value) // Est ce que l'utilisateur existe ? 

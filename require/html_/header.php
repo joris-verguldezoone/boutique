@@ -13,7 +13,7 @@ $allMarque = $controllerDisplayArticle->transfertID('marque');
 */
 
 
-var_dump($allType);
+// var_dump($allType);
 // var_dump($allGamme);
 var_dump($allMarque);
 // var_dump($allMarque[4]['id']);
@@ -45,7 +45,7 @@ echo "
                         </li>                    
                             <li class='sousmenu'><a href='".$typePath."=".$allType[1]['id']."'>Carte Graphique</a>
                                 <ul class='niveau3'>
-                                    <li><a href='".$marquePath."=".$allMarque[4]['id']."'>NVIDIA</a></li>
+                                    <li><a href='".$marquePath."=".$allMarque[10]['id']."&typeSelected=".$allType[1]['id']."'>NVIDIA</a></li>
                                     <li><a href='".$marquePath."=".$allMarque[8]['id']."&typeSelected=".$allType[1]['id']."'>AMD</a></li>
                                 </ul>
                             </li>
@@ -100,7 +100,7 @@ echo "
                         </ul>
                         </div>
                         <div class='logo_header'>
-                        <i class='fas fa-user' class='profil_logo'></i>
+                        <a href='$profil'><i class='fas fa-user' class='profil_logo'></i></a>
                         </div>
                         <div>
                         <i class='fas fa-shopping-cart' class='shopping_logo'></i>

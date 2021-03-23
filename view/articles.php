@@ -45,10 +45,12 @@ if((isset($_GET['typeSelected'])) && (isset($_GET['marqueSelected']))){
     
     $controllerDisplay->displayArticlesByTypeAndBrandOrGamme('id_type' , 'id_marque' ,$_GET['typeSelected'], $_GET['marqueSelected']);
 }
-// if((isset($_GET['gammeSelected'])) && (isset($_GET['typeSelected']))){
+
+if((isset($_GET['gammeSelected'])) && (isset($_GET['typeSelected']))){
     
-//     $controllerDisplay->displayArticlesByTypeAndBrandOrGamme('id_gamme' , 'id_type' ,$_GET['gammeSelected'], $_GET['typeSelected']);
-// }
+    $controllerDisplay->displayArticlesByTypeAndBrandOrGamme('id_gamme' , 'id_type' ,$_GET['gammeSelected'], $_GET['typeSelected']);
+}
+
 // if(isset($_GET['typeSelected'])){
     
 //     $controllerDisplay->displayArticlesBy($_GET['typeSelected'], 'id_type');

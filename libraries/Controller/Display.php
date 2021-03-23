@@ -1,5 +1,7 @@
 <?php
 
+// TOUT METTRE EN GET 
+
 namespace Controller;
 
 require_once('Controller.php');
@@ -61,7 +63,7 @@ class Display extends Controller{
                     {            
         
             echo "<tr>
-                    <form action='' method='POST'>
+                    <form action='' method='GET'>
                         <td>
                             <input type='number' name='typeId' value='".$tab[$i][0]."'>
                         </td>"; // peut etre en hidden input
@@ -79,29 +81,28 @@ class Display extends Controller{
                             <input type='hidden' name='TypeName' id='hiddenId' value='".$tab[$i][0]."'> 
                         </td>
                     </form>
-                    <form action ='' method='POST'>
+                    <form action ='' method='GET'>
                             <td>
                                 <input type='submit' value='supprimer'>
                                 <input type='hidden' name='TypeIdTracker' id='suppr' value='".$tab[$i][0]."'>
                             </td>
                         </form>
                 </tr>";
-                if(isset($_POST['modify']))
+                if(isset($_GET['modify']))
                 {
                     $modelAdmin = new \Model\Admin();
-                    $modelAdmin->updateThreeValue("type",'id','nom','image',$_POST['typeId'],$_POST['typeNom'],$_POST['typeImg']);
+                    $modelAdmin->updateThreeValue("type",'id','nom','image',$_GET['typeId'],$_GET['typeNom'],$_GET['typeImg']);
                     
-                    // $_GET = NULL;
-                    // $_POST = NULL;
+                    
                     $modelHttp = new \Http();
                     $modelHttp->redirect('admin.php');
                 }
-                if(isset($_POST['TypeIdTracker']))
+                if(isset($_GET['TypeIdTracker']))
                 {
                     // $nom = $value[1];
                     // echo "<p>?tes-vous s?r de vouloir supprimer la cat?gorie ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
-                        $modelAdmin->deleteOneWhereId('type', $_POST['TypeIdTracker']);
+                        $modelAdmin->deleteOneWhereId('type', $_GET['TypeIdTracker']);
                         
                         $modelHttp = new \Http();
                         $modelHttp->redirect('admin.php');
@@ -168,7 +169,7 @@ class Display extends Controller{
                     {                                
         
                 echo "<tr>
-                    <form action='' method='POST'>
+                    <form action='' method='GET'>
                         <td>
                             <input type='number' name='GammeId' value='".$tab[$i][0]."'>
                         </td>"; // peut etre en hidden input
@@ -186,29 +187,28 @@ class Display extends Controller{
                             <input type='hidden' name='GammeName' id='hiddenId' value='".$tab[$i][0]."'> 
                         </td>
                     </form>
-                    <form action ='' method='POST'>
+                    <form action ='' method='GET'>
                             <td>
                                 <input type='submit' value='supprimer'>
                                 <input type='hidden' name='GammeIdTracker' id='suppr' value='".$tab[$i][0]."'>
                             </td>
                         </form>
                 </tr>";
-                if(isset($_POST['modifyGamme']))
+                if(isset($_GET['modifyGamme']))
                 {
                     $modelAdmin = new \Model\Admin();
                     
-                    $modelAdmin->updateFourValueInt('gamme','id','nom','id_type','id_marque',$_POST['GammeId'],$_POST['GammeNom'],$_POST['Gamme_type'], $_POST['Gamme_marque']);
-                    // $_GET = NULL;
-                    // $_POST = NULL;
+                    $modelAdmin->updateFourValueInt('gamme','id','nom','id_type','id_marque',$_GET['GammeId'],$_GET['GammeNom'],$_GET['Gamme_type'], $_GET['Gamme_marque']);
+                   
                     $modelHttp = new \Http();
                     $modelHttp->redirect('admin.php');
                 }
-                if(isset($_POST['GammeIdTracker']))
+                if(isset($_GET['GammeIdTracker']))
                 {
                     // $nom = $tab[$i][1];
                     // echo "<p>?tes-vous s?r de vouloir supprimer la gamme ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
-                        $modelAdmin->deleteOneWhereId('gamme', $_POST['GammeIdTracker']);
+                        $modelAdmin->deleteOneWhereId('gamme', $_GET['GammeIdTracker']);
                         
                         $modelHttp = new \Http();
                         $modelHttp->redirect('admin.php');
@@ -218,7 +218,6 @@ class Display extends Controller{
             }
 
         }  
-        
         echo "</table>";
         $page_item = '';
             $start = 0;
@@ -273,7 +272,7 @@ class Display extends Controller{
                     while (isset($tab)) 
                     {          
             echo "<tr>
-                    <form action='' method='POST'>
+                    <form action='' method='GET'>
                         <td>
                             <input type='number' name='GenerationId' value='".$tab[$i][0]."'>
                         </td>"; // peut etre en hidden input
@@ -291,37 +290,35 @@ class Display extends Controller{
                             <input type='hidden' name='GammeGeneration' id='hiddenId' value='".$tab[$i][0]."'> 
                         </td>
                     </form>
-                    <form action='' method='POST'>
+                    <form action='' method='GET'>
                             <td>
                                 <input type='submit' value='supprimer'>
                                 <input type='hidden' name='GenerationIdTracker' id='suppr' value='".$tab[$i][0]."'>
                             </td>
                         </form>
                 </tr>";
-                if(isset($_POST['modifyGeneration']))
+                if(isset($_GET['modifyGeneration']))
                 {
                     $modelAdmin = new \Model\Admin();
                     
-                    $modelAdmin->updateFourValueInt('generation','id','nom','id_type','id_marque',$_POST['GenerationId'],$_POST['GenerationNom'],$_POST['Generation_type'], $_POST['Generation_marque']);
-                    // $_GET = NULL;
-                    // $_POST = NULL;
+                    $modelAdmin->updateFourValueInt('generation','id','nom','id_type','id_marque',$_GET['GenerationId'],$_GET['GenerationNom'],$_GET['Generation_type'], $_GET['Generation_marque']);
+           
                     $modelHttp = new \Http();
                     $modelHttp->redirect('admin.php');
                 }
-                if(isset($_POST['GenerationIdTracker']))
+                if(isset($_GET['GenerationIdTracker']))
                 {
                     // $nom = $value[1];
                     // echo "<p>?tes-vous s?r de vouloir supprimer la Generation ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
-                        $modelAdmin->deleteOneWhereId('generation', $_POST['GenerationIdTracker']);
+                        $modelAdmin->deleteOneWhereId('generation', $_GET['GenerationIdTracker']);
                         
                         $modelHttp = new \Http();
                         $modelHttp->redirect('admin.php'); 
                 }
                 break;
             }  
-        }
-         
+        }     
         echo "</table>";
         $page_item = '';
             $start = 0;
@@ -381,7 +378,7 @@ class Display extends Controller{
                     {         
         
             echo "<tr>
-                    <form action='' method='POST'>
+                    <form action='' method='GET'>
                         <td>
                             <input type='number' name='MarqueId' value='".$tab[$i][0]."'>
                         </td>"; // peut etre en hidden input
@@ -404,28 +401,28 @@ class Display extends Controller{
                             <input type='hidden' name='MarqueName' id='hiddenId' value='".$tab[$i][0]."'> 
                         </td>
                     </form>
-                    <form action ='' method='POST'>
+                    <form action ='' method='GET'>
                             <td>
                                 <input type='submit' value='supprimer'>
                                 <input type='hidden' name='MarqueIdTracker' id='suppr' value='".$tab[$i][0]."'>
                             </td>
                         </form>
                 </tr>";
-                if(isset($_POST['modifyMarque']))
+                if(isset($_GET['modifyMarque']))
                 {
                     $modelAdmin = new \Model\Admin();
                     
-                    $modelAdmin->updateFourValueStr('marque','id','nom','image','description',$_POST['MarqueId'],$_POST['MarqueNom'],$_POST['Marque_Img'],$_POST['Marque_description']);
+                    $modelAdmin->updateFourValueStr('marque','id','nom','image','description',$_GET['MarqueId'],$_GET['MarqueNom'],$_GET['Marque_Img'],$_GET['Marque_description']);
                   
                     $modelHttp = new \Http();
                     $modelHttp->redirect('admin.php');
                 }
-                if(isset($_POST['MarqueIdTracker']))
+                if(isset($_GET['MarqueIdTracker']))
                 {
                     // $nom = $value[1];
                     // echo "<p>?tes-vous s?r de vouloir supprimer la marque ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
-                        $modelAdmin->deleteOneWhereId('marque', $_POST['MarqueIdTracker']);
+                        $modelAdmin->deleteOneWhereId('marque', $_GET['MarqueIdTracker']);
                         
                         $modelHttp = new \Http();
                         $modelHttp->redirect('admin.php');
@@ -492,7 +489,7 @@ class Display extends Controller{
                     { 
         
             echo "<tr>
-                    <form action='' method='POST'>
+                    <form action='' method='GET'>
                         <td>
                             <input type='number' name='MarqueIdEditeur' value='".$tab[$i][0]."'>
                         </td>"; // peut etre en hidden input
@@ -515,28 +512,28 @@ class Display extends Controller{
                             <input type='hidden' name='MarqueNameEditeur' id='hiddenId' value='".$tab[$i][0]."'> 
                         </td>
                     </form>
-                    <form action ='' method='POST'>
+                    <form action ='' method='GET'>
                             <td>
                                 <input type='submit' value='supprimer'>
                                 <input type='hidden' name='MarqueIdTrackerEditeur' id='suppr' value='".$tab[$i][0]."'>
                             </td>
                         </form>
                 </tr>";
-                if(isset($_POST['modifyMarqueEditeur']))
+                if(isset($_GET['modifyMarqueEditeur']))
                 {
                     $modelAdmin = new \Model\Admin();
                     
-                    $modelAdmin->updateFourValueStr('editeur','id','nom','image','description',$_POST['MarqueIdEditeur'],$_POST['MarqueEditeur'],$_POST['Marque_ImgEditeur'],$_POST['Marque_descriptionEditeur']);
+                    $modelAdmin->updateFourValueStr('editeur','id','nom','image','description',$_GET['MarqueIdEditeur'],$_GET['MarqueEditeur'],$_GET['Marque_ImgEditeur'],$_GET['Marque_descriptionEditeur']);
                   
                     $modelHttp = new \Http();
                     $modelHttp->redirect('admin.php');
                 }
-                if(isset($_POST['MarqueIdTrackerEditeur']))
+                if(isset($_GET['MarqueIdTrackerEditeur']))
                 {
                     // $nom = $value[1];
                     // echo "<p>etes-vous syr de vouloir supprimer la cet Editeur ".$nom."?</p>";
                         $modelAdmin = new \Model\Admin();
-                        $modelAdmin->deleteOneWhereId('editeur', $_POST['MarqueIdTrackerEditeur']);
+                        $modelAdmin->deleteOneWhereId('editeur', $_GET['MarqueIdTrackerEditeur']);
                         
                         $modelHttp = new \Http();
                         $modelHttp->redirect('admin.php');
@@ -660,7 +657,7 @@ class Display extends Controller{
                         <input type='number' name='ArticleNote' value='".$tab[$i][7]."'>
                     </td>"; // note
             echo "  <td>
-                        <input type='number' name='ArticlePrix' value='".$tab[$i][8]."'>
+                        <input type='number' name='ArticlePrix' step='0.01' value='".$tab[$i][8]."'>
                     </td>"; // prix
             echo "  <td>
                     <input type='number' name='Article_id_utilisateur' value='".$tab[$i][9]."'>
@@ -827,7 +824,7 @@ public function displayArticles(){
             while (isset($tab))         
             {             $mdp = $this->characterLimit($tab[$i][5],8);
             echo "<tr>"; 
-                echo "<form action='' method='POST'>";
+                echo "<form action='' method='GET'>";
                     echo "<td><input type='number' name='UtilisateurId' value='".$tab[$i][0]."'></td>"; // peut etre en hidden input
                     echo "<td><input type='text' name='UtilisateurNom' value='".$tab[$i][1]."'></td>";
                     echo "<td><input type='text' name='UtilisateurPrenom' value='".$tab[$i][2]."'></td>";
@@ -844,28 +841,28 @@ public function displayArticles(){
                         <input type='hidden' name='UtilisateurName' id='hiddenId' value='".$tab[$i][0]."'> 
                     </td>
                 </form>
-                <form action ='' method='POST'>
+                <form action ='' method='GET'>
                 <td>
                         <input type='submit' value='supprimer'>
                         <input type='hidden' name='UtilisateurIdTracker' id='suppr' value='".$tab[$i][0]."'>
                 </td>
             </form>
         </tr>";
-        if(isset($_POST['UtilisateurName']))
+        if(isset($_GET['UtilisateurName']))
         {
             $modelAdmin = new \Model\Admin();
             
-            $modelAdmin->updateUtilisateur($_POST['UtilisateurName'],$_POST['UtilisateurNom'],$_POST['UtilisateurPrenom'],$_POST['UtilisateurLogin'],$_POST['UtilisateurEmail'],$_POST['UtilisateurImage'],$_POST['UtilisateurId_droits'],$_POST['UtilisateurAnniversaire']);
+            $modelAdmin->updateUtilisateur($_GET['UtilisateurName'],$_GET['UtilisateurNom'],$_GET['UtilisateurPrenom'],$_GET['UtilisateurLogin'],$_GET['UtilisateurEmail'],$_GET['UtilisateurImage'],$_GET['UtilisateurId_droits'],$_GET['UtilisateurAnniversaire']);
           
             $modelHttp = new \Http();
             $modelHttp->redirect('admin.php');
         }
-        if(isset($_POST['UtilisateurIdTracker']))
+        if(isset($_GET['UtilisateurIdTracker']))
         {
-            $nom = $value[3]; // login pas nom [1]
-            echo "<p>�tes-vous sur de vouloir supprimer cet(te) Utilisateur(e) ".$nom."?</p>";
+            // $nom = $value[3]; // login pas nom [1]
+            // echo "<p>etes-vous sur de vouloir supprimer cet(te) Utilisateur(e) ".$nom."?</p>";
                 $modelAdmin = new \Model\Admin();
-                $modelAdmin->deleteOneWhereId('Utilisateur', $_POST['UtilisateurIdTracker']);
+                $modelAdmin->deleteOneWhereId('Utilisateur', $_GET['UtilisateurIdTracker']);
                 
                 $modelHttp = new \Http();
                 $modelHttp->redirect('admin.php');
