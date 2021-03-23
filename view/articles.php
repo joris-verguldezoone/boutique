@@ -41,18 +41,26 @@ require('../require/html_/header.php');
 
 $controllerDisplay = new \Controller\DisplayArticle(); // impression composante 
 
-if(isset($_GET['typeSelected'])){
+if((isset($_GET['typeSelected'])) && (isset($_GET['marqueSelected']))){
     
-    $controllerDisplay->displayArticlesBy($_GET['typeSelected'], 'id_type');
+    $controllerDisplay->displayArticlesByTypeAndBrandOrGamme('id_type' , 'id_marque' ,$_GET['typeSelected'], $_GET['marqueSelected']);
 }
-if(isset($_GET['marqueSelected'])){
+// if((isset($_GET['gammeSelected'])) && (isset($_GET['typeSelected']))){
     
-    $controllerDisplay->displayArticlesBy($_GET['marqueSelected'], 'id_marque');
-}
-if(isset($_GET['gammeSelected'])){
+//     $controllerDisplay->displayArticlesByTypeAndBrandOrGamme('id_gamme' , 'id_type' ,$_GET['gammeSelected'], $_GET['typeSelected']);
+// }
+// if(isset($_GET['typeSelected'])){
     
-    $controllerDisplay->displayArticlesBy($_GET['gammeSelected'], 'id_gamme');
-}
+//     $controllerDisplay->displayArticlesBy($_GET['typeSelected'], 'id_type');
+// }
+// if(isset($_GET['marqueSelected'])){
+    
+//     $controllerDisplay->displayArticlesBy($_GET['marqueSelected'], 'id_marque');
+// }
+// if(isset($_GET['gammeSelected'])){
+    
+//     $controllerDisplay->displayArticlesBy($_GET['gammeSelected'], 'id_gamme');
+// }
 
 
 
@@ -66,12 +74,12 @@ if(isset($_GET['gammeSelected'])){
 //     // echo "cc";
     
 // }
-if(isset($_GET['articleSelected'])){
+// if(isset($_GET['articleSelected'])){
     
-    $controllerDisplay = new \Controller\Display();
-    //var_dump($_GET);
-    $controllerDisplay->displayOneTypeOfArticle('id_type',$_GET['articleSelected']);
-}
+//     $controllerDisplay = new \Controller\Display();
+//     //var_dump($_GET);
+//     $controllerDisplay->displayOneTypeOfArticle('id_type',$_GET['articleSelected']);
+// }
 
 // $controllerDisplay->diSsplayComposant();
     

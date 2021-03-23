@@ -53,6 +53,17 @@ abstract class Model{
 
         return $fetch;
     }
+    public function FetchAllselectAllWhereTypeAndBrandOrGamme($colonne,$colonne2,$value1,$value2)
+    { // select * where value = value
+        $sql = "SELECT * FROM articles WHERE $colonne= :value1 AND $colonne2 = :value2";
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(":value1",$value1,\PDO::PARAM_INT);
+        $result->bindValue(":value2",$value2,\PDO::PARAM_INT);
+        $result->execute();
+        $fetch = $result->fetchAll();
+        var_dump($fetch);   
+        return $fetch;
+    }
     public function alreadyTakenCheck($nomTable, $colonne, $value) // Est ce que l'utilisateur existe ? 
     {                              // si oui alors on need un new pseudo
         $sql = "SELECT $colonne FROM $nomTable WHERE $colonne = ?";
