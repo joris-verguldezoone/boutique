@@ -15,7 +15,7 @@ $allMarque = $controllerDisplayArticle->transfertID('marque');
 
 // var_dump($allType);
 // var_dump($allGamme);
-var_dump($allMarque);
+// var_dump($allMarque);
 // var_dump($allMarque[4]['id']);
 echo "
 <!DOCTYPE HTML>

@@ -31,12 +31,149 @@ $gammePath =  'articles.php?gammeSelected';
 require('../require/html_/header.php');
 ?>
 <main>
-    <aside>
-        <form>
+                    <!--  test   -->
 
-        </form>
-    </aside>
+    <section class='flex_mise_en_page'>
+        <aside class='aside_search_bar'>
+            <details open>
+            <summary>Carte Graphique</summary>
+            
+            <form method='GET' action="">
+                <p>Marque</p>
+                <article class='flex_form_aside_nav'>
+                        <p>NVIDIA</p>
+                        <p>AMD</p>
+                    </div>
+                </article>
+                <p>Generation</p>
+                <article class='flex_form_aside_nav'>
+                    <div>
+                        <input type="checkbox" id="RTX_3000" name="RTX_3000" value='RTX 3000'>
+                        <label for="RTX_3000">RTX 3000</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="RX_6000" name="RX_6000" value='RTX 3000'>
+                        <label for="RX_6000">6000</label>
+                    </div>
+                </article>
+                <article class='flex_form_aside_nav'>
+                    <div>
+                        <input type="checkbox" id="RTX_2000" name="RTX_2000" value='RTX 3000'>
+                        <label for="RTX_2000">RTX 2000</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="RX_5000" name="RX_5000" value='RTX 3000'>
+                        <label for="RX_5000">RX 5000</label>
+                    </div>
+                </article>
+                <article class='flex_form_aside_nav'>
+                    <div>
+                        <input type="checkbox" id="GTX_1000" name="GTX_1000" value='RTX 3000'>
+                        <label for="GTX_1000">GTX 1000</label>
+                    </div>
+                    <div>
+                    <p></p>
+                    </div>
+                </article>
 
+                <input type='submit' name='search_GC'>
+
+
+                    <!--  test   -->
+            </form>
+            <?php
+            if(isset($_GET['search_GC'])){
+                $tab = [$_GET['RTX_3000'] , $_GET['RX_6000'] , $_GET['RTX_2000'] , $_GET['RX_5000'] , $_GET['GTX_1000']];
+                var_dump($tab);
+
+                $result = "(";
+
+                foreach($tab as $key => $value){
+                    $result += $value; 
+
+                    
+                }
+                $result += ")";
+                var_dump($result);
+                echo $result[0];
+
+            }
+            ?>
+</details>
+            <details open>
+            <summary>Processeur</summary>
+            
+            <form method='GET' action="">
+                <p>Marque</p>
+                <div>
+                    <input type="checkbox" id="intel" name="intel">
+                    <label for="intel">INTEL</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="RYZEN" name="RYZEN">
+                    <label for="RYZEN">RYZEN</label>
+                </div>
+            </form>
+            </details>
+
+            <details open>
+            <summary>Carte mère</summary>
+            
+            <form method='GET' action="">
+                <p>Chipset</p>
+                <div>
+                    <input type="checkbox" id="intel" name="intel"
+                        >
+                    <label for="intel">INTEL</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="RYZEN" name="RYZEN"
+                        >
+                    <label for="RYZEN">RYZEN</label>
+                </div>
+            </form>
+            </details>
+            <details open>
+            <summary>Stockage</summary>
+            
+            <form method='GET' action="">
+                <p>Gamme</p>
+                <div>
+                    <input type="checkbox" id="nvme" name="nvme"
+                        >
+                    <label for="nvme">NVME</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ssd" name="ssd"
+                        >
+                    <label for="ssd">SSD</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="hdd" name="hdd"
+                        >
+                    <label for="hdd">HDD</label>
+                </div>
+            </form>
+            </details>
+            <details open>
+            <summary>PC</summary>
+            
+            <form method='GET' action="">
+                <p>Marque</p>
+                <div>
+                    <input type="checkbox" id="fixe" name="fixe"
+                        >
+                    <label for="fixe">FIXE</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="portable" name="portable"
+                        >
+                    <label for="portable">PORTABLE</label>
+                </div>
+            </form>
+            </details>
+        </aside>
+        <section class='artcles_presentation'>
 <?php
 
 $controllerDisplay = new \Controller\DisplayArticle(); // impression composante 
@@ -90,8 +227,8 @@ if((isset($_GET['gammeSelected'])) && (isset($_GET['typeSelected']))){
     <?php
     
     // $controllerDisplay->displayArticles(); // impression 
-    ?>
-
+    ?>  </section>
+    </section>
 </main>
 <?php 
 ob_end_flush();

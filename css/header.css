@@ -120,3 +120,29 @@ div#menu ul ul ul li a:hover {
 .fleche_menu{
     color: #3b3939;
 }
+
+/* aside_search_bar */
+.flex_mise_en_page{
+    display: flex;
+    flex-direction: row;
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+.aside_search_bar{
+    height:80vh;
+    width: 20vw;
+    background-color: #E4E4E4;
+    /* border: 1px solid black; */
+    box-shadow: black  2px  2px  2px;
+}
+.flex_form_aside_nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.artcles_presentation{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}

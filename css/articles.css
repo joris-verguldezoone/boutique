@@ -32,7 +32,7 @@
 .rowSection{
     display: flex;
     flex-direction: row;
-    margin-left: 20%;
+    margin-left: 2%;
 }
 
 .buttom_comp{
