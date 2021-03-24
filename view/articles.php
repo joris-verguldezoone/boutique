@@ -48,27 +48,28 @@ require('../require/html_/header.php');
                 <p>Generation</p>
                 <article class='flex_form_aside_nav'>
                     <div>
-                        <input type="checkbox" id="RTX_3000" name="RTX_3000" value='RTX 3000'>
+                     6000 15 2000 17
+                        <input type="checkbox" id="RTX_3000" name="RTX_3000" value='1'>
                         <label for="RTX_3000">RTX 3000</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="RX_6000" name="RX_6000" value='RTX 3000'>
+                        <input type="checkbox" id="RX_6000" name="RX_6000" value='15'>
                         <label for="RX_6000">6000</label>
                     </div>
                 </article>
                 <article class='flex_form_aside_nav'>
                     <div>
-                        <input type="checkbox" id="RTX_2000" name="RTX_2000" value='RTX 3000'>
+                        <input type="checkbox" id="RTX_2000" name="RTX_2000" value='17'>
                         <label for="RTX_2000">RTX 2000</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="RX_5000" name="RX_5000" value='RTX 3000'>
+                        <input type="checkbox" id="RX_5000" name="RX_5000" value='13'>
                         <label for="RX_5000">RX 5000</label>
                     </div>
                 </article>
                 <article class='flex_form_aside_nav'>
                     <div>
-                        <input type="checkbox" id="GTX_1000" name="GTX_1000" value='RTX 3000'>
+                        <input type="checkbox" id="GTX_1000" name="GTX_1000" value='16'>
                         <label for="GTX_1000">GTX 1000</label>
                     </div>
                     <div>
@@ -83,20 +84,52 @@ require('../require/html_/header.php');
             </form>
             <?php
             if(isset($_GET['search_GC'])){
-                $tab = [$_GET['RTX_3000'] , $_GET['RX_6000'] , $_GET['RTX_2000'] , $_GET['RX_5000'] , $_GET['GTX_1000']];
-                var_dump($tab);
-
-                $result = "(";
-
-                foreach($tab as $key => $value){
-                    $result += $value; 
-
-                    
+                // $tab = [$_GET['RTX_3000'] , $_GET['RX_6000'] , $_GET['RTX_2000'] , $_GET['RX_5000'] , $_GET['GTX_1000']];
+                // $i = 0;
+                $tab = array();
+                // if(isset($_GET['RTX_3000'])){
+                //     $tab[] .= $_GET['RTX_3000'];
+                //     // $i++;
+                //     var_dump($tab);
+                // }
+                // if(isset($_GET['RX_6000'])){
+                //     $tab[] .= $_GET['RX_6000'];
+                // }
+                // if(isset($_GET['RTX_2000'])){
+                //     $tab[] .= $_GET['RTX_2000'];
+                // }
+                // if(isset($_GET['RX_5000'])){
+                //     $tab[] .= $_GET['RX_5000'];
+                // }
+                // if(isset($_GET['GTX_1000'])){
+                //     $tab[] .= $_GET['GTX_1000'];
+                // }
+                foreach($_GET as $value){
+                    array_push($tab, $value);
+                    $key = array_search($_GET['search_GC'], $tab);
+                    if (false !== $key) { // permet d'enlever la valeur de $_GET['search_GC'] qui renvoit les valeurs mal configurés (id = 0 en sql) et les affichaient par erreur
+                        unset($tab[$key]);
+                    }
                 }
-                $result += ")";
-                var_dump($result);
-                echo $result[0];
+                var_dump($_GET['search_GC']);
 
+                // $result = "(";
+                // foreach($tab as $value){
+                //     $result .= "'".$value ."',"; 
+                    
+                //     $i++;
+                // }
+                
+                // $result = substr($result, 0, -1);
+
+                // $result .= ")";
+                // var_dump($result);
+                
+                require_once('../libraries/model/Display.php');
+                $testModel = new \Model\Display();
+                $okok = $testModel->test($tab);
+                
+                var_dump($okok);
             }
             ?>
 </details>

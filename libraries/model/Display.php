@@ -6,6 +6,22 @@ require_once("Model.php");
 
 class Display extends Model{
 
+    public function test($tab){
+
+        $in  = str_repeat('?,', count($tab) - 1) . '?';
+        $sql = "SELECT * FROM articles WHERE id_generation IN ($in)";
+        $result = $this->pdo->prepare($sql);
+        $result->execute($tab);
+        $data = $result->fetchAll();
+
+return $data;
+
+        // $sql = "SELECT * FROM articles WHERE id_generation IN (?,?,?)";
+        
+        // $result = $this->pdo->prepare($sql);
+        // $result->execute([$tab]);
+    }
+
     public function findAllType(){
         $sql = "SELECT * FROM type";
         $result = $this->pdo->prepare($sql);
