@@ -4,6 +4,7 @@ ob_start(); // pour mes fonction qui s'éxécutent pendant les headerlocation
 $bdd = "../libraries/config/bdd.php";
 require_once('../libraries/Controller/Admin.php');
 require_once('../libraries/model/Display.php');
+
 require_once('../libraries/Controller/Display.php');
 require_once('../libraries/config/utils.php');
 require_once('../libraries/Controller/DisplayArticle.php');
@@ -82,56 +83,7 @@ require('../require/html_/header.php');
 
                     <!--  test   -->
             </form>
-            <?php
-            if(isset($_GET['search_GC'])){
-                // $tab = [$_GET['RTX_3000'] , $_GET['RX_6000'] , $_GET['RTX_2000'] , $_GET['RX_5000'] , $_GET['GTX_1000']];
-                // $i = 0;
-                $tab = array();
-                // if(isset($_GET['RTX_3000'])){
-                //     $tab[] .= $_GET['RTX_3000'];
-                //     // $i++;
-                //     var_dump($tab);
-                // }
-                // if(isset($_GET['RX_6000'])){
-                //     $tab[] .= $_GET['RX_6000'];
-                // }
-                // if(isset($_GET['RTX_2000'])){
-                //     $tab[] .= $_GET['RTX_2000'];
-                // }
-                // if(isset($_GET['RX_5000'])){
-                //     $tab[] .= $_GET['RX_5000'];
-                // }
-                // if(isset($_GET['GTX_1000'])){
-                //     $tab[] .= $_GET['GTX_1000'];
-                // }
-                foreach($_GET as $value){
-                    array_push($tab, $value);
-                    $key = array_search($_GET['search_GC'], $tab);
-                    if (false !== $key) { // permet d'enlever la valeur de $_GET['search_GC'] qui renvoit les valeurs mal configurés (id = 0 en sql) et les affichaient par erreur
-                        unset($tab[$key]);
-                    }
-                }
-                var_dump($_GET['search_GC']);
-
-                // $result = "(";
-                // foreach($tab as $value){
-                //     $result .= "'".$value ."',"; 
-                    
-                //     $i++;
-                // }
-                
-                // $result = substr($result, 0, -1);
-
-                // $result .= ")";
-                // var_dump($result);
-                
-                require_once('../libraries/model/Display.php');
-                $testModel = new \Model\Display();
-                $okok = $testModel->test($tab);
-                
-                var_dump($okok);
-            }
-            ?>
+            
 </details>
             <details open>
             <summary>Processeur</summary>
@@ -220,6 +172,56 @@ if((isset($_GET['gammeSelected'])) && (isset($_GET['typeSelected']))){
     
     $controllerDisplay->displayArticlesByTypeAndBrandOrGamme('id_gamme' , 'id_type' ,$_GET['gammeSelected'], $_GET['typeSelected']);
 }
+
+
+
+
+
+
+
+                // $tab = [$_GET['RTX_3000'] , $_GET['RX_6000'] , $_GET['RTX_2000'] , $_GET['RX_5000'] , $_GET['GTX_1000']];
+                // $i = 0;
+                // if(isset($_GET['RTX_3000'])){
+                    //     $tab[] .= $_GET['RTX_3000'];
+                //     // $i++;
+                //     var_dump($tab);
+                // }
+                // if(isset($_GET['RX_6000'])){
+                    //     $tab[] .= $_GET['RX_6000'];
+                    // }
+                    // if(isset($_GET['RTX_2000'])){
+                        //     $tab[] .= $_GET['RTX_2000'];
+                        // }
+                        // if(isset($_GET['RX_5000'])){
+                            //     $tab[] .= $_GET['RX_5000'];
+                            // }
+                            // if(isset($_GET['GTX_1000'])){
+                                //     $tab[] .= $_GET['GTX_1000'];
+                                // }
+
+
+                if(isset($_GET['search_GC'])){
+                    $controllerDisplay = new \Controller\DisplayArticle();
+                    $result = $controllerDisplay->transitOneColumn($_GET);
+                    
+                    // var_dump($result);
+                }
+                
+
+                // $result = "(";
+                // foreach($tab as $value){
+                //     $result .= "'".$value ."',"; 
+                    
+                //     $i++;
+                // }
+                
+                // $result = substr($result, 0, -1);
+
+                // $result .= ")";
+                // var_dump($result);
+                
+        
+
 
 // if(isset($_GET['typeSelected'])){
     

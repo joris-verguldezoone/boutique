@@ -6,15 +6,20 @@ require_once("Model.php");
 
 class Display extends Model{
 
-    public function test($tab){
+    public function selectCheckBox($tab){
+        if($tab != null){
 
-        $in  = str_repeat('?,', count($tab) - 1) . '?';
-        $sql = "SELECT * FROM articles WHERE id_generation IN ($in)";
-        $result = $this->pdo->prepare($sql);
-        $result->execute($tab);
-        $data = $result->fetchAll();
-
-return $data;
+            $in  = str_repeat('?,', count($tab) - 1) . '?';
+            $sql = "SELECT * FROM articles WHERE id_generation IN ($in)";
+            $result = $this->pdo->prepare($sql);
+            $result->execute($tab);
+            $data = $result->fetchAll();
+    
+            return $data;
+        }
+        else{
+            return $data = "Ne correspond à aucun élément , il ne doit plus y avoir de stock ou l'article n'existe plus";
+        }
 
         // $sql = "SELECT * FROM articles WHERE id_generation IN (?,?,?)";
         
