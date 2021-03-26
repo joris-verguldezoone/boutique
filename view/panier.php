@@ -2,14 +2,15 @@
 //LIBRARIES
 $bdd = "../libraries/config/bdd.php";
 require_once('../libraries/Controller/Admin.php');
-require_once('../libraries/model/Admin.php');
+require_once('../libraries/model/Display.php');
+
+require_once('../libraries/Controller/Display.php');
 require_once('../libraries/config/utils.php');
 require_once('../libraries/Controller/DisplayArticle.php');
-
 //CSS
 $headerCss = "../css/header.css";
-$pageCss = "../css/panier.css";
-$Pagenom = "Panier";
+$pageCss = "../css/articles.css";
+$Pagenom = "Articles";
 $footer = "../css/footer.css";
 
 //PATHS
@@ -29,3 +30,14 @@ $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';
 require('../require/html_/header.php');
 ?>
+<main>
+<form method='POST' action='paiement.php'>
+
+<label for='prix'> Prix: </label>
+<input type='text' id='prix' name='prix'>
+
+<button>Procéder au paiment</button>
+
+</form>
+
+</main>
