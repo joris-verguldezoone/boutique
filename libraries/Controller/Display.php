@@ -943,62 +943,7 @@ $page_item = '';
             $temp++;
         }
     }
-    public function DisplayOneArticle($id){
-        $modelArticle = new \Model\Display();
-        $tab = $modelArticle->selectOne('articles', '*', 'id' ,$id );
-        
-           $coucou = $modelArticle->detectLike($_SESSION['utilisateur']['id'],$id);
-            $modelArticle = new \Model\Article();
-            $modelArticle->IncrementView($id,$_SESSION['utilisateur']['id']);
-            if($coucou){
-
-                $heartLike = 'far fa-heart';
-            }else{
-                
-                $heartLike = 'fas fa-heart';
-            }
-        foreach($tab as $key => $value){
-            //	id titre presentation description image  image_2 image_3 note prix id_utilisateur id_type  id_gamme  id_marque id_generation promo date 
-            echo" <section> 
-            
-            <div class='box_article_titre'>
-                <h1 class='titre_article'>".$value['titre']."</h1>
-            </div>
-            <div class='flex_presentation'>
-                <div class='flex_box_image_article'>            
-                    <img class='img_article_principale' src='".$value['image']."'>
-                        <div class='img_flex_article'>
-                            <picture>
-                                <img class='img_article_secondaire' src='".$value['image_2']."'>            
-                                <img class='img_article_secondaire' src='".$value['image_3']."'>
-                            </picture>
-                        </div>  
-                </div>
-            <div class='presention_prix_article'>
-            <!-- faire une ancre pour le commentaire ? -->
-                <p class='presentation_article'><a href='article.php?articleSelected=".$_GET['articleSelected']."&like='><i class='$heartLike'></i></a>Tant de likes / Posez une question<br>".$value['presentation']."</p>
-                <p class='prix_article'>".$value['prix']."€</p>
-                
-            </div>
-                <p class='note_article'>".$value['note']."</p>
-            </div>
-            <div class='flex_presentation_description'>
-                <h1 class='titre_article'>Description</h1>
-                <p class='suite_presentation_article'>".$value['description']."</p>
-            </div>
-             </section>";
-             echo "<form action='' method='GET'>
-             <button name='like' type='submit'></button>
-             <button name='dislike' type='submit'></button>
-             </form>";
-             if(isset($_GET['like'])){
-                 
-            }
-            if(isset($_GET['dislike'])){
-                 
-            }
-        }
-    }
+    
             
     public function showFivePopularArticles(){
         $modelArticle = new \Model\Article();

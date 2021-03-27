@@ -1,14 +1,16 @@
 <?php
 //LIBRARIES
-
+// ob_start();
 require_once("../libraries/config/utils.php");
 $Http = "../libraries/config/Http.php";
 // require('../libraries/config/utils.php');
 $bdd = "../libraries/config/bdd.php";
 require_once('../libraries/Controller/Display.php');
-require_once('../libraries/Model/Display.php');
+require_once('../libraries/model/Display.php');
 require_once('../libraries/model/Article.php');
 require_once('../libraries/Controller/DisplayArticle.php');
+require_once('../libraries/Controller/Panier.php');
+require_once('../libraries/model/Panier.php');
 
 //CSS
 $headerCss = "../css/header.css";
@@ -50,7 +52,7 @@ require('../require/html_/header.php');
 	<button name='likeArticle' type='submit'>coucou</button>
 </form> -->
 	<?php
-$controllerDisplay = new \Controller\Display();
+$controllerDisplay = new \Controller\DisplayArticle();
 if(isset($_GET['articleSelected'])){
 	$controllerDisplay->displayOneArticle($_GET['articleSelected']);
 
@@ -64,15 +66,24 @@ var_dump($coucou);
 // var_dump($_GET);
 // echo "cc";
 
-if(isset($_GET['like'])){
+if(isset($_GET['like'])){ // c'est pas bien de le mettre ici , par contre tout est binder pour pas que l'on puisse vraiment hack, le seul hack
+	// serait de changer qui like quel article en mettant des chiffres au pif 
+	// a refactoriser dans un controller avec des conditions
 	$model = new \Model\Article();
 	$model->like($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
 	echo 'like envoyé';
 }
 var_dump($_SESSION);
+var_dump($_POST);
+
+if(isset($_POST['ajoutPanier'])){
+	$controllerPanier = new \Controller\Panier();
+	$controllerPanier->addElement($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
+}
 // if(isset($_POST['NoteArticle'])){
 // 	$model = new \Model\Article();
 // 	$model->note($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
 // }
+// ob_end_flush();
 ?>
 </main>
