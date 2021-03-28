@@ -17,6 +17,10 @@ class Panier extends Model {
 
        $result->execute();
 
+    //    $fetch = $this->selectAllWhere('panier','id_utilisateur',$_SESSION['utilisateur']['id']);
+        // a faire plus tard si l'on veut faire un panier sans etre connecté 
+    //    return $fetch;
+
     }
 
 }

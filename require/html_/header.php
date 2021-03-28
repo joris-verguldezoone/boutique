@@ -5,14 +5,10 @@ $allType = $controllerDisplayArticle->transfertID('type');
 $allGamme = $controllerDisplayArticle->transfertID('gamme');
 $allMarque = $controllerDisplayArticle->transfertID('marque');
 
-
-
 /*
     Rééditer les url selon si on cherche par gamme ou par marque
     Rééditer les id [0] apres avoir update la bdd
 */
-
-
 // var_dump($allType);
 // var_dump($allGamme);
 // var_dump($allMarque);
@@ -103,7 +99,7 @@ echo "
                         <a href='$profil'><i class='fas fa-user' class='profil_logo'></i></a>
                         </div>
                         <div>
-                        <i class='fas fa-shopping-cart' class='shopping_logo'></i>
+                        <a href='$panier'><i class='fas fa-shopping-cart' class='shopping_logo'></i></a>
                         </div>
                         </nav>
                         ";

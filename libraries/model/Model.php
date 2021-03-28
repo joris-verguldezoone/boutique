@@ -44,6 +44,15 @@ abstract class Model{
 
         return $fetch;
     }
+    public function selectAllWhereFetchAll($nomTable,$colonne,$value)
+    { // select * where value = value
+        $sql = "SELECT * FROM $nomTable WHERE $colonne= ?";
+        $result = $this->pdo->prepare($sql);
+        $result->execute([$value]);
+        $fetch = $result->fetchAll();
+
+        return $fetch;
+    }
     public function FetchAllselectAllWhere($nomTable,$colonne,$value)
     { // select * where value = value
         $sql = "SELECT * FROM $nomTable WHERE $colonne= ?";
