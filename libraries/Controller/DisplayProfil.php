@@ -83,6 +83,7 @@ class DisplayProfil {
         // $newUserController->adresseInsertVerif
         echo 'form';
         $ControllerProfil->createAdresse($_POST['nom'], $_POST['prenom'], $_POST['batiment'], $_POST['rue'], $_POST['code_postal'], $_POST['ville'], $_POST['pays'], $_POST['info_sup'], $_POST['telephone']);
+    
     }
     }
 }

@@ -265,12 +265,12 @@ echo '<form action="" method="GET">
     </section>
 
 <section>
-        <form method='GET' action=''>
+        <form method='POST' action=''>
             <button type='submit' class='adminInterface' name='Utilisateurs'>Voir les utilisateurs</button>
         </form>
 
     <?php
-        if(isset($_GET['Utilisateurs'])){
+        if(isset($_POST['Utilisateurs'])){
 
         echo "<table>
                 <tr>
@@ -288,7 +288,8 @@ echo '<form action="" method="GET">
                 </tr>";
         $controllerDisplay->displayUsers();
         echo "</table>";
-        }?>
+        }
+        ?>
     </section>
         <section>
             <form method='POST' action=''>

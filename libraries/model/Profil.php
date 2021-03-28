@@ -19,22 +19,22 @@ class Profil extends Model
         $result->execute();
     }
 
-    public function updateInfoPersonnel($id, $nom, $prenom, $anniversaire, $email)
-    {
-        $dateTime = new \DateTime();
-        $dateTime = \DateTime::createFromFormat('d/m/Y', $anniversaire);
+    // public function updateInfoPersonnel($id, $nom, $prenom, $anniversaire, $email)
+    // {
+    //     $dateTime = new \DateTime();
+    //     $dateTime = \DateTime::createFromFormat('d/m/Y', $anniversaire);
 
-        $sql = "UPDATE utilisateurs SET nom = :nom, prenom = :prenom, anniversaire = :anniversaire, email = :email WHERE id = :id";
-        $result = $this->pdo->prepare($sql);
-        $result->bindValue(':id', $id, \PDO::PARAM_INT);
-        $result->bindValue(':nom', $nom, \PDO::PARAM_STR);
-        $result->bindValue(':prenom', $prenom, \PDO::PARAM_STR);
-        $result->bindValue(':anniversaire', $anniversaire, \PDO::PARAM_STR);
-        $result->bindValue(':email', $email, \PDO::PARAM_STR);
-        $result->execute();
+    //     $sql = "UPDATE utilisateurs SET nom = :nom, prenom = :prenom, anniversaire = :anniversaire, email = :email WHERE id = :id";
+    //     $result = $this->pdo->prepare($sql);
+    //     $result->bindValue(':id', $id, \PDO::PARAM_INT);
+    //     $result->bindValue(':nom', $nom, \PDO::PARAM_STR);
+    //     $result->bindValue(':prenom', $prenom, \PDO::PARAM_STR);
+    //     $result->bindValue(':anniversaire', $anniversaire, \PDO::PARAM_STR);
+    //     $result->bindValue(':email', $email, \PDO::PARAM_STR);
+    //     $result->execute();
 
 
-    }
+    // }
 
     public function updateCarteBleu($type_carte, $titulaire, $numero, $code, $date)
     {

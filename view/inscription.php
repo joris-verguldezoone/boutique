@@ -5,11 +5,11 @@ $utils = "../libraries/config/utils.php";
 $bdd = "../libraries/config/bdd.php";
 $Http = "../libraries/config/http.php";
 // $Http = "../libraries/config/Http.php";
-require('../libraries/Model/Inscription.php');
-require('../libraries/config/utils.php');
-require('../libraries/Controller/Inscription.php');
+require_once('../libraries/Model/Inscription.php');
+require_once('../libraries/config/utils.php');
+require_once('../libraries/Controller/Inscription.php');
 require_once('../libraries/Controller/DisplayArticle.php');
-
+require_once('../libraries/model/Display.php');
 
 //CSS
 $headerCss = "../css/header.css";

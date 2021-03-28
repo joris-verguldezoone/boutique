@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 27 mars 2021 à 10:54
--- Version du serveur :  10.4.10-MariaDB
--- Version de PHP :  7.3.12
+-- Généré le : Dim 28 mars 2021 à 21:02
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `boutique`
+-- Base de données : `boutique`
 --
 
 -- --------------------------------------------------------
@@ -42,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `info_sup` varchar(200) NOT NULL,
   `tel` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=67 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `adresse`
@@ -51,7 +50,10 @@ CREATE TABLE IF NOT EXISTS `adresse` (
 INSERT INTO `adresse` (`id`, `id_utilisateur`, `nom`, `prenom`, `batiment`, `rue`, `code_postal`, `pays`, `ville`, `info_sup`, `tel`) VALUES
 (26, 1, 'Verguldezoone', 'Joris', '7 résidence Le Club', '139 François Mauriac', 13002, 'marseille', 'France', 'faut passer la rue du Dr Riera', 770739000),
 (27, 1, 'Verguldezoone', 'Joris', '7 résidence Le Club', '139 François Mauriac', 13002, 'marseille', 'France', 'faut passer la rue du Dr Riera', 770739000),
-(65, 1, 'Verguldezoone', 'Verguldezoone', 'Verguldezoone', 'Verguldezoone', 54254354, 'Verguldezoone', 'Verguldezoone', 'Verguldezoone', 654455000);
+(65, 1, 'Verguldezoone', 'Verguldezoone', 'Verguldezoone', 'Verguldezoone', 54254354, 'Verguldezoone', 'Verguldezoone', 'Verguldezoone', 654455000),
+(67, 3, 'azertya', 'azertya', '7 résidence Le Club', '139 François Mauriac', 1111111, 'azertya', 'France', 'faut passer la rue du Dr Riera', 111111000),
+(68, 3, 'azertya', 'azertya', '7 résidence Le Club', '139 François Mauriac', 1111111, 'azertya', 'France', 'faut passer la rue du Dr Riera', 111111000),
+(85, 3, 'azertya', 'azertya', '7 résidence Le Club', '139 François Mauriac', 1111111, 'azertya', 'France', 'faut passer la rue du Dr Riera', 111111000);
 
 -- --------------------------------------------------------
 
@@ -109,7 +111,7 @@ INSERT INTO `articles` (`id`, `titre`, `presentation`, `description`, `image`, `
 (57, 'Gigabyte AORUS GeForce RTX 3070 MASTER 8G', 'La carte graphique Gigabyte AORUS GeForce RTX 3070 MASTER 8G embarque 8 Go de mémoire vidéo de nouvelle génération GDDR6. Ce modèle overclocké d\'usine bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'La 2nd génération de cartes graphiques NVIDIA RTX, basée sur l\'architecture Ampère, promet aux joueurs de tout bord une expérience de jeu ultime et des performances jamais atteintes dans les jeux PC les plus réalistes et les plus immersifs. L\'amélioration des rendements des coeurs RT et Tensor ainsi que des multiprocesseurs de flux est au coeur de cette nouvelle architecture de haute technologie dont l\'unique objectif est d\'offrir une expérience de jeu ultime et exceptionnelle. Les cartes graphiques NVIDIA GeForce RTX 3000 sont tout simplement les cartes les plus puissantes jamais conçues par NVIDIA.', 'https://media.ldlc.com/r1600/ld/products/00/05/73/87/LD0005738721_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/73/87/LD0005738725_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/73/87/LD0005738723_1.jpg', NULL, 1099, 4, 27, 3, 1, 1, NULL, '2021-03-23', '0', NULL, 10),
 (58, 'ZOTAC GeForce RTX 3070 Twin Edge OC White Edition', 'La carte graphique ZOTAC GeForce RTX 3070 Twin Edge OC White Edition embarque 8 Go de mémoire GDDR6. Ce modèle overclocké d', 'La 2nd génération de cartes graphiques NVIDIA RTX, basée sur l', 'https://media.ldlc.com/r1600/ld/products/00/05/76/61/LD0005766190_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/76/61/LD0005766199_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/76/61/LD0005766197_1.jpg', 0, 869, 4, 27, 0, 1, 1, 0, '2021-03-23', '0', '', 11),
 (59, 'Gigabyte GeForce RTX 3080 GAMING OC 10G', 'La carte graphique Gigabyte GeForce RTX 3080 GAMING OC 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle overclocké d\'usine bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme', 'La 2nd génération de cartes graphiques NVIDIA RTX, basée sur l\'architecture Ampère, promet aux joueurs de tout bord une expérience de jeu ultime et des performances jamais atteintes dans les jeux PC les plus réalistes et les plus immersifs. L\'amélioration des rendements des coeurs RT et Tensor ainsi que des multiprocesseurs de flux est au coeur de cette nouvelle architecture de haute technologie dont l\'unique objectif est d\'offrir une expérience de jeu ultime et exceptionnelle. Les cartes graphiques NVIDIA GeForce RTX 3000 sont tout simplement les cartes les plus puissantes jamais conçues par NVIDIA.', 'https://media.ldlc.com/r1600/ld/products/00/05/71/64/LD0005716431_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/71/64/LD0005716434_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/71/64/LD0005716433_1.jpg', NULL, 1199, 4, 27, 4, 1, 1, NULL, '2021-03-23', '0', NULL, 3),
-(60, 'MSI GeForce RTX 3080 GAMING X TRIO 10G', 'La carte graphique MSI GeForce RTX 3080 GAMING X TRIO 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'La 2nd génération de cartes graphiques NVIDIA RTX, basée sur l\'architecture Ampère, promet aux joueurs de tout bord une expérience de jeu ultime et des performances jamais atteintes dans les jeux PC les plus réalistes et les plus immersifs. L\'amélioration des rendements des coeurs RT et Tensor ainsi que des multiprocesseurs de flux est au coeur de cette nouvelle architecture de haute technologie dont l\'unique objectif est d\'offrir une expérience de jeu ultime et exceptionnelle. Les cartes graphiques NVIDIA GeForce RTX 3000 sont tout simplement les cartes les plus puissantes jamais conçues par NVIDIA.', 'https://media.ldlc.com/r1600/ld/products/00/05/73/27/LD0005732752_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/73/27/LD0005732756_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/73/27/LD0005732754_1.jpg', NULL, 1339, 4, 27, 4, 1, 1, NULL, '2021-03-23', '0', NULL, 1),
+(60, 'MSI GeForce RTX 3080 GAMING X TRIO 10G', 'La carte graphique MSI GeForce RTX 3080 GAMING X TRIO 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'La 2nd génération de cartes graphiques NVIDIA RTX, basée sur l\'architecture Ampère, promet aux joueurs de tout bord une expérience de jeu ultime et des performances jamais atteintes dans les jeux PC les plus réalistes et les plus immersifs. L\'amélioration des rendements des coeurs RT et Tensor ainsi que des multiprocesseurs de flux est au coeur de cette nouvelle architecture de haute technologie dont l\'unique objectif est d\'offrir une expérience de jeu ultime et exceptionnelle. Les cartes graphiques NVIDIA GeForce RTX 3000 sont tout simplement les cartes les plus puissantes jamais conçues par NVIDIA.', 'https://media.ldlc.com/r1600/ld/products/00/05/73/27/LD0005732752_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/73/27/LD0005732756_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/73/27/LD0005732754_1.jpg', NULL, 1339, 4, 27, 4, 1, 1, NULL, '2021-03-23', '2', NULL, 1),
 (61, 'AORUS GeForce RTX 3080 XTREME WATERFORCE 10G', 'La carte graphique Gigabyte AORUS GeForce RTX 3080 XTREME WATERFORCE 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle overclocké d\'usine bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré', 'Les cartes graphiques NVIDIA GeForce RTX 3000 sont tout simplement les cartes les plus puissantes jamais conçues par NVIDIA.   La carte graphique Gigabyte AORUS GeForce RTX 3080 XTREME WATERFORCE 10G embarque 10 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle overclocké d\'usine bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'https://media.ldlc.com/r1600/ld/products/00/05/76/53/LD0005765390_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/76/53/LD0005765394_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/76/53/LD0005765393_1.jpg', NULL, 1459, 4, 27, 4, 1, 1, NULL, '2021-03-23', '0', NULL, 10),
 (62, 'MSI GeForce RTX 3090 SUPRIM X 24G', 'La carte graphique MSI GeForce RTX 3090 SUPRIM X 24G embarque 24 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'La 2nd génération de cartes graphiques NVIDIA RTX, basée sur l\'architecture Ampère, promet aux joueurs de tout bord une expérience de jeu ultime et des performances jamais atteintes dans les jeux PC les plus réalistes et les plus immersifs. L\'amélioration des rendements des coeurs RT et Tensor ainsi que des multiprocesseurs de flux est au coeur de cette nouvelle architecture de haute technologie dont l\'unique objectif est d\'offrir une expérience de jeu ultime et exceptionnelle. Les cartes graphiques NVIDIA GeForce RTX 3000 sont tout simplement les cartes les plus puissantes jamais conçues par NVIDIA.', 'https://media.ldlc.com/r1600/ld/products/00/05/75/26/LD0005752605_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/75/26/LD0005752609_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/75/26/LD0005752608_1.jpg', NULL, 2689, 4, 27, 1, 1, 1, NULL, '2021-03-23', '0', NULL, 1),
 (63, 'EVGA GeForce RTX 3090 FTW3 ULTRA GAMING', 'La carte graphique EVGA GeForce RTX 3090 FTW3 ULTRA GAMING embarque 24 Go de mémoire vidéo de nouvelle génération GDDR6X. Ce modèle bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'Les cartes graphiques NVIDIA GeForce RTX 3090 offrent un niveau de performances jamais atteint dans les jeux vidéo de dernière génération. Un puissance monstre, de la VRAM en quantité astronomique et des technologies de traitement de l\'image ultra-avancées vous permettront de jouer en 8K HDR et de vivre l’expérience de jeu ultime sur PC. La carte graphique EVGA GeForce RTX 3090 FTW3 ULTRA GAMING embarque 24 Go de mémoire vidéo de nouvelle génération GDDR6X.', 'https://media.ldlc.com/r1600/ld/products/00/05/72/53/LD0005725309_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/72/53/LD0005725312_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/72/53/LD0005725311_1.jpg', NULL, 2599, 4, 27, 1, 1, 1, NULL, '2021-03-23', '0', NULL, 9),
@@ -410,14 +412,15 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `titre` varchar(255) NOT NULL,
   `prix` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `panier`
 --
 
 INSERT INTO `panier` (`id`, `id_utilisateur`, `id_article`, `image_article`, `titre`, `prix`) VALUES
-(1, 32, 51, 'https://images-na.ssl-images-amazon.com/images/I/41yShmpHyBL._AC_.jpg', 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 95);
+(1, 32, 51, 'https://images-na.ssl-images-amazon.com/images/I/41yShmpHyBL._AC_.jpg', 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 95),
+(2, 4, 60, 'https://media.ldlc.com/r1600/ld/products/00/05/73/27/LD0005732752_1.jpg', 'MSI GeForce RTX 3080 GAMING X TRIO 10G', 1339);
 
 -- --------------------------------------------------------
 
@@ -489,15 +492,16 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `id_droits` int(140) NOT NULL,
   `anniversaire` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `login`, `email`, `password`, `image`, `id_droits`, `anniversaire`) VALUES
-(3, NULL, NULL, 'TestTest', 'TestTest@ok.fr', '$2y$10$487VcE6QPmC6u633DBKvV.phhbze9NYdZAw6dJIz96gxYMUsam/Ou', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, NULL),
-(4, NULL, NULL, 'HARDJOJOJ', 'HARDJOJOJ@HARDJOJOJ.HARDJOJOJ', '$2y$10$/al.NlaH47M0a751YGTWCe5Z/Q92i0V5qfAajozb7ydcusXVy5joC', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, NULL);
+(3, 'testnom', 'testprenom', 'TestTest', 'TestTest@ok.fr', '$2y$10$487VcE6QPmC6u633DBKvV.phhbze9NYdZAw6dJIz96gxYMUsam/Ou', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, '2001-01-01'),
+(4, 'Verguldezoone', 'Joris', 'HARDJOJOJ', 'HARDJOJOJ@HARDJOJOJ.HARDJOJOJ', '$2y$10$/al.NlaH47M0a751YGTWCe5Z/Q92i0V5qfAajozb7ydcusXVy5joC', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 100, '1998-08-16'),
+(5, NULL, NULL, 'test', 'test@test.com', '$2y$10$xbEfJazosq1nOSLfC3i7HOsc.P2896nBF1CNm2r6.zkC5XA4CaKhq', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -511,7 +515,7 @@ CREATE TABLE IF NOT EXISTS `vues` (
   `id_article` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=152 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=154 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `vues`
@@ -668,7 +672,9 @@ INSERT INTO `vues` (`id`, `id_article`, `id_utilisateur`) VALUES
 (148, 51, 32),
 (149, 51, 32),
 (150, 51, 32),
-(151, 51, 32);
+(151, 51, 32),
+(152, 60, 4),
+(153, 60, 4);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

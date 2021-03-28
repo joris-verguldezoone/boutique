@@ -116,6 +116,68 @@ class Profil extends Controller{
         }
         echo $errorLog;
     }
+
+
+    public function updateInfoPersonnel($nom, $prenom, $anniversaire){
+
+        $controllerProfil = new \Controller\Profil();
+
+        $this->nom = $controllerProfil->secure($_POST['nom']);
+        $this->prenom = $controllerProfil->secure($_POST['prenom']);        //securisé    
+        $this->anniversaire = $controllerProfil->secure($_POST['anniversaire']);
+
+        $errorLog = null;
+
+        $nom_len = strlen($nom);
+        $prenom_len = strlen($prenom);
+
+        $modelProfil = new \Model\Profil();
+
+            if(!empty($nom)){
+                if($nom_len >= 2){
+                    if($nom_len <= 30){
+
+                        $new_name = $modelProfil->alreadyTakenCheck('utilisateurs','nom',$nom);
+                        
+                        if (!$new_name) {
+
+                            $modelProfil->updateOneValue('utilisateurs', 'nom','id', $nom, $_SESSION['utilisateur']['id']);
+                            
+                            $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs','id',$_SESSION['utilisateur']['id']); // je trouve mon id en dehors des session 
+                            $_SESSION['utilisateur'] = $fetch_utilisateur;
+                            echo "changement(s) effectué(s) nom";
+
+                        }
+                    }
+                }
+            }
+
+            if(!empty($prenom))
+            {
+                if($prenom >= 2) 
+                {
+                    if($prenom <= 30) 
+                    {
+                            $modelProfil->updateOneValue('utilisateurs', 'prenom','id', $prenom, $_SESSION['utilisateur']['id']);
+
+                            $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs','id',$_SESSION['utilisateur']['id']); // je trouve mon id en dehors des session 
+                            $_SESSION['utilisateur'] = $fetch_utilisateur;
+                            echo "changement(s) effectué(s) prenom";   
+                    }
+                }
+            }
+
+            if(!empty($anniversaire)){
+
+                            $modelProfil->updateOneValue('utilisateurs', 'anniversaire','id', $anniversaire, $_SESSION['utilisateur']['id']);
+                            $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs','id',$_SESSION['utilisateur']['id']); // je trouve mon id en dehors des session 
+                            $_SESSION['utilisateur'] = $fetch_utilisateur;
+                            echo "changement(s) effectué(s) anniversaire";
+                            
+    
+            }
+          
+    }
             // { // limite minimum de caractere
 
             //     if ( &&  &&  && ) 
@@ -188,10 +250,12 @@ class Profil extends Controller{
                 // if (($nom_len <= 30) && ($prenom_len <= 30) && ($batiment_len <= 25) && ($rue_len <= 25 ) && ($ville_len  <= 20) && ($pays_len <= 20)){
                 $rowCount = $modelProfil->rowCount('adresse','id_utilisateur', $id_utilisateur);
                 var_dump($rowCount);
-
+                $rowCount = intval($rowCount[0]['COUNT(*)']); // petit commentaire pour dire xptdr lol 1h que je cherche :--)
                     echo 'yyyyyyyy';
+                var_dump($rowCount);
                     
-                    if($rowCount == '3'){ // rowCount revient en string je n'arrive pas a le convertir et un switch c'est pas la vrai solution / la condition est faible
+
+                    if($rowCount <3){ // rowCount revient en string je n'arrive pas a le convertir et un switch c'est pas la vrai solution / la condition est faible
                         echo 'kjjjjjjjjjjko';
                         $modelProfil->adresseInsert($nom, $prenom , $batiment, $rue, $code_postal, $ville, $pays , $info_sup, $telephone);
                         // $Http = new \Http();

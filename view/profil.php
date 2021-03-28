@@ -37,7 +37,7 @@ require('../require/html_/header.php');
 
 $newUserModel = new \Model\Profil();
 $newUserController = new \Controller\Profil();
-
+$Http = new \Http();
 ?>
 
 <main>
@@ -68,6 +68,7 @@ $newUserController = new \Controller\Profil();
 
     if (isset($_POST['update'])) {
         $newUserController->profil($_POST['login'], $_POST['password'], $_POST['confirm_password'], $_POST['email'], $_POST['image']);
+        $Http->redirect('profil.php');
     }
     ?>
         </form>
@@ -85,10 +86,6 @@ $newUserController = new \Controller\Profil();
                 
             <label for="anniversaire">Anniversaire</label>
                 <input type="date" id="profilAnniv" name="anniversaire" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['anniversaire'];?>"><br />
-               
-            <label for="email">Email</label>
-                <input type="text" id="profilEmail" name="email" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['email'];?>"><br />
-
         </article>
 
         <input type="submit" id="profilSubmit" value="Modifier" name="updateInfoPersonnel">
@@ -96,7 +93,9 @@ $newUserController = new \Controller\Profil();
         <?php
 
         if (isset($_POST['updateInfoPersonnel'])) {
-            $newUserModel->update($_POST['nom'], $_POST['prenom'], $_POST['anniversaire'], $_POST['email']);
+            $newUserController->updateInfoPersonnel($_POST['nom'], $_POST['prenom'], $_POST['anniversaire']);
+            $Http->redirect('profil.php');
+            
         }
         ?>
     </form>
@@ -160,5 +159,6 @@ $newUserController = new \Controller\Profil();
 
 </main>
 <?php
+var_dump($_SESSION);
 ob_end_flush();
 ?>
