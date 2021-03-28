@@ -20,7 +20,7 @@ class Panier extends Controller{
         $model = new \Model\Panier();
         $tab = $model->selectAllWhereFetchAll('panier','id_utilisateur',$id_utilisateur);
         echo "<table>";
-        $sumPrix = 0;
+        // $sumPrix = 0;
                 // var_dump($tab);
             foreach($tab as $value){
                 echo "  <tr>
@@ -37,11 +37,18 @@ class Panier extends Controller{
                             $Http = new \http();
                             $Http->redirect('panier.php');
                         }
-
-                        $sumPrix += $int = intval($value['prix']);
+                        $controller = new \Controller\Panier();
+                        $sumPrix = $controller->sumPrice($id_utilisateur); 
+                        // $sumPrix += $int = intval($value['prix']);
                         
             }
             echo "</table>";
+            echo "<span>Montant Total:".$sumPrix."€</span>";
+            echo "Veuillez choisir une adresse parmis celle(s) que vous avez renseigné";
+            $controllerProfil = new \Controller\Profil();
+            $allAdresses = $controllerProfil->displayAdress($id_utilisateur);
+
+            
             echo "<form action='paiement.php' method='POST'>
                     <button type='submit' id='prix' name='prix' value='".$sumPrix."'><span>Proceder au paiement</span></button>
                     
@@ -49,7 +56,16 @@ class Panier extends Controller{
                     // faire un récapitulatif de paiement et historique 
         
     }
- 
+    public function sumPrice($id_utilisateur){ // on fait une fonction a part pour la sécurité et double vérification du montant a payer 
+        $model = new \Model\Panier();
+        $tab = $model->selectAllWhereFetchAll('panier','id_utilisateur',$id_utilisateur);
+        $sumPrix = 0;
+
+        foreach($tab as $value){
+            $sumPrix += $int = intval($value['prix']);
+        }
+        return $sumPrix;
+    }
 
 }
 

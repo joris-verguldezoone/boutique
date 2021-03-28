@@ -210,4 +210,11 @@ class Profil extends Controller{
         echo $errorLog;
         echo'pk';
     }
+    public function displayAdress($id_utilisateur){
+        $model = new \Model\Panier();
+        $allAdresses = $model->selectAllWhereFetchAll('adresse','id_utilisateur', $id_utilisateur);
+        var_dump($allAdresses);
+        return $allAdresses;
+
+    }
 }

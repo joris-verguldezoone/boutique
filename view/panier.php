@@ -1,7 +1,9 @@
 <?php
 //LIBRARIES
 ob_start();
+$utils = "../libraries/config/utils.php";
 $bdd = "../libraries/config/bdd.php";
+$Http = "../libraries/config/Http.php";
 require_once('../libraries/Controller/Admin.php');
 require_once('../libraries/model/Display.php');
 
@@ -11,6 +13,7 @@ require_once('../libraries/Controller/DisplayArticle.php');
 require_once('../libraries/Model/Panier.php');
 require_once('../libraries/config/http.php');
 require_once('../libraries/Controller/Panier.php');
+require_once('../libraries/Controller/Profil.php');
 //CSS
 $headerCss = "../css/header.css";
 $pageCss = "../css/panier.css";
@@ -35,14 +38,14 @@ $gammePath =  'articles.php?gammeSelected';
 require('../require/html_/header.php');
 ?>
 <main>
-<form method='POST' action='paiement.php'>
+<!-- <form method='POST' action='paiement.php'>
 
-<!-- <label for='prix'> Prix: </label>
-<input type='text' id='prix' name='prix'> -->
+<label for='prix'> Prix: </label>
+<input type='text' id='prix' name='prix'>
 
 <button>Procéder au paiment</button>
 
-</form>
+</form> -->
 <?php
 
 $controller = new \Controller\Panier();

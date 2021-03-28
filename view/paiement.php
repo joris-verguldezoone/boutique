@@ -4,13 +4,14 @@ ob_start();
 $utils = "../libraries/config/utils.php";
 $bdd = "../libraries/config/bdd.php";
 $Http = "../libraries/config/Http.php";
-require('../libraries/Model/Profil.php');
-require('../libraries/config/utils.php');
-require('../libraries/Controller/Profil.php');
-require('../libraries/Controller/DisplayProfil.php');
+require_once('../libraries/Model/Profil.php');
+require_once('../libraries/config/utils.php');
+require_once('../libraries/Controller/Profil.php');
+require_once('../libraries/Controller/DisplayProfil.php');
 require_once('../libraries/Controller/DisplayArticle.php');
-require('../libraries/Model/Display.php');
-
+require_once('../libraries/Model/Display.php');
+require_once('../libraries/Controller/Panier.php');
+require_once('../libraries/Model/Panier.php');
 
 //CSS
 $headerCss = "../css/header.css";
@@ -39,6 +40,11 @@ require('../require/html_/header.php');
 if(isset($_POST['prix']) && !empty($_POST['prix'])){
     require_once('../vendor/autoload.php');
     $prix = (float)$_POST['prix'];
+    $controller = new \Controller\Panier();
+    $prixConfirmation = $controller->sumPrice($_SESSION['utilisateur']['id']);
+    if($prix == $prixConfirmation){
+
+    
 
     \Stripe\Stripe::setApiKey('sk_test_51IKUynKWS3ZgsIjcO3ntL9tOY3bTU7E987jiDikuVrHBXqtSzkpz4Bzx0zFYEpkKLPkjaRGoRJzIurCBZ9wkzVna00IJo7PfSy');
 
@@ -51,6 +57,10 @@ if(isset($_POST['prix']) && !empty($_POST['prix'])){
     // var_dump($intent);
     // echo '</pre>';
     // die();
+    }
+    else{
+        echo 'va hacker ta grand mere deuh pas';
+    }
 }
 else{
     header('Location: panier.php');
