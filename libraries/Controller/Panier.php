@@ -45,27 +45,52 @@ class Panier extends Controller{
             echo "</table>";
             echo "<span>Montant Total:".$sumPrix."€</span>";
             echo "Veuillez choisir une adresse parmis celle(s) que vous avez renseigné";
-            $controllerProfil = new \Controller\Profil();
-            $allAdresses = $controllerProfil->displayAdress($id_utilisateur);
-
+    
             
-            echo "<form action='paiement.php' method='POST'>
-                    <button type='submit' id='prix' name='prix' value='".$sumPrix."'><span>Proceder au paiement</span></button>
-                    
-                    </form>"; // il faut incorporer le choix de l'adresse de paiement avant cette etape et 
+             // il faut incorporer le choix de l'adresse de paiement avant cette etape et 
                     // faire un récapitulatif de paiement et historique 
-        
-    }
+          
+                    // ADRESSE 
+          $controllerDisplayProfil = new \Controller\DisplayProfil();
+          $controllerDisplayProfil->displayAdressPanier();
+            echo "<form action='paiement.php' method='POST'>
+            <button type='submit' id='prix' name='prix' value='".$sumPrix."'><span>Proceder au paiement</span></button>
+            
+            </form>";
+        var_dump($_POST);
+        var_dump($tab);
+        foreach($tab as $value){
+            $id_utilisateur = $value['id_utilisateur'];
+            $id_article = $value['id_article'];
+            $image_article = $value['image_article'];
+            $titre = $value['titre'];
+            $prix = $value['prix'];
+            
+            $model->insertCommande($id_utilisateur, $id_article, $image_article, $titre, $prix, $_POST['profilAdressSelect']);
+        }
+    }   
+
     public function sumPrice($id_utilisateur){ // on fait une fonction a part pour la sécurité et double vérification du montant a payer 
         $model = new \Model\Panier();
         $tab = $model->selectAllWhereFetchAll('panier','id_utilisateur',$id_utilisateur);
         $sumPrix = 0;
-
         foreach($tab as $value){
             $sumPrix += $int = intval($value['prix']);
         }
         return $sumPrix;
     }
+
+    public function tableau_panier($id_utilisateur){
+        $model = new \Model\Panier();
+        $tab = $model->selectAllWhereFetchAll('panier','id_utilisateur',$id_utilisateur);
+        $sum_titre = 0;
+
+        foreach($tab as $value){
+            $sum_titre += $int = intval($value['prix']);
+        }
+        return $sumPrix;
+    }
+
 
 }
 

@@ -137,34 +137,28 @@ class Profil extends Controller{
                 if($nom_len >= 2){
                     if($nom_len <= 30){
 
-                        $new_name = $modelProfil->alreadyTakenCheck('utilisateurs','nom',$nom);
-                        
-                        if (!$new_name) {
-
                             $modelProfil->updateOneValue('utilisateurs', 'nom','id', $nom, $_SESSION['utilisateur']['id']);
                             
                             $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs','id',$_SESSION['utilisateur']['id']); // je trouve mon id en dehors des session 
                             $_SESSION['utilisateur'] = $fetch_utilisateur;
                             echo "changement(s) effectué(s) nom";
 
-                        }
                     }
                 }
             }
-
             if(!empty($prenom))
             {
-                if($prenom >= 2) 
-                {
-                    if($prenom <= 30) 
-                    {
+                // if($prenom >= 2) 
+                // {
+                //     if($prenom <= 30) 
+                //     {
                             $modelProfil->updateOneValue('utilisateurs', 'prenom','id', $prenom, $_SESSION['utilisateur']['id']);
 
                             $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs','id',$_SESSION['utilisateur']['id']); // je trouve mon id en dehors des session 
                             $_SESSION['utilisateur'] = $fetch_utilisateur;
                             echo "changement(s) effectué(s) prenom";   
-                    }
-                }
+                //     }
+                // }
             }
 
             if(!empty($anniversaire)){

@@ -14,6 +14,9 @@ require_once('../libraries/Model/Panier.php');
 require_once('../libraries/config/http.php');
 require_once('../libraries/Controller/Panier.php');
 require_once('../libraries/Controller/Profil.php');
+require_once('../libraries/Controller/DisplayProfil.php');
+require_once('../libraries/Model/Profil.php');
+
 //CSS
 $headerCss = "../css/header.css";
 $pageCss = "../css/panier.css";
@@ -47,10 +50,26 @@ require('../require/html_/header.php');
 
 </form> -->
 <?php
-
+$newUserModel = new \Model\Panier();
 $controller = new \Controller\Panier();
-$controller->displayPanier($_SESSION['utilisateur']['id']);
+$id_utilisateur = $_SESSION['utilisateur']['id'];   
+$rowCount = $newUserModel->rowCount('panier','id_utilisateur', $id_utilisateur);
+$rowCount = intval($rowCount[0]['COUNT(*)']);
+    
+if($rowCount >= 1){ 
 
+    $controller->displayPanier($_SESSION['utilisateur']['id']);
+    
+  
+      
+
+}
+else{
+    echo '
+        <div>
+            <span>Votre panier est vide</span>
+        </div>';
+    }
 ?>
 
 </main>

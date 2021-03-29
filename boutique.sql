@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 28 mars 2021 à 21:02
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Généré le :  lun. 29 mars 2021 à 11:40
+-- Version du serveur :  10.4.10-MariaDB
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `boutique`
+-- Base de données :  `boutique`
 --
 
 -- --------------------------------------------------------
@@ -41,19 +42,16 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `info_sup` varchar(200) NOT NULL,
   `tel` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=95 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `adresse`
 --
 
 INSERT INTO `adresse` (`id`, `id_utilisateur`, `nom`, `prenom`, `batiment`, `rue`, `code_postal`, `pays`, `ville`, `info_sup`, `tel`) VALUES
-(26, 1, 'Verguldezoone', 'Joris', '7 résidence Le Club', '139 François Mauriac', 13002, 'marseille', 'France', 'faut passer la rue du Dr Riera', 770739000),
-(27, 1, 'Verguldezoone', 'Joris', '7 résidence Le Club', '139 François Mauriac', 13002, 'marseille', 'France', 'faut passer la rue du Dr Riera', 770739000),
-(65, 1, 'Verguldezoone', 'Verguldezoone', 'Verguldezoone', 'Verguldezoone', 54254354, 'Verguldezoone', 'Verguldezoone', 'Verguldezoone', 654455000),
-(67, 3, 'azertya', 'azertya', '7 résidence Le Club', '139 François Mauriac', 1111111, 'azertya', 'France', 'faut passer la rue du Dr Riera', 111111000),
-(68, 3, 'azertya', 'azertya', '7 résidence Le Club', '139 François Mauriac', 1111111, 'azertya', 'France', 'faut passer la rue du Dr Riera', 111111000),
-(85, 3, 'azertya', 'azertya', '7 résidence Le Club', '139 François Mauriac', 1111111, 'azertya', 'France', 'faut passer la rue du Dr Riera', 111111000);
+(94, 3, 'azertya', 'azertya', 'Verguldezoone', 'Verguldezoone', 1111111, 'azertya', 'France', 'VerguldezooneVerguldezoone', 111111000),
+(93, 3, 'azertya', 'azertya', 'Verguldezoone', 'Verguldezoone', 1111111, 'azertya', 'France', 'Verguldezoone', 111111000),
+(92, 3, 'azertya', 'azertya', 'Verguldezoone', 'Verguldezoone', 1111111, 'azertya', 'France', 'Verguldezoone', 111111000);
 
 -- --------------------------------------------------------
 
@@ -91,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
 
 INSERT INTO `articles` (`id`, `titre`, `presentation`, `description`, `image`, `image_2`, `image_3`, `note`, `prix`, `id_utilisateur`, `id_type`, `id_gamme`, `id_marque`, `id_generation`, `promo`, `date`, `vues`, `likey`, `id_editeur`) VALUES
 (48, 'MSI Radeon RX 5700 XT MECH OC', 'La carte graphique MSI Radeon RX 5700 XT MECH OC est doté du GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA. Pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l', 'https://media.materiel.net/r900/products/MN0005418294_1.jpg', 'https://media.materiel.net/r900/products/MN0005418296_1.jpg', 'https://media.materiel.net/r900/products/MN0005418299_1.jpg', 0, 619, 4, 27, 21, 3, 13, 0, '2021-03-05', '0', '', 1),
-(50, 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 'Carte graphique compacte, la Gigabyte GeForce GT 1030 OC 2G se destine tout particulièrement à la création d', 'Les portes du multimédia  La carte graphique Gigabyte GeForce GT 1030 OC 2G assure à votre PC des performances multimédia supérieures à la plupart des iGP (coeurs graphiques intégrés aux processeurs). Que vous cherchiez à monter un HTPC ou un ordinateur dédié au multimédia, le format \"low-profile\" de sa carte rendra son intégration facile vous permettant de ne réaliser aucun compromis sur le choix de vos composants. Gigabyte a doté cette carte d', 'https://images-na.ssl-images-amazon.com/images/I/61p1MvrEYIL._AC_SX425_.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhgVX6lAgO-EZwTiOQ_1NNa3q3bx6gTuoxpfPo0Ndx98ncVaNMkSX8ga7jwTRe5rSWkAU&usqp=CAU', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr_7XeZHj_9t2VhBuWnbFz_2c3vQpSQWNqXugPLbNawNI2Mav8cqYfxRlZwPMhT_dGb_s&usqp=CAU', 0, 95, 4, 27, 25, 1, 16, 0, '2021-03-23', '3', '', 3),
+(50, 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 'Carte graphique compacte, la Gigabyte GeForce GT 1030 OC 2G se destine tout particulièrement à la création d', 'Les portes du multimédia  La carte graphique Gigabyte GeForce GT 1030 OC 2G assure à votre PC des performances multimédia supérieures à la plupart des iGP (coeurs graphiques intégrés aux processeurs). Que vous cherchiez à monter un HTPC ou un ordinateur dédié au multimédia, le format \"low-profile\" de sa carte rendra son intégration facile vous permettant de ne réaliser aucun compromis sur le choix de vos composants. Gigabyte a doté cette carte d', 'https://images-na.ssl-images-amazon.com/images/I/61p1MvrEYIL._AC_SX425_.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhgVX6lAgO-EZwTiOQ_1NNa3q3bx6gTuoxpfPo0Ndx98ncVaNMkSX8ga7jwTRe5rSWkAU&usqp=CAU', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr_7XeZHj_9t2VhBuWnbFz_2c3vQpSQWNqXugPLbNawNI2Mav8cqYfxRlZwPMhT_dGb_s&usqp=CAU', 0, 95, 4, 27, 25, 1, 16, 0, '2021-03-23', '8', '', 3),
 (45, 'ASRock Radeon RX 5700 XT Taichi X OC+', 'Reposant sur la nouvelle architecture AMD RDNA, la carte graphique ASRock Radeon RX 5700 XT Taichi X OC+ est pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. La ASRock Radeon RX 5700 XT Taichi X se dote d\'un look massif, d\'une backplate robuste et profite du refroidissement triple ventilateurs Taichi pour un refroidissement optimal, un bruit contenu pour des performances optimales.', 'https://media.materiel.net/r900/products/MN0005688570_1.jpg', 'https://media.materiel.net/r900/products/MN0005688571_1.jpg', 'https://media.materiel.net/r900/products/MN0005688575_1.jpg', NULL, 584, 4, 27, 21, 3, 13, NULL, '2021-03-05', '2', NULL, 4),
 (46, 'Asus Radeon RX 5700 XT ROG STRIX OC', 'Avec la carte graphique Asus Radeon RX 5700 XT ROG STRIX OC, faites place aux nouveaux GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA ! Pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. Carénage renforcé, triple ventilateurs STRIX, dissipateur élargi avec une large surface couvrant le GPU, Asus Aura Sync : pas de doute, Asus vous propose ici un modèle haut de gamme pensé pour un refroidissement et un silence optimal.', 'https://media.materiel.net/r900/products/MN0005421579_1.jpg', 'https://media.materiel.net/r900/products/MN0005421582_1.jpg', 'https://media.materiel.net/r900/products/MN0005421584_1.jpg', NULL, 589, 4, 27, 21, 3, 13, NULL, '2021-03-05', '0', NULL, 2),
 (47, 'Gigabyte Radeon RX 5700 XT GAMING OC', 'Faites place aux nouveaux GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA avec la carte graphique customisé Gigabyte Radeon RX 5700 XT Gaming OC (GV-R57XTGAMING OC-8GD)! Pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. Pour ce modèle, Gigabyte mise sur sa technologie de refroidissement WindForce 3X, 3 ventilateurs de 82 mm permettant de tempérer efficacement les composants les plus sensibles de votre carte graphique (GPU, VRAM et MOSFET) pour une stabilité totale et des performances débridées. Côté esthétique, backplate en métal au design soigné et personnalisation RGB via RGB Fusion 2.0 font de cette carte un modèle haut de gamme.', 'https://media.materiel.net/r900/products/MN0005421312_1.jpg', 'https://media.materiel.net/r900/products/MN0005421314_1.jpg', 'https://media.materiel.net/r900/products/MN0005421316_1.jpg', NULL, 479, 4, 27, 21, 3, 13, NULL, '2021-03-05', '0', NULL, 3),
@@ -104,8 +102,8 @@ INSERT INTO `articles` (`id`, `titre`, `presentation`, `description`, `image`, `
 (39, 'Seasonic Prime TX-650 - Titanium', 'Offrez-vous l\'excellence avec cette nouvelle gamme d\'alimentations pour PC. Les Prime TX sont dans la continuité de la gamme Seasonic, ce sont des alimentations puissantes extrêmement fiables et surtout très silencieuse. La certification 80 PLUS Titanium permet de conserver un très taux de charge et donc un haut niveau de performance quelque soit l\'utilisation: Elle est idéale comme alimentation pour PC gamer ou les stations de travail.', 'Seasonic fait parler son expérience en matière de conception d\'alimentations avec cette nouvelle gamme Prime TX . Retrouvez des alimentations pour PC irréprochables sur le plan technique avec une puissance allant de 650 à 1000 Watts. Les alimentations Seasonic sont conçues avec des matériaux de grande qualité, par exemple les ventilateurs à roulement hydrodynamique permettent de refroidir en silence et générent moins de chaleur en fonctionnement.  Le contrôle hybride du ventilateur permet de réduire drastiquement le bruit émis par l\'alimentation pour en faire l\'une des plus silencieuse du marché, la Prime TX-650 est idéale pour une configuration haute performance notamment pour un PC gamer.  Cette unité d\'alimentation bénéficie d\'un mode Prenium Hybrid fan Control ce qui permet de réduire grandement le bruit émis par l\'alimentation. En dessous de 40% de charge le ventilateur n\'est pas activé donc le bloc est en mode 0 décibel, parfait lorsque vous voulez une configuration silencieuse.', 'https://media.materiel.net/r900/products/MN0005592442_1.jpg', 'https://media.materiel.net/r900/products/MN0005592443_1.jpg', 'https://media.materiel.net/r900/products/MN0005592445_1.jpg', NULL, 229, 4, 22, 17, 16, 0, NULL, '2021-03-05', '2', NULL, 0),
 (51, 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 'Nvidia nous présente sa nouvelle carte graphique, la GeForce GT 1030 Low Profile par MSI destinée à remplacer avec brio et efficacité la GT 730. Positionnée entrée de gamme des GeForce 10, la GeForce GT 1030 est destinée à une utilisation multimédia et jeux peu gourmands.', 'La Haute Définition nouvelle génération avec la GT 1030 ! Basée sur l\'architecture Kepler de NVIDIA, la GeForce GT 1030 passive et low profile MSI (GEFORCE GT 1030 2GH LP OC) arrive avec pas moins de 384 coeurs CUDA qui délivreront leur puissance de calcul et accélèreront les performances de votre PC. Grâce à ses 2 sorties vidéo (HDMI et DisplayPort) la MSI GT 1030 se connectera à tous vos périphériques et pourra gérer jusqu\'à 2 écrans HD. La GeForce GT 1030 est équipée de 2 Go de mémoire GDDR5 qui viendront apporter fluidité et rapidité à votre configuration. Compatible avec DirectX 12, la MSI GeForce GT 1030 (GEFORCE GT 1030 2GH LP OC) atteint les 1265 MHz et est taillée pour une utilisation régulière que ce soit dans une configuration destinée au Home-Cinema ou au jeu. Autre avantage non négligeable, elle ne nécessite pas de câble d\'alimentation et est auto alimentée via le port PCI Express de la carte mère.', 'https://images-na.ssl-images-amazon.com/images/I/41yShmpHyBL._AC_.jpg', 'https://images-na.ssl-images-amazon.com/images/I/41yShmpHyBL._AC_.jpg', 'https://www.cdiscount.com/pdt2/2/g/o/1/700x700/gt1030aeroitx2go/rw/msi-carte-graphique-geforce-r-gt-1030-aero-itx-2g.jpg', NULL, 95, 4, 27, 25, 1, 16, NULL, '2021-03-23', '22', NULL, 1),
 (52, 'GeForce GTX 1660 Super, PCI-Express 16x', 'Mettez à niveau votre configuration PC gaming avec la carte graphique Asus TUF GeForce GTX 1660 SUPER OC. Misant sur des performances en hausse par rapport à la 1660 grâce à 6 Go de mémoire GDDR6, elle compte également sur la nouvelle architecture NVIDIA et ses shaders Turing pour proposer une expérience de jeu Full HD / 1080p des plus confortable et à prix accessible.', 'L\'architecture Turing accessible La carte graphique Asus GeForce GTX 1660 SUPER est propulsée par l\'architecture Turing, placée entre la GTX 1660 et la 1660 Ti en termes de performances, la carte graphique GeForce GTX 1660 SUPER compte 1408 coeurs CUDA (comme la 1660) mais elle se démarque par 6 Go de mémoire GDDR6 à 14Gbps (contre de la GDDR5 à 8 Gbps pour la 1660) pour un gain de bande passante supplémentaire, sur un même bus 192-Bit. Grâce à ces caractéristiques, la GTX 1660 Super se rend maîtresse du jeu en 1080p. Le bon équilibre prix-performances pour qui souhaite se construire une configuration gaming à prix contenu. Au menu des innovations, la GTX 1660 SUPER compte sur les shaders Turing pour vous faire profiter de fonctionnalités graphiques avancées.', 'https://images-na.ssl-images-amazon.com/images/I/61-qh4qbYSL._AC_SL1000_.jpg', 'https://images-na.ssl-images-amazon.com/images/I/91V41TXra%2BL._AC_SL1500_.jpg', 'https://images-na.ssl-images-amazon.com/images/I/91iC3Wi4TUL._AC_SL1500_.jpg', NULL, 309, 4, 27, 9, 1, 16, NULL, '2021-03-23', '0', NULL, 1),
-(53, 'GeForce GTX 1660 Super, EVGA 6 Go GDDR6', 'Préparez votre configuration PC gamer à accueillir la carte graphique EVGA GeForce GTX 1660 Super SC Ultra (06G-P4-1068-KR) ! Misant sur des performances en hausse par rapport à la 1660 grâce à 6 Go de mémoire GDDR6, elle compte également sur la nouvelle architecture NVIDIA et ses shaders Turing pour proposer une expérience de jeu Full HD / 1080p des plus confortable et à prix accessible.', 'L\'architecture Turing accessible La carte graphique Gigabyte GTX 1660 SUPER SC Ultra est propulsée par l\'architecture Turing, placée entre la GTX 1660 et la 1660 Ti en termes de performances, la carte graphique GeForce GTX 1660 SUPER compte 1408 coeurs CUDA (comme la 1660) mais elle se démarque par 6 Go de mémoire GDDR6 à 14Gbps (contre de la GDDR5 à 8 Gbps pour la 1660) pour un gain de bande passante supplémentaire, sur un même bus 192-Bi.. Grâce à ces caractéristiques, la GTX 1660 Super se rend maîtresse du jeu en 1080p. Le bon équilibre prix-performances pour qui souhaite se construire une configuration gaming à prix contenu.', 'https://media.ldlc.com/r1600/ld/products/00/05/68/77/LD0005687769_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/68/77/LD0005687772_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/68/77/LD0005687771_1.jpg', NULL, 289, 4, 27, 9, 1, 16, NULL, '2021-03-23', '0', NULL, 9),
-(54, 'GeForce GTX 1660 Super, AORUS 6 Go GDDR6', 'Mettez à niveau votre configuration PC gaming avec la carte graphique Gigabyte Aorus GeForce GTX 1660 SUPER. Misant sur des performances en hausse par rapport à la 1660 grâce à 6 Go de mémoire GDDR6, elle compte également sur la nouvelle architecture NVIDIA et ses shaders Turing pour proposer une expérience de jeu Full HD / 1080p des plus confortable et à prix accessible.', 'L\'architecture Turing accessible La carte graphique Gigabyte Aorus GTX 1660 SUPER est propulsée par l\'architecture Turing, placée entre la GTX 1660 et la 1660 Ti en termes de performances, la carte graphique GeForce GTX 1660 SUPER compte 1408 coeurs CUDA (comme la 1660) mais elle se démarque par 6 Go de mémoire GDDR6 à 14Gbps (contre de la GDDR5 à 8 Gbps pour la 1660) pour un gain de bande passante supplémentaire, sur un même bus 192-Bi.. Grâce à ces caractéristiques, la GTX 1660 Super se rend maîtresse du jeu en 1080p. Le bon équilibre prix-performances pour qui souhaite se construire une configuration gaming à prix contenu. Au menu des innovations, la GTX 1660 compte sur les shaders Turing pour vous faire profiter de fonctionnalités graphiques avancées. Plus adaptatifs et performants dans leurs gestion des opérations, ils s\'associent à la nouvelle architecture mémoire unifiée pour vous permettre dans jouer dans les meilleures conditions aux derniers jeux du moment.', 'https://media.ldlc.com/r1600/ld/products/00/05/78/32/LD0005783260_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/78/32/LD0005783264_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/78/32/LD0005783262_1.jpg', NULL, 329, 4, 27, 9, 1, 16, NULL, '2021-03-23', '0', NULL, 10),
+(53, 'GeForce GTX 1660 Super, EVGA 6 Go GDDR6', 'Préparez votre configuration PC gamer à accueillir la carte graphique EVGA GeForce GTX 1660 Super SC Ultra (06G-P4-1068-KR) ! Misant sur des performances en hausse par rapport à la 1660 grâce à 6 Go de mémoire GDDR6, elle compte également sur la nouvelle architecture NVIDIA et ses shaders Turing pour proposer une expérience de jeu Full HD / 1080p des plus confortable et à prix accessible.', 'L\'architecture Turing accessible La carte graphique Gigabyte GTX 1660 SUPER SC Ultra est propulsée par l\'architecture Turing, placée entre la GTX 1660 et la 1660 Ti en termes de performances, la carte graphique GeForce GTX 1660 SUPER compte 1408 coeurs CUDA (comme la 1660) mais elle se démarque par 6 Go de mémoire GDDR6 à 14Gbps (contre de la GDDR5 à 8 Gbps pour la 1660) pour un gain de bande passante supplémentaire, sur un même bus 192-Bi.. Grâce à ces caractéristiques, la GTX 1660 Super se rend maîtresse du jeu en 1080p. Le bon équilibre prix-performances pour qui souhaite se construire une configuration gaming à prix contenu.', 'https://media.ldlc.com/r1600/ld/products/00/05/68/77/LD0005687769_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/68/77/LD0005687772_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/68/77/LD0005687771_1.jpg', NULL, 289, 4, 27, 9, 1, 16, NULL, '2021-03-23', '3', NULL, 9),
+(54, 'GeForce GTX 1660 Super, AORUS 6 Go GDDR6', 'Mettez à niveau votre configuration PC gaming avec la carte graphique Gigabyte Aorus GeForce GTX 1660 SUPER. Misant sur des performances en hausse par rapport à la 1660 grâce à 6 Go de mémoire GDDR6, elle compte également sur la nouvelle architecture NVIDIA et ses shaders Turing pour proposer une expérience de jeu Full HD / 1080p des plus confortable et à prix accessible.', 'L\'architecture Turing accessible La carte graphique Gigabyte Aorus GTX 1660 SUPER est propulsée par l\'architecture Turing, placée entre la GTX 1660 et la 1660 Ti en termes de performances, la carte graphique GeForce GTX 1660 SUPER compte 1408 coeurs CUDA (comme la 1660) mais elle se démarque par 6 Go de mémoire GDDR6 à 14Gbps (contre de la GDDR5 à 8 Gbps pour la 1660) pour un gain de bande passante supplémentaire, sur un même bus 192-Bi.. Grâce à ces caractéristiques, la GTX 1660 Super se rend maîtresse du jeu en 1080p. Le bon équilibre prix-performances pour qui souhaite se construire une configuration gaming à prix contenu. Au menu des innovations, la GTX 1660 compte sur les shaders Turing pour vous faire profiter de fonctionnalités graphiques avancées. Plus adaptatifs et performants dans leurs gestion des opérations, ils s\'associent à la nouvelle architecture mémoire unifiée pour vous permettre dans jouer dans les meilleures conditions aux derniers jeux du moment.', 'https://media.ldlc.com/r1600/ld/products/00/05/78/32/LD0005783260_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/78/32/LD0005783264_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/78/32/LD0005783262_1.jpg', NULL, 329, 4, 27, 9, 1, 16, NULL, '2021-03-23', '3', NULL, 10),
 (55, 'GeForce GTX 1660 Super MSI 6 Go GDDR6', 'Mettez à niveau votre configuration PC gaming avec la carte graphique MSI GeForce GTX 1660 SUPER Ventus XS OC. Misant sur des performances en hausse par rapport à la 1660 grâce à 6 Go de mémoire GDDR6, elle compte également sur la nouvelle architecture NVIDIA et ses shaders Turing pour proposer une expérience de jeu Full HD / 1080p des plus confortable et à prix accessible.', 'L\'architecture Turing accessible La carte graphique MSI GeForce GTX 1660 SUPER est propulsée par l\'architecture Turing, placée entre la GTX 1660 et la 1660 Ti en termes de performances, la carte graphique GeForce GTX 1660 SUPER compte 1408 coeurs CUDA (comme la 1660) mais elle se démarque par 6 Go de mémoire GDDR6 à 14Gbps (contre de la GDDR5 à 8 Gbps pour la 1660) pour un gain de bande passante supplémentaire, sur un même bus 192-Bi.. Grâce à ces caractéristiques, la GTX 1660 Super se rend maîtresse du jeu en 1080p. Le bon équilibre prix-performances pour qui souhaite se construire une configuration gaming à prix contenu. Au menu des innovations, la GTX 1660 SUPER compte sur les shaders Turing pour vous faire profiter de fonctionnalités graphiques avancées. Plus adaptatifs et performants dans leurs gestion des opérations, ils s\'associent à la nouvelle architecture mémoire unifiée pour vous permettre dans jouer dans les meilleures conditions aux derniers jeux du moment.', 'https://media.ldlc.com/r374/ld/products/00/05/21/64/LD0005216442_2.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/21/64/LD0005216452_2.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/21/64/LD0005216447_2.jpg', NULL, 299, 4, 27, 9, 1, 16, NULL, '2021-03-23', '0', NULL, 1),
 (56, 'MSI GeForce RTX 3070 VENTUS 3X 8G OC', 'La carte graphique MSI GeForce RTX 3070 VENTUS 3X 8G OC embarque 8 Go de mémoire vidéo de nouvelle génération GDDR6. Ce modèle overclocké d\'usine bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'La 2nd génération de cartes graphiques NVIDIA RTX, basée sur l\'architecture Ampère, promet aux joueurs de tout bord une expérience de jeu ultime et des performances jamais atteintes dans les jeux PC les plus réalistes et les plus immersifs. L\'amélioration des rendements des coeurs RT et Tensor ainsi que des multiprocesseurs de flux est au coeur de cette nouvelle architecture de haute technologie dont l\'unique objectif est d\'offrir une expérience de jeu ultime et exceptionnelle. Les cartes graphiques NVIDIA GeForce RTX 3000 sont tout simplement les cartes les plus puissantes jamais conçues par NVIDIA.', 'https://media.ldlc.com/r1600/ld/products/00/05/73/87/LD0005738731_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/73/87/LD0005738734_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/73/87/LD0005738733_1.jpg', NULL, 959, 4, 27, 3, 1, 1, NULL, '2021-03-23', '0', NULL, 1),
 (57, 'Gigabyte AORUS GeForce RTX 3070 MASTER 8G', 'La carte graphique Gigabyte AORUS GeForce RTX 3070 MASTER 8G embarque 8 Go de mémoire vidéo de nouvelle génération GDDR6. Ce modèle overclocké d\'usine bénéficie de fréquences de fonctionnement élevées et d\'un système de refroidissement amélioré gage de fiabilité et de performances à long terme.', 'La 2nd génération de cartes graphiques NVIDIA RTX, basée sur l\'architecture Ampère, promet aux joueurs de tout bord une expérience de jeu ultime et des performances jamais atteintes dans les jeux PC les plus réalistes et les plus immersifs. L\'amélioration des rendements des coeurs RT et Tensor ainsi que des multiprocesseurs de flux est au coeur de cette nouvelle architecture de haute technologie dont l\'unique objectif est d\'offrir une expérience de jeu ultime et exceptionnelle. Les cartes graphiques NVIDIA GeForce RTX 3000 sont tout simplement les cartes les plus puissantes jamais conçues par NVIDIA.', 'https://media.ldlc.com/r1600/ld/products/00/05/73/87/LD0005738721_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/73/87/LD0005738725_1.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/73/87/LD0005738723_1.jpg', NULL, 1099, 4, 27, 3, 1, 1, NULL, '2021-03-23', '0', NULL, 10),
@@ -167,11 +165,22 @@ DROP TABLE IF EXISTS `commande`;
 CREATE TABLE IF NOT EXISTS `commande` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_utilisateur` int(11) NOT NULL,
+  `id_article` int(11) NOT NULL,
+  `image_article` varchar(1000) NOT NULL,
+  `titre` varchar(255) NOT NULL,
+  `prix` int(11) NOT NULL,
   `id_adresse` int(11) NOT NULL,
-  `id_carte_bleu` int(11) NOT NULL,
-  `id_panier` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`id`, `id_utilisateur`, `id_article`, `image_article`, `titre`, `prix`, `id_adresse`) VALUES
+(4, 3, 50, 'https://images-na.ssl-images-amazon.com/images/I/61p1MvrEYIL._AC_SX425_.jpg', 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 95, 92),
+(5, 3, 54, 'https://media.ldlc.com/r1600/ld/products/00/05/78/32/LD0005783260_1.jpg', 'GeForce GTX 1660 Super, AORUS 6 Go GDDR6', 329, 92),
+(6, 3, 53, 'https://media.ldlc.com/r1600/ld/products/00/05/68/77/LD0005687769_1.jpg', 'GeForce GTX 1660 Super, EVGA 6 Go GDDR6', 289, 92);
 
 -- --------------------------------------------------------
 
@@ -412,15 +421,17 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `titre` varchar(255) NOT NULL,
   `prix` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `panier`
 --
 
 INSERT INTO `panier` (`id`, `id_utilisateur`, `id_article`, `image_article`, `titre`, `prix`) VALUES
-(1, 32, 51, 'https://images-na.ssl-images-amazon.com/images/I/41yShmpHyBL._AC_.jpg', 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 95),
-(2, 4, 60, 'https://media.ldlc.com/r1600/ld/products/00/05/73/27/LD0005732752_1.jpg', 'MSI GeForce RTX 3080 GAMING X TRIO 10G', 1339);
+(3, 3, 50, 'https://images-na.ssl-images-amazon.com/images/I/61p1MvrEYIL._AC_SX425_.jpg', 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 95),
+(2, 4, 60, 'https://media.ldlc.com/r1600/ld/products/00/05/73/27/LD0005732752_1.jpg', 'MSI GeForce RTX 3080 GAMING X TRIO 10G', 1339),
+(4, 3, 54, 'https://media.ldlc.com/r1600/ld/products/00/05/78/32/LD0005783260_1.jpg', 'GeForce GTX 1660 Super, AORUS 6 Go GDDR6', 329),
+(5, 3, 53, 'https://media.ldlc.com/r1600/ld/products/00/05/68/77/LD0005687769_1.jpg', 'GeForce GTX 1660 Super, EVGA 6 Go GDDR6', 289);
 
 -- --------------------------------------------------------
 
@@ -501,7 +512,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `login`, `email`, `password`, `image`, `id_droits`, `anniversaire`) VALUES
 (3, 'testnom', 'testprenom', 'TestTest', 'TestTest@ok.fr', '$2y$10$487VcE6QPmC6u633DBKvV.phhbze9NYdZAw6dJIz96gxYMUsam/Ou', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, '2001-01-01'),
 (4, 'Verguldezoone', 'Joris', 'HARDJOJOJ', 'HARDJOJOJ@HARDJOJOJ.HARDJOJOJ', '$2y$10$/al.NlaH47M0a751YGTWCe5Z/Q92i0V5qfAajozb7ydcusXVy5joC', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 100, '1998-08-16'),
-(5, NULL, NULL, 'test', 'test@test.com', '$2y$10$xbEfJazosq1nOSLfC3i7HOsc.P2896nBF1CNm2r6.zkC5XA4CaKhq', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, NULL);
+(5, 'test123', 'aaz', 'test', 'test@test.com', '$2y$10$xbEfJazosq1nOSLfC3i7HOsc.P2896nBF1CNm2r6.zkC5XA4CaKhq', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, '1998-05-15');
 
 -- --------------------------------------------------------
 
@@ -515,7 +526,7 @@ CREATE TABLE IF NOT EXISTS `vues` (
   `id_article` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=154 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=165 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `vues`
@@ -674,7 +685,18 @@ INSERT INTO `vues` (`id`, `id_article`, `id_utilisateur`) VALUES
 (150, 51, 32),
 (151, 51, 32),
 (152, 60, 4),
-(153, 60, 4);
+(153, 60, 4),
+(154, 50, 3),
+(155, 50, 3),
+(156, 50, 3),
+(157, 54, 3),
+(158, 54, 3),
+(159, 54, 3),
+(160, 53, 3),
+(161, 53, 3),
+(162, 53, 3),
+(163, 50, 3),
+(164, 50, 3);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
