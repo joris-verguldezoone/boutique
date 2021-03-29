@@ -70,7 +70,7 @@ else{
 
 ?>
 <main>
-    <form method='POST'> <!-- en js donc pas d'action -->
+    <form method='POST' action=''> <!-- en js donc pas d'action -->
 
         <div id='errors'></div> 
         <!-- contiendra les msg d'erreur de paiment -->
@@ -79,23 +79,28 @@ else{
         <!-- info de carte -->
         <div id='card-errors' role='alert'></div>
         <!-- erreur relative a la carte, fausse/ expiration etc -->
-        <button id='card-button' type='button' data-secret="<?= $intent['client_secret'] ?>">Procéder au paiement</button>
+        <button id='card-button' type='button' name='test' data-secret="<?= $intent['client_secret'] ?>">Procéder au paiement</button>
     </form>
 </main>
-<script src='https://js.stripe.com/v3/'></script>
-<script src='../libraries/js/script.js'></script>
 <?php
+var_dump($intent);
 var_dump($_SESSION['adresseSelected']);
-        $model = new \Model\Panier();
-        $tab = $model->selectAllWhereFetchAll('panier','id_utilisateur',$_SESSION['utilisateur']['id']);
-        foreach($tab as $value){
-            $id_utilisateur = $value['id_utilisateur'];
-            $id_article = $value['id_article'];
-            $image_article = $value['image_article'];
-            $titre = $value['titre'];
-            $prix = $value['prix'];
-            
-            $model->insertCommande($id_utilisateur, $id_article, $image_article, $titre, $prix, $_SESSION['adresseSelected']);
-        }
+
+    $model = new \Model\Panier();
+    $tab = $model->selectAllWhereFetchAll('panier','id_utilisateur',$_SESSION['utilisateur']['id']);
+
+    foreach($tab as $value){
+
+        $id_utilisateur = $value['id_utilisateur'];
+        $id_article = $value['id_article'];
+        $image_article = $value['image_article'];
+        $titre = $value['titre'];
+        $prix = $value['prix'];
+        
+        $model->insertCommande($id_utilisateur, $id_article, $image_article, $titre, $prix, $_SESSION['adresseSelected']);
+    }
+
 ob_end_flush();
 ?>
+<script src='https://js.stripe.com/v3/'></script>
+<script src='../libraries/js/script.js'></script>

@@ -2,6 +2,7 @@ window.onload = () => {
     let stripe = Stripe('pk_test_51IKUynKWS3ZgsIjcIeL3IRSZPegZTYPsOIsaEnTh9I9u6dKHuhVFat6xGPx9B9oLcuZPZZ7IBe6TngUkKp2fERqI00Gh9SNLDU')
     let elements = stripe.elements()
     let redirect = 'panier.php'
+    
     // redirection succès
 
     // objet de la page

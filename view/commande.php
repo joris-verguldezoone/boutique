@@ -1,7 +1,10 @@
 <?php
 //LIBRARIES
-require_once('../libraries/Controller/DisplayArticle.php');
-
+require_once('../libraries/config/utils.php');
+require_once('../libraries/Controller/DisplayProfil.php');
+require_once('../libraries/Model/Display.php');
+require_once('../libraries/Controller/Panier.php');
+require_once('../libraries/Model/Panier.php');
 //CSS
 $headerCss = "../css/header.css";
 $pageCss = "../css/commande.css";
@@ -23,4 +26,11 @@ $typePath = 'articles.php?typeSelected';
 $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';
 require('../require/html_/header.php');
+
+
+
+
+
+
 ?>
+

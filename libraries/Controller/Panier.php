@@ -44,8 +44,7 @@ class Panier extends Controller{
                         
             }
             echo "</table>";
-            echo "<span>Montant Total:".$sumPrix."€</span>";
-            echo "Veuillez choisir une adresse parmis celle(s) que vous avez renseigné";
+            
     
             
              // il faut incorporer le choix de l'adresse de paiement avant cette etape et 
@@ -54,12 +53,9 @@ class Panier extends Controller{
                     // ADRESSE 
           $controllerDisplayProfil = new \Controller\DisplayProfil();
           $controllerDisplayProfil->displayAdressPanier();
-            echo "<form action='paiement.php' method='POST'>
-            <button type='submit' id='prix' name='prix' value='".$sumPrix."'><span>Proceder au paiement</span></button>
-            
-            </form>";
+         
         var_dump($_POST);
-        $_SESSION['adresseSelected'] = $_POST['profilAdressSelect'];
+        
         // foreach($tab as $value){
         //     $id_utilisateur = $value['id_utilisateur'];
         //     $id_article = $value['id_article'];
@@ -68,6 +64,24 @@ class Panier extends Controller{
         //     $prix = $value['prix'];
             
         //     $model->insertCommande($id_utilisateur, $id_article, $image_article, $titre, $prix, $_POST['profilAdressSelect']);
+        echo "<span class='prix'>Montant Total:".$sumPrix."€</span>";
+
+
+        if(isset($_POST['profilAdressSelect'])){
+            
+            echo "<form action='paiement.php' method='POST'>
+            <button type='submit' class='paiement_button' id='prix' name='prix' value='".$sumPrix."'><span>Proceder au paiement</span></button>
+            
+            </form>";
+            $_SESSION['adresseSelected'] = $_POST['profilAdressSelect'];
+
+        }
+        else{
+           echo "
+        <button type='submit' class='paiement_button' id='prix' name='prix' ><span>Proceder au paiement</span></button>";
+        }
+
+        echo "<p class='p_indication'>Veuillez choisir une adresse parmis celle(s) que vous avez renseigné</p>";
         }
      
 
