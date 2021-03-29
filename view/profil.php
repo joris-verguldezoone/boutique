@@ -159,6 +159,12 @@ $Http = new \Http();
 
 </main>
 <?php
-var_dump($_SESSION);
+
+$chronopost = "../images/chronopost.png";
+$colissimo = "../images/colissimo.png";
+$mention = "mention.php";
+
+require('../require/html_/footer.php');
+
 ob_end_flush();
 ?>

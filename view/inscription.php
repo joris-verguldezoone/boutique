@@ -78,8 +78,13 @@ if (isset($_POST['register'])) {
     </main>
 <?php
 //FOOTER
-$img_cindy = '../images/rondoudou.png';
-$img_joris = '../images/netero.png';
-require_once('../require/html_/footer.php');
+
+$chronopost = "../images/chronopost.png";
+$colissimo = "../images/colissimo.png";
+$mention = "mention.php";
+
+require('../require/html_/footer.php');
+
 ob_end_flush();
+
 ?>

@@ -66,3 +66,11 @@ if (isset($_POST['register'])) {
     $newUser->connect($_POST['login'], $_POST['password']);
 }
 ob_end_flush();
+
+$chronopost = "../images/chronopost.png";
+$colissimo = "../images/colissimo.png";
+$mention = "mention.php";
+
+require('../require/html_/footer.php');
+
+?>
