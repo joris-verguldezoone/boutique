@@ -1,47 +1,173 @@
-.InfoGenerales{
-    height:20vh; 
-    width:40vh; 
-    background-color: teal;
-    border-radius: 1em;
-    border: 1px solid black;
-    box-shadow: 2px 2px 2px black;
-    padding:20px;
-}
-.InfoSupplementaire{
-    height:20vh; 
-    width:40vh; 
-    background-color: teal;
-    border-radius: 1em;
-    border: 1px solid black;
-    box-shadow: 2px 2px 2px black;
-    padding:20px;
-}
-.adressMenuBlock{
-    height:60vh; 
-    width:40vh; 
-    background-color: blanchedalmond;
-    border-radius: 1em;
-    border: 1px solid black;
-    box-shadow: 2px 2px 2px black;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
-}
-input[type=text], input[type=tel], input[type=date]{
-    min-width:30vh;
-}
-main{
-    display: flex;
-    flex-direction: row;
-}
-.img_profil{
-    height:100px;
-    width:100px;
-    border-radius: 4em;
-}
-.button_display_adress{
-    padding:30px;
-    background-color: rgb(67, 102, 33);
-    border-radius: 1em;
-}
+    .InfoGenerales {
+        height: 40vh;
+        width: 40vh;
+        border-radius: 1em;
+        border: 1px solid black;
+        box-shadow: 2px 2px 2px black;
+        padding: 20px;
+        background-color: white;
+        margin-right: 5%;
+    }
+    
+    .InfoSupplementaire {
+        height: 20vh;
+        width: 40vh;
+        border-radius: 1em;
+        border: 1px solid black;
+        box-shadow: 2px 2px 2px black;
+        padding: 20px;
+        margin-top: 3vh;
+        background-color: white;
+    }
+    
+    .adressMenuBlock {
+        height: 60vh;
+        width: 40vh;
+        border-radius: 1em;
+        border: 1px solid black;
+        box-shadow: 2px 2px 2px black;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 5%;
+        padding: 1em;
+        background-color: white;
+    }
+    
+    .img_profil {
+        height: 100px;
+        width: 100px;
+        border-radius: 4em;
+    }
+    
+    .button_display_adress {
+        padding: 30px;
+        border-radius: 1em;
+        margin-top: 1em;
+    }
+    
+    .btn_display_adress_flex {
+        display: flex;
+        flex-direction: row;
+        margin-left: 2%;
+    }
+    
+    #profil_photo {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #profil_input_photo {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5%;
+        margin-left: 3%;
+        text-align: center;
+    }
+    
+    #profil_titre_photo {
+        margin-bottom: 1em;
+    }
+    
+    input[type=email] {
+        min-width: 20vh;
+    }
+    
+    input#profilimage {
+        width: 28vh;
+    }
+    
+    label {
+        text-align: center;
+    }
+    
+    input {
+        margin: 1%;
+        text-align: center;
+    }
+    
+    #profil_info_perso {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .profil_info_flex {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    input[type=date] {
+        width: 20vh;
+        align-self: center;
+    }
+    
+    .profil_newAdress_flexColumn {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .profil_newAdress_flexRow {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #flex_box_profil {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .button_center_profil {
+        text-align: center;
+    }
+    
+    #profil_box_info {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .test2 {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .test {
+        display: flex;
+        flex-direction: column;
+        margin-right: 1vh;
+    }
+    
+    .flex_input_profil {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #input_flex_prenom {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    h3 {
+        text-align: center;
+    }
+    
+    #profilLogin,
+    #inscriptionEmail {
+        width: 20vh;
+        align-self: center;
+    }
+    
+    main {
+        display: flex;
+        flex-direction: row;
+        margin-top: 5%;
+        justify-content: center;
+    }
+    
+    body {
+        background-color: whitesmoke;
+    }
+    
+    #center_info_profil {
+        margin-top: 2vh;
+    }

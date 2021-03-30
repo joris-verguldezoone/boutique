@@ -41,29 +41,44 @@ $Http = new \Http();
 ?>
 
 <main>
+    <article id="profil_box_info">
+    <div id="flex_box_profil">
     <form class="block" method="POST" action="profil.php">
-        <h1><u>Profil</u></h1>
-
         <article class='InfoGenerales'>
-
-        <label for="login">Photo de profil</label>
+            <h3>Mon profil</h3>
+        <div id="profil_photo">
                 <img class='img_profil' src='<?php echo $_SESSION['utilisateur']['image'];?>'>
-                <input type="text" id="profilimage" name="image" value="<?php echo $_SESSION['utilisateur']['image'];?>"><br />
-
+                <div id="profil_input_photo">
+                    <label for="login" id="profil_titre_photo"></label>
+                    <input type="text" id="profilimage" name="image" value="<?php echo $_SESSION['utilisateur']['image'];?>">
+                </div>
+            </div>
+            <div id="center_info_profil">
+                <div class="flex_input_profil">
             <label for="login">Login</label>
-                <input type="text" id="profilLogin" name="login" value="<?php echo $_SESSION['utilisateur']['login'];?>"><br />
-           
+                <input type="text" id="profilLogin" name="login" value="<?php echo $_SESSION['utilisateur']['login'];?>"><br>
+            </div>
+            <div id="input_flex_prenom">
+            <div class="flex_input_profil">
             <label for="password">Mot de passe</label>
-                <input type="password" id="profilPassword" name="password" placeholder="&nbsp;"><br />
-             
-            <label for="confirm_password">Confirmation du mot de passe</label>
-                <input type="password" id="profilConfirm_password" name="confirm_password" ><br />
-           
+                <input type="password" id="profilPassword" name="password" placeholder="&nbsp;"><br>
+            </div>
+            <div class="flex_input_profil">
+            <label for="confirm_password">Confirm. mot de passe</label>
+                <input type="password" id="profilConfirm_password" name="confirm_password" ><br>
+            </div>
+            </div>
+            <div class="flex_input_profil">
             <label for="email">Email</label>
-                <input type="text" id="inscriptionEmail" name="email" value="<?php echo $_SESSION['utilisateur']['email'];?>"><br />
+                <input type="email" id="inscriptionEmail" name="email" value="<?php echo $_SESSION['utilisateur']['email'];?>"><br>
+                </div>
+                <div class="button_center_profil">
+
+                <input type="submit" id="profilSubmit" value="update" name="update">
+            </div>
+            </div>
         </article>
 
-        <input type="submit" id="profilSubmit" value="update" name="update">
             <?php
 
     if (isset($_POST['update'])) {
@@ -77,19 +92,26 @@ $Http = new \Http();
 
     <form class="block" method="POST" action="profil.php">
         <article class='InfoSupplementaire'>
+        <h3>Mes informations personnelles</h3>
 
+        <div id="profil_info_perso">
+            <div class="profil_info_flex">
             <label for="nom">Nom</label>
                 <input type="text" id="profilNom" name="nom" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['nom'];?>"><br />
-               
+            </div>
+            <div class="profil_info_flex">
             <label for="prenom">Prenom</label>
                 <input type="text" id="profilPrenom" name="prenom" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['prenom'];?>"><br />
-                
+            </div>
+            </div>
+            <div class="profil_info_flex">
             <label for="anniversaire">Anniversaire</label>
                 <input type="date" id="profilAnniv" name="anniversaire" placeholder="&nbsp;" value="<?php echo $_SESSION['utilisateur']['anniversaire'];?>"><br />
+            </div>
+            <div class="button_center_profil">
+            <input type="submit" id="profilSubmit" value="Modifier" name="updateInfoPersonnel">
+            </div>
         </article>
-
-        <input type="submit" id="profilSubmit" value="Modifier" name="updateInfoPersonnel">
-
         <?php
 
         if (isset($_POST['updateInfoPersonnel'])) {
@@ -99,6 +121,7 @@ $Http = new \Http();
         }
         ?>
     </form>
+    </div>
 
     <!-- CARTE BLEU -->
 
