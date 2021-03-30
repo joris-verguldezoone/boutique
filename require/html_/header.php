@@ -21,6 +21,7 @@ echo "
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='$headerCss'>
     <link rel='stylesheet' href='$pageCss'>
+    <link rel='stylesheet' href='$footer'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'/>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 
@@ -104,6 +105,7 @@ echo "
                         <a href='$panier'><i class='fas fa-shopping-cart' class='shopping_logo'></i></a>
                         </div>
                         </nav>
+                        </header>
                         ";
                         
 ?>

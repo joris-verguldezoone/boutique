@@ -87,3 +87,13 @@ if(isset($_POST['ajoutPanier'])){
 // ob_end_flush();
 ?>
 </main>
+
+
+<?php
+
+$chronopost = "../images/chronopost.png";
+$colissimo = "../images/colissimo.png";
+$mention = "mention.php";
+require('../require/html_/footer.php');
+
+?>

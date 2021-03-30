@@ -266,5 +266,12 @@ if((isset($_GET['gammeSelected'])) && (isset($_GET['typeSelected']))){
     </section>
 </main>
 <?php 
+
+$chronopost = "../images/chronopost.png";
+$colissimo = "../images/colissimo.png";
+$mention = "mention.php";
+
+require('../require/html_/footer.php');
+
 ob_end_flush();
 ?>

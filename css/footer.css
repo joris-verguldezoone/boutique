@@ -1,0 +1,102 @@
+footer {
+    background-color: #0a3782;
+    color: white;
+    height: 34em;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+@font-face {
+    font-family: "SocialType.ttf";
+    src: url("../fonts/SocialType.ttf")
+}
+
+#flex_footer {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2%;
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-content: space-evenly;
+}
+
+#reseaux_footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact {
+    margin-bottom: 0;
+}
+
+.logo_reseaux_footer {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 4em;
+    font-family: "SocialType.ttf";
+}
+
+.fa-shipping-fast,
+.fa-credit-card,
+.fa-cc-visa,
+.fa-cc-stripe,
+.fa-cc-mastercard,
+.fa-headphones-alt,
+.fa-sign-out-alt,
+.fa-map-marker-alt {
+    font-size: 45px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.text_second {
+    font-size: 30px;
+    margin-bottom: 1vh;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+hr {
+    width: 35%;
+    margin-left: 32%;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+#flex_footer_second {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: 18%;
+    margin-right: 18%;
+}
+
+.img_transport {
+    max-width: 160px;
+    margin-right: 2vh;
+}
+
+.fa-cc-visa {
+    margin-left: 3vh;
+}
+
+#copyright {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#a_mention {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+#a_mention:hover {
+    color: burlywood;
+}

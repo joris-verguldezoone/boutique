@@ -95,7 +95,7 @@ $Http = new \Http();
         if (isset($_POST['updateInfoPersonnel'])) {
             $newUserController->updateInfoPersonnel($_POST['nom'], $_POST['prenom'], $_POST['anniversaire']);
             $Http->redirect('profil.php');
-    
+            
         }
         ?>
     </form>
@@ -159,6 +159,12 @@ $Http = new \Http();
 
 </main>
 <?php
-// var_dump($_SESSION);
+
+$chronopost = "../images/chronopost.png";
+$colissimo = "../images/colissimo.png";
+$mention = "mention.php";
+
+require('../require/html_/footer.php');
+
 ob_end_flush();
 ?>
