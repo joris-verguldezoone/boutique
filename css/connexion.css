@@ -12,6 +12,7 @@ h1 {
 .block {
     text-align: center;
     font-size: 18px;
+    margin-top: 1.5vh;
 }
 
 #bloc_inscription {
