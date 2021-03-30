@@ -98,12 +98,27 @@ echo "
                         </li>
                         </ul>
                         </div>
+
+                        <div id='menu' style='margin-left:150px;'>
+                        <ul class='niveau1'>
+                            <li class='sousmenu'><a href='#'>Nos partenaires &nbsp; <i class='fas fa-chevron-down' class='fleche_menu'></i></a>
+                                <ul class='niveau2'>
+
+                                <li class='sousmenu'><a href='marques.php'>Marques</a></li>                    
+                                
+                                <li class='sousmenu'><a href='editeurs.php'>Editeurs</a></li>
+
+                                </ul>
+                                </div>
+
                         <div class='logo_header'>
                         <a href='$profil'><i class='fas fa-user' class='profil_logo'></i></a>
                         </div>
                         <div>
                         <a href='$panier'><i class='fas fa-shopping-cart' class='shopping_logo'></i></a>
                         </div>
+                    
+                     
                         </nav>
                         </header>
                         ";

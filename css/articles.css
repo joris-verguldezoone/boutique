@@ -2,14 +2,14 @@
     font-family: 'gaming.ttf';
     src: url("../fonts/gaming.ttf");
 }
-
+/* 
 .dimension_image{
     max-width: 250px;
     max-height: 250px;
     width: auto;
     height: auto;
     margin-top: 1%;
-}
+} */
 
 .form_composant{
     display: flex;
@@ -17,19 +17,19 @@
     margin: 2% 2% 1% 5%;
     box-shadow: 2px 2px 2px;
 }
-.form_article {
+/* .form_article {
     display: flex;
     flex-direction: column;
     margin: 2% 2% 1% 5%;
     border: 1px solid black;
     /* box-shadow: 2px 2px 2px; */
-}
+
 
 .block{
     display: flex;
     flex-direction: column;
 }
-.rowSection{
+/* .rowSection{
     display: flex;
     flex-direction: row;
     margin-left: 2%;
@@ -44,7 +44,7 @@
     font-family: 'gaming.ttf';
     font-size: 23px;
     width: 25vh;
-}
+} */
 
 .typo_comp:hover{
     color: red;

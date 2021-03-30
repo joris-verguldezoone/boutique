@@ -24,7 +24,7 @@ nav{
 }
 
 .logo_header{
-    margin-left: 60%;
+    margin-left: 45%;
 }
 
 /*----------------MENU-----------------*/
@@ -37,6 +37,7 @@ div#menu li {
     list-style:none;
     margin:0px;
     border-bottom: 1px solid #CCC;
+    
 }
 
 div#menu li:hover {
@@ -58,7 +59,7 @@ div#menu ul ul {
 div#menu ul {
     margin: 0;
     padding: 0;
-    width: 9em;
+    width: 10em;
     background: white;
 }
 
@@ -73,6 +74,7 @@ div#menu li a {
     padding: 1.25em 0 0.25em 0.5em;
     text-decoration: none;
     border-left: 0.5em solid #BBB;
+
 }
 
 /*TAILLE DEUXIEME COLONE*/
@@ -145,4 +147,38 @@ div#menu ul ul ul li a:hover {
     display: flex;
     flex-direction: column;
     width: 80%;
+}
+/* css article/marque/editeur generaux / bar aside  */
+@font-face {
+    font-family: 'gaming.ttf';
+    src: url("../fonts/gaming.ttf");
+}
+.rowSection{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2%;
+}
+.buttom_comp{
+    background-color: white;
+    border: 0px;
+    height:100%;
+    width: 35vh;
+}
+
+.typo_comp{
+    font-family: 'gaming.ttf';
+    font-size: 23px;
+}
+.form_article {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 2% 1% 5%;
+    border: 1px solid black;
+    /* box-shadow: 2px 2px 2px; */
+}
+.dimension_image{
+    width: 250px;
+    height: 250px;
+
+    margin-top: 1%;
 }

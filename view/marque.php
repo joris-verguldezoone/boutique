@@ -5,7 +5,9 @@ require_once('../libraries/Controller/Admin.php');
 require_once('../libraries/model/Admin.php');
 require_once('../libraries/config/utils.php');
 require_once('../libraries/Controller/DisplayArticle.php');
-
+require_once('../libraries/Controller/DisplayPartner.php');
+require_once('../libraries/Model/Display.php');
+require_once('../libraries/Model/Article.php');
 //CSS
 $headerCss = "../css/header.css";
 $pageCss = "../css/marque.css";
@@ -36,6 +38,22 @@ $chronopost = "../images/chronopost.png";
 $colissimo = "../images/colissimo.png";
 $mention = "mention.php";
 
+
+?>
+
+<main>
+    <?php
+
+        $controllerDisplay = new \Controller\DisplayPartner();
+        if(isset($_GET['marqueSelected'])){
+            $controllerDisplay->displayOneBrand($_GET['marqueSelected']);
+
+        }
+
+    ?>
+
+</main>
+<?php
 require('../require/html_/footer.php');
 
 ?>
