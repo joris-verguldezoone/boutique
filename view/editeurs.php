@@ -192,7 +192,7 @@ if((isset($_GET['gammeSelected'])) && (isset($_GET['typeSelected']))){
     
     $controller = new \Controller\DisplayPartner();
     $tab = $controller->displayAllEditeur();
-    var_dump($tab);
+    // var_dump($tab);
     
     ?>
     

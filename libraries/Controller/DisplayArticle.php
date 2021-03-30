@@ -19,7 +19,7 @@ class DisplayArticle extends Controller{
         $result = $checkBoxSearch->selectCheckBox($tab);
         if($result != "Ne correspond à aucun élément , il ne doit plus y avoir de stock ou l'article n'existe plus"){
             $this->displayArticlesByTab($result);
-            var_dump($result);
+            // var_dump($result);
         }
         elseif($result == "Ne correspond à aucun élément , il ne doit plus y avoir de stock ou l'article n'existe plus"){
             echo "Ne correspond à aucun élément , il ne doit plus y avoir de stock ou l'article n'existe plus";
@@ -151,7 +151,7 @@ class DisplayArticle extends Controller{
             // echo "<img src='$value[5]'>";
             // echo "<img src='$value[6]'>";
             // echo $value[7]."<br />";
-            echo $tab[$i]['note']."<br />";
+            // echo $tab[$i]['note']."<br />";
             // echo $value[10]."<br />";
             // echo $value[11]."<br />";
             // echo $value[12]."<br />";
@@ -253,7 +253,7 @@ class DisplayArticle extends Controller{
             // echo "<img src='$value[5]'>";
             // echo "<img src='$value[6]'>";
             // echo $value[7]."<br />";
-            echo $tab[$i]['note']."<br />";
+            // echo $tab[$i]['note']."<br />";
             // echo $value[10]."<br />";
             // echo $value[11]."<br />";
             // echo $value[12]."<br />";
@@ -272,5 +272,51 @@ class DisplayArticle extends Controller{
             $i++;
         }
     }
+    public function displayArticleByType($id_type){
+        $modelDisplay = new \Model\Display();
+        $tab = $modelDisplay->selectAllWhereFetchAll('articles','id_type',$_GET['typeSelected']);
+        // var_dump($tab);
+        $i = 0; 
+        // var_dump($tab);
+        
+        $temp = 1; 
+        echo '<section class="rowSection">';
+        foreach($tab as $value){
+            if($temp == 4){ //  ?a c'est le fun qui peut me test svp ??
+                $temp = 1;
+            }
+            echo "<form action='article.php' method='get' class='form_article'>";
+            echo "<button type='submit' class='buttom_comp' name='articleSelected' value= '".$tab[$i]['id']."'>";
+          
+               
+            
+                echo "<p class='typo_comp'>". $tab[$i]['titre'] ."<u></u></p>";
 
+            // echo "<p class='typo_comp'><u>".$titre."</u></p>";
+                echo "<img src='".$tab[$i]['image']."' class='dimension_image'>";
+           
+            // echo $value[2]."<br />";
+            // echo $value[3]."<br />";
+            // echo "<img src='$value[5]'>";
+            // echo "<img src='$value[6]'>";
+            // echo $value[7]."<br />";
+            // echo $tab[$i]['note']."<br />";
+            // echo $value[10]."<br />";
+            // echo $value[11]."<br />";
+            // echo $value[12]."<br />";
+            // echo $value[13]."<br />";  
+            echo $tab[$i]['prix']."€<br />";  
+            echo $tab[$i]['date']."<br />";
+            echo "</button>";
+            echo "</form>";
+            
+            if($temp % 3 === 0 ){
+                echo '</section>';
+                echo '<section  class="rowSection">';
+            } 
+            
+            $temp++;
+            $i++;
+        }
+    }
 }

@@ -75,5 +75,9 @@ else{
 
 </main>
 <?php
+$chronopost = "../images/chronopost.png";
+$colissimo = "../images/colissimo.png";
+$mention = "mention.php";
+require_once('../require/html_/footer.php');
 ob_end_flush();
 ?>

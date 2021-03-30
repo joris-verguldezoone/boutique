@@ -175,8 +175,10 @@ if((isset($_GET['gammeSelected'])) && (isset($_GET['typeSelected']))){
 if(isset($_GET['AllArticles'])){
     $controllerDisplay->displayAllArticles();
 }
-
-
+if(isset($_GET['typeSelected'])){
+    
+    $controllerDisplay->displayArticleByType($_GET['typeSelected']);
+}
 
 
 

@@ -49,11 +49,9 @@
             <a href="https://www.instagram.com/" target="_blank" class="logo_reseaux_footer">V</a>
         </div>
         </div>
-        <div>
+        <div class='last_div_footer'>
             <a href="<?php echo $mention ?>" target="_blank" id="a_mention">Mentions Légales</a>
-            <div id="copyright">
             <i class="far fa-copyright"> Hardjojo & Kiritshuko</i>
-        </div>
         </div>
         </footer>
     </body>

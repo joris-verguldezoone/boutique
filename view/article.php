@@ -60,7 +60,7 @@ if(isset($_GET['articleSelected'])){
 
 $model = new \Model\Article();
 $coucou = $model->detectLike($_SESSION['utilisateur']['id'],$_GET['articleSelected']);
-var_dump($coucou);
+// var_dump($coucou);
 
 
 // var_dump($_GET);
@@ -73,8 +73,8 @@ if(isset($_GET['like'])){ // c'est pas bien de le mettre ici , par contre tout e
 	$model->like($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
 	echo 'like envoyé';
 }
-var_dump($_SESSION);
-var_dump($_POST);
+// var_dump($_SESSION);
+// var_dump($_POST);
 
 if(isset($_POST['ajoutPanier'])){
 	$controllerPanier = new \Controller\Panier();

@@ -1,7 +1,7 @@
 footer {
     background-color: #0a3782;
     color: white;
-    height: 34em;
+    height: 65vh;
     padding-left: 5%;
     padding-right: 5%;
 }
@@ -99,4 +99,8 @@ hr {
 
 #a_mention:hover {
     color: burlywood;
+}
+.last_div_footer{
+    display: flex;
+    justify-content: space-between;
 }

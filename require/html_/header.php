@@ -42,7 +42,7 @@ echo "
                                 <li><a href='".$marquePath."=".$allMarque[2]['id']."?".$typePath."=".$allType[0]['id']."'>AMD</a></li>
                             </ul>
                         </li>                    
-                            <li class='sousmenu'><a href='".$typePath."=".$allType[1]['id']."'>Carte Graphique</a>
+                            <li class='sousmenu'><a href='".$typePath."=".$allType[1]['id']."?General'>Carte Graphique</a>
                                 <ul class='niveau3'>
                                     <li><a href='".$marquePath."=".$allMarque[10]['id']."&typeSelected=".$allType[1]['id']."'>NVIDIA</a></li>
                                     <li><a href='".$marquePath."=".$allMarque[8]['id']."&typeSelected=".$allType[1]['id']."'>AMD</a></li>

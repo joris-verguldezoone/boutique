@@ -40,7 +40,7 @@ $modelAdmin  = new \Model\Admin();
 $controllerDisplay  = new \Controller\Display();
 $modelDisplay  = new \Model\Display();
 
-var_dump($_SESSION);
+// var_dump($_SESSION);
 ?>
 
 <main>
@@ -358,6 +358,10 @@ echo '<form action="" method="GET">
 
 </main>
 <?php
-// il me reste tout ça a faire: commande     commentaires   liste_de_souhait    adress      carte_bleu      likedislike     notation    panier 
+// il me reste tout ça a faire: commande     commentaires   liste_de_souhait    adress      carte_bleu      likedislike     notation    panier 4
+$chronopost = "../images/chronopost.png";
+$colissimo = "../images/colissimo.png";
+$mention = "mention.php";
+require_once('../require/html_/footer.php');
 ob_end_flush();
 ?>
