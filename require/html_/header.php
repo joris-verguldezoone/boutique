@@ -103,6 +103,7 @@ echo "
                         <a href='$panier'><i class='fas fa-shopping-cart' class='shopping_logo'></i></a>
                         </div>
                         </nav>
+                        </header>
                         ";
                         
 ?>
