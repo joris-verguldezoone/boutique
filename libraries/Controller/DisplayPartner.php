@@ -21,8 +21,8 @@ class DisplayPartner extends Controller{
             echo "
                     <form action='marque.php' method='get' class='form_article'>
                         <button type='submit' class='buttom_comp' name='marqueSelected' value= '".$tab[$i]['id']."'>
-                            <img class='dimension_image' src='".$value['image']."'>
-                            <span class='typo_comp'>".$value['nom']."</span>
+                            <img class='dimension_image dimension_images_marques' src='".$value['image']."'>
+                            <span class='typo_comp typo_marques'>".$value['nom']."</span>
                         </button>
                     </form>            
             
@@ -54,8 +54,8 @@ class DisplayPartner extends Controller{
             echo "
                     <form action='editeur.php' method='get' class='form_article'>
                         <button type='submit' class='buttom_comp' name='editorSelected' value= '".$tab[$i]['id']."'>
-                            <img class='dimension_image' src='".$value['image']."'>
-                            <span class='typo_comp'>".$value['nom']."</span>
+                            <img class='dimension_image dimension_images_editor' src='".$value['image']."'>
+                            <span class='typo_comp typo_editor'>".$value['nom']."</span>
                         </button>
                     </form>            
             
@@ -78,18 +78,15 @@ class DisplayPartner extends Controller{
 
         foreach($tab as $key => $value){
             echo" 
-            <section>  
-                <div class='box_article_titre'>
-                    <h1 class='titre_article'>".$value['nom']."</h1>
-                </div>
+            <section class='section_marque'>  
                 <div class='flex_presentation'>
                     <div class='flex_box_image_article'>            
-                        <img class='img_article_principale' src='".$value['image']."'>
+                        <img class='img_marque_presentation' src='".$value['image']."'>
                     </div>
                 </div>
-                <div class='flex_presentation_description'>
-                    <h1 class='titre_article'>Description</h1>
-                    <p class='suite_presentation_article'>".$value['description']."</p>
+                <div>
+                    <span class='titre_description_marques'>Description</span>
+                    <p class='presentation_marque'>".$value['description']."</p>
                 </div>
             </section>";
         }
@@ -104,18 +101,15 @@ class DisplayPartner extends Controller{
 
         foreach($tab as $key => $value){
             echo" 
-            <section>  
-                <div class='box_article_titre'>
-                    <h1 class='titre_article'>".$value['nom']."</h1>
-                </div>
+            <section class='section_marque'>  
                 <div class='flex_presentation'>
                     <div class='flex_box_image_article'>            
-                        <img class='img_article_principale' src='".$value['image']."'>
+                        <img class='img_marque_presentation' src='".$value['image']."'>
                     </div>
                 </div>
-                <div class='flex_presentation_description'>
-                    <h1 class='titre_article'>Description</h1>
-                    <p class='suite_presentation_article'>".$value['description']."</p>
+                <div>
+                    <span class='titre_description_marques'>Description</span>
+                    <p class='presentation_marque'>".$value['description']."</p>
                 </div>
             </section>";
         }

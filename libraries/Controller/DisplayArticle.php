@@ -211,17 +211,12 @@ class DisplayArticle extends Controller{
                 </form>
                 </section>
             </div>
-                <p class='note_article'>".$value['note']."</p>
             </div>
             <div class='flex_presentation_description'>
                 <h1 class='titre_article'>Description</h1>
                 <p class='suite_presentation_article'>".$value['description']."</p>
             </div>
              </section>";
-             echo "<form action='' method='GET'>
-             <button name='like' type='submit'></button>
-             <button name='dislike' type='submit'></button>
-             </form>";
       
         }
     }
