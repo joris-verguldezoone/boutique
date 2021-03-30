@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "gaming.ttf";
+    src: url(../fonts/gaming.ttf);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2em;
+    font-family: "gaming.ttf";
+}
+
+.block {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 1.5vh;
+}
+
+#bloc_inscription {
+    height: 18vh;
+    width: 33vh;
+    border-radius: 1em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+    padding: 20px;
+    margin-top: 6vh;
+    background-color: white;
+}
+
+#test {
+    text-align: -webkit-center;
+}
+
+#ConnexionSubmit {
+    font-size: 16px;
+}
+
+input {
+    margin-bottom: 1vh;
+}
+
+input[type=email] {
+    width: 20vh;
+}
+
+main {
+    height: 55vh;
+}

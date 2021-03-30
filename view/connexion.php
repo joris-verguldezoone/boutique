@@ -37,27 +37,23 @@ require('../require/html_/header.php');
 
 ?>
 <main>
-<?php
-
-?>
+<h1>Connectez-vous !</h1>
+<div id="test">
+    <article id="bloc_inscription">
         <form class="block" method="POST" action="connexion.php">
-            <h1><u>Connexion</u></h1>
-
-            <article>
-                <label for="login" name="login" class="inp">
+            <div>
+                <label for="login" name="login" class="inp">Login</label><br>
                     <input type="text" id="ConnexionLogin" name="login" placeholder="&nbsp;">
-                    <span class="label">Login</span>
-                    <span class="focus-bg"></span>
-                </label>
-                <label for="password" name="password" class="inp">
+                </div>
+                <div>
+                <label for="password" name="password" class="inp">Password</label><br>
                     <input type="password" id="ConnexionLogin" name="password" placeholder="&nbsp;">
-                    <span class="label">Password</span>
-                    <span class="focus-bg"></span>
-                </label>
-            </article>
-
+            </div>
             <input type="submit" id="ConnexionSubmit" value="register" name="register">
         </form>
+    </article>
+</div>
+</main>
         <?php
 
 if (isset($_POST['register'])) {

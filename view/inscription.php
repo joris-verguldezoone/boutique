@@ -37,34 +37,32 @@ require('../require/html_/header.php');
 
 ?>
 <main>
+    <h1>Inscrivez-vous !</h1>
+<div id="test">
+<article id="bloc_inscription">
     <form class="block" method="POST" action="inscription.php">
-        <h1><u>Inscription</u></h1>
-
-        <article>
-            <label for="login" name="login" class="inp">
-                <span class="label">Login</span>
-                <input type="text" id="ConnexionLogin" name="login" placeholder="&nbsp;" required>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="password" name="password" class="inp">
-                <span class="label">Password</span>
-                <input type="password" id="ConnexionLogin" name="password" placeholder="&nbsp;" required>
-                <span class="focus-bg"></span>
-            </label></br>
-            <label for="confirm_password" name="password" class="inp">
-                <span class="label">Confirm Password</span>
-                <input type="password" id="inscriptionConfirm_password" name="confirm_password" placeholder="&nbsp;" required>
-                <span class="focus-bg"></span>
-            </label>
-            <label for="email" name="email" class="inp">
-                <span class="label">Email</span>
+            <div>
+                <div>
+                    <label for="login" name="login" class="inp">Login</label><br>
+                        <input type="text" id="ConnexionLogin" name="login" placeholder="&nbsp;" required>
+                </div>
+                <div>
+                    <label for="password" name="password" class="inp">Password</label><br>
+                        <input type="password" id="ConnexionLogin" name="password" placeholder="&nbsp;" required>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label for="confirm_password" name="password" class="inp">Confirm Password</label><br>
+                        <input type="password" id="inscriptionConfirm_password" name="confirm_password" placeholder="&nbsp;" required>
+                </div>
+                <div>
+            <label for="email" name="email" class="inp">Email</label><br>
                 <input type="email" id="inscriptionEmail" name="email" placeholder="&nbsp;" required>
-                <span class="focus-bg"></span>
-            </label>
-        </article>
-
+                </div>
+            </div>
+            
         <input type="submit" id="inscriptionSubmit" value="register" name="register">
-
         <?php
 
 if (isset($_POST['register'])) {
@@ -75,6 +73,10 @@ if (isset($_POST['register'])) {
 
         ?>
         </form>
+        </article>
+        </div>
+
+
     </main>
 <?php
 //FOOTER
