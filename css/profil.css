@@ -40,3 +40,8 @@ main{
     width:100px;
     border-radius: 4em;
 }
+.button_display_adress{
+    padding:30px;
+    background-color: rgb(67, 102, 33);
+    border-radius: 1em;
+}

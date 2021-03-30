@@ -57,9 +57,8 @@ $rowCount = $newUserModel->rowCount('panier','id_utilisateur', $id_utilisateur);
 $rowCount = intval($rowCount[0]['COUNT(*)']);
     
 if($rowCount >= 1){ 
-
-    $controller->displayPanier($_SESSION['utilisateur']['id']);
     
+    $controller->displayPanier($_SESSION['utilisateur']['id']);
   
       
 

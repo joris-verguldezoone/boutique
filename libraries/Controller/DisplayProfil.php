@@ -48,7 +48,7 @@ class DisplayProfil {
         $fetchAdress = $newUserModel->fetchAdress();
         foreach($fetchAdress as $value){
             echo '<form method="GET" action="">
-                <button name="'.$value[0].'" class="adminInterface" type="submit">Modifier adresse</button>
+                <button name="'.$value[0].'" class="button_display_adress" type="submit">Modifier adresse</button>
         </form>';
         if(isset($_GET[$value[0]])){ 
             echo'
@@ -143,7 +143,7 @@ class DisplayProfil {
       if($rowCount >=1){
         $fetchAdress = $newUserModel->fetchAdress();
         foreach($fetchAdress as $value){
-            echo '<form method="GET" action="">
+            echo '<section class="adress_section_button_form_block"><form method="GET" action="">
                 <button name="'.$value[0].'" class="adminInterface" type="submit">Selectionner cette adresse</button>
         </form>';
         if(isset($_GET[$value[0]])){ 
@@ -179,6 +179,7 @@ class DisplayProfil {
   
               <button type="submit" id="profilAdressSelect" value="'.$value[0].'" name="profilAdressSelect">Confirmer</button>
               </form>
+          </section>
           </section>';
         }
         }

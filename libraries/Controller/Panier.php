@@ -2,6 +2,8 @@
 
 namespace Controller;
 
+require_once('Controller.php');
+
 class Panier extends Controller{
 
     public function AddElement($id_article, $id_utilisateur){
@@ -20,6 +22,8 @@ class Panier extends Controller{
     public function displayPanier($id_utilisateur){ // on display aussi la somme totale a payer
         $model = new \Model\Panier();
         $tab = $model->selectAllWhereFetchAll('panier','id_utilisateur',$id_utilisateur);
+        echo "<div class='mise_en_page_panier'>
+        <h2>Mon Panier</h2>";
         echo "<table>";
         // $sumPrix = 0;
                 // var_dump($tab);
@@ -32,6 +36,7 @@ class Panier extends Controller{
                             <form action='' method='GET'>
                                 <td><button type='submit' id='suppr_element_panier' name='suppr_element_panier' value='".$value['id']."'>Supprimer</button></td>
                             </form>
+                            
                         </tr>";
                         if(isset($_GET['suppr_element_panier'])){
                             $model->deleteOneWhereId('panier',$_GET['suppr_element_panier']);
@@ -44,6 +49,7 @@ class Panier extends Controller{
                         
             }
             echo "</table>";
+    echo "</div>";
             
     
             
@@ -51,9 +57,10 @@ class Panier extends Controller{
                     // faire un récapitulatif de paiement et historique 
           
                     // ADRESSE 
+        echo "<div class='adress_block'>";
           $controllerDisplayProfil = new \Controller\DisplayProfil();
           $controllerDisplayProfil->displayAdressPanier();
-         
+        echo "</div>";
         var_dump($_POST);
         
         // foreach($tab as $value){
@@ -68,7 +75,7 @@ class Panier extends Controller{
 
 
         if(isset($_POST['profilAdressSelect'])){
-            
+           
             echo "<form action='paiement.php' method='POST'>
             <button type='submit' class='paiement_button' id='prix' name='prix' value='".$sumPrix."'><span>Proceder au paiement</span></button>
             
@@ -78,7 +85,7 @@ class Panier extends Controller{
         }
         else{
            echo "
-        <button type='submit' class='paiement_button' id='prix' name='prix' ><span>Proceder au paiement</span></button>";
+        <button type='submit' class='paiement_button_disabled' id='prix' name='prix' ><span>Proceder au paiement</span></button>";
         }
 
         echo "<p class='p_indication'>Veuillez choisir une adresse parmis celle(s) que vous avez renseigné</p>";

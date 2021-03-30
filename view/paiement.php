@@ -83,23 +83,10 @@ else{
     </form>
 </main>
 <?php
-var_dump($intent);
+// var_dump($intent);
 var_dump($_SESSION['adresseSelected']);
 
-    $model = new \Model\Panier();
-    $tab = $model->selectAllWhereFetchAll('panier','id_utilisateur',$_SESSION['utilisateur']['id']);
-
-    foreach($tab as $value){
-
-        $id_utilisateur = $value['id_utilisateur'];
-        $id_article = $value['id_article'];
-        $image_article = $value['image_article'];
-        $titre = $value['titre'];
-        $prix = $value['prix'];
-        
-        $model->insertCommande($id_utilisateur, $id_article, $image_article, $titre, $prix, $_SESSION['adresseSelected']);
-    }
-
+ 
 ob_end_flush();
 ?>
 <script src='https://js.stripe.com/v3/'></script>
