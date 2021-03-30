@@ -30,6 +30,7 @@ $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
 
 //HEADER
+$all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
 $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';

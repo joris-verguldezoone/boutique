@@ -34,7 +34,7 @@ echo "
         <nav>
             <div id='menu' style='margin-left:150px;'>
                 <ul class='niveau1'>
-                    <li class='sousmenu'><a href='articles.php?AllArticles'>Nos produits &nbsp; <i class='fas fa-chevron-down' class='fleche_menu'></i></a>
+                    <li class='sousmenu'><a href='".$all_ArticlesPath."All_Articles'>Nos produits &nbsp; <i class='fas fa-chevron-down' class='fleche_menu'></i></a>
                         <ul class='niveau2'>
                         <li class='sousmenu'><a href='".$typePath."=".$allType[0]['id']."'>Processeur</a>
                             <ul class='niveau3'>
@@ -42,7 +42,7 @@ echo "
                                 <li><a href='".$marquePath."=".$allMarque[2]['id']."?".$typePath."=".$allType[0]['id']."'>AMD</a></li>
                             </ul>
                         </li>                    
-                            <li class='sousmenu'><a href='".$typePath."=".$allType[1]['id']."?General'>Carte Graphique</a>
+                            <li class='sousmenu'><a href='".$typePath."=".$allType[1]['id']."&All_CG='>Carte Graphique</a>
                                 <ul class='niveau3'>
                                     <li><a href='".$marquePath."=".$allMarque[10]['id']."&typeSelected=".$allType[1]['id']."'>NVIDIA</a></li>
                                     <li><a href='".$marquePath."=".$allMarque[8]['id']."&typeSelected=".$allType[1]['id']."'>AMD</a></li>

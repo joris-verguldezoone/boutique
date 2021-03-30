@@ -39,6 +39,7 @@ $pcFixe = 'articles.php?pcFixe';
 $alimentation = 'articles.php?alimentation';
 $carteMere = 'articles.php?carteMere';
 //HEADER
+$all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
 $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';

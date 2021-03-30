@@ -26,6 +26,7 @@ $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
 
 //HEADER
+$all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
 $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';
@@ -172,11 +173,11 @@ if((isset($_GET['gammeSelected'])) && (isset($_GET['typeSelected']))){
     
     $controllerDisplay->displayArticlesByTypeAndBrandOrGamme('id_gamme' , 'id_type' ,$_GET['gammeSelected'], $_GET['typeSelected']);
 }
-if(isset($_GET['AllArticles'])){
+if(isset($_GET['All_Articles'])){
     $controllerDisplay->displayAllArticles();
 }
-if(isset($_GET['typeSelected'])){
-    
+if((isset($_GET['typeSelected'])) && (isset($_GET['All_CG']))){
+    // 
     $controllerDisplay->displayArticleByType($_GET['typeSelected']);
 }
 

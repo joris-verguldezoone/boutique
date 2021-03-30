@@ -27,6 +27,7 @@ $admin = "view/admin.php";
 $deconnexion = "index.php?off=1";
 
 //HEADER
+$all_ArticlesPath = 'view/articles.php?';
 $typePath = 'view/articles.php?typeSelected';
 $marquePath = 'view/articles.php?marqueSelected';
 $gammePath =  'view/articles.php?gammeSelected';

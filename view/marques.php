@@ -26,18 +26,16 @@ $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
 
 //HEADER
+$all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
 $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';
-require('../require/html_/header.php');
-?>
-
-<?php
 
 $chronopost = "../images/chronopost.png";
 $colissimo = "../images/colissimo.png";
 $mention = "mention.php";
 
+require('../require/html_/header.php');
 
 ?>
 <main>

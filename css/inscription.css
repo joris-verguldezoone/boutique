@@ -5,12 +5,12 @@
 
 h1 {
     text-align: center;
-    margin-top: 2em;
+    padding-top: 2em;
     font-family: "gaming.ttf";
 }
 
 main {
-    height: 55vh;
+    height: 65vh;
 }
 
 .block {
