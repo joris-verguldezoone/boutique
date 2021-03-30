@@ -621,7 +621,7 @@ class Display extends Controller{
         echo "<tr>
                 <form action='' method='GET'>
                     <td>
-                        <input type='number' name='ArticleId' value='".$tab[$i][0]."'>
+                        <input type='number' name='ArticleId' class='input_petit' value='".$tab[$i][0]."'>
                     </td>"; // peut etre en hidden input
             echo "  <td>
                         <input type='text' name='ArticleTitre' value='".$tab[$i][1]."'>
@@ -634,60 +634,60 @@ class Display extends Controller{
                     </td>"; // description 
             echo "
                     <td>
-                        <img src='".$tab[$i][4]."' class='display_img_size_backOffice'>
-                    </td>"; // img 1
+                        <img src='".$tab[$i][4]."' class='display_img_size_backOffice '>
+                    </td>"; // img 1 
             echo "  <td>
-                        <input name='Article_Img_1' type='text' value='".$tab[$i][4]."'>
+                        <input name='Article_Img_1' class='input_petit' type='text' value='".$tab[$i][4]."'>
                     </td>";
             echo "
                     <td>
                         <img src='".$tab[$i][5]."' class='display_img_size_backOffice'>
                     </td>"; // img 2
             echo "  <td>
-                        <input name='Article_Img_2' type='text' value='".$tab[$i][5]."'>
+                        <input name='Article_Img_2' type='text' class='input_petit' value='".$tab[$i][5]."'>
                     </td>";
             echo "
                     <td>
                         <img src='".$tab[$i][6]."' class='display_img_size_backOffice'>
                     </td>"; // img 3
             echo "  <td>
-                        <input name='Article_Img_3' type='text' value='".$tab[$i][6]."'>
+                        <input name='Article_Img_3' type='text' class='input_petit' value='".$tab[$i][6]."'>
                     </td>";
             echo "  <td>
-                        <input type='number' name='ArticleNote' value='".$tab[$i][7]."'>
+                        <input type='number' name='ArticleNote' class='input_petit' value='".$tab[$i][7]."'>
                     </td>"; // note
             echo "  <td>
-                        <input type='number' name='ArticlePrix' step='0.01' value='".$tab[$i][8]."'>
+                        <input type='number' name='ArticlePrix'  class='input_petit' step='0.01' value='".$tab[$i][8]."'>
                     </td>"; // prix
             echo "  <td>
-                    <input type='number' name='Article_id_utilisateur' value='".$tab[$i][9]."'>
+                    <input type='number' name='Article_id_utilisateur' class='input_petit'  value='".$tab[$i][9]."'>
                     </td>"; // id_utilisateur
             echo "  <td>
-                        <input type='number' name='Article_id_type' value='".$tab[$i][10]."'>
+                        <input type='number' name='Article_id_type' class='input_petit' value='".$tab[$i][10]."'>
                     </td>"; // id_type
             echo "  <td>
-                        <input type='number' name='Article_id_gamme' value='".$tab[$i][11]."'>
+                        <input type='number' name='Article_id_gamme'  class='input_petit' value='".$tab[$i][11]."'>
                     </td>"; // gamme
             echo "  <td>
-                        <input type='number' name='Article_id_marque' value='".$tab[$i][12]."'>
+                        <input type='number' name='Article_id_marque' class='input_petit' value='".$tab[$i][12]."'>
                     </td>"; // marque 
             echo "  <td>
-                        <input type='number' name='Article_id_generation' value='".$tab[$i][13]."'>
+                        <input type='number' name='Article_id_generation' class='input_petit' value='".$tab[$i][13]."'>
                     </td>"; // generation
             echo "  <td>
-                        <input type='number' name='ArticlePromo' value='".$tab[$i][14]."'>
+                        <input type='number' name='ArticlePromo' class='input_petit' value='".$tab[$i][14]."'>
                     </td>"; // promo
             echo "  <td>
-                        <input type='text' name='ArticleDate' value='".$tab[$i][15]."'>
+                        <input type='text' name='ArticleDate' class='input_petit' value='".$tab[$i][15]."'>
                     </td>"; // date
                     echo "  <td>
-                        <input type='number' name='ArticleVues' value='".$tab[$i][16]."'>
+                        <input type='number' name='ArticleVues' class='input_petit' value='".$tab[$i][16]."'>
                     </td>";
                     echo "  <td>
-                        <input type='number' name='ArticleLikey' value='".$tab[$i][17]."'>
+                        <input type='number' name='ArticleLikey' class='input_petit' value='".$tab[$i][17]."'>
                     </td>";
                     echo "  <td>
-                        <input type='text' name='Article_id_editeur' value='".$tab[$i][18]."'>
+                        <input type='text' name='Article_id_editeur' class='input_petit' value='".$tab[$i][18]."'>
                     </td>";
 
             echo"   <td>
