@@ -34,7 +34,7 @@ echo "
         <nav>
             <div id='menu' style='margin-left:150px;'>
                 <ul class='niveau1'>
-                    <li class='sousmenu'><a href='#'>Nos produits &nbsp; <i class='fas fa-chevron-down' class='fleche_menu'></i></a>
+                    <li class='sousmenu'><a href='articles.php?AllArticles'>Nos produits &nbsp; <i class='fas fa-chevron-down' class='fleche_menu'></i></a>
                         <ul class='niveau2'>
                         <li class='sousmenu'><a href='".$typePath."=".$allType[0]['id']."'>Processeur</a>
                             <ul class='niveau3'>

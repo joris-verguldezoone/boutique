@@ -57,11 +57,11 @@ class Panier extends Controller{
                     // faire un récapitulatif de paiement et historique 
           
                     // ADRESSE 
-        echo "<div class='adress_block'>";
+        // echo "<div class='adress_block'>";
           $controllerDisplayProfil = new \Controller\DisplayProfil();
           $controllerDisplayProfil->displayAdressPanier();
-        echo "</div>";
-        var_dump($_POST);
+        // echo "</div>";
+        // var_dump($_POST);
         
         // foreach($tab as $value){
         //     $id_utilisateur = $value['id_utilisateur'];

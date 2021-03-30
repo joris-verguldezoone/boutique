@@ -40,7 +40,7 @@ $newUserController = new \Controller\Profil();
 $Http = new \Http();
 ?>
 
-<main>
+<main class='main'>
     <article id="profil_box_info">
     <div id="flex_box_profil">
     <form class="block" method="POST" action="profil.php">

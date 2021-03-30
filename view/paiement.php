@@ -16,8 +16,8 @@ require_once('../libraries/Model/Panier.php');
 
 //CSS
 $headerCss = "../css/header.css";
-$pageCss = "../css/profil.css";
-$Pagenom = "Profil";
+$pageCss = "../css/paiement.css";
+$Pagenom = "Paiement";
 $footer = "../css/footer.css";
 
 //PATHS
@@ -70,8 +70,8 @@ else{
 
 ?>
 <main>
-    <form method='POST' action=''> <!-- en js donc pas d'action -->
-
+    <form method='POST'> <!-- en js donc pas d'action -->
+        <h3>Paiement sécurisé</h3>
         <div id='errors'></div> 
         <!-- contiendra les msg d'erreur de paiment -->
         <input type='text' id='card-owner-name' placeholder='titulaire de la carte'> 
@@ -84,10 +84,15 @@ else{
 </main>
 <?php
 // var_dump($intent);
-var_dump($_SESSION['adresseSelected']);
+// var_dump($_SESSION['adresseSelected']);
 
  
 ob_end_flush();
+
+$chronopost = "../images/chronopost.png";
+$colissimo = "../images/colissimo.png";
+$mention = "mention.php";
+require_once('../require/html_/footer.php');
 ?>
 <script src='https://js.stripe.com/v3/'></script>
 <script src='../libraries/js/script.js'></script>

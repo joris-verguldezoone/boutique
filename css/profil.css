@@ -157,7 +157,7 @@
         align-self: center;
     }
     
-    main {
+    .main {
         display: flex;
         flex-direction: row;
         margin-top: 5%;
