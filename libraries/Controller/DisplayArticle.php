@@ -109,7 +109,7 @@ class DisplayArticle extends Controller{
             // echo $value[12]."<br />";
             // echo $value[13]."<br />";  
                     echo $tab[$i]['prix']."€<br />";  
-                    echo $tab[$i]['date']."<br />";
+            //        echo $tab[$i]['date']."<br />";
                 echo "</button>";
             echo "</form>";
             
@@ -156,8 +156,8 @@ class DisplayArticle extends Controller{
             // echo $value[11]."<br />";
             // echo $value[12]."<br />";
             // echo $value[13]."<br />";  
-            echo $tab[$i]['prix']."€<br />";  
-            echo $tab[$i]['date']."<br />";
+            echo "<span class='prix_typo'>".$tab[$i]['prix']."€</span><br />";  
+            //echo $tab[$i]['date']."</span><br />";
             echo "</button>";
             echo "</form>";
             
@@ -186,7 +186,7 @@ class DisplayArticle extends Controller{
             }
         foreach($tab as $key => $value){
             //	id titre presentation description image  image_2 image_3 note prix id_utilisateur id_type  id_gamme  id_marque id_generation promo date 
-            echo" <section> 
+            echo" <section class='main_article'> 
             
             <div class='box_article_titre'>
                 <h1 class='titre_article'>".$value['titre']."</h1>
@@ -195,7 +195,7 @@ class DisplayArticle extends Controller{
                 <div class='flex_box_image_article'>            
                     <img class='img_article_principale' src='".$value['image']."'>
                         <div class='img_flex_article'>
-                            <picture>
+                            <picture class='picture_flex'>
                                 <img class='img_article_secondaire' src='".$value['image_2']."'>            
                                 <img class='img_article_secondaire' src='".$value['image_3']."'>
                             </picture>
@@ -203,25 +203,24 @@ class DisplayArticle extends Controller{
                 </div>
             <div class='presention_prix_article'>
             <!-- faire une ancre pour le commentaire ? -->
-                <p class='presentation_article'><a href='article.php?articleSelected=".$_GET['articleSelected']."&like='><i class='$heartLike'></i></a>Tant de likes / Posez une question<br>".$value['presentation']."</p>
+                <p class='presentation_article'><a href='article.php?articleSelected=".$_GET['articleSelected']."&like='><i class='$heartLike'></i></a><br>".$value['presentation']."</p>
                 <section class='prix_article'>
-                <p>".$value['prix']."€</p>
+                <p class='box_prix_article_margin'>".$value['prix']."€</p>
                 <form method='POST'>
-                <button type='submit' id='ajoutPanier' name='ajoutPanier' value='".$value['id']."'>Ajouter au panier</button>
+                <button type='submit' id='ajoutPanier' name='ajoutPanier' value='".$value['id']."'><i class='fas fa-cart-plus'></i> Ajouter au panier</button>
+                </form>
+                <form method='POST'>
+                <button type='submit' id='ajoutPanierDirectAchat' name='ajoutPanierDirectAchat' value='".$value['id']."'><i class='fas fa-cart-arrow-down'></i> Acheter</button>
                 </form>
                 </section>
             </div>
-                <p class='note_article'>".$value['note']."</p>
             </div>
             <div class='flex_presentation_description'>
+            <p id='date_article'>Posté le ".$value['date']."</p>
                 <h1 class='titre_article'>Description</h1>
                 <p class='suite_presentation_article'>".$value['description']."</p>
             </div>
              </section>";
-             echo "<form action='' method='GET'>
-             <button name='like' type='submit'></button>
-             <button name='dislike' type='submit'></button>
-             </form>";
       
         }
     }
@@ -258,8 +257,8 @@ class DisplayArticle extends Controller{
             // echo $value[11]."<br />";
             // echo $value[12]."<br />";
             // echo $value[13]."<br />";  
-            echo $tab[$i]['prix']."€<br />";  
-            echo $tab[$i]['date']."<br />";
+            echo "<span class='prix_typo'>".$tab[$i]['prix']."€</span><br />";  
+            // echo $tab[$i]['date']."</span><br />";
             echo "</button>";
             echo "</form>";
             
@@ -305,8 +304,8 @@ class DisplayArticle extends Controller{
             // echo $value[11]."<br />";
             // echo $value[12]."<br />";
             // echo $value[13]."<br />";  
-            echo $tab[$i]['prix']."€<br />";  
-            echo $tab[$i]['date']."<br />";
+            echo "<span class='prix_typo'>".$tab[$i]['prix']."€</span><br />";  
+            // echo $tab[$i]['date']."</span><br />";
             echo "</button>";
             echo "</form>";
             

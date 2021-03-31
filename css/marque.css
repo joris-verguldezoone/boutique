@@ -1,0 +1,30 @@
+.img_marque_presentation {
+    max-width: 290px;
+}
+
+.flex_box_image_article {
+    text-align-last: center;
+}
+
+.titre_description_marques {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 2%;
+}
+
+.presentation_marque {
+    text-indent: 3em;
+    font-size: 20px;
+    margin-top: 2%;
+}
+
+.section_marque {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.flex_presentation {
+    margin-bottom: 4%;
+}

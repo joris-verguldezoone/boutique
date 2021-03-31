@@ -1,19 +1,19 @@
-body
-{
+body {
     margin: 0;
     padding: 0;
 }
 
-ul li{
+ul li {
     background-color: white;
 }
 
-nav{
+nav {
     background-color: #0a3782;
     padding-top: 3em;
     padding-bottom: 3em;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .fa-user,
@@ -23,152 +23,180 @@ nav{
     color: white;
 }
 
-.logo_header{
-    margin-left: 45%;
-}
+.font_profil_panier {}
+
 
 /*----------------MENU-----------------*/
-div#menu a{
+
+div.menu a {
     color: black;
-    font-weight:bold;
-}
-div#menu li {
-    position: relative;
-    list-style:none;
-    margin:0px;
-    border-bottom: 1px solid #CCC;
-    
+    font-weight: bold;
 }
 
-div#menu li:hover {
+div.menu li {
+    position: relative;
+    list-style: none;
+    margin: 0px;
+    border-bottom: 1px solid #CCC;
+}
+
+div.menu li:hover {
     background: #EBB;
 }
-div#menu li.sousmenu:hover {
+
+div.menu li.sousmenu:hover {
     background-color: #EDD;
 }
-div#menu ul a {
+
+div.menu ul a {
     width: inherit;
 }
-div#menu ul ul {
+
+div.menu ul ul {
     position: absolute;
     top: 2.60em;
 }
 
+
 /*TAILLE PREMIERE COLONNE*/
 
-div#menu ul {
+div.menu ul {
     margin: 0;
     padding: 0;
     width: 10em;
     background: white;
 }
 
-div#menu ul ul {
+div.menu ul ul {
     bottom: 9em;
-    display:none;
+    display: none;
     background-color: white;
 }
 
-div#menu li a {
+div.menu li a {
     display: block;
     padding: 1.25em 0 0.25em 0.5em;
     text-decoration: none;
     border-left: 0.5em solid #BBB;
-
 }
 
+
 /*TAILLE DEUXIEME COLONE*/
-div#menu ul.niveau2 ul {
+
+div.menu ul.niveau2 ul {
     left: 12.5em;
     top: -0;
 }
 
-div#menu ul.niveau1 li.sousmenu:hover ul.niveau2 {
-    width:13em;
-    display:block
+div.menu ul.niveau1 li.sousmenu:hover ul.niveau2 {
+    width: 13em;
+    display: block
 }
-
 
 
 /*TAILLE TROISIEME COLONNE*/
-div#menu ul.niveau2 li.sousmenu:hover ul.niveau3 {
-    width:10em;
-    display:block;
+
+div.menu ul.niveau2 li.sousmenu:hover ul.niveau3 {
+    width: 10em;
+    display: block;
 }
 
+
 /*TAILLE DEUXIEME COLONE BIS*/
-div#menu ul.niveau2bis ul {
+
+div.menu ul.niveau2bis ul {
     left: 10em;
 }
-div#menu ul.niveau1 li.sousmenu:hover ul.niveau2bis {
-    display:block;
-    width:10em;
-}
-div#menu ul.niveau2bis li a {
+
+div.menu ul.niveau1 li.sousmenu:hover ul.niveau2bis {
+    display: block;
     width: 10em;
 }
 
+div.menu ul.niveau2bis li a {
+    width: 10em;
+}
+
+
 /*COULEUR DES BORDURES*/
-div#menu li a:hover {
+
+div.menu li a:hover {
     border-left-color: red;
 }
-div#menu ul ul li a:hover {
+
+div.menu ul ul li a:hover {
     border-left-color: #00FF00;
 }
-div#menu ul ul ul li a:hover {
+
+div.menu ul ul ul li a:hover {
     border-left-color: #0000FF;
 }
 
-.fleche_menu{
+.fleche_menu {
     color: #3b3939;
 }
 
+
 /* aside_search_bar */
-.flex_mise_en_page{
+
+.flex_mise_en_page {
     display: flex;
     flex-direction: row;
     padding-left: 100px;
     padding-right: 100px;
-
 }
-.aside_search_bar{
-    height:80vh;
+
+.aside_search_bar {
+    height: 80vh;
     width: 20vw;
     background-color: #E4E4E4;
     /* border: 1px solid black; */
-    box-shadow: black  2px  2px  2px;
+    box-shadow: black 2px 2px 2px;
 }
-.flex_form_aside_nav{
+
+.flex_form_aside_nav {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.artcles_presentation{
+
+.artcles_presentation {
     display: flex;
     flex-direction: column;
     width: 80%;
 }
+
+
 /* css article/marque/editeur generaux / bar aside  */
+
 @font-face {
     font-family: 'gaming.ttf';
     src: url("../fonts/gaming.ttf");
 }
-.rowSection{
+
+.rowSection {
     display: flex;
     flex-direction: row;
     margin-left: 2%;
 }
-.buttom_comp{
+
+.buttom_comp {
     background-color: white;
     border: 0px;
-    height:100%;
+    height: 100%;
     width: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.typo_comp{
+.typo_comp {
     font-family: 'gaming.ttf';
     font-size: 27px;
+    margin-top: 1em;
 }
+
 .form_article {
     display: flex;
     flex-direction: column;
@@ -176,9 +204,32 @@ div#menu ul ul ul li a:hover {
     border: 1px solid black;
     /* box-shadow: 2px 2px 2px; */
 }
-.dimension_image{
+
+.dimension_image {
     width: 250px;
     height: 250px;
-
     margin-top: 1%;
+}
+
+#logo {
+    width: 70px;
+    height: 70px;
+    padding-left: 3em;
+    margin-right: 3em;
+}
+
+.header_menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu {
+    margin-top: 1em;
+    margin-right: 3em;
+}
+
+.header_droit {
+    display: flex;
+    flex-direction: row;
+    padding-right: 3em;
 }

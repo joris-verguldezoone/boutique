@@ -3,34 +3,47 @@
     src: url("../fonts/gaming.ttf");
 }
 
-.titre_article{
+@font-face {
+    font-family: "Resolve-Light.otf";
+    src: url(../fonts/Resolve-Light.otf);
+}
+
+main {
+    height: 1%;
+}
+
+.main_article {
+    margin-bottom: 4%;
+}
+
+.titre_article {
     font-family: 'gaming.ttf';
     font-size: 28px;
 }
 
-body{
+body {
     background-color: #F0F0F0;
 }
 
 .box_article_titre {
-    background-color: #bbbbbb;
+    background-color: whitesmoke;
     padding-bottom: 0.25em;
     width: 74%;
     margin-left: 13%;
 }
 
-.titre_article{
+.titre_article {
     margin-left: 4%;
     padding-top: 1em;
 }
 
-.img_flex_article{
+.img_flex_article {
     display: flex;
     flex-direction: row;
     margin-left: 27%;
 }
 
-.flex_box_image_article{
+.flex_box_image_article {
     display: flex;
     flex-direction: column;
     margin-right: 3%;
@@ -38,16 +51,14 @@ body{
 
 .img_article_principale {
     max-width: 440px;
+    min-width: 440px;
     max-height: 440px;
-    width: auto;
-    height: auto;
+    min-height: 440px;
 }
 
 .img_article_secondaire {
-    max-width:230px;
-    max-height:95px;
-    width: auto;
-    height: auto;
+    max-width: 230px;
+    max-height: 95px;
     margin-top: 1em;
     margin-right: 1em;
 }
@@ -65,38 +76,39 @@ body{
     margin-left: 14%;
     width: 70%;
     margin-top: 2%;
-    padding: 1% 1% 0 1%;
+    padding: 1% 1% 1% 1%;
 }
-.flex_presentation_description{
+
+.flex_presentation_description {
     background-color: whitesmoke;
     margin-left: 14%;
     width: 70%;
     margin-top: 2%;
-    padding: 0 1% 0 1%;
+    padding: 0 1% 1% 1%;
 }
 
-.suite_presentation_article{
+.suite_presentation_article {
     font-size: 20px;
     margin-top: 3%;
     letter-spacing: 1px;
     text-indent: 3%;
 }
 
-.fa-heart{
+.fa-heart {
     font-size: 30px;
     color: red;
     margin-bottom: 5%;
 }
-
 
 .presentation_article {
     color: #969696;
     font-size: 20px;
     margin-top: 6%;
     letter-spacing: 1px;
+    width: 30vw;
 }
 
-.presention_prix_article{
+.presention_prix_article {
     display: flex;
     flex-direction: inherit;
 }
@@ -105,5 +117,46 @@ body{
     background-color: #d9eef4;
     font-size: 30px;
     margin-left: 3%;
-    padding: 5em 5em 13em 5em;
+    font-family: "Resolve-Light.otf";
+    height: 100%;
+    text-align-last: center;
+    width: 14vw;
+}
+
+.picture_flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.box_prix_article_margin {
+    margin-top: 55%;
+    margin-right: 5%;
+    margin-bottom: 25%;
+}
+
+.fa-cart-plus {
+    font-size: 30px;
+    margin-right: 5px;
+}
+
+#ajoutPanier {
+    padding: 5px;
+    font-size: 17px;
+}
+
+.fa-cart-arrow-down {
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+#ajoutPanierDirectAchat {
+    padding: 5px;
+    font-size: 17px;
+    margin-top: 1vh;
+    padding-right: 61px;
+}
+
+#date_article {
+    text-align-last: end;
+    padding-top: 1em;
 }

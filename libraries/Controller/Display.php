@@ -946,7 +946,7 @@ $page_item = '';
     
             
     public function showFivePopularArticles(){
-        echo '<h2 id="titre_cate">Nos produits populaires</h2>
+        echo '<h1 id="titre_cate">Nos produits populaires</h2>
         <div class="flex_accueil">';
 
         $modelArticle = new \Model\Article();
@@ -955,7 +955,7 @@ $page_item = '';
         {
             echo"
             <div class='box_flex_accueil'>
-            <p>".$value[1]."</p>
+            <span class='typo_comp_accueil'>".$value[1]."</span>
             <img class='second_img' src='".$value[4]."'>
             <p class='prix_accueil'>".$value[8]."€</p>
             </div>";

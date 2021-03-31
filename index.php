@@ -8,6 +8,9 @@ $headerCss = "css/header.css";
 $pageCss = "css/index.css";
 $Pagenom = "Accueil";
 $footer = "css/footer.css";
+$logo = "images/logo.jpg";
+$chemin_logo = "index.php";
+$logo_header = "images/logo.jpg";
 require('libraries/Controller/Display.php');
 require('libraries/Model/Article.php');
 require_once('libraries/config/utils.php');
@@ -36,17 +39,18 @@ $gammePath =  'view/articles.php?gammeSelected';
 
 
 require('require/html_/header.php');
-$controllerArticle = new \Controller\Display();
-$controllerArticle->showFivePopularArticles(); 
+
 
 ?>
 <main>
 
+<div id="content">
+    <img src="images/13909_b.jpg" alt="Image Index" id="img_index">
+</div>
 <?php
-
+$controllerArticle = new \Controller\Display();
+$controllerArticle->showFivePopularArticles(); 
 ?>
-
-
 </main>
 
 <?php

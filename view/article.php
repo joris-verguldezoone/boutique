@@ -1,6 +1,6 @@
 <?php
 //LIBRARIES
-// ob_start();
+ob_start();
 require_once("../libraries/config/utils.php");
 $Http = "../libraries/config/Http.php";
 // require('../libraries/config/utils.php');
@@ -11,13 +11,16 @@ require_once('../libraries/model/Article.php');
 require_once('../libraries/Controller/DisplayArticle.php');
 require_once('../libraries/Controller/Panier.php');
 require_once('../libraries/model/Panier.php');
+require_once('../libraries/config/Http.php');
 
 //CSS
 $headerCss = "../css/header.css";
 $pageCss = "../css/article.css";
 $Pagenom = "Article";
 $footer = "../css/footer.css";
-
+$logo = "../images/logo.jpg";
+$chemin_logo = "../index.php";
+$logo_header = "../images/logo.jpg";
 //PATHS
 $index = "../index.php";
 $inscription = "inscription.php";
@@ -82,11 +85,19 @@ if(isset($_POST['ajoutPanier'])){
 	$controllerPanier = new \Controller\Panier();
 	$controllerPanier->addElement($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
 }
+
+if(isset($_POST['ajoutPanierDirectAchat'])){
+	$controllerPanier = new \Controller\Panier();
+	$controllerPanier->addElement($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
+
+	$http=new \Http();
+	$http->redirect('panier.php');
+}
+
 // if(isset($_POST['NoteArticle'])){
 // 	$model = new \Model\Article();
 // 	$model->note($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
 // }
-// ob_end_flush();
 ?>
 </main>
 
@@ -97,5 +108,6 @@ $chronopost = "../images/chronopost.png";
 $colissimo = "../images/colissimo.png";
 $mention = "mention.php";
 require('../require/html_/footer.php');
+ob_end_flush();
 
 ?>
