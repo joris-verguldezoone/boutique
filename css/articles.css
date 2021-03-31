@@ -2,6 +2,13 @@
     font-family: 'gaming.ttf';
     src: url("../fonts/gaming.ttf");
 }
+
+@font-face {
+    font-family: "Resolve-Light.otf";
+    src: url(../fonts/Resolve-Light.otf);
+}
+
+
 /* 
 .dimension_image{
     max-width: 250px;
@@ -11,12 +18,14 @@
     margin-top: 1%;
 } */
 
-.form_composant{
+.form_composant {
     display: flex;
     flex-direction: column;
     margin: 2% 2% 1% 5%;
     box-shadow: 2px 2px 2px;
 }
+
+
 /* .form_article {
     display: flex;
     flex-direction: column;
@@ -24,11 +33,12 @@
     border: 1px solid black;
     /* box-shadow: 2px 2px 2px; */
 
-
-.block{
+.block {
     display: flex;
     flex-direction: column;
 }
+
+
 /* .rowSection{
     display: flex;
     flex-direction: row;
@@ -46,6 +56,12 @@
     width: 25vh;
 } */
 
-.typo_comp:hover{
+.typo_comp:hover {
     color: red;
+}
+
+.prix_typo {
+    font-family: "Resolve-Light.otf";
+    font-size: 18px;
+    margin-top: 10px;
 }

@@ -1,0 +1,53 @@
+@font-face {
+    font-family: "Resolve-Light.otf";
+    src: url(../fonts/Resolve-Light.otf);
+}
+
+main {
+    height: 55vh;
+}
+
+.fa-check-circle {
+    font-size: 100px;
+    color: rgb(43, 214, 43);
+}
+
+#confirmation_check {
+    text-align: center;
+    padding-top: 5%;
+}
+
+span {
+    font-size: 35px;
+}
+
+#text_confirmation {
+    text-align: center;
+    margin-top: 2%;
+    font-family: "Resolve-Light.otf";
+}
+
+#href_confirmation {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    justify-content: space-evenly;
+    margin-top: 4%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+a:hover {
+    color: red;
+}
+
+.encadre_confirmation {
+    border-radius: 1em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+    padding: 20px;
+}
