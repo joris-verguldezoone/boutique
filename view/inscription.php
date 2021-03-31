@@ -16,7 +16,9 @@ $headerCss = "../css/header.css";
 $pageCss = "../css/inscription.css";
 $Pagenom = "Inscription";
 $footer = "../css/footer.css";
-
+$logo = "../images/logo.jpg";
+$chemin_logo = "../index.php";
+$logo_header = "../images/logo.jpg";
 //PATHS
 $index = "../index.php";
 $inscription = "inscription.php";

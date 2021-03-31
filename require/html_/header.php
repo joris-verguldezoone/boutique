@@ -22,17 +22,17 @@ echo "
     <link rel='stylesheet' href='$headerCss'>
     <link rel='stylesheet' href='$pageCss'>
     <link rel='stylesheet' href='$footer'>
+    <link rel='icon' type='images/icon' href='$logo'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'/>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-
-
-    <link rel='icon' type='png' href='../images/logo.png' />    
     <title>$Pagenom</title>
 </head>
 <body>
     <header>
         <nav>
-            <div id='menu' style='margin-left:150px;'>
+        <a href='$chemin_logo'><img src='$logo_header' alt='Logo' id='logo'></a>
+        <div class='header_menu'>
+            <div class='menu'>
                 <ul class='niveau1'>
                     <li class='sousmenu'><a href='".$all_ArticlesPath."All_Articles'>Nos produits &nbsp; <i class='fas fa-chevron-down' class='fleche_menu'></i></a>
                         <ul class='niveau2'>
@@ -97,30 +97,30 @@ echo "
                         </ul>
                         </li>
                         </ul>
-                        </div>
+            </div>
+            <div class='menu'>
+                <ul class='niveau1'>
+                    <li class='sousmenu'><a href='#'>Nos partenaires &nbsp; <i class='fas fa-chevron-down' class='fleche_menu'></i></a>
+                        <ul class='niveau2'>
 
-                        <div id='menu' style='margin-left:150px;'>
-                        <ul class='niveau1'>
-                            <li class='sousmenu'><a href='#'>Nos partenaires &nbsp; <i class='fas fa-chevron-down' class='fleche_menu'></i></a>
-                                <ul class='niveau2'>
-
-                                <li class='sousmenu'><a href='marques.php'>Marques</a></li>                    
+                            <li class='sousmenu'><a href='marques.php'>Marques</a></li>                    
                                 
-                                <li class='sousmenu'><a href='editeurs.php'>Editeurs</a></li>
+                            <li class='sousmenu'><a href='editeurs.php'>Editeurs</a></li>
 
-                                </ul>
-                                </div>
-
-                        <div class='logo_header'>
-                        <a href='$profil'><i class='fas fa-user' class='profil_logo'></i></a>
-                        </div>
-                        <div>
-                        <a href='$panier'><i class='fas fa-shopping-cart' class='shopping_logo'></i></a>
-                        </div>
-                    
-                     
-                        </nav>
-                        </header>
-                        ";
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            <div class='header_droit'>
+            <div class='font_profil_panier'>
+                <a href='$profil'><i class='fas fa-user' class='profil_logo'></i></a>
+            </div>
+            <div>
+                <a href='$panier'><i class='fas fa-shopping-cart' class='shopping_logo'></i></a>
+            </div> 
+            </div>                    
+        </nav>
+    </header>";
                         
 ?>

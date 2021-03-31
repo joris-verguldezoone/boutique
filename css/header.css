@@ -13,6 +13,7 @@ nav {
     padding-bottom: 3em;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .fa-user,
@@ -22,38 +23,36 @@ nav {
     color: white;
 }
 
-.logo_header {
-    margin-left: 45%;
-}
+.font_profil_panier {}
 
 
 /*----------------MENU-----------------*/
 
-div#menu a {
+div.menu a {
     color: black;
     font-weight: bold;
 }
 
-div#menu li {
+div.menu li {
     position: relative;
     list-style: none;
     margin: 0px;
     border-bottom: 1px solid #CCC;
 }
 
-div#menu li:hover {
+div.menu li:hover {
     background: #EBB;
 }
 
-div#menu li.sousmenu:hover {
+div.menu li.sousmenu:hover {
     background-color: #EDD;
 }
 
-div#menu ul a {
+div.menu ul a {
     width: inherit;
 }
 
-div#menu ul ul {
+div.menu ul ul {
     position: absolute;
     top: 2.60em;
 }
@@ -61,20 +60,20 @@ div#menu ul ul {
 
 /*TAILLE PREMIERE COLONNE*/
 
-div#menu ul {
+div.menu ul {
     margin: 0;
     padding: 0;
     width: 10em;
     background: white;
 }
 
-div#menu ul ul {
+div.menu ul ul {
     bottom: 9em;
     display: none;
     background-color: white;
 }
 
-div#menu li a {
+div.menu li a {
     display: block;
     padding: 1.25em 0 0.25em 0.5em;
     text-decoration: none;
@@ -84,12 +83,12 @@ div#menu li a {
 
 /*TAILLE DEUXIEME COLONE*/
 
-div#menu ul.niveau2 ul {
+div.menu ul.niveau2 ul {
     left: 12.5em;
     top: -0;
 }
 
-div#menu ul.niveau1 li.sousmenu:hover ul.niveau2 {
+div.menu ul.niveau1 li.sousmenu:hover ul.niveau2 {
     width: 13em;
     display: block
 }
@@ -97,7 +96,7 @@ div#menu ul.niveau1 li.sousmenu:hover ul.niveau2 {
 
 /*TAILLE TROISIEME COLONNE*/
 
-div#menu ul.niveau2 li.sousmenu:hover ul.niveau3 {
+div.menu ul.niveau2 li.sousmenu:hover ul.niveau3 {
     width: 10em;
     display: block;
 }
@@ -105,31 +104,31 @@ div#menu ul.niveau2 li.sousmenu:hover ul.niveau3 {
 
 /*TAILLE DEUXIEME COLONE BIS*/
 
-div#menu ul.niveau2bis ul {
+div.menu ul.niveau2bis ul {
     left: 10em;
 }
 
-div#menu ul.niveau1 li.sousmenu:hover ul.niveau2bis {
+div.menu ul.niveau1 li.sousmenu:hover ul.niveau2bis {
     display: block;
     width: 10em;
 }
 
-div#menu ul.niveau2bis li a {
+div.menu ul.niveau2bis li a {
     width: 10em;
 }
 
 
 /*COULEUR DES BORDURES*/
 
-div#menu li a:hover {
+div.menu li a:hover {
     border-left-color: red;
 }
 
-div#menu ul ul li a:hover {
+div.menu ul ul li a:hover {
     border-left-color: #00FF00;
 }
 
-div#menu ul ul ul li a:hover {
+div.menu ul ul ul li a:hover {
     border-left-color: #0000FF;
 }
 
@@ -210,4 +209,27 @@ div#menu ul ul ul li a:hover {
     width: 250px;
     height: 250px;
     margin-top: 1%;
+}
+
+#logo {
+    width: 70px;
+    height: 70px;
+    padding-left: 3em;
+    margin-right: 3em;
+}
+
+.header_menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu {
+    margin-top: 1em;
+    margin-right: 3em;
+}
+
+.header_droit {
+    display: flex;
+    flex-direction: row;
+    padding-right: 3em;
 }

@@ -22,6 +22,7 @@
     flex-direction: column;
     background-color: blanchedalmond;
     margin-right: 2%;
+    justify-content: center;
 }
 
 #titre_cate {
@@ -31,4 +32,8 @@
 
 .prix_accueil {
     text-align: center;
+}
+
+#img_index {
+    max-width: 100%;
 }

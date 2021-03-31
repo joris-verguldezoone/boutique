@@ -109,7 +109,7 @@ class DisplayArticle extends Controller{
             // echo $value[12]."<br />";
             // echo $value[13]."<br />";  
                     echo $tab[$i]['prix']."€<br />";  
-                    echo $tab[$i]['date']."<br />";
+            //        echo $tab[$i]['date']."<br />";
                 echo "</button>";
             echo "</form>";
             
@@ -156,8 +156,8 @@ class DisplayArticle extends Controller{
             // echo $value[11]."<br />";
             // echo $value[12]."<br />";
             // echo $value[13]."<br />";  
-            echo "<span class='prix_typo'>".$tab[$i]['prix']."€<br />";  
-            echo $tab[$i]['date']."</span><br />";
+            echo "<span class='prix_typo'>".$tab[$i]['prix']."€</span><br />";  
+            //echo $tab[$i]['date']."</span><br />";
             echo "</button>";
             echo "</form>";
             
@@ -257,8 +257,8 @@ class DisplayArticle extends Controller{
             // echo $value[11]."<br />";
             // echo $value[12]."<br />";
             // echo $value[13]."<br />";  
-            echo "<span class='prix_typo'>".$tab[$i]['prix']."€<br />";  
-            echo $tab[$i]['date']."</span><br />";
+            echo "<span class='prix_typo'>".$tab[$i]['prix']."€</span><br />";  
+            // echo $tab[$i]['date']."</span><br />";
             echo "</button>";
             echo "</form>";
             
@@ -304,8 +304,8 @@ class DisplayArticle extends Controller{
             // echo $value[11]."<br />";
             // echo $value[12]."<br />";
             // echo $value[13]."<br />";  
-            echo "<span class='prix_typo'>".$tab[$i]['prix']."€<br />";  
-            echo $tab[$i]['date']."</span><br />";
+            echo "<span class='prix_typo'>".$tab[$i]['prix']."€</span><br />";  
+            // echo $tab[$i]['date']."</span><br />";
             echo "</button>";
             echo "</form>";
             
