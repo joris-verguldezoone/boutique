@@ -78,7 +78,7 @@ $http = new \Http();
                         <button name='addProduct_POST' type='submit' class='adminInterface'> Afficher</button>
                     </form> -->
                 
-    </section>
+        </section>
     <section class="flex_row_buttons">
             <section>
                 <form method='POST' action=''>
@@ -116,24 +116,28 @@ $http = new \Http();
             </section>
         </section>
     </section>
-<!--  -->
+    <!--  -->
 
 
 
 
-<section class='creation'>
+    <section class='creation'>
     <section class='creation_display'>
         <section class='flex_column_display'>
 
             <?php 
 
             if(isset($_GET['addElement'])){ 
+                echo '<span class="titre_block">Ajouter un element</span>';
             echo '<form action="" method="GET">
+                    <div class="flex_row_buttons_label">
+
                         <label for="createType">Créer un nouveau type d article</label>
                         <input type="text" name="createType" placeholder="TELEVISION">
                         <input type="text" name="createTypeImg" placeholder="Url image">
                         <input type="submit" name="submitType">
-                    </form>';
+                    </div>
+                </form>';
                 
                 if(isset($_GET['submitType'])){
                 $controllerAdmin->verifyAndInsertTwo('type', 'nom' ,'image' ,$_GET['createType'], $_GET['createTypeImg']);
@@ -142,6 +146,8 @@ $http = new \Http();
                 // ajouter une nouvelle gamme
                 ?>
                     <section>
+                    <div class='flex_row_buttons_label'>
+
                         <form action="" method="POST">
                             <label for="NameBrand">Nom marque</label>
                             <input type="text" name="NameBrand" placeholder="INTEL">
@@ -153,11 +159,14 @@ $http = new \Http();
                             <input type="text" name="imageBrand" placeholder="MSI">
                             
                             <img class='display_img_size_backOffice' src='https://www.electroguide.com/images/icones-marques/logo-msi.jpg'>
-                            
+                        </div>
+                    <div class='flex_row_buttons_label'>
+                    
                             <label for="descriptionMarque">Description marque</label>
                             <textarea name="descriptionMarque"></textarea>
                             
                             <input type='submit' name="submitBrand">
+                    </div>
                             <?php
                             if(isset($_POST['submitBrand']))
                             {   $isEmpty = strlen($_POST['NameEditor']);
@@ -184,6 +193,8 @@ $http = new \Http();
                             <!-- Insérer une generation -->
 
                 <form action="" method="POST">
+                <div class='flex_row_buttons_label'>
+                    
                     <label for="NameGeneration">Créer une nouvelle generation d'article</label>
                     <input type="text" name="NameGeneration" placeholder="Intel 9th">
                     
@@ -196,19 +207,24 @@ $http = new \Http();
                     <?php
                         $controllerDisplay->displaySelect('marque');
                     ?>
+                    
                     </select>
                     <input type='submit' name="submitGeneration">
-                    <?php
+                </div>
+                
+                <?php
                     if(isset($_POST['submitGeneration']))
                     {
                         echo 'coucou';
-                    $controllerAdmin->createWithThreeValues('generation','nom','id_type','id_marque',$_POST['NameGeneration'], $_POST['GenerationSelected1'] , $_POST['GenerationSelected2']);
+                        $controllerAdmin->createWithThreeValues('generation','nom','id_type','id_marque',$_POST['NameGeneration'], $_POST['GenerationSelected1'] , $_POST['GenerationSelected2']);
                     }
-                        ?>
+                    ?>
 
-                </form>
+</form>
+
+<!-- Insérer une gamme -->
             
-            <!-- Insérer une gamme -->
+            <div class='flex_row_buttons_label'>
         
                 <form action="" method="POST">
                     <label for="createGamme">Créer une nouvelle gamme d'article</label>
@@ -237,6 +253,7 @@ $http = new \Http();
                     }
                     ?>
                 </form>
+            </div>
 
             <!-- Insérer une marque -->
                 <?php } ?>
@@ -248,30 +265,42 @@ $http = new \Http();
                     
                         ?>
                         <form action= "" method="POST">
+                        <div class='display_flex_center_titre'>
+                        <span class='titre_block'>Ajouter un article</span><br/>
+                    </div>
+                    <div class='flex_row_buttons_label'>
                         <label for="title">Titre</label><br />
-                        <input type="text" name="title" placeholder="Ordinateur quantique" required><br />
+                        <input type="text" class='input_margin' name="title" placeholder="Ordinateur quantique" required><br />
                                 
                         <label for="presentation">Présentation</label><br />
-                        <input type="text" name="presentation" placeholder="les origines du produit"><br />
+                        <input type="text"  class='input_margin' name="presentation" placeholder="les origines du produit"><br />
                         
                         <label for="description">Description</label><br />
-                        <input type="text" name="description" placeholder="Caractéristiques techniques" required><br />
+                        <input type="text"  class='input_margin' name="description" placeholder="Caractéristiques techniques" required><br />
+                    </div>
+                    <div class='flex_row_buttons_label'>
 
                         <label for="image">Image principale</label><br />
-                        <input type="" name="image" placeholder=""><br />
+                        <input type="text" class='input_margin' name="image" placeholder=""><br />
 
                         <label for="image_2">Image secondaire</label><br />
-                        <input type="" name="image_2" placeholder=""><br />
+                        <input type="text" class='input_margin' name="image_2" placeholder=""><br />
 
                         <label for="image_3">Image tierce</label><br />
-                        <input type="" name="image_3" placeholder=""><br />
+                        <input type="text" class='input_margin' name="image_3" placeholder=""><br />
+                    </div>
+                    <div class='flex_row_buttons_label'>
 
                         <label for="prix">Prix</label><br />
-                        <input type="number" step=".01" name="prix" placeholder=""><br />
+                        <input type="number" class='input_margin' step=".01" name="prix" placeholder=""><br />
+                    </div>
+                    <div class='display_flex_center_titre'>
+                        <span class='titre_block'>Categories</span><br/>
+                    </div>
+                    <div class='flex_row_buttons_label'>
 
-                        <p>Categorie</p>
-                        <label for="typeCreateArticle">type</label><br />
-                        <select name="typeCreateArticle">
+                        <label for="typeCreateArticle">Type</label><br />
+                        <select class='input_margin' name="typeCreateArticle">
                             <?php
                             $controllerDisplay->displaySelect('type');
                             // $titre,$description,$image,$prix,$id_utilisateur,$id_type, $id_gamme, $id_marque,$id_generation
@@ -279,33 +308,35 @@ $http = new \Http();
                             ?>
                         </select>
                         <label for="generation">Generation</label><br />
-                        <select name="generation">
+                        <select class='input_margin' name="generation">
                             <?php
                             $controllerDisplay->displaySelect('generation');
                             ?>
                         </select>
-
+                    </div>
+                    <div class='flex_row_buttons_label'>
+                    
                         <br /><label for="gamme">Gamme</label><br />
-                        <select name="gamme">
+                        <select class='input_margin' name="gamme">
                             <?php
                                 $controllerDisplay->displaySelect('gamme');
                                 ?>
                         </select>
                         <br /><label for="marque">Marque</label><br />
-                        <select name="marque">
+                        <select class='input_margin' name="marque">
                             <?php
                                 $controllerDisplay->displaySelect('marque');
                                 
                                 ?>
                         </select>
-                        <select name="editeur">
+                        <select class='input_margin' name="editeur">
                             <?php
                                 
                                 $controllerDisplay->displaySelect('editeur');
                                 ?>
                         </select>
-                        <input type='submit' name='submitNewCategorie'>
-                        
+                        <input type='submit' class='input_margin' name='submitNewCategorie'>
+                    </div>
                     </form>
                     <?php
                     if(isset($_POST['submitNewCategorie'])){
@@ -325,11 +356,17 @@ $http = new \Http();
         </section>
     </section>
 </section>
+
+</section>
 <!-- consultation  -->
+<section class='flex_center_consultation'>
 <section class='consultation'>
+    
 <?php
             if(isset($_POST['Utilisateurs'])){
-
+echo" <div class='display_flex_center_titre'>
+        <span class='titre_block'>Utilisateurs</span><br/>
+    </div>";
             echo "<table>
                     <tr>
                         <th>id</th>
@@ -353,6 +390,9 @@ $http = new \Http();
 
 <?php
                 if(isset($_POST['Type'])){
+                    echo" <div class='display_flex_center_titre'>
+                    <span class='titre_block'>Type</span><br/>
+                    </div>";
             $controllerDisplay->displayType();
                 }
             ?>
@@ -361,6 +401,9 @@ $http = new \Http();
 
 <?php
                 if(isset($_POST['Gamme'])){
+                    echo" <div class='display_flex_center_titre'>
+                    <span class='titre_block'>Gamme</span><br/>
+                    </div>";
             $controllerDisplay->displayGamme();
                 }
             ?>
@@ -368,6 +411,9 @@ $http = new \Http();
 <!--  -->
 <?php
                 if(isset($_POST['Generation'])){
+                    echo" <div class='display_flex_center_titre'>
+                    <span class='titre_block'>Generation</span><br/>
+                    </div>";
             $controllerDisplay->displayGeneration();
                 }
             ?>
@@ -376,18 +422,25 @@ $http = new \Http();
 
 <?php
                 if(isset($_POST['Marque'])){
+                    echo" <div class='display_flex_center_titre'>
+                    <span class='titre_block'>Marques/Editeurs</span><br/>
+                    </div>";
             $controllerDisplay->displayMarque();
             $controllerDisplay->displayEditeur();
                 }
-            ?>
+                ?>
 
 <!--  -->
 <?php
                 if(isset($_POST['Article'])){
+                    echo" <div class='display_flex_center_titre'>
+                    <span class='titre_block'>Utilisateurs</span><br/>
+                    </div>";
             $controllerDisplay->displayArticlesAdmin();
-                }
-            ?>
+        }
+        ?>
 
+</section>
 </section>
 <!--  -->
 

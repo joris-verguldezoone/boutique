@@ -24,7 +24,11 @@ echo "
     <link rel='stylesheet' href='$footer'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'/>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-
+    <link rel='preconnect' href='https://fonts.gstatic.com'>
+    <link href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap' rel='stylesheet'>
+    
+    <link rel='preconnect' href='https://fonts.gstatic.com'>
+    <link href='https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Roboto&display=swap' rel='stylesheet'>
 
     <link rel='icon' type='png' href='../images/logo.png' />    
     <title>$Pagenom</title>

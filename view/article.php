@@ -71,8 +71,9 @@ if(isset($_GET['like'])){ // c'est pas bien de le mettre ici , par contre tout e
 	// serait de changer qui like quel article en mettant des chiffres au pif 
 	// a refactoriser dans un controller avec des conditions
 	$model = new \Model\Article();
-	$model->like($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
+	$coucou = $model->like($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
 	echo 'like envoyé';
+	// var_dump($coucou);	
 }
 // var_dump($_SESSION);
 // var_dump($_POST);

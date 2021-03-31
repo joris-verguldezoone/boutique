@@ -200,13 +200,10 @@ abstract class Model{
 
         // var_dump($id_article);
         $existArticle = $modelLike->likeCheck('likey','id_article', 'id_utilisateur',$id_article, $id_utilisateur);
-        echo 'yes';
         // var_dump($existArticle);
-        echo 'yes';
         if(!$existArticle){
 
-            echo'top';
-            $sql = "INSERT INTO likey (id_article, id_utilisateur) VALUES (:id_article, :id_utilisateur)";
+           $sql = "INSERT INTO likey (id_article, id_utilisateur) VALUES (:id_article, :id_utilisateur)";
             $result = $this->pdo->prepare($sql);
             $result->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
             $result->bindValue(':id_utilisateur',$id_utilisateur,\PDO::PARAM_INT);
@@ -221,8 +218,22 @@ abstract class Model{
     
             $result->execute();        
         }
+        $sql3 = "SELECT COUNT(id) FROM likey WHERE id_article = :id_article";
+        $result3 = $this->pdo->prepare($sql3);
+        $result3->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
+
+        $result3->execute();
+
+        $sumLike = $result3->fetchAll();
+
+        $sql4 = "UPDATE articles SET likey = :likey WHERE id = :id_article";
+        $result4 = $this->pdo->prepare($sql4);
+        $result4->bindValue(':likey', $sumLike[0]['COUNT(id)'], \PDO::PARAM_STR);
+        $result4->bindValue(':id_article', $id_article, \PDO::PARAM_INT);
         
- 
+        $result4->execute();
+        
+        return $sumLike;
 
     //     $sql2 = "SELECT COUNT(id) FROM vues WHERE id_article = :id_article";
     //     $result2 = $this->pdo->prepare($sql2);
@@ -240,7 +251,6 @@ abstract class Model{
         
     //     $result3->execute();
     // }
-
 }
 }
 ?>

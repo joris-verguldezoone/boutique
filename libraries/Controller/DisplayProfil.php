@@ -313,6 +313,46 @@ class DisplayProfil {
         $ControllerProfil->createAdresse($_POST['nom'], $_POST['prenom'], $_POST['batiment'], $_POST['rue'], $_POST['code_postal'], $_POST['ville'], $_POST['pays'], $_POST['info_sup'], $_POST['telephone']);
     }
     }
-}
+    public function historiqueAchat($id_utilisateur){
+        $model = new \Model\Profil();
+        $fetchCommande = $model->selectAllWhereFetchAll('commande','id_utilisateur',$id_utilisateur);
 
+        $fetchAdress = $model->selectAllWhereFetchAll('adresse','id',$fetchCommande[0]['id_adresse']);
+        // return $fetchCommande;
+      
+          
+        
+        var_dump($fetchCommande);
+        var_dump($fetchAdress);
+    }
+}
+// $i = 0;
+// foreach($fetchCommande AS $ok){
+//     $previousValue = $ok['date'];
+//     var_dump($previousValue);
+//     $i++;
+//     echo($i);
+//     // foreach($fetchCommande AS $value){
+//         echo '<div style="display:flex; flex-direction:column;">';
+        
+//         var_dump($value['date']);
+//         echo '</div>';  
+//         if($value['date'] != $previousValue)
+//         {
+//             // echo 'différent'.$value['date'];
+//             echo '<img class="dimension_image"src="'.$ok['image_article'].'">';
+//             echo $ok['titre'];
+//             echo $ok['prix'];
+//             echo $ok['date'];
+//         }else{
+//             echo '<img class="dimension_image"src="'.$ok['image_article'].'">';
+//             echo $ok['titre'];
+//             echo $ok['prix'];
+//             echo $ok['date'];
+//         }
+//         break;
+//     // }
+ 
+// }
+// echo'</div>';
 ?>

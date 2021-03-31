@@ -176,7 +176,8 @@ $Http = new \Http();
         $controllerDisplayProfil->displayAdress();
         
         // On vérifie si l'utilisateur possède déjà une adresse pour l'afficher et éviter les erreurs 
-      
+$fetch = $controllerDisplayProfil->historiqueAchat($_SESSION['utilisateur']['id']);
+        
         ?>
 
 

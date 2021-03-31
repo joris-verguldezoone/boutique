@@ -23,7 +23,9 @@ class Panier extends Model {
 
     }
     public function insertCommande($id_utilisateur, $id_article, $image_article, $titre, $prix, $id_adresse){
-        $sql = 'INSERT INTO commande (id_utilisateur, id_article, image_article, titre, prix, id_adresse) VALUES (:id_utilisateur, :id_article, :image_article, :titre, :prix, :id_adresse)';
+        $temps = time();
+        $today = date('Y-m-d H:i:s', $temps);
+        $sql = 'INSERT INTO commande (id_utilisateur, id_article, image_article, titre, prix, id_adresse,date) VALUES (:id_utilisateur, :id_article, :image_article, :titre, :prix, :id_adresse,:date)';
         $result = $this->pdo->prepare($sql);
         $result->bindValue(':id_utilisateur',$id_utilisateur,\PDO::PARAM_INT);
         $result->bindValue(':id_article',$id_article,\PDO::PARAM_INT);
@@ -31,6 +33,7 @@ class Panier extends Model {
         $result->bindValue(':titre',$titre,\PDO::PARAM_STR);
         $result->bindValue(':prix',$prix,\PDO::PARAM_INT);
         $result->bindValue(':id_adresse',$id_adresse,\PDO::PARAM_INT);
+        $result->bindvalue(':date', $today, \PDO::PARAM_STR); 
 
         $result->execute();
     }
