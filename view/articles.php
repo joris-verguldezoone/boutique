@@ -182,7 +182,10 @@ if((isset($_GET['typeSelected'])) && (isset($_GET['All_CG']))){
     // 
     $controllerDisplay->displayArticleByType($_GET['typeSelected']);
 }
-
+if(isset($_GET['submitSearchBar']))      {
+    echo "<span class='span_resultat'>Résultat(s) pour votre recherche '".$_GET['searchBarText']."':</span>";
+    $controllerDisplayArticle->searchBar($_GET['searchBarText']);
+}
 
 
 

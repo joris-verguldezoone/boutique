@@ -303,7 +303,7 @@ class DisplayProfil {
               </form>
           </section>
           </section>';
-          echo "</div>";
+echo "</div>";
 
         }
         }
@@ -319,11 +319,35 @@ class DisplayProfil {
 
         $fetchAdress = $model->selectAllWhereFetchAll('adresse','id',$fetchCommande[0]['id_adresse']);
         // return $fetchCommande;
-      
-          
-        
-        var_dump($fetchCommande);
-        var_dump($fetchAdress);
+        // il manque un if pour vérifier si l'adress change dans un foreach ou quoi 
+
+        $date = new \DateTime();
+        // $date=date_create("2013-03-15");
+        // echo ;
+        echo '<section class="section_historique">';
+        echo "<h2>Mon historique des commandes</h2>";
+        foreach($fetchCommande AS $value){
+             $date=date_create($value['date']);
+     
+            $dateFormated = date_format($date,"Y/m/d");
+            // echo $dateFormated;
+            echo "<div class='mise_en_page_panier'>";
+            echo "<table>";
+            // $sumPrix = 0;
+                    // var_dump($tab);
+                    echo "  <tr>
+                                <td><img class='img_panier' src='".$value['image_article']."'></td>
+                                <td class='titre_article_commande'>".$value['titre']."</td>
+                                <td class='prix_article_commande'>".$value['prix']."€</td>
+                                <td class='font_date'>".$dateFormated."</td>
+                        
+                                
+                            </tr>"; 
+        } 
+        echo "</table>";
+        echo "</section>";
+        // var_dump($fetchCommande);
+        // var_dump($fetchAdress);
     }
 }
 // $i = 0;

@@ -48,7 +48,7 @@ require('require/html_/header.php');
     <img src="images/13909_b.jpg" alt="Image Index" id="img_index">
 </div>
 <?php
-$controllerArticle = new \Controller\Display();
+$controllerArticle = new \Controller\DisplayArticle();
 $controllerArticle->showFivePopularArticles(); 
 ?>
 </main>

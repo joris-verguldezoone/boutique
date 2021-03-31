@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 29 mars 2021 à 11:40
+-- Généré le :  mer. 31 mars 2021 à 19:36
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `info_sup` varchar(200) NOT NULL,
   `tel` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=95 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=96 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `adresse`
@@ -51,7 +51,8 @@ CREATE TABLE IF NOT EXISTS `adresse` (
 INSERT INTO `adresse` (`id`, `id_utilisateur`, `nom`, `prenom`, `batiment`, `rue`, `code_postal`, `pays`, `ville`, `info_sup`, `tel`) VALUES
 (94, 3, 'azertya', 'azertya', 'Verguldezoone', 'Verguldezoone', 1111111, 'azertya', 'France', 'VerguldezooneVerguldezoone', 111111000),
 (93, 3, 'azertya', 'azertya', 'Verguldezoone', 'Verguldezoone', 1111111, 'azertya', 'France', 'Verguldezoone', 111111000),
-(92, 3, 'azertya', 'azertya', 'Verguldezoone', 'Verguldezoone', 1111111, 'azertya', 'France', 'Verguldezoone', 111111000);
+(92, 3, 'azertya', 'azertya', 'Verguldezoone', 'Verguldezoone', 1111111, 'azertya', 'France', 'Verguldezoone', 111111000),
+(95, 4, 'azertya', 'azertya', '7 ', 'Verguldezoone', 1111111, 'azertya', 'Verguldezoone', 'Verguldezoone', 111111000);
 
 -- --------------------------------------------------------
 
@@ -88,14 +89,14 @@ CREATE TABLE IF NOT EXISTS `articles` (
 --
 
 INSERT INTO `articles` (`id`, `titre`, `presentation`, `description`, `image`, `image_2`, `image_3`, `note`, `prix`, `id_utilisateur`, `id_type`, `id_gamme`, `id_marque`, `id_generation`, `promo`, `date`, `vues`, `likey`, `id_editeur`) VALUES
-(48, 'MSI Radeon RX 5700 XT MECH OC', 'La carte graphique MSI Radeon RX 5700 XT MECH OC est doté du GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA. Pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l', 'https://media.materiel.net/r900/products/MN0005418294_1.jpg', 'https://media.materiel.net/r900/products/MN0005418296_1.jpg', 'https://media.materiel.net/r900/products/MN0005418299_1.jpg', 0, 619, 4, 27, 21, 3, 13, 0, '2021-03-05', '0', '', 1),
-(50, 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 'Carte graphique compacte, la Gigabyte GeForce GT 1030 OC 2G se destine tout particulièrement à la création d', 'Les portes du multimédia  La carte graphique Gigabyte GeForce GT 1030 OC 2G assure à votre PC des performances multimédia supérieures à la plupart des iGP (coeurs graphiques intégrés aux processeurs). Que vous cherchiez à monter un HTPC ou un ordinateur dédié au multimédia, le format \"low-profile\" de sa carte rendra son intégration facile vous permettant de ne réaliser aucun compromis sur le choix de vos composants. Gigabyte a doté cette carte d', 'https://images-na.ssl-images-amazon.com/images/I/61p1MvrEYIL._AC_SX425_.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhgVX6lAgO-EZwTiOQ_1NNa3q3bx6gTuoxpfPo0Ndx98ncVaNMkSX8ga7jwTRe5rSWkAU&usqp=CAU', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr_7XeZHj_9t2VhBuWnbFz_2c3vQpSQWNqXugPLbNawNI2Mav8cqYfxRlZwPMhT_dGb_s&usqp=CAU', 0, 95, 4, 27, 25, 1, 16, 0, '2021-03-23', '8', '', 3),
-(45, 'ASRock Radeon RX 5700 XT Taichi X OC+', 'Reposant sur la nouvelle architecture AMD RDNA, la carte graphique ASRock Radeon RX 5700 XT Taichi X OC+ est pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. La ASRock Radeon RX 5700 XT Taichi X se dote d\'un look massif, d\'une backplate robuste et profite du refroidissement triple ventilateurs Taichi pour un refroidissement optimal, un bruit contenu pour des performances optimales.', 'https://media.materiel.net/r900/products/MN0005688570_1.jpg', 'https://media.materiel.net/r900/products/MN0005688571_1.jpg', 'https://media.materiel.net/r900/products/MN0005688575_1.jpg', NULL, 584, 4, 27, 21, 3, 13, NULL, '2021-03-05', '2', NULL, 4),
+(48, 'MSI Radeon RX 5700 XT MECH OC', 'La carte graphique MSI Radeon RX 5700 XT MECH OC est doté du GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA. Pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l', 'https://media.materiel.net/r900/products/MN0005418294_1.jpg', 'https://media.materiel.net/r900/products/MN0005418296_1.jpg', 'https://media.materiel.net/r900/products/MN0005418299_1.jpg', 0, 619, 4, 27, 21, 3, 13, NULL, '2021-03-05', '29', '2', 1),
+(50, 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 'Carte graphique compacte, la Gigabyte GeForce GT 1030 OC 2G se destine tout particulièrement à la création d', 'Les portes du multimédia  La carte graphique Gigabyte GeForce GT 1030 OC 2G assure à votre PC des performances multimédia supérieures à la plupart des iGP (coeurs graphiques intégrés aux processeurs). Que vous cherchiez à monter un HTPC ou un ordinateur dédié au multimédia, le format \"low-profile\" de sa carte rendra son intégration facile vous permettant de ne réaliser aucun compromis sur le choix de vos composants. ', 'https://images-na.ssl-images-amazon.com/images/I/61p1MvrEYIL._AC_SX425_.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhgVX6lAgO-EZwTiOQ_1NNa3q3bx6gTuoxpfPo0Ndx98ncVaNMkSX8ga7jwTRe5rSWkAU&usqp=CAU', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr_7XeZHj_9t2VhBuWnbFz_2c3vQpSQWNqXugPLbNawNI2Mav8cqYfxRlZwPMhT_dGb_s&usqp=CAU', NULL, 95, 4, 27, 25, 1, 16, NULL, '2021-03-23', '30', '2', 3),
+(45, 'ASRock Radeon RX 5700 XT Taichi X OC+', 'Reposant sur la nouvelle architecture AMD RDNA, la carte graphique ASRock Radeon RX 5700 XT Taichi X OC+ est pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. La ASRock Radeon RX 5700 XT Taichi X se dote d\'un look massif, d\'une backplate robuste et profite du refroidissement triple ventilateurs Taichi pour un refroidissement optimal, un bruit contenu pour des performances optimales.', 'https://media.materiel.net/r900/products/MN0005688570_1.jpg', 'https://media.materiel.net/r900/products/MN0005688571_1.jpg', 'https://media.materiel.net/r900/products/MN0005688575_1.jpg', NULL, 584, 4, 27, 21, 3, 13, NULL, '2021-03-05', '5', NULL, 4),
 (46, 'Asus Radeon RX 5700 XT ROG STRIX OC', 'Avec la carte graphique Asus Radeon RX 5700 XT ROG STRIX OC, faites place aux nouveaux GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA ! Pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. Carénage renforcé, triple ventilateurs STRIX, dissipateur élargi avec une large surface couvrant le GPU, Asus Aura Sync : pas de doute, Asus vous propose ici un modèle haut de gamme pensé pour un refroidissement et un silence optimal.', 'https://media.materiel.net/r900/products/MN0005421579_1.jpg', 'https://media.materiel.net/r900/products/MN0005421582_1.jpg', 'https://media.materiel.net/r900/products/MN0005421584_1.jpg', NULL, 589, 4, 27, 21, 3, 13, NULL, '2021-03-05', '0', NULL, 2),
 (47, 'Gigabyte Radeon RX 5700 XT GAMING OC', 'Faites place aux nouveaux GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA avec la carte graphique customisé Gigabyte Radeon RX 5700 XT Gaming OC (GV-R57XTGAMING OC-8GD)! Pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. Pour ce modèle, Gigabyte mise sur sa technologie de refroidissement WindForce 3X, 3 ventilateurs de 82 mm permettant de tempérer efficacement les composants les plus sensibles de votre carte graphique (GPU, VRAM et MOSFET) pour une stabilité totale et des performances débridées. Côté esthétique, backplate en métal au design soigné et personnalisation RGB via RGB Fusion 2.0 font de cette carte un modèle haut de gamme.', 'https://media.materiel.net/r900/products/MN0005421312_1.jpg', 'https://media.materiel.net/r900/products/MN0005421314_1.jpg', 'https://media.materiel.net/r900/products/MN0005421316_1.jpg', NULL, 479, 4, 27, 21, 3, 13, NULL, '2021-03-05', '0', NULL, 3),
 (44, 'Gigabyte Radeon RX 5500 XT OC 4 Go', 'Avec la Gigabyte Radeon RX 5500 XT OC (GV-R55XTOC-4GD), faites place aux nouveaux GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA ! Pensée pour atteindre des performances exceptionnelles en 1080p et une efficacité énergétique excellente, la RX 5500 XT compte également sur 4 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5500 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. Pour ce modèle, Gigabyte mise sur sa technologie de refroidissement WindForce 2X, 2 ventilateurs de 90 mm permettant de tempérer efficacement les composants les plus sensibles de votre carte graphique (GPU, VRAM et MOSFET) pour une stabilité totale et des performances débridées. Côté esthétique, backplate en métal au design soigné pour un modèle haut de gamme.', 'https://media.materiel.net/r900/products/MN0005548063_1.jpg', 'https://media.materiel.net/r900/products/MN0005548064_1.jpg', 'https://media.materiel.net/r900/products/MN0005548067_1.jpg', NULL, 269, 4, 27, 20, 3, 13, NULL, '2021-03-05', '1', NULL, 3),
 (42, 'Asus ROG Strix 1000G - Gold', 'Asus renforce encore son offre sur le marché de l\'informatique et du gaming avec deux nouvelles alimentations PC conçues pour les PC gamer. La série ROG Strix sont des alimentations puissantes en 650 et 1000 Watts offeant une connectique très complète à l\'utilisateur afin de s\'adapter aux besoins en énergie des machines actuelles. De plus, elles obtiennent la certification 80 PLUS Gold qui récompense les alimentations performantes et économes en énergies.', 'La nouvelle alimentation Asus ROG Strix se veut très qualitative, et c\'est pluôt un pari réussi de la part de la marque. L\'alimentation dégage une puissance de 1000watts ce qui correspond aux attentes actuelles de la majorité des joueurs. Elle est principalement composée de condensateurs japonais haut de gamme pour assurer un fonctionnement efficace, ce qui assure une très bonne stabilité de l\'énergie. Elles sont aussi équipé d\'un ventilateur de 135 mm pour bien gérer le refroidissement et ainsi optimiser la durée de vie de composants, mais pas seulement elle utilise des capteurs thermiques pour permettre au ventilateur de s\'éteindre complètement à des puissances plus basses : elle reste très silencieuse.', 'https://media.materiel.net/r900/products/MN0005715189_1.jpg', 'https://media.materiel.net/r900/products/MN0005715188_1.jpg', 'https://media.materiel.net/r900/products/MN0005715192_1.jpg', NULL, 349, 4, 22, 19, 18, 0, NULL, '2021-03-05', '0', NULL, 0),
-(43, 'Asus RX 5500 XT ROG STRIX OC', 'Avec la carte graphique Asus RX 5500 XT ROG STRIX OC, faites place aux nouveaux GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA ! Pensée pour atteindre des performances exceptionnelles en 1080p et une efficacité énergétique excellente, la RX 5500XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5500 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. Le système de refroidissement de la Asus RX 5500 XT ROG STRIX OC se base sur 2 ventilateurs dernières génération pour permettre un refroidissement excellent pour des conditions de jeu optimales.', 'https://media.materiel.net/r900/products/MN0005548942_1.jpg', 'https://media.materiel.net/r900/products/MN0005548943_1.jpg', 'https://media.materiel.net/r900/products/MN0005548970_1.jpg', NULL, 339, 4, 27, 20, 3, 13, NULL, '2021-03-05', '1', NULL, 2),
+(43, 'Asus RX 5500 XT ROG STRIX OC', 'Avec la carte graphique Asus RX 5500 XT ROG STRIX OC, faites place aux nouveaux GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA ! Pensée pour atteindre des performances exceptionnelles en 1080p et une efficacité énergétique excellente, la RX 5500XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5500 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. Le système de refroidissement de la Asus RX 5500 XT ROG STRIX OC se base sur 2 ventilateurs dernières génération pour permettre un refroidissement excellent pour des conditions de jeu optimales.', 'https://media.materiel.net/r900/products/MN0005548942_1.jpg', 'https://media.materiel.net/r900/products/MN0005548943_1.jpg', 'https://media.materiel.net/r900/products/MN0005548970_1.jpg', NULL, 339, 4, 27, 20, 3, 13, NULL, '2021-03-05', '3', NULL, 2),
 (41, 'Seasonic Connect 750 - Gold', 'Seasonic dévoile ce que beaucoup attendait comme une réelle innovation dans le domaine de l\'alimentation PC : la Seasonic Connect 750. C\'est une solution jamais vue jusque là qui combine une alimentation Seasonic Prime de 750W avec la certification 80 PLUS Or avec un module de gestion des câbles indépendant pouvant se fixer au meilleur endroit de votre boitier. Le montage et le câble management sont grandement simplifier pour le bonheur des passionnés de PC.', 'L\'alimentation Seasonic Connect 750 est le résultat de la cellule recherche et développement de Seasonic. Il propose un système d\'alimentation pour votre PC entièrement modulaire équipé du Connect device indépendant qui permet de fixer ses câbles plus facilement. Ce bloc d\'alimentation vous offre une puissance de 750W ce qui est très bien pour une configuration gamer musclée ou pour une station de travail exigeante comme pour lles professionnels de l\'image.', 'https://media.materiel.net/r900/products/MN0005631141_1.jpg', 'https://media.materiel.net/r900/products/MN0005631146_1.jpg', 'https://media.materiel.net/r900/products/MN0005631144_1.jpg', NULL, 179, 4, 22, 18, 16, 0, NULL, '2021-03-05', '2', NULL, 0),
 (40, 'Antec High Current Gamer HCG-750W Gold', 'Photos non contractuelles La gamme HCG (High Current Gaming) revient en version Gold et full modulaire. Conçu pour une utilisation intensive, le bloc Antec HCG fut plébiscité pour son efficacité redoutable en conditions de jeux. Les connecteurs ainsi que le câblage des alimentations HCG Gold permettent d\'atteindre des niveaux de performance très élevés.', 'Bâtie sur une architecture exclusive, le bloc Antec HCG Gold affiche une qualité de fabrication irréprochable grâce à l\'intégration de condensateurs haut de gamme japonais. Ce modèle 750W est constitué d\'un solide rail +12V de 62A, parfait pour supporter efficacement la puissance de votre carte graphique et le reste de vos composants. Ce modèle destiné aux amateurs et avertis de jeux-vidéo assure une distribution aussi stable qu\'efficace du courant ; en témoigne sa certification 80+ Gold  atteignant jusqu\'à 92% d\'efficience. Ce bloc fait partie du programme AQ10 du constructeur et bénéficie à ce titre d\'une garantie de 10 ans et d\'une assistance 24h/24h et 7j/7j de la part d\'Antec. Signe de la confiance du constructeur dans son produit.', 'https://media.materiel.net/r900/oproducts/AR201802070011_g8.jpg', 'https://media.materiel.net/r900/oproducts/AR201802070011_g1.jpg', 'https://media.materiel.net/r900/oproducts/AR201802070011_g7.jpg', NULL, 144, 4, 22, 18, 17, 0, NULL, '2021-03-05', '2', NULL, 0),
 (38, 'Cooler Master V550 SFX - Gold', 'Le bloc d\'alimentation Cooler Master V550 SFX permet de donner toute la puissance nécessaire à votre PC pour un bon fonctionnement et des performances remarquables. Avec 550 Watts et une certification 80 PLUS Or, c\'est idéal pour un pc de travail ou une configuration gamer.', 'Le bloc d\'alimentation Cooler Master V550 SFX permet de donner la puissance nécessaire à votre PC pour un bon fonctionnement pour de hautes performances. Avec 550 Watts, c\'est idéal pour un pc de travail ou une configuration gamer qui va vous époustoufler. Il dispose d\'une certification 80PLUS Or qui récompense les alimentations avec un haut taux de rendement et économe en énergie. Il dispose d\'un connecteur +12V (Alimentation P8 - 2 x P4), un connecteur EPS 8pin supplémentaire, de huit connecteurs d\'alimentation Serial ATA, d\'un conecteur ATX 24 Broches, de quatre molex (4 broches) Femelle et de 4 connecteurs PCI Express 6 + 2 Broches.  Elle se fait discrète avec son format compact SFX et ses câbles totalement noirs. De plus, celle-ci est totalement modulaire, ne gardez que les câbles utiles à votre montage, c\'est simple et sans surplus. Elle se refroidit aussi très efficacement avec un ventilateur de 92 mm HDB à réduction de bruit. L\'alimentation dispose aussi d\'une garantie de 10 ans : un gage de qualité !', 'https://media.materiel.net/r900/products/MN0005755105_1.jpg', 'https://media.materiel.net/r900/products/MN0005755106_1.jpg', 'https://media.materiel.net/r900/products/MN0005755109_1.jpg', NULL, 139, 4, 22, 16, 15, 0, NULL, '2021-03-05', '2', NULL, 0),
@@ -120,7 +121,7 @@ INSERT INTO `articles` (`id`, `titre`, `presentation`, `description`, `image`, `
 (68, 'Gigabyte GeForce RTX 2070 WINDFORCE 2X 8G', 'Basée sur l\'architecture Turing qui est à ce jour la plus aboutie dans le monde ces cartes graphiques, la Gigabyte Gaming RTX 2070 WINDFORCE 2X 8G embarque les toutes dernières technologies développées pour des performances de pointe !', 'Dotée de 8 Go de mémoire vidéo en GDDR6 et d\'une interface mémoire de 256 bits, cette carte graphique est aussi équipée du système WINDFORCE 2X pour une ventilation optimale ainsi que de la technologie Raytracing pour rendu graphique à couper le souffle. Avec son design résolument moderne, ce bijou de technologie saura combler les joueurs les plus exigeants en leur assurant une expérience de jeu exceptionnelle pour de longues années.', 'https://media.ldlc.com/r1600/ld/products/00/05/34/56/LD0005345658_2.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/34/56/LD0005345678_2.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/34/56/LD0005345663_2.jpg', NULL, 600, 32, 27, 7, 1, 17, NULL, '2021-03-24', '0', NULL, 3),
 (69, 'ASUS GeForce RTX 2070 ROG-STRIX-RTX2070-8G-GAMING', 'La carte graphique ASUS GeForce RTX 2070 ROG STRIX RTX2070-8G-GAMING est basée sur l\'architecture de pointe NVIDIA Turing. Des graphismes ultra-réalistes, une VR ultra-immersive et des performances gaming à couper le souffle pour profiter du meilleur des jeux vidéo d\'aujourd\'hui et de demain.', 'Destinée aux joueurs les plus exigeants, cette carte graphique gaming haut de gamme embarque le nouveau processeur graphique NVIDIA TU106, 8 Go de VRAM GDDR6, une interface mémoire 256 bits et 2304 Cores CUDA pour des performances de jeu et un rendu graphique exceptionnels. Les derniers jeux PC et ceux à venir bénéficieront de la puissance exceptionnelle de cette bête de compétition. En d\'autres termes, l\'avenir (des joueurs) commence ici !', 'https://media.ldlc.com/r1600/ld/products/00/05/37/15/LD0005371521_2.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/06/76/LD0005067662_2_0005371487.jpg', 'https://media.ldlc.com/r1600/ld/products/00/05/06/76/LD0005067648_2_0005371479.jpg', NULL, 720, 32, 27, 7, 1, 17, NULL, '2021-03-24', '0', NULL, 2),
 (70, 'ASUS GeForce RTX 2070 - DUAL-RTX2070-O8G-EVO-V2', 'La carte graphique ASUS GeForce RTX 2070 DUAL-RTX2070-O8G-EVO-V2 est basée sur l\'architecture de pointe NVIDIA Turing. Des graphismes ultra-réalistes, une VR ultra-immersive, et des performances gaming à couper le souffle pour profiter du meilleur des jeux vidéo d\'aujourd\'hui et de demain.', 'Destinée aux joueurs les plus exigeants, cette carte graphique gaming haut de gamme embarque le nouveau processeur graphique NVIDIA TU106, 8 Go de VRAM GDDR6, une interface mémoire 256 bits et 2304 Cores CUDA pour des performances de jeu et un rendu graphique exceptionnels. Les derniers jeux PC et ceux à venir bénéficieront de la puissance exceptionnelle de cette bête de compétition. En d\'autres termes, l\'avenir (des joueurs) commence ici !', 'https://media.ldlc.com/r1600/ld/products/00/05/68/10/LD0005681067_1.jpg', 'https://m.media-amazon.com/images/S/aplus-media/vc/45b772ea-9925-4af1-b325-8d5f4b4826a0.__CR0,30,970,600_PT0_SX970_V1___.jpg', 'https://m.media-amazon.com/images/S/aplus-media/vc/45b772ea-9925-4af1-b325-8d5f4b4826a0.__CR0,30,970,600_PT0_SX970_V1___.jpg', NULL, 659, 32, 27, 7, 1, 17, NULL, '2021-03-24', '0', NULL, 2),
-(71, 'Gigabyte Aorus GeForce RTX 2080 Xtreme Waterforce', 'Attention aux yeux, la Gigabyte Aorus GeForce RTX 2080 Xtreme Waterforce (GV-N2080AORUSX W-8GC) arrive avec des mensurations de haute volée ! Armée de ses 2944 coeurs CUDA (vs 2560 pour la GTX 1080), la nouvelle architecture NVIDIA Turing 2080 affiche surtout une fréquence turbo impressionnante et NVIDIA annonce des performances bien plus élevées que la génération précédente.', 'Côté &quot;mémoire&quot; de la nouveauté également puisque la GeForce RTX 2080 embarque 8 Go de mémoire GDDR6. Cette dernière apporte son lot de nouveauté, notamment un débit amélioré et surtout au global une augmentation de la bande passante effective.  Adeptes de haute résolution, le multi-écran ? La GeForce RTX 2080  dispose de 7sorties vidéo ! Elle pourra afficher avec une résolution maximale de 7680 x 4320 à 60 Hz ! De quoi être immergés dans vos jeux en VR ou en multi-écrans à 300% !  Ce modèle profite du système de refroidissement all-in-one WATERFORCE, un kit avec pompe et waterblock pré-assemblés et rempli permettant une installation facile et surtout un refroidissement optimal. Le radiateur en aluminium de 240mm couplé aux 2 ventilateurs assurent une dissipation et un refroidissement du GPU efficace.', 'https://media.materiel.net/r550/products/MN0005299890_1.jpg', 'https://media.materiel.net/bo-images/fiches/composants%20pc/cartes%20graphiques/gigabyte/2080/2080wf-aorus.jpg', 'https://m.media-amazon.com/images/S/aplus-media/vc/45b772ea-9925-4af1-b325-8d5f4b4826a0.__CR0,30,970,600_PT0_SX970_V1___.jpg', NULL, 979, 32, 27, 6, 1, 17, NULL, '2021-03-24', '0', NULL, 10),
+(71, 'Gigabyte Aorus GeForce RTX 2080 Xtreme Waterforce', 'Attention aux yeux, la Gigabyte Aorus GeForce RTX 2080 Xtreme Waterforce (GV-N2080AORUSX W-8GC) arrive avec des mensurations de haute volée ! Armée de ses 2944 coeurs CUDA (vs 2560 pour la GTX 1080), la nouvelle architecture NVIDIA Turing 2080 affiche surtout une fréquence turbo impressionnante et NVIDIA annonce des performances bien plus élevées que la génération précédente.', 'Côté &quot;mémoire&quot; de la nouveauté également puisque la GeForce RTX 2080 embarque 8 Go de mémoire GDDR6. Cette dernière apporte son lot de nouveauté, notamment un débit amélioré et surtout au global une augmentation de la bande passante effective.  Adeptes de haute résolution, le multi-écran ? La GeForce RTX 2080  dispose de 7sorties vidéo ! Elle pourra afficher avec une résolution maximale de 7680 x 4320 à 60 Hz ! De quoi être immergés dans vos jeux en VR ou en multi-écrans à 300% !  Ce modèle profite du système de refroidissement all-in-one WATERFORCE, un kit avec pompe et waterblock pré-assemblés et rempli permettant une installation facile et surtout un refroidissement optimal. Le radiateur en aluminium de 240mm couplé aux 2 ventilateurs assurent une dissipation et un refroidissement du GPU efficace.', 'https://media.materiel.net/r550/products/MN0005299890_1.jpg', 'https://media.materiel.net/bo-images/fiches/composants%20pc/cartes%20graphiques/gigabyte/2080/2080wf-aorus.jpg', 'https://m.media-amazon.com/images/S/aplus-media/vc/45b772ea-9925-4af1-b325-8d5f4b4826a0.__CR0,30,970,600_PT0_SX970_V1___.jpg', NULL, 979, 32, 27, 6, 1, 17, NULL, '2021-03-24', '1', NULL, 10),
 (72, 'Inno3D GeForce RTX 2080 Jet', 'Inno 3D et sa carte graphique GeForce RTX 2080 Jet (N20801-08D6-1180651) vous ouvre les portes du gaming. Équipée des dernières technologies NVIDIA et de puissantes caractéristiques techniques, cette carte graphique vous assure des performances Full HD/4K exceptionnelles.', 'Les gamers disposent d\'une nouvelle &quot;arme de jeu massive&quot; avec cette toute dernière génération Nvidia basée sur l\'architecture Turing. Pour repousser les limites de la performance le fondeur de Santa Clara a intégré 2944 coeurs CUDA pour une vitesse de calcul ahurissante. En effet, cette version   GeForce RTX 2080 Jet d\'Inno 3D est cadencée à 1710 MHz avec le mode Boost. Pour enfoncer le clou, la carte a été overclockée en usine. D\'autre part, cette carte ne craint pas la haute définition grâce à ses 8 Go de GDDR6. Vous allez pouvoir profiter, dans tous vos jeux, d\'une excellente fluidité, même avec le niveau de détails poussé à fond ! Pour jouer des heures en toute sérénité, Inno 3D a équipé sa carte de 3 ventilateurs efficaces et silencieux !', 'https://media.materiel.net/bo-images/fiches/composants%20pc/cartes%20graphiques/inno/900.jpg', 'https://m.media-amazon.com/images/S/aplus-media/vc/45b772ea-9925-4af1-b325-8d5f4b4826a0.__CR0,30,970,600_PT0_SX970_V1___.jpg', 'https://m.media-amazon.com/images/S/aplus-media/vc/45b772ea-9925-4af1-b325-8d5f4b4826a0.__CR0,30,970,600_PT0_SX970_V1___.jpg', NULL, 729, 32, 27, 6, 1, 17, NULL, '2021-03-24', '0', NULL, 12);
 
 -- --------------------------------------------------------
@@ -170,17 +171,18 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `titre` varchar(255) NOT NULL,
   `prix` int(11) NOT NULL,
   `id_adresse` int(11) NOT NULL,
+  `date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `commande`
 --
 
-INSERT INTO `commande` (`id`, `id_utilisateur`, `id_article`, `image_article`, `titre`, `prix`, `id_adresse`) VALUES
-(4, 3, 50, 'https://images-na.ssl-images-amazon.com/images/I/61p1MvrEYIL._AC_SX425_.jpg', 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 95, 92),
-(5, 3, 54, 'https://media.ldlc.com/r1600/ld/products/00/05/78/32/LD0005783260_1.jpg', 'GeForce GTX 1660 Super, AORUS 6 Go GDDR6', 329, 92),
-(6, 3, 53, 'https://media.ldlc.com/r1600/ld/products/00/05/68/77/LD0005687769_1.jpg', 'GeForce GTX 1660 Super, EVGA 6 Go GDDR6', 289, 92);
+INSERT INTO `commande` (`id`, `id_utilisateur`, `id_article`, `image_article`, `titre`, `prix`, `id_adresse`, `date`) VALUES
+(32, 3, 43, 'https://media.materiel.net/r900/products/MN0005548942_1.jpg', 'Asus RX 5500 XT ROG STRIX OC', 339, 94, '2021-03-31 00:00:00'),
+(38, 3, 54, 'https://media.ldlc.com/r1600/ld/products/00/05/78/32/LD0005783260_1.jpg', 'GeForce GTX 1660 Super, AORUS 6 Go GDDR6', 329, 94, '2021-03-31 12:12:02'),
+(36, 3, 43, 'https://media.materiel.net/r900/products/MN0005548942_1.jpg', 'Asus RX 5500 XT ROG STRIX OC', 339, 94, '2021-03-31 10:46:07');
 
 -- --------------------------------------------------------
 
@@ -250,7 +252,7 @@ CREATE TABLE IF NOT EXISTS `gamme` (
 --
 
 INSERT INTO `gamme` (`id`, `nom`, `id_type`, `id_marque`, `id_editeur`) VALUES
-(1, 'RTX 3090 ', 27, 1, NULL),
+(1, 'RTX 30900', 27, 1, NULL),
 (2, 'I-9', 5, 2, NULL),
 (3, 'RTX 3070', 27, 1, NULL),
 (4, 'RTX 3080', 27, 1, NULL),
@@ -335,7 +337,7 @@ CREATE TABLE IF NOT EXISTS `likey` (
   `id_article` int(11) DEFAULT NULL,
   `id_commentaire` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `likey`
@@ -343,7 +345,11 @@ CREATE TABLE IF NOT EXISTS `likey` (
 
 INSERT INTO `likey` (`id`, `id_utilisateur`, `id_article`, `id_commentaire`) VALUES
 (9, 2, 8, NULL),
-(10, 32, NULL, NULL);
+(10, 32, NULL, NULL),
+(25, 3, 50, NULL),
+(22, 3, 48, NULL),
+(26, 6, 50, NULL),
+(30, 6, 48, NULL);
 
 -- --------------------------------------------------------
 
@@ -421,17 +427,18 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `titre` varchar(255) NOT NULL,
   `prix` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `panier`
 --
 
 INSERT INTO `panier` (`id`, `id_utilisateur`, `id_article`, `image_article`, `titre`, `prix`) VALUES
-(3, 3, 50, 'https://images-na.ssl-images-amazon.com/images/I/61p1MvrEYIL._AC_SX425_.jpg', 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 95),
 (2, 4, 60, 'https://media.ldlc.com/r1600/ld/products/00/05/73/27/LD0005732752_1.jpg', 'MSI GeForce RTX 3080 GAMING X TRIO 10G', 1339),
 (4, 3, 54, 'https://media.ldlc.com/r1600/ld/products/00/05/78/32/LD0005783260_1.jpg', 'GeForce GTX 1660 Super, AORUS 6 Go GDDR6', 329),
-(5, 3, 53, 'https://media.ldlc.com/r1600/ld/products/00/05/68/77/LD0005687769_1.jpg', 'GeForce GTX 1660 Super, EVGA 6 Go GDDR6', 289);
+(6, 3, 48, 'https://media.materiel.net/r900/products/MN0005418294_1.jpg', 'MSI Radeon RX 5700 XT MECH OC', 619),
+(7, 3, 45, 'https://media.materiel.net/r900/products/MN0005688570_1.jpg', 'ASRock Radeon RX 5700 XT Taichi X OC+', 584),
+(8, 3, 43, 'https://media.materiel.net/r900/products/MN0005548942_1.jpg', 'Asus RX 5500 XT ROG STRIX OC', 339);
 
 -- --------------------------------------------------------
 
@@ -503,7 +510,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `id_droits` int(140) NOT NULL,
   `anniversaire` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
@@ -512,7 +519,8 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `login`, `email`, `password`, `image`, `id_droits`, `anniversaire`) VALUES
 (3, 'testnom', 'testprenom', 'TestTest', 'TestTest@ok.fr', '$2y$10$487VcE6QPmC6u633DBKvV.phhbze9NYdZAw6dJIz96gxYMUsam/Ou', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, '2001-01-01'),
 (4, 'Verguldezoone', 'Joris', 'HARDJOJOJ', 'HARDJOJOJ@HARDJOJOJ.HARDJOJOJ', '$2y$10$/al.NlaH47M0a751YGTWCe5Z/Q92i0V5qfAajozb7ydcusXVy5joC', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 100, '1998-08-16'),
-(5, 'test123', 'aaz', 'test', 'test@test.com', '$2y$10$xbEfJazosq1nOSLfC3i7HOsc.P2896nBF1CNm2r6.zkC5XA4CaKhq', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, '1998-05-15');
+(5, 'test123', 'aaz', 'test', 'test@test.com', '$2y$10$xbEfJazosq1nOSLfC3i7HOsc.P2896nBF1CNm2r6.zkC5XA4CaKhq', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, '1998-05-15'),
+(6, NULL, NULL, 'prout', 'prout@gmail.com', '$2y$10$arUK8rWpWU6CRyBAExzEfOFQuezNHY.rSGgYsl/S0GrIx.xAXLX/S', 'https://drone-geofencing.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -526,7 +534,7 @@ CREATE TABLE IF NOT EXISTS `vues` (
   `id_article` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=165 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=222 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `vues`
@@ -696,7 +704,64 @@ INSERT INTO `vues` (`id`, `id_article`, `id_utilisateur`) VALUES
 (161, 53, 3),
 (162, 53, 3),
 (163, 50, 3),
-(164, 50, 3);
+(164, 50, 3),
+(165, 50, 3),
+(166, 50, 3),
+(167, 50, 3),
+(168, 71, 3),
+(169, 50, 3),
+(170, 50, 3),
+(171, 50, 3),
+(172, 48, 3),
+(173, 48, 3),
+(174, 48, 3),
+(175, 48, 3),
+(176, 48, 3),
+(177, 48, 3),
+(178, 50, 3),
+(179, 50, 3),
+(180, 50, 3),
+(181, 50, 3),
+(182, 50, 3),
+(183, 50, 3),
+(184, 50, 3),
+(185, 50, 3),
+(186, 48, 3),
+(187, 48, 3),
+(188, 48, 3),
+(189, 48, 3),
+(190, 48, 3),
+(191, 48, 3),
+(192, 48, 3),
+(193, 48, 3),
+(194, 48, 3),
+(195, 48, 3),
+(196, 48, 3),
+(197, 48, 3),
+(198, 50, 3),
+(199, 50, 3),
+(200, 50, 3),
+(201, 50, 3),
+(202, 50, 3),
+(203, 50, 3),
+(204, 50, 6),
+(205, 50, 6),
+(206, 48, 6),
+(207, 48, 6),
+(208, 48, 6),
+(209, 48, 6),
+(210, 48, 6),
+(211, 48, 6),
+(212, 48, 6),
+(213, 48, 6),
+(214, 48, 3),
+(215, 48, 3),
+(216, 48, 3),
+(217, 45, 3),
+(218, 45, 3),
+(219, 45, 3),
+(220, 43, 3),
+(221, 43, 3);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

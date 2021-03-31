@@ -116,6 +116,12 @@ echo "
                     </li>
                 </ul>
             </div>
+            <div class='searchBar'>
+            <form  class='searchBar' action='".$articles."' method='GET'>
+                <input class='input_searchbar' type='text id='searchBarText' name='searchBarText' placeholder='GDDR6X...'>
+                <button type='submit' id='submitSearchBar' class='submitSearchBar' name='submitSearchBar'><i class='fas fa-search searchIcon'></i></button>
+            </form>
+            </div>
             </div>
             <div class='header_droit'>
             <div class='font_profil_panier'>
@@ -127,5 +133,5 @@ echo "
             </div>                    
         </nav>
     </header>";
-                        
+   
 ?>

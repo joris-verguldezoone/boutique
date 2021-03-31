@@ -43,7 +43,8 @@ $newUserController = new \Controller\Profil();
 $Http = new \Http();
 ?>
 
-<main class='main'>
+<main class='main'> 
+    <section id='global1'>
     <article id="profil_box_info">
     <div id="flex_box_profil">
     <form class="block" method="POST" action="profil.php">
@@ -176,10 +177,11 @@ $Http = new \Http();
         <?php
         $controllerDisplayProfil = new \Controller\DisplayProfil();
         $controllerDisplayProfil->displayAdress();
-        
+        echo '</section>';
+        echo '<section id="global2">';
         // On vérifie si l'utilisateur possède déjà une adresse pour l'afficher et éviter les erreurs 
-$fetch = $controllerDisplayProfil->historiqueAchat($_SESSION['utilisateur']['id']);
-        
+        $fetch = $controllerDisplayProfil->historiqueAchat($_SESSION['utilisateur']['id']);
+        echo '</section>';
         ?>
 
 

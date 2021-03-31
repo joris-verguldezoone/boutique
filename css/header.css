@@ -23,7 +23,7 @@ nav {
     color: white;
 }
 
-.font_profil_panier {}
+/* .font_profil_panier {} */
 
 
 /*----------------MENU-----------------*/
@@ -173,6 +173,23 @@ div.menu ul ul ul li a:hover {
     font-family: 'gaming.ttf';
     src: url("../fonts/gaming.ttf");
 }
+@font-face {
+    font-family: "Resolve-Light.otf";
+    src: url(../fonts/Resolve-Light.otf);
+}
+
+.prix_article_index {
+    /* background-color: #d9eef4; */
+    font-size: 30px;
+    margin-left: 3%;
+    font-family: "Resolve-Light.otf";
+    height: 100%;
+    text-align-last: center;
+    width: 14vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .rowSection {
     display: flex;
@@ -195,6 +212,7 @@ div.menu ul ul ul li a:hover {
     font-family: 'gaming.ttf';
     font-size: 27px;
     margin-top: 1em;
+    min-height:20%;
 }
 
 .form_article {
@@ -232,4 +250,18 @@ div.menu ul ul ul li a:hover {
     display: flex;
     flex-direction: row;
     padding-right: 3em;
+}
+.searchBar{
+    width:15vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.input_searchbar{
+    height:3vh;
+}
+.fa-search{
+    font-size: 3em;
 }

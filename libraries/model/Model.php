@@ -252,5 +252,16 @@ abstract class Model{
     //     $result3->execute();
     // }
 }
+public function searchWord($word)
+{
+    $keyword = htmlspecialchars($word);
+    $sql = "SELECT * FROM articles WHERE LOCATE(:word, `titre`) OR LOCATE(:word, `description`)";
+    $result = $this->pdo->prepare($sql);
+    $result->bindValue(":word", $keyword);
+    $result->execute();
+    $fetch = $result->fetchAll();
+
+    return $fetch;
+}
 }
 ?>
