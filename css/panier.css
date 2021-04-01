@@ -43,6 +43,7 @@ table{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2%;
 }
 /* copier coller de profil */
 .InfoGenerales {
@@ -53,7 +54,7 @@ table{
     box-shadow: 2px 2px 2px black;
     padding: 20px;
     background-color: white;
-    margin-right: 5%;
+    margin-left: 3%;
 }
 
 .InfoSupplementaire {
@@ -162,6 +163,7 @@ input[type=date] {
 #flex_box_profil {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .button_center_profil {

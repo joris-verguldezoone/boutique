@@ -32,7 +32,8 @@ $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
-
+$marques = 'marques.php';
+$editeurs = 'editeurs.php';
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
@@ -73,16 +74,16 @@ else{
 
 ?>
 <main>
-    <form method='POST'> <!-- en js donc pas d'action -->
-        <h3>Paiement sécurisé</h3>
-        <div id='errors'></div> 
+    <form method='POST' class='form'> <!-- en js donc pas d'action -->
+        <h3 class='h3'>Paiement sécurisé</h3>
+        <div class='div' id='errors'></div> 
         <!-- contiendra les msg d'erreur de paiment -->
-        <input type='text' id='card-owner-name' placeholder='titulaire de la carte'> 
-        <div id='card-elements'></div> 
+        <input class='input' type='text' id='card-owner-name' placeholder='titulaire de la carte'> 
+        <div class='div' id='card-elements'></div> 
         <!-- info de carte -->
-        <div id='card-errors' role='alert'></div>
+        <div class='div' id='card-errors' role='alert'></div>
         <!-- erreur relative a la carte, fausse/ expiration etc -->
-        <button id='card-button' type='button' name='test' data-secret="<?= $intent['client_secret'] ?>">Procéder au paiement</button>
+        <button  class='button' id='card-button' type='button' name='test' data-secret="<?= $intent['client_secret'] ?>">Procéder au paiement</button>
     </form>
 </main>
 <?php

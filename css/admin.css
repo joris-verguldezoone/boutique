@@ -76,7 +76,7 @@
 
 .consultation{
     background-color:whitesmoke;  
-    width: 85%;
+    min-width: 85%;
     
     height:60%;
     /* margin:1vh; */

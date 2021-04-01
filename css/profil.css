@@ -1,17 +1,17 @@
-    .InfoGenerales {
-        height: 40vh;
-        width: 40vh;
-        border-radius: 1em;
-        border: 1px solid black;
-        box-shadow: 2px 2px 2px black;
-        padding: 20px;
-        background-color: white;
-        margin-right: 5%;
-    }
+.InfoGenerales {
+    height: 40vh;
+    width: 40vh;
+    border-radius: 1em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+    padding: 15px;
+    background-color: white;
+    margin-left: 5%;
+}
     
     .InfoSupplementaire {
         height: 20vh;
-        width: 40vh;
+        /* width: 40vh; */
         border-radius: 1em;
         border: 1px solid black;
         box-shadow: 2px 2px 2px black;
@@ -22,7 +22,7 @@
     }
     
     .adressMenuBlock {
-        height: 40.5vh;
+        height: 55vh;
         width: 40vh;
         border-radius: 1em;
         border: 1px solid black;
@@ -163,6 +163,7 @@
         flex-direction: row;
         margin-top: 2.5%;
         justify-content: center;
+        height:70vh;
     }
     #global2 {
         display: flex;
@@ -204,4 +205,10 @@
     }
     .section_historique{
         padding:50px;
+    }
+    h2{
+        text-align: center;
+    }
+    .main{
+        min-height:100vh;
     }

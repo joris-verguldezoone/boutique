@@ -29,6 +29,9 @@ $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
+$marques = 'marques.php';
+$editeurs = 'editeurs.php';
+
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
@@ -51,8 +54,10 @@ foreach($tab as $value){
     
     $model->insertCommande($id_utilisateur, $id_article, $image_article, $titre, $prix, $_SESSION['adresseSelected']);
 }
+    $model->deleteOneWhereId('panier' ,$_SESSION['utilisateur']['id']);
+
 $http = new \Http();
-$http->redirect('profil.php');
+$http->redirect('confirmation.php');
 
 ob_end_flush();
 ?>

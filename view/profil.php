@@ -30,7 +30,8 @@ $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
-
+$marques = 'marques.php';
+$editeurs = 'editeurs.php';
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
@@ -81,7 +82,6 @@ $Http = new \Http();
                 <input type="submit" id="profilSubmit" value="update" name="update">
             </div>
             </div>
-        </article>
 
             <?php
 
@@ -115,6 +115,7 @@ $Http = new \Http();
             <div class="button_center_profil">
             <input type="submit" id="profilSubmit" value="Modifier" name="updateInfoPersonnel">
             </div>
+        </article>
         </article>
         <?php
 

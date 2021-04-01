@@ -28,7 +28,8 @@ $commande = "view/commande.php";
 $panier = "view/panier.php";
 $admin = "view/admin.php";
 $deconnexion = "index.php?off=1";
-
+$marques = 'view/marques.php';
+$editeurs = 'view/editeurs.php';
 //HEADER
 $all_ArticlesPath = 'view/articles.php?';
 $typePath = 'view/articles.php?typeSelected';

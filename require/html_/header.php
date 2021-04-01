@@ -108,9 +108,9 @@ echo "
                     <li class='sousmenu'><a href='#'>Nos partenaires &nbsp; <i class='fas fa-chevron-down' class='fleche_menu'></i></a>
                         <ul class='niveau2'>
 
-                            <li class='sousmenu'><a href='marques.php'>Marques</a></li>                    
+                            <li class='sousmenu'><a href='".$marques."'>Marques</a></li>                    
                                 
-                            <li class='sousmenu'><a href='editeurs.php'>Editeurs</a></li>
+                            <li class='sousmenu'><a href='".$editeurs."'>Editeurs</a></li>
 
                         </ul>
                     </li>
