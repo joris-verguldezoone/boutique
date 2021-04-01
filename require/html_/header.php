@@ -122,15 +122,37 @@ echo "
                 <input class='input_searchbar' type='text id='searchBarText' name='searchBarText' placeholder='GDDR6X...'>
                 <button type='submit' id='submitSearchBar' class='submitSearchBar' name='submitSearchBar'><i class='fas fa-search searchIcon'></i></button>
             </form>
-            </div>
-            <div class='header_droit'>
-            <div class='font_profil_panier'>
-                <a href='$profil'><i class='fas fa-user' class='profil_logo'></i></a>
-            </div>
-            <div>
-                <a href='$panier'><i class='fas fa-shopping-cart' class='shopping_logo'></i></a>
-            </div> 
-            </div>                    
+            </div>";
+            if(isset($_SESSION['connected']) && (isset($_SESSION['utilisateur']['id']) == '100')){
+                echo " 
+                <div class='font_profil_panier'>
+                    <a href='$admin'><i class='fas fa-user-cog'></i>
+                    </a>
+                </div>";
+            }
+            // var_dump($_SESSION);
+            if(isset($_SESSION['connected'])){
+
+               echo " <div class='header_droit'>
+                <div class='font_profil_panier'>
+                    <a href='$profil'><i class='fas fa-user' class='profil_logo'></i></a>
+                </div>
+                <div>
+                    <a href='$panier'><i class='fas fa-shopping-cart' class='shopping_logo'></i></a>
+                </div> 
+                </div>  ";                  
+            }
+            else{
+                echo " <div class='header_droit'>
+                <div class='font_profil_panier'>
+                    <a href='$connexion'><p class='header_inscription'>Connexion</p></a>
+                </div>
+                <div>
+                    <a href='$inscription'><p class='header_inscription'>Inscription</p></a>
+                </div> 
+                </div>  "; 
+            }
+            echo"
         </nav>
     </header>";
    

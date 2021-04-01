@@ -25,7 +25,7 @@ $articles = "articles.php";
 $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
-$deconnexion = "../index.php?off=1";
+$deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
 //HEADER
@@ -44,7 +44,7 @@ require('../require/html_/header.php');
 <main>
     
 <section class='flex_mise_en_page'>
-        <aside class='aside_search_bar'>
+    <aside class='aside_search_bar'>
         <div class='aside_mise_en_page'>
             <details open>
             <summary>Carte Graphique</summary>
@@ -147,7 +147,7 @@ require('../require/html_/header.php');
                 <div class='bouton'>
                 <input type='submit' name='search_GC' class="button_aside">
                 </div>
-            </form>
+            </form> 
             </details>
         </aside>
         <section class='artcles_presentation'>

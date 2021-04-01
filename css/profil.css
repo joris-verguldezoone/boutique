@@ -1,6 +1,6 @@
 .InfoGenerales {
-    height: 40vh;
-    width: 40vh;
+    height: 50%;
+    width: 97%;
     border-radius: 1em;
     border: 1px solid black;
     box-shadow: 2px 2px 2px black;
@@ -10,8 +10,8 @@
 }
     
     .InfoSupplementaire {
-        height: 20vh;
-        /* width: 40vh; */
+        height: 40%;
+        width: 95%;
         border-radius: 1em;
         border: 1px solid black;
         box-shadow: 2px 2px 2px black;
@@ -31,7 +31,7 @@
         justify-content: space-around;
         flex-direction: column;
         align-items: center;
-        margin-left: 5%;
+        margin-left: 6%;
         padding: 1em;
         background-color: white;
     }
@@ -116,6 +116,7 @@
     #flex_box_profil {
         display: flex;
         flex-direction: column;
+        
     }
     
     .button_center_profil {

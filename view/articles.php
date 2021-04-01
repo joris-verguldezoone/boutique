@@ -25,7 +25,7 @@ $articles = "articles.php";
 $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
-$deconnexion = "../index.php?off=1";
+$deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
 
@@ -39,7 +39,7 @@ require('../require/html_/header.php');
 <main>
                     <!--  test   -->
 
-    <section class='flex_mise_en_page'>
+                    <section class='flex_mise_en_page'>
     <aside class='aside_search_bar'>
         <div class='aside_mise_en_page'>
             <details open>

@@ -173,10 +173,13 @@ class DisplayArticle extends Controller{
     public function DisplayOneArticle($id){
         $modelArticle = new \Model\Display();
         $tab = $modelArticle->selectOne('articles', '*', 'id' ,$id );
-        
+        $like = 0;
+        if(isset($_SESSION['utilisateur']['id'])){
+
             $like = $modelArticle->detectLike($_SESSION['utilisateur']['id'],$id);
             $modelArticle = new \Model\Article();
             $modelArticle->IncrementView($id,$_SESSION['utilisateur']['id']);
+        }
             if($like){
 
                 $heartLike = 'far fa-heart';

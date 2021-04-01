@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 01 avr. 2021 à 21:43
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Généré le :  mer. 31 mars 2021 à 19:36
+-- Version du serveur :  10.4.10-MariaDB
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `boutique`
+-- Base de données :  `boutique`
 --
 
 -- --------------------------------------------------------
@@ -89,9 +90,9 @@ CREATE TABLE IF NOT EXISTS `articles` (
 
 INSERT INTO `articles` (`id`, `titre`, `presentation`, `description`, `image`, `image_2`, `image_3`, `note`, `prix`, `id_utilisateur`, `id_type`, `id_gamme`, `id_marque`, `id_generation`, `promo`, `date`, `vues`, `likey`, `id_editeur`) VALUES
 (48, 'MSI Radeon RX 5700 XT MECH OC', 'La carte graphique MSI Radeon RX 5700 XT MECH OC est doté du GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA. Pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l', 'https://media.materiel.net/r900/products/MN0005418294_1.jpg', 'https://media.materiel.net/r900/products/MN0005418296_1.jpg', 'https://media.materiel.net/r900/products/MN0005418299_1.jpg', 0, 619, 4, 27, 21, 3, 13, NULL, '2021-03-05', '29', '2', 1),
-(50, 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 'Carte graphique compacte, la Gigabyte GeForce GT 1030 OC 2G se destine tout particulièrement à la création d', 'Les portes du multimédia  La carte graphique Gigabyte GeForce GT 1030 OC 2G assure à votre PC des performances multimédia supérieures à la plupart des iGP (coeurs graphiques intégrés aux processeurs). Que vous cherchiez à monter un HTPC ou un ordinateur dédié au multimédia, le format \"low-profile\" de sa carte rendra son intégration facile vous permettant de ne réaliser aucun compromis sur le choix de vos composants. ', 'https://images-na.ssl-images-amazon.com/images/I/61p1MvrEYIL._AC_SX425_.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhgVX6lAgO-EZwTiOQ_1NNa3q3bx6gTuoxpfPo0Ndx98ncVaNMkSX8ga7jwTRe5rSWkAU&usqp=CAU', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr_7XeZHj_9t2VhBuWnbFz_2c3vQpSQWNqXugPLbNawNI2Mav8cqYfxRlZwPMhT_dGb_s&usqp=CAU', NULL, 95, 4, 27, 25, 1, 16, NULL, '2021-03-23', '34', '2', 3),
+(50, 'GeForce GT 1030, 1265 MHz, PCI-Express 16x, 2 Go', 'Carte graphique compacte, la Gigabyte GeForce GT 1030 OC 2G se destine tout particulièrement à la création d', 'Les portes du multimédia  La carte graphique Gigabyte GeForce GT 1030 OC 2G assure à votre PC des performances multimédia supérieures à la plupart des iGP (coeurs graphiques intégrés aux processeurs). Que vous cherchiez à monter un HTPC ou un ordinateur dédié au multimédia, le format \"low-profile\" de sa carte rendra son intégration facile vous permettant de ne réaliser aucun compromis sur le choix de vos composants. ', 'https://images-na.ssl-images-amazon.com/images/I/61p1MvrEYIL._AC_SX425_.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhgVX6lAgO-EZwTiOQ_1NNa3q3bx6gTuoxpfPo0Ndx98ncVaNMkSX8ga7jwTRe5rSWkAU&usqp=CAU', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr_7XeZHj_9t2VhBuWnbFz_2c3vQpSQWNqXugPLbNawNI2Mav8cqYfxRlZwPMhT_dGb_s&usqp=CAU', NULL, 95, 4, 27, 25, 1, 16, NULL, '2021-03-23', '30', '2', 3),
 (45, 'ASRock Radeon RX 5700 XT Taichi X OC+', 'Reposant sur la nouvelle architecture AMD RDNA, la carte graphique ASRock Radeon RX 5700 XT Taichi X OC+ est pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. La ASRock Radeon RX 5700 XT Taichi X se dote d\'un look massif, d\'une backplate robuste et profite du refroidissement triple ventilateurs Taichi pour un refroidissement optimal, un bruit contenu pour des performances optimales.', 'https://media.materiel.net/r900/products/MN0005688570_1.jpg', 'https://media.materiel.net/r900/products/MN0005688571_1.jpg', 'https://media.materiel.net/r900/products/MN0005688575_1.jpg', NULL, 584, 4, 27, 21, 3, 13, NULL, '2021-03-05', '5', NULL, 4),
-(46, 'Asus Radeon RX 5700 XT ROG STRIX OC', 'Avec la carte graphique Asus Radeon RX 5700 XT ROG STRIX OC, faites place aux nouveaux GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA ! Pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. Carénage renforcé, triple ventilateurs STRIX, dissipateur élargi avec une large surface couvrant le GPU, Asus Aura Sync : pas de doute, Asus vous propose ici un modèle haut de gamme pensé pour un refroidissement et un silence optimal.', 'https://media.materiel.net/r900/products/MN0005421579_1.jpg', 'https://media.materiel.net/r900/products/MN0005421582_1.jpg', 'https://media.materiel.net/r900/products/MN0005421584_1.jpg', NULL, 589, 4, 27, 21, 3, 13, NULL, '2021-03-05', '2', NULL, 2),
+(46, 'Asus Radeon RX 5700 XT ROG STRIX OC', 'Avec la carte graphique Asus Radeon RX 5700 XT ROG STRIX OC, faites place aux nouveaux GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA ! Pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. Carénage renforcé, triple ventilateurs STRIX, dissipateur élargi avec une large surface couvrant le GPU, Asus Aura Sync : pas de doute, Asus vous propose ici un modèle haut de gamme pensé pour un refroidissement et un silence optimal.', 'https://media.materiel.net/r900/products/MN0005421579_1.jpg', 'https://media.materiel.net/r900/products/MN0005421582_1.jpg', 'https://media.materiel.net/r900/products/MN0005421584_1.jpg', NULL, 589, 4, 27, 21, 3, 13, NULL, '2021-03-05', '0', NULL, 2),
 (47, 'Gigabyte Radeon RX 5700 XT GAMING OC', 'Faites place aux nouveaux GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA avec la carte graphique customisé Gigabyte Radeon RX 5700 XT Gaming OC (GV-R57XTGAMING OC-8GD)! Pensée pour atteindre des performances exceptionnelles en 1440p et une efficacité énergétique excellente, la RX 5700 XT compte également sur 8 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5700 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. Pour ce modèle, Gigabyte mise sur sa technologie de refroidissement WindForce 3X, 3 ventilateurs de 82 mm permettant de tempérer efficacement les composants les plus sensibles de votre carte graphique (GPU, VRAM et MOSFET) pour une stabilité totale et des performances débridées. Côté esthétique, backplate en métal au design soigné et personnalisation RGB via RGB Fusion 2.0 font de cette carte un modèle haut de gamme.', 'https://media.materiel.net/r900/products/MN0005421312_1.jpg', 'https://media.materiel.net/r900/products/MN0005421314_1.jpg', 'https://media.materiel.net/r900/products/MN0005421316_1.jpg', NULL, 479, 4, 27, 21, 3, 13, NULL, '2021-03-05', '0', NULL, 3),
 (44, 'Gigabyte Radeon RX 5500 XT OC 4 Go', 'Avec la Gigabyte Radeon RX 5500 XT OC (GV-R55XTOC-4GD), faites place aux nouveaux GPU AMD Radeon Navi reposant sur la nouvelle architecture RDNA ! Pensée pour atteindre des performances exceptionnelles en 1080p et une efficacité énergétique excellente, la RX 5500 XT compte également sur 4 Go de mémoire GDDR6 et sur la prise en charge du PCI Express 4.0 pour vous offrir une expérience de jeu ultra-confortable.', 'Les cartes graphiques Radeon RX 5500 XT sont basées sur RDNA, l\'architecture de GPU gaming d’AMD avec une finesse de gravure de 7 nm, qui annonce un gain d\'efficacité de 1,5 en termes de performance par watt et 1,25 d\'amélioration du nombre d\'instruction par cycle par rapport à la génération en 14 nm précédente. En clair pour les joueurs PC : plus de performances, moins d\'énergie consommée. Pour ce modèle, Gigabyte mise sur sa technologie de refroidissement WindForce 2X, 2 ventilateurs de 90 mm permettant de tempérer efficacement les composants les plus sensibles de votre carte graphique (GPU, VRAM et MOSFET) pour une stabilité totale et des performances débridées. Côté esthétique, backplate en métal au design soigné pour un modèle haut de gamme.', 'https://media.materiel.net/r900/products/MN0005548063_1.jpg', 'https://media.materiel.net/r900/products/MN0005548064_1.jpg', 'https://media.materiel.net/r900/products/MN0005548067_1.jpg', NULL, 269, 4, 27, 20, 3, 13, NULL, '2021-03-05', '1', NULL, 3),
 (42, 'Asus ROG Strix 1000G - Gold', 'Asus renforce encore son offre sur le marché de l\'informatique et du gaming avec deux nouvelles alimentations PC conçues pour les PC gamer. La série ROG Strix sont des alimentations puissantes en 650 et 1000 Watts offeant une connectique très complète à l\'utilisateur afin de s\'adapter aux besoins en énergie des machines actuelles. De plus, elles obtiennent la certification 80 PLUS Gold qui récompense les alimentations performantes et économes en énergies.', 'La nouvelle alimentation Asus ROG Strix se veut très qualitative, et c\'est pluôt un pari réussi de la part de la marque. L\'alimentation dégage une puissance de 1000watts ce qui correspond aux attentes actuelles de la majorité des joueurs. Elle est principalement composée de condensateurs japonais haut de gamme pour assurer un fonctionnement efficace, ce qui assure une très bonne stabilité de l\'énergie. Elles sont aussi équipé d\'un ventilateur de 135 mm pour bien gérer le refroidissement et ainsi optimiser la durée de vie de composants, mais pas seulement elle utilise des capteurs thermiques pour permettre au ventilateur de s\'éteindre complètement à des puissances plus basses : elle reste très silencieuse.', 'https://media.materiel.net/r900/products/MN0005715189_1.jpg', 'https://media.materiel.net/r900/products/MN0005715188_1.jpg', 'https://media.materiel.net/r900/products/MN0005715192_1.jpg', NULL, 349, 4, 22, 19, 18, 0, NULL, '2021-03-05', '0', NULL, 0),
@@ -309,6 +310,23 @@ INSERT INTO `generation` (`id`, `nom`, `id_type`, `id_marque`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `likedislike`
+--
+
+DROP TABLE IF EXISTS `likedislike`;
+CREATE TABLE IF NOT EXISTS `likedislike` (
+  `id` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  `id_article` int(11) DEFAULT NULL,
+  `id_commentaire` int(11) DEFAULT NULL,
+  `likey` tinyint(1) DEFAULT NULL,
+  `dislike` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `likey`
 --
 
@@ -368,9 +386,9 @@ CREATE TABLE IF NOT EXISTS `marque` (
 --
 
 INSERT INTO `marque` (`id`, `nom`, `image`, `description`) VALUES
-(1, 'NVIDIA', 'https://www.ginjfo.com/wp-content/uploads/2015/12/Nvidia-1200x720.jpg', 'Nvidia Corporation est une entreprise américaine spécialisée dans la conception de processeurs graphiques, de cartes graphiques et de puces graphiques pour PC et consoles de jeux (Xbox, PlayStation 3, Nintendo Switch). Son siège est à Santa Clara en Californie.'),
-(2, 'Intel', 'https://www.presse-citron.net/app/uploads/2020/09/intel-core-11e-gen.jpg', 'Intel Corporation est une entreprise américaine fondée le 18 juillet 1968 par Gordon Moore, Robert Noyce et Andrew Grove. Elle est le premier fabricant mondial de semi-conducteurs si on se fonde sur le chiffre d\'affaires.'),
-(3, 'AMD', 'https://www.netcost-security.fr/wp-content/uploads/2020/12/amd-logo.jpg', 'Advanced Micro Devices (AMD) est un fabricant américain de semi-conducteurs, microprocesseurs, cartes graphiques basé à Santa Clara (Californie). La compagnie a été fondée le 1er mai 1969 par un groupe d\'ingénieurs et de dirigeants de Fairchild Semiconductor.'),
+(1, 'NVIDIA', 'https://www.ginjfo.com/wp-content/uploads/2015/12/Nvidia-1200x720.jpg', 'jkhfgjhfgj'),
+(2, 'Intel', 'https://www.presse-citron.net/app/uploads/2020/09/intel-core-11e-gen.jpg', 'intel c bien'),
+(3, 'AMD', 'https://www.netcost-security.fr/wp-content/uploads/2020/12/amd-logo.jpg', 'concurrent intel nvidia'),
 (7, 'Corsair', 'https://ih1.redbubble.net/image.509899309.3494/fpp,small,lustre,wall_texture,product,750x1000.u8.jpg', 'Corsair est un intégrateur de mémoire vive : le fabricant intègre sur ses circuits imprimés des séries de modules mémoires issues de constructeurs tels que Siemens et Samsung. Corsair produit également des claviers dédiés pour le gaming (Corsair K55 par ex.), des boitiers de PC fixe pour le gaming (Corsair Carbide par ex.) etc...'),
 (8, 'Noctua', 'https://upload.wikimedia.org/wikipedia/fr/6/6e/Noctua_logo.jpg', 'Noctua est une entreprise spécialisée dans la conception et la production de matériel de refroidissement pour PC.\r\n\r\nC\'est une coentreprise entre Rascom Computer Distribution GmbH et Kolink International Corporation.\r\n\r\nLe logo de la société représente une chouette, une chevêche d\'Athéna, dont le nom scientifique est Athene Noctua.'),
 (15, 'Cooler Master', 'https://upload.wikimedia.org/wikipedia/commons/0/03/Cm-logo-200x200.jpg', 'Cooler Master, Co. Ltd. est un constructeur de matériel informatique spécialisé dans les boîtiers d\'ordinateurs. Depuis sa création en 1992, Cooler Master est devenu l’un des leaders mondiaux dans le domaine des systèmes de refroidissement.'),
@@ -379,6 +397,20 @@ INSERT INTO `marque` (`id`, `nom`, `image`, `description`) VALUES
 (18, 'ASUS', 'https://www.universfreebox.com/wp-content/uploads/2019/07/asus_logo.jpg', 'AsusTeK Computer, Inc. est une entreprise taïwanaise qui produit des cartes mères, des cartes graphiques, des lecteurs optiques, des assistants personnels, des ordinateurs portables, des ordinateurs de bureau, des périphériques réseau, des téléphones portables, des boîtiers et des systèmes de refroidissement d’ordinateurs.'),
 (19, 'Gigabyte', 'https://www.portables4gamers.com/wp-content/uploads/2014/06/gigabyte-logo.jpg', 'Gigabyte Technology est une société de matériel informatique basée à Taïwan, fondée en 1986. La société fait partie des plus grands constructeurs de matériel informatique au monde et emploie plus de 7 000 personnes. Elle est implantée en France depuis 2003 sous le nom GIGABYTE Technology France.'),
 (20, 'ASRock', 'https://logos-download.com/wp-content/uploads/2016/02/ASRock_Logo_white_bg.png', 'ASRock Inc. est un fabricant de cartes mères, de systèmes industriels et de Home Theater Personal Computer basé à Taiwan et dirigé par Ted Hsu. La société a été créée en 2002 et est actuellement intégrée à la Pegatron Corporation.');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `notation`
+--
+
+DROP TABLE IF EXISTS `notation`;
+CREATE TABLE IF NOT EXISTS `notation` (
+  `id` int(11) NOT NULL,
+  `id_article` int(11) NOT NULL,
+  `note` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -395,7 +427,7 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `titre` varchar(255) NOT NULL,
   `prix` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `panier`
@@ -440,6 +472,29 @@ INSERT INTO `type` (`id`, `nom`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `type_article`
+--
+
+DROP TABLE IF EXISTS `type_article`;
+CREATE TABLE IF NOT EXISTS `type_article` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `type_article`
+--
+
+INSERT INTO `type_article` (`id`, `type`) VALUES
+(1, 'RAM'),
+(2, 'RAM'),
+(3, 'RAM'),
+(4, 'RAM');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `utilisateurs`
 --
 
@@ -479,7 +534,7 @@ CREATE TABLE IF NOT EXISTS `vues` (
   `id_article` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=228 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=222 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `vues`
@@ -706,13 +761,7 @@ INSERT INTO `vues` (`id`, `id_article`, `id_utilisateur`) VALUES
 (218, 45, 3),
 (219, 45, 3),
 (220, 43, 3),
-(221, 43, 3),
-(222, 50, 4),
-(223, 46, 4),
-(224, 46, 4),
-(225, 50, 4),
-(226, 50, 4),
-(227, 50, 4);
+(221, 43, 3);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

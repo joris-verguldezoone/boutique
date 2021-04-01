@@ -35,6 +35,7 @@
                 <img src="<?php echo $colissimo?>" alt="Colissimo" class="img_transport">
                 </div>
             </div>
+          
         </div>
         <div>
             <hr>
@@ -51,6 +52,11 @@
         </div>
         <div class='last_div_footer'>
             <a href="<?php echo $mention ?>" target="_blank" id="a_mention">Mentions Légales</a>
+            <div>
+                <form method='POST' action='<?= $deconnexion ?>'>
+                    <button type='submit' id='submitDeconnxion' name='submitDeconnxion'>Deconnexion</button>
+                </form>
+            </div>
             <i class="far fa-copyright"> Hardjojo & Kiritshuko</i>
         </div>
         </footer>
