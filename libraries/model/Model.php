@@ -112,14 +112,12 @@ abstract class Model{
         }
         public function insertThreeValue($nomTable,$colonne1,$colonne2,$colonne3,$value1,$value2,$value3){
             $sql = "INSERT INTO $nomTable ($colonne1,$colonne2,$colonne3) VALUES (?,?,?)";
-            var_dump($sql);
             $result = $this->pdo->prepare($sql);
             $result->execute([$value1,$value2,$value3]);
         }
 
         public function insertFourValue($nomTable, $colonne1,$colonne2,$colonne3,$colonne4,$value1, $value2, $value3,$value4){
             $sql = "INSERT INTO $nomTable ($colonne1,$colonne2,$colonne3,$colonne4) VALUES (?,?,?,?)";
-            var_dump($sql);
             $result = $this->pdo->prepare($sql);
             $result->execute([$value1,$value2,$value3,$value4]);
         }
@@ -138,7 +136,6 @@ abstract class Model{
         $result->bindValue(":value1",$value1,\PDO::PARAM_STR);  
         $result->bindValue(":value2",$value2,\PDO::PARAM_INT);  
         $result->execute();
-        var_dump($sql);
     }
     public function updateThreeValue($nomTable,$colonne1,$colonne2,$colonne3,$value1,$value2,$value3){ // STR
         $sql = "UPDATE $nomTable SET $colonne1 = :value1,$colonne2 = :value2,$colonne3 = :value3 WHERE id= :value1";

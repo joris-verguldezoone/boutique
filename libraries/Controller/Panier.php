@@ -9,7 +9,6 @@ class Panier extends Controller{
     public function AddElement($id_article, $id_utilisateur){
         $model = new \Model\Panier();
         $article = $model->selectAllWhere('articles', 'id', $id_article);
-        // var_dump($article);
         $titre = $article['titre'];
         $image = $article['image'];
         $prix = $article['prix'];
@@ -26,7 +25,6 @@ class Panier extends Controller{
         <h2>Mon Panier</h2>";
         echo "<table>";
         // $sumPrix = 0;
-                // var_dump($tab);
             foreach($tab as $value){
                 echo "  <tr>
                             <td><img class='img_panier' src='".$value['image_article']."'></td>
@@ -61,7 +59,6 @@ class Panier extends Controller{
           $controllerDisplayProfil = new \Controller\DisplayProfil();
           $controllerDisplayProfil->displayAdressPanier();
         // echo "</div>";
-        // var_dump($_POST);
         
         // foreach($tab as $value){
         //     $id_utilisateur = $value['id_utilisateur'];

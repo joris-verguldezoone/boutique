@@ -8,10 +8,8 @@ class Profil extends Model
 {
     public function update($login, $password, $id)
     { //
-        var_dump($_SESSION['utilisateur']['id']);
         $id = $_SESSION['utilisateur']['id'];
         $sql = "UPDATE utilisateurs SET login = :login, password = :password WHERE id =:id";
-        var_dump($sql);
         $result = $this->pdo->prepare($sql);
         $result->bindvalue(':login', $login, \PDO::PARAM_STR);
         $result->bindvalue(':password', $password, \PDO::PARAM_STR);
@@ -73,7 +71,6 @@ class Profil extends Model
         $result->bindValue(':date', $date, \PDO::PARAM_STR);
         $result->execute();
 
-        var_dump($sql);
     }
 
     public function updateAdresse($nom, $prenom, $batiment, $rue, $code_postal, $ville, $pays, $info_sup, $telephone)
@@ -110,7 +107,6 @@ public function adresseInsert($nom, $prenom,$batiment, $rue , $code_postal, $pay
     $result->bindValue(':ville', $ville, \PDO::PARAM_STR);
     $result->bindValue(':info_sup', $info_sup, \PDO::PARAM_STR);
     $result->bindValue(':tel', $tel, \PDO::PARAM_INT);
-    var_dump($sql);
     $result->execute();
 }
           //	id id_utilisateur  nom prenom batiment rue code_postal   pays ville info_sup tel

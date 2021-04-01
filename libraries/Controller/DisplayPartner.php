@@ -9,7 +9,6 @@ class DisplayPartner extends Controller{
     public function displayAllBrand(){
         $model = new \Model\DisplayPartner();
         $tab = $model->selectAll('marque');
-        // var_dump($tab);
         $i = 0; 
         
         $temp = 1; 
@@ -42,7 +41,6 @@ class DisplayPartner extends Controller{
     public function displayAllEditeur(){
         $model = new \Model\DisplayPartner();
         $tab = $model->selectAll('editeur');
-        // var_dump($tab);
         $i = 0; 
         
         $temp = 1; 

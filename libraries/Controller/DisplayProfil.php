@@ -336,7 +336,6 @@ echo "</div>";
             echo "<div class='mise_en_page_panier'>";
             echo "<table>";
             // $sumPrix = 0;
-                    // var_dump($tab);
                     echo "  <tr>
                                 <td><img class='img_panier' src='".$value['image_article']."'></td>
                                 <td class='titre_article_commande'>".$value['titre']."</td>
@@ -348,20 +347,17 @@ echo "</div>";
         } 
         echo "</table>";
         echo "</section>";
-        // var_dump($fetchCommande);
-        // var_dump($fetchAdress);
+
     }
 }
 // $i = 0;
 // foreach($fetchCommande AS $ok){
 //     $previousValue = $ok['date'];
-//     var_dump($previousValue);
 //     $i++;
 //     echo($i);
 //     // foreach($fetchCommande AS $value){
 //         echo '<div style="display:flex; flex-direction:column;">';
         
-//         var_dump($value['date']);
 //         echo '</div>';  
 //         if($value['date'] != $previousValue)
 //         {

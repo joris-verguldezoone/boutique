@@ -19,7 +19,6 @@ class DisplayArticle extends Controller{
         $result = $checkBoxSearch->selectCheckBox($tab);
         if($result != "Ne correspond à aucun élément , il ne doit plus y avoir de stock ou l'article n'existe plus"){
             $this->displayArticlesByTab($result);
-            // var_dump($result);
         }
         elseif($result == "Ne correspond à aucun élément , il ne doit plus y avoir de stock ou l'article n'existe plus"){
             echo "Ne correspond à aucun élément , il ne doit plus y avoir de stock ou l'article n'existe plus";
@@ -30,7 +29,6 @@ class DisplayArticle extends Controller{
     public function displayArticlesByTab($tab){
         
         $i = 0; 
-        // var_dump($tab);
         
         $temp = 1; 
         echo '<section class="rowSection">';
@@ -81,9 +79,7 @@ class DisplayArticle extends Controller{
     public function displayArticlesBy($get, $column){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->FetchAllselectAllWhere('articles' , $column , $get);
-        // var_dump($tab);
         $i = 0; 
-        // var_dump($tab);
         
         $temp = 1; 
         echo '<section class="rowSection">';
@@ -126,10 +122,7 @@ class DisplayArticle extends Controller{
     public function displayArticlesByTypeAndBrandOrGamme($colonne,$colonne2,$value1,$value2){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->FetchAllselectAllWhereTypeAndBrandOrGamme($colonne,$colonne2,$value1,$value2);
-        // var_dump($tab);
-        $i = 0; 
-        // var_dump($tab);
-        
+        $i = 0;         
         $temp = 1; 
         echo '<section class="rowSection">';
         foreach($tab as $value){
@@ -230,9 +223,7 @@ class DisplayArticle extends Controller{
     public function displayAllArticles(){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->selectAll('articles');
-        // var_dump($tab);
         $i = 0; 
-        // var_dump($tab);
         
         $temp = 1; 
         echo '<section class="rowSection">';
@@ -277,9 +268,7 @@ class DisplayArticle extends Controller{
     public function displayArticleByType($id_type){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->selectAllWhereFetchAll('articles','id_type',$_GET['typeSelected']);
-        // var_dump($tab);
         $i = 0; 
-        // var_dump($tab);
         
         $temp = 1; 
         echo '<section class="rowSection">';
@@ -347,7 +336,6 @@ class DisplayArticle extends Controller{
         echo '<h1 id="titre_cate">Nos produits populaires</h2>
         <div class="flex_accueil">';
         $i = 0; 
-        // var_dump($tab);
         foreach($tab as $key => $value)
         {             
                 echo "<div class='box_flex_accueil'>";

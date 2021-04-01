@@ -28,10 +28,6 @@ class Connexion extends Controller
                     $_SESSION['connected'] = true;
                     $utilisateur = $modelConnexion->selectAllWhere('utilisateurs','login',$login);
                     $_SESSION['utilisateur'] = $utilisateur; // la carte d'identité de l'utilisateur à été créer et initialisé dans une $_SESSION
-                    echo "ok";
-                    
-                    var_dump($utilisateur);
-                    echo "ok";
                     
                     $this->id = $utilisateur['utilisateur']['id'];
                     $this->nom = $utilisateur['utilisateur']['nom'];

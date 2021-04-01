@@ -762,7 +762,6 @@ public function displayArticles(){
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->findAllArticles();
         $i = 0; 
-        // var_dump($tab);
         
         $temp = 1; 
         echo '<section class="rowSection">';
@@ -904,7 +903,6 @@ $page_item = '';
    public function displaySelect($nomTable){
         $modelAdmin = new \Model\Admin();
         $tab = $modelAdmin->selectAllNom($nomTable);
-        var_dump($tab);
         $i = 0;
         echo "<option value='0'>Aucun</option>";
 
@@ -918,7 +916,6 @@ $page_item = '';
     public function displayOneTypeOfArticle($where,$id){
         $modelArticle = new \Model\Display();
         $tab = $modelArticle->selectOne('articles', '*', $where, $id);
-        // var_dump($tab);
         $temp = 1;
         echo '<section  class="rowSection">';
         foreach ($tab as $key => $value) {

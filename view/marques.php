@@ -70,7 +70,9 @@ require('../require/html_/header.php');
                         <input type="checkbox" id="RX_6000" name="RX_6000" value='15'>
                         <label for="RX_6000">RX 6000</label>
                     </div>
-
+                    <div class='bouton'>
+                    <input type='submit' name='search_GC' class="button_aside">
+                    </div>
                 </article>
             </form>
             </details>
@@ -143,9 +145,6 @@ require('../require/html_/header.php');
                         >
                     <label for="portable">PORTABLE</label>
                 </div>
-                </div>
-                <div class='bouton'>
-                <input type='submit' name='search_GC' class="button_aside">
                 </div>
             </form> 
             </details>

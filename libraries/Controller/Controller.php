@@ -62,9 +62,7 @@ abstract Class Controller{ // spoiler il controlle tout
     public function searchBar($word){
         $model = new \Model\Display();
         $tab = $model->searchWord($word);
-        // var_dump($tab);
         $i = 0; 
-        // var_dump($tab);
         
         $temp = 1; 
         echo '<section class="rowSection">';

@@ -91,7 +91,6 @@ class Admin extends Model{
         ,image_3 = :image_3,note = :note, prix = :prix, id_utilisateur = :id_utilisateur, id_type = :id_type, id_gamme = :id_gamme,
         id_marque = :id_marque, id_generation = :id_generation , promo = :promo, date = :date , vues = :vues ,likey = :likey
         ,id_editeur = :id_editeur WHERE id = :id"; 
-        var_dump($sql);
         $result = $this->pdo->prepare($sql);
         $result->bindValue(':id',$id,\PDO::PARAM_INT);
         $result->bindvalue(':titre',$titre,\PDO::PARAM_STR);

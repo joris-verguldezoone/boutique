@@ -152,7 +152,7 @@ div.menu ul ul ul li a:hover {
 }
 
 .aside_search_bar {
-    height: 80vh;
+    height: 77vh;
     width: 20vw;
     background-color: #d9eef4;
     /* border: 1px solid black; */
@@ -194,10 +194,17 @@ summary {
 .button_aside {
     font-size: 16px;
     padding: 4px;
+    margin-top: 2vh;
 }
 
 .bouton {
     text-align: center;
+}
+
+.fa-user-cog {
+    font-size: 42px;
+    margin-left: 10vh;
+    color: white;
 }
 
 
