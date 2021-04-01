@@ -31,6 +31,8 @@ $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
+$marques = 'marques.php';
+$editeurs = 'editeurs.php';
 
 $carteGraphique = 'articles.php?carteGraphique';
 $processeur = 'articles.php?processeur';
@@ -74,8 +76,9 @@ if(isset($_GET['like'])){ // c'est pas bien de le mettre ici , par contre tout e
 	// serait de changer qui like quel article en mettant des chiffres au pif 
 	// a refactoriser dans un controller avec des conditions
 	$model = new \Model\Article();
-	$model->like($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
+	$coucou = $model->like($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
 	echo 'like envoyé';
+	// var_dump($coucou);	
 }
 // var_dump($_SESSION);
 // var_dump($_POST);

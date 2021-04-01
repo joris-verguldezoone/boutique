@@ -35,7 +35,8 @@ $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
-
+$marques = 'marques.php';
+$editeurs = 'editeurs.php';
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
@@ -61,6 +62,9 @@ $id_utilisateur = $_SESSION['utilisateur']['id'];
 $rowCount = $newUserModel->rowCount('panier','id_utilisateur', $id_utilisateur);
 $rowCount = intval($rowCount[0]['COUNT(*)']);
     
+
+// var_dump($fetch);
+// echo $fetch[0]['id_adresse'];
 if($rowCount >= 1){ 
     
     $controller->displayPanier($_SESSION['utilisateur']['id']);

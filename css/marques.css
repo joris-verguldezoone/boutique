@@ -20,10 +20,23 @@
 
 .dimension_images_marques {
     max-width: 200px;
-    max-height: 150px;
+    max-height: 200px;
+    min-width: 200px;
+    min-height: 200px;
+    margin-top: 2%;
 }
 
 .dimension_images_editor {
     max-width: 200px;
     max-height: 150px;
+}
+.buttom_comp_marques {
+    background-color: white;
+    border: 0px;
+    height: 30vh;
+    width: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

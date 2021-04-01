@@ -5,8 +5,8 @@
     border-radius: 3em;
 }
 .adminInterface{
-    height:5%;
-    width:10%;
+    height:6vh;
+    width:5vw;
     border-radius: 1em;
     border: 2px solid black;
     background-color: teal;
@@ -14,13 +14,15 @@
     box-shadow: 1px 1px 1px black;
 }
 .cleanButton{
-    height:3%;
-    width:5%;
+    height:6vh;
+    width:5vw;
     border-radius: 1em;
     border: 2px solid black;
     background-color: green;
     color:whitesmoke;
     box-shadow: 1px 1px 1px black;
+    margin-left:20px;
+    margin-top:20px;
 }
 .pageNumber{
     height:20px;
@@ -36,4 +38,112 @@
     flex-direction: row;
     justify-content: center;
 
+}
+.adminInterfaceCreate{
+    background-color: rgb(97, 126, 18);
+    height:6vh;
+    width:5vw;
+    border-radius: 1em;
+    border: 2px solid black;
+    color:whitesmoke;
+    box-shadow: 1px 1px 1px black;
+}
+.flex_creation{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+}
+.creation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    width:100%;
+}
+.creation_display{
+    background-color:whitesmoke;  
+    min-width:30%;
+    height:60%;
+    /* margin:1vh; */
+    padding:5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5em;
+    border: #617E12 1px solid;
+    margin-bottom: 40px;
+}
+
+.consultation{
+    background-color:whitesmoke;  
+    min-width: 85%;
+    
+    height:60%;
+    /* margin:1vh; */
+    padding:5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5em;
+    border: teal 1px  solid;
+}
+main{
+    min-height:80vh;
+}
+.flex_column_display{
+    display: flex;
+    flex-direction: column;
+}
+.flex_column_buttons{
+    display: flex;
+    flex-direction: column;
+    width:40vw;
+}
+.flex_row_buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px;
+
+}
+.input_petit{
+    width:3vw;
+}
+input{
+    max-width:5vw;
+}
+.titre_block{
+    text-align: center;
+    padding-top:10px;
+    padding-bottom:50px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+label{
+    font-family: 'Noto Sans JP', sans-serif;
+     margin-right:10px;
+     /*  
+    padding-bottom:30px; */
+}
+.input_margin{
+    margin-right:10px;
+}
+.flex_row_buttons_label{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+
+}
+.display_flex_center_titre{
+    display: flex;
+    justify-content: center;
+}
+.flex_center_consultation{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

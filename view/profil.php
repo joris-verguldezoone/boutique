@@ -30,7 +30,8 @@ $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
-
+$marques = 'marques.php';
+$editeurs = 'editeurs.php';
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
@@ -43,7 +44,8 @@ $newUserController = new \Controller\Profil();
 $Http = new \Http();
 ?>
 
-<main class='main'>
+<main class='main'> 
+    <section id='global1'>
     <article id="profil_box_info">
     <div id="flex_box_profil">
     <form class="block" method="POST" action="profil.php">
@@ -80,7 +82,6 @@ $Http = new \Http();
                 <input type="submit" id="profilSubmit" value="update" name="update">
             </div>
             </div>
-        </article>
 
             <?php
 
@@ -114,6 +115,7 @@ $Http = new \Http();
             <div class="button_center_profil">
             <input type="submit" id="profilSubmit" value="Modifier" name="updateInfoPersonnel">
             </div>
+        </article>
         </article>
         <?php
 
@@ -176,9 +178,11 @@ $Http = new \Http();
         <?php
         $controllerDisplayProfil = new \Controller\DisplayProfil();
         $controllerDisplayProfil->displayAdress();
-        
+        echo '</section>';
+        echo '<section id="global2">';
         // On vérifie si l'utilisateur possède déjà une adresse pour l'afficher et éviter les erreurs 
-      
+        $fetch = $controllerDisplayProfil->historiqueAchat($_SESSION['utilisateur']['id']);
+        echo '</section>';
         ?>
 
 

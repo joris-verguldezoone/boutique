@@ -28,7 +28,8 @@ $commande = "view/commande.php";
 $panier = "view/panier.php";
 $admin = "view/admin.php";
 $deconnexion = "index.php?off=1";
-
+$marques = 'view/marques.php';
+$editeurs = 'view/editeurs.php';
 //HEADER
 $all_ArticlesPath = 'view/articles.php?';
 $typePath = 'view/articles.php?typeSelected';
@@ -48,7 +49,7 @@ require('require/html_/header.php');
     <img src="images/13909_b.jpg" alt="Image Index" id="img_index">
 </div>
 <?php
-$controllerArticle = new \Controller\Display();
+$controllerArticle = new \Controller\DisplayArticle();
 $controllerArticle->showFivePopularArticles(); 
 ?>
 </main>

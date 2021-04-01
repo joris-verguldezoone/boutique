@@ -20,8 +20,8 @@ class DisplayPartner extends Controller{
             }
             echo "
                     <form action='marque.php' method='get' class='form_article'>
-                        <button type='submit' class='buttom_comp' name='marqueSelected' value= '".$tab[$i]['id']."'>
-                            <img class='dimension_image dimension_images_marques' src='".$value['image']."'>
+                        <button type='submit' class='buttom_comp_marques' name='marqueSelected' value= '".$tab[$i]['id']."'>
+                            <img class=' dimension_images_marques' src='".$value['image']."'>
                             <span class='typo_comp typo_marques'>".$value['nom']."</span>
                         </button>
                     </form>            
@@ -53,8 +53,8 @@ class DisplayPartner extends Controller{
             }
             echo "
                     <form action='editeur.php' method='get' class='form_article'>
-                        <button type='submit' class='buttom_comp' name='editorSelected' value= '".$tab[$i]['id']."'>
-                            <img class='dimension_image dimension_images_editor' src='".$value['image']."'>
+                        <button type='submit' class='buttom_comp_marques' name='editorSelected' value= '".$tab[$i]['id']."'>
+                            <img class=' dimension_images_editor' src='".$value['image']."'>
                             <span class='typo_comp typo_editor'>".$value['nom']."</span>
                         </button>
                     </form>            

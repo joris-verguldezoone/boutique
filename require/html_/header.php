@@ -25,6 +25,11 @@ echo "
     <link rel='icon' type='images/icon' href='$logo'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'/>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <link rel='preconnect' href='https://fonts.gstatic.com'>
+    <link href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap' rel='stylesheet'>
+    
+    <link rel='preconnect' href='https://fonts.gstatic.com'>
+    <link href='https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Roboto&display=swap' rel='stylesheet'>
     <title>$Pagenom</title>
 </head>
 <body>
@@ -103,14 +108,20 @@ echo "
                     <li class='sousmenu'><a href='#'>Nos partenaires &nbsp; <i class='fas fa-chevron-down' class='fleche_menu'></i></a>
                         <ul class='niveau2'>
 
-                            <li class='sousmenu'><a href='marques.php'>Marques</a></li>                    
+                            <li class='sousmenu'><a href='".$marques."'>Marques</a></li>                    
                                 
-                            <li class='sousmenu'><a href='editeurs.php'>Editeurs</a></li>
+                            <li class='sousmenu'><a href='".$editeurs."'>Editeurs</a></li>
 
                         </ul>
                     </li>
                 </ul>
             </div>
+            </div>
+            <div class='searchBar'>
+            <form  class='searchBar' action='".$articles."' method='GET'>
+                <input class='input_searchbar' type='text id='searchBarText' name='searchBarText' placeholder='GDDR6X...'>
+                <button type='submit' id='submitSearchBar' class='submitSearchBar' name='submitSearchBar'><i class='fas fa-search searchIcon'></i></button>
+            </form>
             </div>
             <div class='header_droit'>
             <div class='font_profil_panier'>
@@ -122,5 +133,5 @@ echo "
             </div>                    
         </nav>
     </header>";
-                        
+   
 ?>

@@ -1,27 +1,28 @@
-    .InfoGenerales {
-        height: 40vh;
-        width: 40vh;
-        border-radius: 1em;
-        border: 1px solid black;
-        box-shadow: 2px 2px 2px black;
-        padding: 20px;
-        background-color: white;
-        margin-right: 5%;
-    }
+.InfoGenerales {
+    height: 40vh;
+    width: 40vh;
+    border-radius: 1em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+    padding: 15px;
+    background-color: white;
+    margin-left: 5%;
+}
     
     .InfoSupplementaire {
         height: 20vh;
-        width: 40vh;
+        /* width: 40vh; */
         border-radius: 1em;
         border: 1px solid black;
         box-shadow: 2px 2px 2px black;
         padding: 20px;
         margin-top: 3vh;
         background-color: white;
+        margin-bottom:50px;
     }
     
     .adressMenuBlock {
-        height: 60vh;
+        height: 55vh;
         width: 40vh;
         border-radius: 1em;
         border: 1px solid black;
@@ -157,10 +158,16 @@
         align-self: center;
     }
     
-    .main {
+    #global1 {
         display: flex;
         flex-direction: row;
-        margin-top: 5%;
+        margin-top: 2.5%;
+        justify-content: center;
+        height:70vh;
+    }
+    #global2 {
+        display: flex;
+        flex-direction: row;
         justify-content: center;
     }
     
@@ -170,4 +177,38 @@
     
     #center_info_profil {
         margin-top: 2vh;
+    }
+
+    /* panier */
+    @font-face {
+        font-family: 'gaming.ttf';
+        src: url("../fonts/gaming.ttf");
+    }
+    @font-face {
+        font-family: "Resolve-Light.otf";
+        src: url(../fonts/Resolve-Light.otf);
+    }
+
+    .img_panier{
+        height:200px;
+        width:200px;
+    }
+    .font_date{
+        font-style: italic;
+    }
+    .prix_article_commande{
+        font-family: "Resolve-Light.otf";
+
+    }
+    .titre_article_commande{
+        font-family: 'gaming.ttf';
+    }
+    .section_historique{
+        padding:50px;
+    }
+    h2{
+        text-align: center;
+    }
+    .main{
+        min-height:100vh;
     }

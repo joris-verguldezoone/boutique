@@ -26,7 +26,8 @@ $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
 $deconnexion = "../index.php?off=1";
-
+$marques = 'marques.php';
+$editeurs = 'editeurs.php';
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
