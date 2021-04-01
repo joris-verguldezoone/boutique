@@ -47,61 +47,41 @@ $mention = "mention.php";
 <main>
     
 <section class='flex_mise_en_page'>
-        <aside class='aside_search_bar'>
+    <aside class='aside_search_bar'>
+        <div class='aside_mise_en_page'>
             <details open>
             <summary>Carte Graphique</summary>
-            
-            <form method='GET' action="">
-                <p>Marque</p>
-                <article class='flex_form_aside_nav'>
-                        <p>NVIDIA</p>
-                        <p>AMD</p>
+            <span class='titre_aside_style'>Generation</span>
+            <form method='GET' action="" class="form_aside">
+                     <div>
+                        <input type="checkbox" id="GTX_1000" name="GTX_1000" value='16'>
+                        <label for="GTX_1000">GTX 1000</label>
                     </div>
-                </article>
-                <p>Generation</p>
-                <article class='flex_form_aside_nav'>
-                    <div>
-                     6000 15 2000 17
-                        <input type="checkbox" id="RTX_3000" name="RTX_3000" value='1'>
-                        <label for="RTX_3000">RTX 3000</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="RX_6000" name="RX_6000" value='15'>
-                        <label for="RX_6000">6000</label>
-                    </div>
-                </article>
-                <article class='flex_form_aside_nav'>
                     <div>
                         <input type="checkbox" id="RTX_2000" name="RTX_2000" value='17'>
                         <label for="RTX_2000">RTX 2000</label>
                     </div>
                     <div>
+                        <input type="checkbox" id="RTX_3000" name="RTX_3000" value='1'>
+                        <label for="RTX_3000">RTX 3000</label>
+                    </div>
+                    <div>
                         <input type="checkbox" id="RX_5000" name="RX_5000" value='13'>
                         <label for="RX_5000">RX 5000</label>
                     </div>
-                </article>
-                <article class='flex_form_aside_nav'>
                     <div>
-                        <input type="checkbox" id="GTX_1000" name="GTX_1000" value='16'>
-                        <label for="GTX_1000">GTX 1000</label>
+                        <input type="checkbox" id="RX_6000" name="RX_6000" value='15'>
+                        <label for="RX_6000">RX 6000</label>
                     </div>
-                    <div>
-                    <p></p>
-                    </div>
+
                 </article>
-
-                <input type='submit' name='search_GC'>
-
-
-                    <!--  test   -->
             </form>
-            
-</details>
+            </details>
             <details open>
             <summary>Processeur</summary>
-            
-            <form method='GET' action="">
-                <p>Marque</p>
+            <span class='titre_aside_style'>Marque</span>
+
+            <form method='GET' action="" class="form_aside">
                 <div>
                     <input type="checkbox" id="intel" name="intel">
                     <label for="intel">INTEL</label>
@@ -115,9 +95,9 @@ $mention = "mention.php";
 
             <details open>
             <summary>Carte mère</summary>
-            
-            <form method='GET' action="">
-                <p>Chipset</p>
+            <span class='titre_aside_style'>Chipset</span>
+
+            <form method='GET' action="" class="form_aside">
                 <div>
                     <input type="checkbox" id="intel" name="intel"
                         >
@@ -132,9 +112,9 @@ $mention = "mention.php";
             </details>
             <details open>
             <summary>Stockage</summary>
-            
-            <form method='GET' action="">
-                <p>Gamme</p>
+            <span class='titre_aside_style'>Gamme</span>
+
+            <form method='GET' action="" class="form_aside">
                 <div>
                     <input type="checkbox" id="nvme" name="nvme"
                         >
@@ -154,9 +134,8 @@ $mention = "mention.php";
             </details>
             <details open>
             <summary>PC</summary>
-            
-            <form method='GET' action="">
-                <p>Marque</p>
+            <span class='titre_aside_style'>Ordinateur</span>
+            <form method='GET' action="" class="form_aside_ordi">
                 <div>
                     <input type="checkbox" id="fixe" name="fixe"
                         >
@@ -167,7 +146,11 @@ $mention = "mention.php";
                         >
                     <label for="portable">PORTABLE</label>
                 </div>
-            </form>
+                </div>
+                <div class='bouton'>
+                <input type='submit' name='search_GC' class="button_aside">
+                </div>
+            </form> 
             </details>
         </aside>
         <section class='artcles_presentation'>

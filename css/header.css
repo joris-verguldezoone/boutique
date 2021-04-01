@@ -23,6 +23,7 @@ nav {
     color: white;
 }
 
+
 /* .font_profil_panier {} */
 
 
@@ -146,12 +147,17 @@ div.menu ul ul ul li a:hover {
     padding-right: 100px;
 }
 
+.aside_mise_en_page {
+    padding: 2em;
+}
+
 .aside_search_bar {
     height: 80vh;
     width: 20vw;
-    background-color: #E4E4E4;
+    background-color: #d9eef4;
     /* border: 1px solid black; */
     box-shadow: black 2px 2px 2px;
+    margin-top: 3%;
 }
 
 .flex_form_aside_nav {
@@ -166,6 +172,34 @@ div.menu ul ul ul li a:hover {
     width: 80%;
 }
 
+.form_aside {
+    margin-left: 2vh;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+}
+
+.titre_aside_style {
+    margin-left: 2vh;
+}
+
+.form_aside_ordi {
+    margin-left: 2vh;
+    margin-top: 1vh;
+}
+
+summary {
+    font-size: 20px;
+}
+
+.button_aside {
+    font-size: 16px;
+    padding: 4px;
+}
+
+.bouton {
+    text-align: center;
+}
+
 
 /* css article/marque/editeur generaux / bar aside  */
 
@@ -173,6 +207,7 @@ div.menu ul ul ul li a:hover {
     font-family: 'gaming.ttf';
     src: url("../fonts/gaming.ttf");
 }
+
 @font-face {
     font-family: "Resolve-Light.otf";
     src: url(../fonts/Resolve-Light.otf);
@@ -212,7 +247,7 @@ div.menu ul ul ul li a:hover {
     font-family: 'gaming.ttf';
     font-size: 23px;
     margin-top: 1em;
-    min-height:15%;
+    min-height: 15%;
 }
 
 .form_article {
@@ -253,27 +288,19 @@ div.menu ul ul ul li a:hover {
     flex-direction: row;
     padding-right: 3em;
 }
-.searchBar{
-    width:15vw;
+
+.searchBar {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-.input_searchbar{
-    height:3vh;
+.input_searchbar {
+    height: 3vh;
+    width: 24vh;
 }
-.fa-search{
+
+.fa-search {
     font-size: 2.5em;
-}
-.header_inscription{
-    color: white;
-    font-size: 2em;
-    margin-right: 40px;
-    text-decoration: none;
-}
-.fa-user-cog{
-    font-size: 2.5em;
-    color: white;
 }

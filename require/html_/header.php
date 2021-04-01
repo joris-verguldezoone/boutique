@@ -116,12 +116,12 @@ echo "
                     </li>
                 </ul>
             </div>
+            </div>
             <div class='searchBar'>
             <form  class='searchBar' action='".$articles."' method='GET'>
                 <input class='input_searchbar' type='text id='searchBarText' name='searchBarText' placeholder='GDDR6X...'>
                 <button type='submit' id='submitSearchBar' class='submitSearchBar' name='submitSearchBar'><i class='fas fa-search searchIcon'></i></button>
             </form>
-            </div>
             </div>";
             if(isset($_SESSION['connected']) && (isset($_SESSION['utilisateur']['id']) == '100')){
                 echo " 
