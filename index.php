@@ -27,7 +27,7 @@ $articles = "view/articles.php";
 $commande = "view/commande.php";
 $panier = "view/panier.php";
 $admin = "view/admin.php";
-$deconnexion = "index.php?off=1";
+$deconnexion = "view/deconnexion.php";
 $marques = 'view/marques.php';
 $editeurs = 'view/editeurs.php';
 //HEADER

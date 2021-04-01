@@ -263,5 +263,15 @@ public function searchWord($word)
 
     return $fetch;
 }
+public function selectCount($table, $colonne , $value){
+    $sql = "SELECT COUNT(*) FROM $table WHERE $colonne = ?";
+    $result= $this->pdo->prepare($sql);
+    $result->execute([$value]);
+
+    $fetch = $result->fetchAll();
+
+    return $fetch;
+
+}
 }
 ?>

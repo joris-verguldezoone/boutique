@@ -104,9 +104,15 @@ abstract Class Controller{ // spoiler il controlle tout
             
             $temp++;
             $i++;
+        }
+    
     }
-}
 
+    public function selectCount($table, $colonne , $id_utilisateur){
+        $model = new \Model\Profil();
+        $fetch = $model->selectCount($table, $colonne, $id_utilisateur);
+        return $fetch;
+    }
 
 }
 

@@ -34,7 +34,7 @@ $articles = "articles.php";
 $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
-$deconnexion = "../index.php?off=1";
+$deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
 //HEADER

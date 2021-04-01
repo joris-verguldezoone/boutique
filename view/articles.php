@@ -25,7 +25,7 @@ $articles = "articles.php";
 $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
-$deconnexion = "../index.php?off=1";
+$deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
 
@@ -54,7 +54,6 @@ require('../require/html_/header.php');
                 <p>Generation</p>
                 <article class='flex_form_aside_nav'>
                     <div>
-                     6000 15 2000 17
                         <input type="checkbox" id="RTX_3000" name="RTX_3000" value='1'>
                         <label for="RTX_3000">RTX 3000</label>
                     </div>

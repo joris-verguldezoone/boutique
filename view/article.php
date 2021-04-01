@@ -30,7 +30,7 @@ $articles = "articles.php";
 $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
-$deconnexion = "../index.php?off=1";
+$deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
 
@@ -65,7 +65,10 @@ if(isset($_GET['articleSelected'])){
 }
 
 $model = new \Model\Article();
-$coucou = $model->detectLike($_SESSION['utilisateur']['id'],$_GET['articleSelected']);
+if(isset($_SESSION['utilisateur']['id'])){ // sinon error si t pas co :--)
+
+	$coucou = $model->detectLike($_SESSION['utilisateur']['id'],$_GET['articleSelected']);
+}
 // var_dump($coucou);
 
 

@@ -267,3 +267,13 @@ div.menu ul ul ul li a:hover {
 .fa-search{
     font-size: 2.5em;
 }
+.header_inscription{
+    color: white;
+    font-size: 2em;
+    margin-right: 40px;
+    text-decoration: none;
+}
+.fa-user-cog{
+    font-size: 2.5em;
+    color: white;
+}

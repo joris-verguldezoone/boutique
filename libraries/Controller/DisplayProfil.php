@@ -2,7 +2,9 @@
 
 namespace Controller;
 
-class DisplayProfil {
+require_once('Controller.php');
+
+class DisplayProfil extends Controller{
 
     public function displayAdress(){
         $newUserModel = new \Model\Profil();

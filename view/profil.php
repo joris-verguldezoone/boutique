@@ -29,7 +29,7 @@ $articles = "articles.php";
 $commande = "commande.php";
 $panier = "panier.php";
 $admin = "admin.php";
-$deconnexion = "../index.php?off=1";
+$deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
 //HEADER
@@ -42,6 +42,7 @@ require('../require/html_/header.php');
 $newUserModel = new \Model\Profil();
 $newUserController = new \Controller\Profil();
 $Http = new \Http();
+
 ?>
 
 <main class='main'> 
@@ -181,7 +182,12 @@ $Http = new \Http();
         echo '</section>';
         echo '<section id="global2">';
         // On vérifie si l'utilisateur possède déjà une adresse pour l'afficher et éviter les erreurs 
-        $fetch = $controllerDisplayProfil->historiqueAchat($_SESSION['utilisateur']['id']);
+        $count = $controllerDisplayProfil->selectCount('commande', 'id_utilisateur', $_SESSION['utilisateur']['id']);
+        $int = intval($count[0]['COUNT(*)']);
+        if($int > 0){
+
+            $fetch = $controllerDisplayProfil->historiqueAchat($_SESSION['utilisateur']['id']);
+        }
         echo '</section>';
         ?>
 
