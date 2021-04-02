@@ -206,7 +206,11 @@ summary {
     margin-left: 10vh;
     color: white;
 }
-
+.header_inscription{
+    color:white;
+    font-size:2em;
+    margin-right:30px;
+}
 
 /* css article/marque/editeur generaux / bar aside  */
 
@@ -283,6 +287,7 @@ summary {
 .header_menu {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .menu {
