@@ -74,10 +74,11 @@ if($rowCount >= 1){
 }
 else{
     echo '
-        <div>
-            <span>Votre panier est vide</span>
+        <div class="paniervide">
+            <span >Votre panier est vide</span>
         </div>';
     }
+    // var_dump($_SESSION);
 ?>
 
 </main>

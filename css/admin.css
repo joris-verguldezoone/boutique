@@ -110,9 +110,7 @@ main{
 .input_petit{
     width:3vw;
 }
-input{
-    max-width:5vw;
-}
+
 .titre_block{
     text-align: center;
     padding-top:10px;

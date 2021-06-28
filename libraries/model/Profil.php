@@ -70,14 +70,14 @@ class Profil extends Model
         $result->bindValue(':code', $code, \PDO::PARAM_INT); // ?
         $result->bindValue(':date', $date, \PDO::PARAM_STR);
         $result->execute();
-
     }
 
-    public function updateAdresse($nom, $prenom, $batiment, $rue, $code_postal, $ville, $pays, $info_sup, $telephone)
+    public function updateAdresse($nom, $prenom, $batiment, $rue, $code_postal, $ville, $pays, $info_sup, $telephone, $id)
     {
-        $sql = "UPDATE adresse SET nom = :nom, prenom = :prenom, batiment = :batiment, rue = :rue, code_postal = :code_postal, ville = :ville, pays = :pays, info_sup = :info_sup, telephone = :telephone";
+        $sql = "UPDATE adresse SET nom = :nom, prenom = :prenom, batiment = :batiment, rue = :rue, code_postal = :code_postal, ville = :ville, pays = :pays, info_sup = :info_sup, tel = :telephone WHERE id=:id";
 
         $result = $this->pdo->prepare($sql);
+        $result->bindValue(':id', $id, \PDO::PARAM_INT);
         $result->bindValue(':nom', $nom, \PDO::PARAM_STR);
         $result->bindValue(':prenom', $prenom, \PDO::PARAM_STR);
         $result->bindValue(':batiment', $batiment, \PDO::PARAM_STR);
@@ -88,59 +88,74 @@ class Profil extends Model
         $result->bindValue(':info_sup', $info_sup, \PDO::PARAM_STR);
         $result->bindValue(':telephone', $telephone, \PDO::PARAM_INT);
         $result->execute();
-
     }
     // id	id_utilisateur	batiment	rue	code_postal	pays	ville	info_sup	tel
 
-public function adresseInsert($nom, $prenom,$batiment, $rue , $code_postal, $pays, $ville, $info_sup, $tel){
-    $id_utilisateur = $_SESSION['utilisateur']['id'];
+    public function adresseInsert($nom, $prenom, $batiment, $rue, $code_postal, $pays, $ville, $info_sup, $tel)
+    {
+        if (isset($_SESSION['utilisateur'])) {
 
-    $sql = "INSERT INTO adresse (id_utilisateur,nom, prenom, batiment, rue , code_postal, pays, ville , info_sup, tel) VALUES (:id_utilisateur ,:nom ,:prenom ,:batiment, :rue, :code_postal, :pays, :ville, :info_sup, :tel)";
-    $result = $this->pdo->prepare($sql);
-    $result->bindValue(':id_utilisateur', $id_utilisateur, \PDO::PARAM_INT);
-    $result->bindValue(':nom', $nom, \PDO::PARAM_STR);
-    $result->bindValue(':prenom', $prenom, \PDO::PARAM_STR);
-    $result->bindValue(':batiment', $batiment, \PDO::PARAM_STR);
-    $result->bindValue(':rue', $rue, \PDO::PARAM_STR);
-    $result->bindValue(':code_postal', $code_postal, \PDO::PARAM_INT);
-    $result->bindValue(':pays', $pays, \PDO::PARAM_STR);
-    $result->bindValue(':ville', $ville, \PDO::PARAM_STR);
-    $result->bindValue(':info_sup', $info_sup, \PDO::PARAM_STR);
-    $result->bindValue(':tel', $tel, \PDO::PARAM_INT);
-    $result->execute();
-}
-          //	id id_utilisateur  nom prenom batiment rue code_postal   pays ville info_sup tel
+            $id_utilisateur = $_SESSION['utilisateur']['id'];
+        }
+        if (isset($_SESSION['user'])) {
+            $id_utilisateur = $_SESSION['user']['sub'];
+        }
 
-public function fetchAdress(){
-
-    $id_utilisateur = $_SESSION['utilisateur']['id'];
-    
-    $sql = "SELECT * FROM adresse WHERE id_utilisateur = :id_utilisateur";
-    $result = $this->pdo->prepare($sql);
-    $result->bindValue(':id_utilisateur', $id_utilisateur, \PDO::PARAM_INT);
-    $result->execute();
-    $i = 0;
-    while($fetch = $result->fetch(\PDO::FETCH_ASSOC)){
-        $tableau[$i][] = $fetch['id'];
-        $tableau[$i][] = $fetch['id_utilisateur'];
-        $tableau[$i][] = $fetch['nom'];
-        $tableau[$i][] = $fetch['prenom'];
-        $tableau[$i][] = $fetch['batiment'];
-        $tableau[$i][] = $fetch['rue'];
-        $tableau[$i][] = $fetch['code_postal'];
-        $tableau[$i][] = $fetch['pays'];
-        $tableau[$i][] = $fetch['ville'];
-        $tableau[$i][] = $fetch['info_sup'];
-        $tableau[$i][] = $fetch['tel'];
-   
-
-        $i++;
+        $sql = "INSERT INTO adresse (id_utilisateur,nom, prenom, batiment, rue , code_postal, pays, ville , info_sup, tel) VALUES (:id_utilisateur ,:nom ,:prenom ,:batiment, :rue, :code_postal, :pays, :ville, :info_sup, :tel)";
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(':id_utilisateur', $id_utilisateur, \PDO::PARAM_STR);
+        $result->bindValue(':nom', $nom, \PDO::PARAM_STR);
+        $result->bindValue(':prenom', $prenom, \PDO::PARAM_STR);
+        $result->bindValue(':batiment', $batiment, \PDO::PARAM_STR);
+        $result->bindValue(':rue', $rue, \PDO::PARAM_STR);
+        $result->bindValue(':code_postal', $code_postal, \PDO::PARAM_INT);
+        $result->bindValue(':pays', $pays, \PDO::PARAM_STR);
+        $result->bindValue(':ville', $ville, \PDO::PARAM_STR);
+        $result->bindValue(':info_sup', $info_sup, \PDO::PARAM_STR);
+        $result->bindValue(':tel', $tel, \PDO::PARAM_INT);
+        $result->execute();
     }
-    return $tableau;
+    //	id id_utilisateur  nom prenom batiment rue code_postal   pays ville info_sup tel
 
-}
+    public function fetchAdress()
+    {
+        if (isset($_SESSION['utilisateur'])) {
+
+            $id_utilisateur = $_SESSION['utilisateur']['id'];
+        }
+        if (isset($_SESSION['user'])) {
+            $id_utilisateur = $_SESSION['user']['sub'];
+        }
+
+        $sql = "SELECT * FROM adresse WHERE id_utilisateur = :id_utilisateur";
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(':id_utilisateur', $id_utilisateur, \PDO::PARAM_STR);
+        $result->execute();
+        $i = 0;
+        while ($fetch = $result->fetch(\PDO::FETCH_ASSOC)) {
+            $tableau[$i][] = $fetch['id'];
+            $tableau[$i][] = $fetch['id_utilisateur'];
+            $tableau[$i][] = $fetch['nom'];
+            $tableau[$i][] = $fetch['prenom'];
+            $tableau[$i][] = $fetch['batiment'];
+            $tableau[$i][] = $fetch['rue'];
+            $tableau[$i][] = $fetch['code_postal'];
+            $tableau[$i][] = $fetch['pays'];
+            $tableau[$i][] = $fetch['ville'];
+            $tableau[$i][] = $fetch['info_sup'];
+            $tableau[$i][] = $fetch['tel'];
 
 
+            $i++;
+        }
+        return $tableau;
+    }
+    public function getAllInfoUser($id_google)
+    {
+        $query = $this->pdo->prepare('SELECT * FROM utilisateurs_google WHERE id_google = :id_google');
+        $query->bindValue(':id_google', $id_google);
 
-
+        $query->execute();
+        return $query->fetch();
+    }
 }

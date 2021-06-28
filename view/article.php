@@ -48,62 +48,64 @@ $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
 $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';
+$headerJS = '../libraries/js/header.js';
 require('../require/html_/header.php');
+// require('../../js/header.js');
+var_dump(__DIR__);
 ?>
 <main>
-<!--<form action='' method='POST'>
+	<!--<form action='' method='POST'>
 	<button name='likeArticle' type='submit'>coucou</button>
 </form>-->
-<!-- <form action='' method='POST'>
+	<!-- <form action='' method='POST'>
 	<button name='likeArticle' type='submit'>coucou</button>
 </form> -->
 	<?php
-$controllerDisplay = new \Controller\DisplayArticle();
-if(isset($_GET['articleSelected'])){
-	$controllerDisplay->displayOneArticle($_GET['articleSelected']);
+	$controllerDisplay = new \Controller\DisplayArticle();
+	if (isset($_GET['articleSelected'])) {
+		$controllerDisplay->displayOneArticle($_GET['articleSelected']);
+	}
 
-}
-
-$model = new \Model\Article();
-if(isset($_SESSION['utilisateur']['id'])){ // sinon error si t pas co :--)
-
-	$coucou = $model->detectLike($_SESSION['utilisateur']['id'],$_GET['articleSelected']);
-}
-// var_dump($coucou);
-
-
-// var_dump($_GET);
-// echo "cc";
-
-if(isset($_GET['like'])){ // c'est pas bien de le mettre ici , par contre tout est binder pour pas que l'on puisse vraiment hack, le seul hack
-	// serait de changer qui like quel article en mettant des chiffres au pif 
-	// a refactoriser dans un controller avec des conditions
 	$model = new \Model\Article();
-	$coucou = $model->like($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
-	echo 'like envoyé';
-	// var_dump($coucou);	
-}
-// var_dump($_SESSION);
-// var_dump($_POST);
+	if (isset($_SESSION['utilisateur']['id'])) { // sinon error si t pas co :--)
 
-if(isset($_POST['ajoutPanier'])){
-	$controllerPanier = new \Controller\Panier();
-	$controllerPanier->addElement($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
-}
+		$coucou = $model->detectLike($_SESSION['utilisateur']['id'], $_GET['articleSelected']);
+	}
+	// var_dump($coucou);
 
-if(isset($_POST['ajoutPanierDirectAchat'])){
-	$controllerPanier = new \Controller\Panier();
-	$controllerPanier->addElement($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
 
-	$http=new \Http();
-	$http->redirect('panier.php');
-}
+	// var_dump($_GET);
+	// echo "cc";
 
-// if(isset($_POST['NoteArticle'])){
-// 	$model = new \Model\Article();
-// 	$model->note($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
-// }
-?>
+	if (isset($_GET['like'])) { // c'est pas bien de le mettre ici , par contre tout est binder pour pas que l'on puisse vraiment hack, le seul hack
+		// serait de changer qui like quel article en mettant des chiffres au pif 
+		// a refactoriser dans un controller avec des conditions
+		$model = new \Model\Article();
+		$coucou = $model->like($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
+		echo 'like envoyé';
+		// var_dump($coucou);	
+	}
+	// var_dump($_SESSION);
+	// var_dump($_POST);
+
+	if (isset($_POST['ajoutPanier'])) {
+		$controllerPanier = new \Controller\Panier();
+		$controllerPanier->addElement($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
+	}
+
+	if (isset($_POST['ajoutPanierDirectAchat'])) {
+		$controllerPanier = new \Controller\Panier();
+		$controllerPanier->addElement($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
+
+		$http = new \Http();
+		$http->redirect('panier.php');
+	}
+
+	// if(isset($_POST['NoteArticle'])){
+	// 	$model = new \Model\Article();
+	// 	$model->note($_GET['articleSelected'], $_SESSION['utilisateur']['id']);
+	// }
+	?>
 </main>
 
 

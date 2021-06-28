@@ -219,3 +219,9 @@ body {
     justify-content: center;
     align-items: center;
 }
+main{
+    min-height:50vh;
+}
+.paniervide{
+    text-align: center;
+}

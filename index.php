@@ -18,6 +18,7 @@ require_once('libraries/config/http.php');
 require_once('libraries/model/Display.php');
 require_once('libraries/Controller/DisplayArticle.php');
 
+
 //PATHS
 $index = "index.php";
 $inscription = "view/inscription.php";
@@ -45,13 +46,13 @@ require('require/html_/header.php');
 ?>
 <main>
 
-<div id="content">
-    <img src="images/13909_b.jpg" alt="Image Index" id="img_index">
-</div>
-<?php
-$controllerArticle = new \Controller\DisplayArticle();
-$controllerArticle->showFivePopularArticles(); 
-?>
+    <div id="content">
+        <img src="images/13909_b.jpg" alt="Image Index" id="img_index">
+    </div>
+    <?php
+    $controllerArticle = new \Controller\DisplayArticle();
+    $controllerArticle->showFivePopularArticles();
+    ?>
 </main>
 
 <?php

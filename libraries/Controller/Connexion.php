@@ -1,6 +1,9 @@
 <?php
 
 namespace Controller;
+
+
+
 require($Http);
 require_once($utils);
 require("Controller.php");
@@ -16,7 +19,7 @@ class Connexion extends Controller
 
             $modelConnexion = new \Model\Connexion();
             $ControllerConnexion = new \Controller\Connexion();
-            
+
             $login = $ControllerConnexion->secure($login);
             $password = $ControllerConnexion->secure($password);
 
@@ -26,9 +29,9 @@ class Connexion extends Controller
 
                 if (password_verify($password, $passwordSql['password'])) {
                     $_SESSION['connected'] = true;
-                    $utilisateur = $modelConnexion->selectAllWhere('utilisateurs','login',$login);
+                    $utilisateur = $modelConnexion->selectAllWhere('utilisateurs', 'login', $login);
                     $_SESSION['utilisateur'] = $utilisateur; // la carte d'identité de l'utilisateur à été créer et initialisé dans une $_SESSION
-                    
+
                     $this->id = $utilisateur['utilisateur']['id'];
                     $this->nom = $utilisateur['utilisateur']['nom'];
                     $this->prenom = $utilisateur['utilisateur']['prenom'];
@@ -36,7 +39,7 @@ class Connexion extends Controller
                     $this->email = $utilisateur['utilisateur']['email'];
                     $this->password = $utilisateur['utilisateur']['password'];
                     $this->id_droits = $utilisateur['utilisateur']['id_droits'];
-                    $this->anniversaire =$utilisateur['utilisateur']['anniversaire'];
+                    $this->anniversaire = $utilisateur['utilisateur']['anniversaire'];
 
                     $Http = new \Http();
                     $Http->redirect('profil.php'); // GG WP
@@ -52,4 +55,7 @@ class Connexion extends Controller
         echo $errorLog; // on aurait pu mettre un return mais flemme :-) pour un prochain projet
     }
 
+    public function isConnected()
+    {
+    }
 }

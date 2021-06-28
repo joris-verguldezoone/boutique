@@ -1,5 +1,6 @@
 {
     "require": {
-        "stripe/stripe-php": "^7.76"
+        "stripe/stripe-php": "^7.76",
+        "google/apiclient": "2.9"
     }
 }

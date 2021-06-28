@@ -34,6 +34,7 @@ $typePath = 'articles.php?typeSelected';
 $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';
 require('../require/html_/header.php');
+
 ?>
 
 <?php
@@ -48,11 +49,10 @@ $mention = "mention.php";
 <main>
     <?php
 
-        $controllerDisplay = new \Controller\DisplayPartner();
-        if(isset($_GET['editorSelected'])){
-            $controllerDisplay->displayOneEditor($_GET['editorSelected']);
-
-        }
+    $controllerDisplay = new \Controller\DisplayPartner();
+    if (isset($_GET['editorSelected'])) {
+        $controllerDisplay->displayOneEditor($_GET['editorSelected']);
+    }
 
     ?>
 

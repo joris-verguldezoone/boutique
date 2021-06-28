@@ -20,11 +20,6 @@ class Display extends Model{
         else{
             return $data = "Ne correspond à aucun élément , il ne doit plus y avoir de stock ou l'article n'existe plus";
         }
-
-        // $sql = "SELECT * FROM articles WHERE id_generation IN (?,?,?)";
-        
-        // $result = $this->pdo->prepare($sql);
-        // $result->execute([$tab]);
     }
 
     public function findAllType(){
@@ -170,7 +165,3 @@ class Display extends Model{
 
      
 }
-
-
-
-?>
