@@ -20,6 +20,9 @@ $footer = "../css/footer.css";
 $logo = "../images/logo.jpg";
 $chemin_logo = "../index.php";
 $logo_header = "../images/logo.jpg";
+
+$autocomplete_path = "../libraries/js/header.js";
+
 //PATHS
 $index = "../index.php";
 $inscription = "inscription.php";
@@ -32,6 +35,8 @@ $admin = "admin.php";
 $deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
+$contact = "contact.php";
+
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
@@ -177,6 +182,7 @@ $Http = new \Http();
 
 
         <?php
+
                     $controllerDisplayProfil = new \Controller\DisplayProfil();
                     $controllerDisplayProfil->displayAdress();
                     echo '</section>';
@@ -185,8 +191,12 @@ $Http = new \Http();
                     $count = $controllerDisplayProfil->selectCount('commande', 'id_utilisateur', $_SESSION['utilisateur']['id']);
                     $int = intval($count[0]['COUNT(*)']);
                     if ($int > 0) {
+                        if (isset($_SESSION['utilisateur'])) {
+                            $fetch = $controllerDisplayProfil->historiqueAchat($_SESSION['utilisateur']['id']);
+                        } elseif (isset($_SESSION['user'])) {
 
-                        $fetch = $controllerDisplayProfil->historiqueAchat($_SESSION['utilisateur']['id']);
+                            $fetch = $controllerDisplayProfil->historiqueAchat($_SESSION['user']['sub']);
+                        }
                     }
                     echo '</section>';
         ?>
@@ -210,8 +220,16 @@ $Http = new \Http();
 
 
 
-    <?php } ?>
+    <?php }
+                if (isset($_SESSION['user'])) {
 
+                    $controllerDisplayProfil->getAllLike($_SESSION['user']['sub']);
+                }
+                if (isset($_SESSION['utilisateur'])) {
+                    $controllerDisplayProfil->getAllLike($_SESSION['utilisateur']['id']);
+                }
+
+    ?>
 
 
 </main>

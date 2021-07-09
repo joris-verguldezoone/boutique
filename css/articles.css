@@ -24,6 +24,21 @@
     margin: 2% 2% 1% 5%;
     box-shadow: 2px 2px 2px;
 }
+.pageNumber{
+    height:20px;
+    width:20px;
+    background-color: rgb(211, 203, 193);
+    color:black;
+    display: flex;
+    justify-content: center;
+    margin: 1%;
+}
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
 
 
 /* .form_article {

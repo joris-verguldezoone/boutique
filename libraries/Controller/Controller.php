@@ -15,6 +15,7 @@ abstract class Controller
     protected $anniversaire = "";
     protected $id_adresse = "";
     const PAR_PAGE = 5;
+    const PAR_PAGE_2 = 11;
     const DEFAULT_PRODUCT_IMAGE = 'https://m.media-amazon.com/images/S/aplus-media/vc/45b772ea-9925-4af1-b325-8d5f4b4826a0.__CR0,30,970,600_PT0_SX970_V1___.jpg';
 
     // articles

@@ -19,6 +19,9 @@ $footer = "../css/footer.css";
 $logo = "../images/logo.jpg";
 $chemin_logo = "../index.php";
 $logo_header = "../images/logo.jpg";
+
+$autocomplete_path = "../libraries/js/header.js";
+
 //PATHS
 $index = "../index.php";
 $inscription = "inscription.php";
@@ -31,6 +34,8 @@ $admin = "admin.php";
 $deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
+$contact = "contact.php";
+
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
@@ -39,7 +44,7 @@ $gammePath =  'articles.php?gammeSelected';
 $headerJS = '../libraries/js/header.js';
 
 require('../require/html_/header.php');
-var_dump($_SESSION);
+// var_dump($_SESSION);
 ?>
 <main>
     <h1>Connectez-vous !</h1>
@@ -61,7 +66,7 @@ var_dump($_SESSION);
     <meta name="google-signin-client_id" content="1005217148028-lc9gsl07v3enlepc7ld5uut8cj0sqbl9.apps.googleusercontent.com">
     <section class="container">
         <section class="connection-button">
-            <img class="connection-illustration img-fluid" src="{{ BASE_PATH }}/View/images/login-picture.svg" alt="connection illustration">
+            <!-- <img class="connection-illustration img-fluid" src="{{ BASE_PATH }}/View/images/login-picture.svg" alt="connection illustration"> -->
             <br>
             <h1 class="text-banner">Join your Plateforme friend's</h1>
             <a href="#" onclick="signOut();">Sign out</a>

@@ -86,7 +86,6 @@ class DisplayProfil extends Controller
         <div class="test">';
             $i = 0;
             $a = 0;
-            var_dump($fetchAdress);
             foreach ($fetchAdress as $value) {
                 $a++;
                 echo '<form method="GET" action="">
@@ -350,53 +349,96 @@ class DisplayProfil extends Controller
         $date = new \DateTime();
         // $date=date_create("2013-03-15");
         // echo ;
+
         echo '<section class="section_historique">';
         echo "<h2>Mon historique des commandes</h2>";
-        foreach ($fetchCommande as $value) {
-            $date = date_create($value['date']);
 
-            $dateFormated = date_format($date, "Y/m/d");
-            // echo $dateFormated;
-            echo "<div class='mise_en_page_panier'>";
-            echo "<table>";
-            // $sumPrix = 0;
-            echo "  <tr>
-                                <td><img class='img_panier' src='" . $value['image_article'] . "'></td>
-                                <td class='titre_article_commande'>" . $value['titre'] . "</td>
-                                <td class='prix_article_commande'>" . $value['prix'] . "€</td>
-                                <td class='font_date'>" . $dateFormated . "</td>
-                        
-                                
-                            </tr>";
+        $page = 1;
+
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
         }
-        echo "</table>";
+
+        $pageArticles = '';
+
+
+
+        echo "<table>";
+        for ($i = (self::PAR_PAGE) * ($page - 1); $i < self::PAR_PAGE * $page && $i < count($fetchCommande); $i++) {
+            while (isset($fetchCommande)) {
+
+                // echo $dateFormated;
+                echo "<div class='mise_en_page_panier'>";
+                // $sumPrix = 0;
+                echo "  <tr>
+                            <td><img class='img_panier' src='" . $fetchCommande[$i]['image_article'] . "'></td>
+                            <td class='titre_article_commande'>" . $fetchCommande[$i]['titre'] . "</td>
+                            <td class='prix_article_commande'>" . $fetchCommande[$i]['prix'] . "€</td>
+                            <td class='font_date'>" . $fetchCommande[$i]['date'] . "</td>
+                            
+                                    
+                        </tr>";
+                break;
+            }
+        }
         echo "</section>";
+        echo "</table>";
+
+        // echo "</table>";
+        $page_item = '';
+        $start = 0;
+
+        $limite = " limite " . $start . "," . self::PAR_PAGE;
+
+        $row_count = count($fetchCommande);
+        if (!empty($row_count)) {
+            $page_count = ceil($row_count / self::PAR_PAGE);
+            if ($page_count > 1) {
+                for ($i = 1; $i <= $page_count; $i++) {
+                    if ($i == $page) {
+                        $page_item .=  "<section class='pageNumber'><a href='profil.php?Articles=?&page=$i'>$i</a>  </section> ";
+                    } else {
+                        $page_item .=  "<section class='pageNumber'><a href='profil.php?Articles=?&page=$i'>$i</a>  </section> ";
+                    }
+                }
+            }
+            $page_item .= '</div>';
+        }
+
+        echo "<form method='get' action='admin.php' class='pagination'>";
+
+        echo $page_item;
+
+        echo "</form>";
+    }
+
+    public function getAllLike($id_utilisateur)
+    {
+        $model = new \Model\Profil();
+        $result_like = $model->selectAllWhereFetchAll('likey', 'id_utilisateur', $id_utilisateur);
+        // var_dump($result_like);
+
+        $tab = array();
+        if (!empty($result_like)) {
+            // echo 'coucou';
+            foreach ($result_like as $value) {
+
+                $tab[] .= $value['id_article'];
+            }
+            // var_dump($tab);
+            $result = $model->multipleSelect($tab, 'articles', 'id');
+            // echo $tab[0]['image'];
+            echo '<div class="like_container">
+            <h2>Contenu aimé</h2>';
+            foreach ($result as $value) {
+                echo '<img class="like_img" src="' . $value['image'] . '" alt="image d un article" >';
+                echo "<p class='titre_article_commande'>" . $value['titre'] . "</p>";
+                echo "<p class='prix_article_commande'>" . $value['prix'] . "€</p>";
+            }
+            echo '</div>';
+            // var_dump($result);
+        } else {
+            echo '<div class="like_container"><h2> Contenu aimé </h2><br /><p>aucun résultat</p>';
+        }
     }
 }
-// $i = 0;
-// foreach($fetchCommande AS $ok){
-//     $previousValue = $ok['date'];
-//     $i++;
-//     echo($i);
-//     // foreach($fetchCommande AS $value){
-//         echo '<div style="display:flex; flex-direction:column;">';
-        
-//         echo '</div>';  
-//         if($value['date'] != $previousValue)
-//         {
-//             // echo 'différent'.$value['date'];
-//             echo '<img class="dimension_image"src="'.$ok['image_article'].'">';
-//             echo $ok['titre'];
-//             echo $ok['prix'];
-//             echo $ok['date'];
-//         }else{
-//             echo '<img class="dimension_image"src="'.$ok['image_article'].'">';
-//             echo $ok['titre'];
-//             echo $ok['prix'];
-//             echo $ok['date'];
-//         }
-//         break;
-//     // }
- 
-// }
-// echo'</div>';

@@ -22,6 +22,9 @@ $footer = "../css/footer.css";
 $logo = "../images/logo.jpg";
 $chemin_logo = "../index.php";
 $logo_header = "../images/logo.jpg";
+
+$autocomplete_path = "../libraries/js/header.js";
+
 //PATHS
 $index = "../index.php";
 $inscription = "inscription.php";
@@ -34,63 +37,71 @@ $admin = "admin.php";
 $deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
+$contact = "contact.php";
+
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
 $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';
+$headerJS = '../libraries/js/header.js';
+
 require('../require/html_/header.php');
 
 
-if(isset($_POST['prix']) && !empty($_POST['prix'])){
+if (isset($_POST['prix']) && !empty($_POST['prix'])) {
     require_once('../vendor/autoload.php');
     $prix = (float)$_POST['prix'];
     $controller = new \Controller\Panier();
-    $prixConfirmation = $controller->sumPrice($_SESSION['utilisateur']['id']);
-    if($prix == $prixConfirmation){
+    if (isset($_SESSION['utilisateur'])) {
+        $prixConfirmation = $controller->sumPrice($_SESSION['utilisateur']['id']);
+    } elseif (isset($_SESSION['user'])) {
 
-    
-
-    \Stripe\Stripe::setApiKey('sk_test_51IKUynKWS3ZgsIjcO3ntL9tOY3bTU7E987jiDikuVrHBXqtSzkpz4Bzx0zFYEpkKLPkjaRGoRJzIurCBZ9wkzVna00IJo7PfSy');
-
-    $intent = \Stripe\PaymentIntent::create([
-        'amount' => $prix * 100,
-        'currency' => 'eur'
-    ]);
-
-    // echo '<pre>';
-    // var_dump($intent);
-    // echo '</pre>';
-    // die();
+        $prixConfirmation = $controller->sumPrice($_SESSION['user']['sub']);
     }
-    else{
+    if ($prix == $prixConfirmation) {
+
+
+
+        \Stripe\Stripe::setApiKey('sk_test_51IKUynKWS3ZgsIjcO3ntL9tOY3bTU7E987jiDikuVrHBXqtSzkpz4Bzx0zFYEpkKLPkjaRGoRJzIurCBZ9wkzVna00IJo7PfSy');
+
+        $intent = \Stripe\PaymentIntent::create([
+            'amount' => $prix * 100,
+            'currency' => 'eur'
+        ]);
+
+        // echo '<pre>';
+        // var_dump($intent);
+        // echo '</pre>';
+        // die();
+    } else {
         echo 'va hacker ta grand mere deuh pas';
     }
-}
-else{
+} else {
     header('Location: panier.php');
 }
 
 
 ?>
 <main>
-    <form method='POST' class='form'> <!-- en js donc pas d'action -->
+    <form method='POST' class='form'>
+        <!-- en js donc pas d'action -->
         <h3 class='h3'>Paiement sécurisé</h3>
-        <div class='div' id='errors'></div> 
+        <div class='div' id='errors'></div>
         <!-- contiendra les msg d'erreur de paiment -->
-        <input class='input' type='text' id='card-owner-name' placeholder='titulaire de la carte'> 
-        <div class='div' id='card-elements'></div> 
+        <input class='input' type='text' id='card-owner-name' placeholder='titulaire de la carte'>
+        <div class='div' id='card-elements'></div>
         <!-- info de carte -->
         <div class='div' id='card-errors' role='alert'></div>
         <!-- erreur relative a la carte, fausse/ expiration etc -->
-        <button  class='button' id='card-button' type='button' name='test' data-secret="<?= $intent['client_secret'] ?>">Procéder au paiement</button>
+        <button class='button' id='card-button' type='button' name='test' data-secret="<?= $intent['client_secret'] ?>">Procéder au paiement</button>
     </form>
 </main>
 <?php
 // var_dump($intent);
 // var_dump($_SESSION['adresseSelected']);
 
- 
+
 ob_end_flush();
 
 $chronopost = "../images/chronopost.png";

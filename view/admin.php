@@ -33,6 +33,11 @@ $admin = "admin.php";
 $deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
+$contact = "contact.php";
+
+
+$autocomplete_path = "../libraries/js/header.js";
+
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
@@ -139,7 +144,7 @@ $http = new \Http();
 
                     if (isset($_GET['addElement'])) {
                         echo '<span class="titre_block">Ajouter un element</span>';
-                        echo '<form action="" method="GET">
+                        echo '<form action="" method="POST">
                     <div class="flex_row_buttons_label">
 
                         <label for="createType">Créer un nouveau type d article</label>
@@ -149,8 +154,8 @@ $http = new \Http();
                     </div>
                 </form>';
 
-                        if (isset($_GET['submitType'])) {
-                            $controllerAdmin->verifyAndInsertTwo('type', 'nom', 'image', $_GET['createType'], $_GET['createTypeImg']);
+                        if (isset($_POST['submitType'])) {
+                            $controllerAdmin->verifyAndInsertTwo('type', 'nom', 'image', $_POST['createType'], $_POST['createTypeImg']);
                         }
                         // ajouter une nouvelle gamme
                     ?>
@@ -222,7 +227,6 @@ $http = new \Http();
 
                                 <?php
                                 if (isset($_POST['submitGeneration'])) {
-                                    echo 'coucou';
                                     $controllerAdmin->createWithThreeValues('generation', 'nom', 'id_type', 'id_marque', $_POST['NameGeneration'], $_POST['GenerationSelected1'], $_POST['GenerationSelected2']);
                                 }
                                 ?>

@@ -28,11 +28,19 @@ $admin = "admin.php";
 $deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
+$contact = "contact.php";
+
+
+$autocomplete_path = "../libraries/js/header.js";
+
+
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
 $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';
+$headerJS = '../libraries/js/header.js';
+
 require('../require/html_/header.php');
 ?>
 
@@ -48,11 +56,10 @@ $mention = "mention.php";
 <main>
     <?php
 
-        $controllerDisplay = new \Controller\DisplayPartner();
-        if(isset($_GET['marqueSelected'])){
-            $controllerDisplay->displayOneBrand($_GET['marqueSelected']);
-
-        }
+    $controllerDisplay = new \Controller\DisplayPartner();
+    if (isset($_GET['marqueSelected'])) {
+        $controllerDisplay->displayOneBrand($_GET['marqueSelected']);
+    }
 
     ?>
 

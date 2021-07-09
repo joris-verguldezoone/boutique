@@ -19,6 +19,9 @@ $footer = "../css/footer.css";
 $logo = "../images/logo.jpg";
 $chemin_logo = "../index.php";
 $logo_header = "../images/logo.jpg";
+
+$autocomplete_path = "../libraries/js/header.js";
+
 //PATHS
 $index = "../index.php";
 $inscription = "inscription.php";
@@ -31,57 +34,61 @@ $admin = "admin.php";
 $deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
+$contact = "contact.php";
+
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
 $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';
+$headerJS = '../libraries/js/header.js';
+
 
 require('../require/html_/header.php');
 
 ?>
 <main>
     <h1>Inscrivez-vous !</h1>
-<div id="test">
-<article id="bloc_inscription">
-    <form class="block" method="POST" action="inscription.php">
-            <div>
+    <div id="test">
+        <article id="bloc_inscription">
+            <form class="block" method="POST" action="inscription.php">
                 <div>
-                    <label for="login" name="login" class="inp">Login</label><br>
+                    <div>
+                        <label for="login" name="login" class="inp">Login</label><br>
                         <input type="text" id="ConnexionLogin" name="login" placeholder="&nbsp;" required>
-                </div>
-                <div>
-                    <label for="password" name="password" class="inp">Password</label><br>
+                    </div>
+                    <div>
+                        <label for="password" name="password" class="inp">Password</label><br>
                         <input type="password" id="ConnexionLogin" name="password" placeholder="&nbsp;" required>
+                    </div>
                 </div>
-            </div>
-            <div>
                 <div>
-                    <label for="confirm_password" name="password" class="inp">Confirm Password</label><br>
+                    <div>
+                        <label for="confirm_password" name="password" class="inp">Confirm Password</label><br>
                         <input type="password" id="inscriptionConfirm_password" name="confirm_password" placeholder="&nbsp;" required>
+                    </div>
+                    <div>
+                        <label for="email" name="email" class="inp">Email</label><br>
+                        <input type="email" id="inscriptionEmail" name="email" placeholder="&nbsp;" required>
+                    </div>
                 </div>
-                <div>
-            <label for="email" name="email" class="inp">Email</label><br>
-                <input type="email" id="inscriptionEmail" name="email" placeholder="&nbsp;" required>
-                </div>
-            </div>
-            
-        <input type="submit" id="inscriptionSubmit" value="register" name="register">
-        <?php
 
-if (isset($_POST['register'])) {
-    
-    $newUser = new \Controller\Inscription(); // prend pas le bon
-    $newUser->register($_POST['login'], $_POST['password'], $_POST['confirm_password'], $_POST['email']);
-}
+                <input type="submit" id="inscriptionSubmit" value="register" name="register">
+                <?php
 
-        ?>
-        </form>
+                if (isset($_POST['register'])) {
+
+                    $newUser = new \Controller\Inscription(); // prend pas le bon
+                    $newUser->register($_POST['login'], $_POST['password'], $_POST['confirm_password'], $_POST['email']);
+                }
+
+                ?>
+            </form>
         </article>
-        </div>
+    </div>
 
 
-    </main>
+</main>
 <?php
 //FOOTER
 

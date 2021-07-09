@@ -21,6 +21,8 @@ $logo = "../images/logo.jpg";
 $chemin_logo = "../index.php";
 $logo_header = "../images/logo.jpg";
 //PATHS
+$autocomplete_path = "../libraries/js/header.js";
+
 $index = "../index.php";
 $inscription = "inscription.php";
 $connexion = "connexion.php";
@@ -32,6 +34,8 @@ $admin = "admin.php";
 $deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
+$contact = "contact.php";
+
 
 $carteGraphique = 'articles.php?carteGraphique';
 $processeur = 'articles.php?processeur';
@@ -50,6 +54,5 @@ $gammePath =  'articles.php?gammeSelected';
 
 require_once('../require/html_/header.php');
 session_destroy();
-header('Location: '.$index);
+header('Location: ' . $index);
 ob_end_flush();
-?>

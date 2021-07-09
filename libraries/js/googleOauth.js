@@ -12,6 +12,8 @@ function onSignIn(googleUser) {
 
     }).done(function (data) {
         console.log(data);
+        window.location.replace("profil.php");
+
     })
 }
 function signOut() {

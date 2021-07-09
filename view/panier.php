@@ -25,6 +25,9 @@ $footer = "../css/footer.css";
 $logo = "../images/logo.jpg";
 $chemin_logo = "../index.php";
 $logo_header = "../images/logo.jpg";
+
+$autocomplete_path = "../libraries/js/header.js";
+
 //PATHS
 $index = "../index.php";
 $inscription = "inscription.php";
@@ -37,17 +40,21 @@ $admin = "admin.php";
 $deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
+$contact = "contact.php";
+
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
 $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';
+$headerJS = '../libraries/js/header.js';
+
 require('../require/html_/header.php');
 // echo "<link rel='stylesheet' href='../css/profil.css'>";
 
 ?>
 <main>
-<!-- <form method='POST' action='paiement.php'>
+    <!-- <form method='POST' action='paiement.php'>
 
 <label for='prix'> Prix: </label>
 <input type='text' id='prix' name='prix'>
@@ -55,31 +62,40 @@ require('../require/html_/header.php');
 <button>Procéder au paiment</button>
 
 </form> -->
-<?php
-$newUserModel = new \Model\Panier();
-$controller = new \Controller\Panier();
-$id_utilisateur = $_SESSION['utilisateur']['id'];   
-$rowCount = $newUserModel->rowCount('panier','id_utilisateur', $id_utilisateur);
-$rowCount = intval($rowCount[0]['COUNT(*)']);
-    
+    <?php
+    $newUserModel = new \Model\Panier();
+    $controller = new \Controller\Panier();
+    if (isset($_SESSION['utilisateur'])) {
 
-// var_dump($fetch);
-// echo $fetch[0]['id_adresse'];
-if($rowCount >= 1){ 
-    
-    $controller->displayPanier($_SESSION['utilisateur']['id']);
-  
-      
+        $id_utilisateur = $_SESSION['utilisateur']['id'];
+        $rowCount = $newUserModel->rowCount('panier', 'id_utilisateur', $id_utilisateur);
+        $rowCount = intval($rowCount[0]['COUNT(*)']);
+    }
+    if (isset($_SESSION['user'])) {
+        $id_utilisateur = $_SESSION['user']['sub'];
+        $rowCount = $newUserModel->rowCount('panier', 'id_utilisateur', $id_utilisateur);
+        $rowCount = intval($rowCount[0]['COUNT(*)']);
+    }
 
-}
-else{
-    echo '
+
+    // var_dump($fetch);
+    // echo $fetch[0]['id_adresse'];
+    if ($rowCount >= 1) {
+
+        if (isset($_SESSION['utilisateur'])) {
+            $controller->displayPanier($_SESSION['utilisateur']['id']);
+        } elseif (isset($_SESSION['user'])) {
+
+            $controller->displayPanier($_SESSION['user']['sub']);
+        }
+    } else {
+        echo '
         <div class="paniervide">
             <span >Votre panier est vide</span>
         </div>';
     }
     // var_dump($_SESSION);
-?>
+    ?>
 
 </main>
 <?php

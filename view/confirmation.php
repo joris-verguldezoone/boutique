@@ -16,6 +16,9 @@ $footer = "../css/footer.css";
 $logo = "../images/logo.jpg";
 $chemin_logo = "../index.php";
 $logo_header = "../images/logo.jpg";
+
+$autocomplete_path = "../libraries/js/header.js";
+
 //PATHS
 $index = "../index.php";
 $inscription = "inscription.php";
@@ -28,6 +31,8 @@ $admin = "admin.php";
 $deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
+$contact = "contact.php";
+
 
 //HEADER
 $all_ArticlesPath = 'articles.php?';
@@ -38,6 +43,7 @@ $gammePath =  'articles.php?gammeSelected';
 $chronopost = "../images/chronopost.png";
 $colissimo = "../images/colissimo.png";
 $mention = "mention.php";
+$headerJS = '../libraries/js/header.js';
 
 require('../require/html_/header.php');
 

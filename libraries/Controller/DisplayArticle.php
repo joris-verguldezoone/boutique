@@ -6,20 +6,21 @@ require_once('Controller.php');
 
 class DisplayArticle extends Controller
 {
-    public function transitOneColumn($tab_form)
+    public function transitOneColumn($tab)
     {
-        $tab = array();
 
-        foreach ($tab_form as $value) {
-            array_push($tab, $value);
-            $key = array_search($tab_form['search_GC'], $tab);
-            if (false !== $key) { // permet d'enlever la valeur de $_GET['search_GC'] qui renvoit les valeurs mal configurés (id = 0 en sql) et les affichaient par erreur
-                unset($tab[$key]);
-            }
-        }
+        // foreach ($tab_form as $value) {
+        //     array_push($tab, $value);
+        //     $key = array_search($tab_form['search_GC'], $tab);
+        //     if (false !== $key) { // permet d'enlever la valeur de $_GET['search_GC'] qui renvoit les valeurs mal configurés (id = 0 en sql) et les affichaient par erreur
+        //         unset($tab[$key]);
+        //     }
+        // }
 
         $checkBoxSearch = new \Model\Display();
+
         $result = $checkBoxSearch->selectCheckBox($tab);
+
         if ($result != "Ne correspond à aucun élément , il ne doit plus y avoir de stock ou l'article n'existe plus") {
             $this->displayArticlesByTab($result);
         } elseif ($result == "Ne correspond à aucun élément , il ne doit plus y avoir de stock ou l'article n'existe plus") {
@@ -32,28 +33,87 @@ class DisplayArticle extends Controller
     {
 
         $i = 0;
-
         $temp = 1;
-        echo '<section class="rowSection">';
-        foreach ($tab as $value) {
-            if ($temp == 4) {
-                $temp = 1;
-            }
-            echo "<form action='article.php' method='get' class='form_article'>";
-            echo "<button type='submit' class='buttom_comp' name='articleSelected' value= '" . $tab[$i]['id'] . "'>";
-            echo "<p class='typo_comp'>" . $tab[$i]['titre'] . "<u></u></p>";
-            echo "<img src='" . $tab[$i]['image'] . "' class='dimension_image'>";
-            echo $tab[$i]['prix'] . "€<br />";
-            echo "</button>";
-            echo "</form>";
-
-            if ($temp % 3 === 0) {
-                echo '</section>';
-                echo '<section  class="rowSection">';
-            }
-            $temp++;
-            $i++;
+        $tour  = 0;
+        $page = 1;
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
         }
+        // var_dump($tab);
+        for ($i = (self::PAR_PAGE_2) * ($page - 1); $i < self::PAR_PAGE_2 * $page && $i < count($tab); $i++) {
+            echo '<section class="rowSection">';
+
+            foreach ($tab as $value) {
+                if ($temp == 4) {
+                    $temp = 1;
+                }
+                if (!isset($tab[$i])) {
+                    break;
+                }
+                echo "<form action='article.php' method='get' class='form_article'>";
+                echo "<button type='submit' class='buttom_comp' name='articleSelected' value= '" . $tab[$i]['id'] . "'>";
+                echo "<p class='typo_comp'>" . $tab[$i]['titre'] . "<u></u></p>";
+                echo "<img src='" . $tab[$i]['image'] . "' class='dimension_image'>";
+                echo  "<p class='prix_typo'>" . $tab[$i]['prix'] . "€</p><br />";
+                echo "</button>";
+                echo "</form>";
+
+                if ($temp % 3 === 0) {
+                    echo '</section>';
+                    echo '<section  class="rowSection">';
+                }
+
+                if ($tour == 10) {
+                    $tour = 0;
+                    // echo '</section>';
+                    break;
+                }
+                $tour++;
+                $temp++;
+                $i++;
+            }
+            echo "</section>";
+        }
+        // echo '</section>';
+
+        $page_item = '';
+        $start = 0;
+        $string_url = "";
+        $url_array = array();
+        foreach ($_GET as $key => $value) {
+
+            $string_url .= $key . '=' . $value . "&";
+
+            $url_array[] .= $value;
+        }
+
+        $limite = " limite " . $start . "," . self::PAR_PAGE_2;
+        $row_count = count($tab);
+        if (!empty($row_count)) {
+            $page_count = ceil($row_count / self::PAR_PAGE_2);
+            if ($page_count > 1) {
+                for ($i = 1; $i <= $page_count; $i++) {
+                    if ($i == $page) {
+                        $page_item .=  "<section class='pageNumber'><a href='articles.php" . $string_url . "page=$i'>$i</a>  </section> ";
+                    } else {
+                        $page_item .=  "<section class='pageNumber'><a href='articles.php?" . $string_url . "page=$i'>$i</a>  </section> ";
+                    }
+                    // GTX_1000=16&RTX_2000=17&RTX_3000=1&RX_5000=13&RX_6000=15&search_GC=Envoyer
+                    // GTX_1000=16&RTX_2000=17&RTX_3000=1&RX_5000=13&RX_6000=15&=?&page=2
+
+
+
+
+                }
+            }
+            $page_item .= '</div>';
+        }
+
+        echo "<form method='get' action='articles.php' class='pagination'>";
+
+        echo $page_item;
+
+        echo "</form>";
     }
     public function transfertID($nomTable) // pour tricher pcq le header autogénéré fallait y penser à la conception de la bdd s/o les sous categories(gammes)
     { // cette fonction sert à ne pas utiliser directement le model dans la view 
@@ -111,47 +171,98 @@ class DisplayArticle extends Controller
         $tab = $modelDisplay->FetchAllselectAllWhereTypeAndBrandOrGamme($colonne, $colonne2, $value1, $value2);
         $i = 0;
         $temp = 1;
-        echo '<section class="rowSection">';
-        foreach ($tab as $value) {
-            if ($temp == 4) { //  ?a c'est le fun qui peut me test svp ??
-                $temp = 1;
-            }
-            echo "<form action='article.php' method='get' class='form_article'>";
-            echo "<button type='submit' class='buttom_comp' name='articleSelected' value= '" . $tab[$i]['id'] . "'>";
-
-
-
-            echo "<p class='typo_comp'>" . $tab[$i]['titre'] . "<u></u></p>";
-
-            // echo "<p class='typo_comp'><u>".$titre."</u></p>";
-            echo "<img src='" . $tab[$i]['image'] . "' class='dimension_image'>";
-
-            // echo $value[2]."<br />";
-            // echo $value[3]."<br />";
-            // echo "<img src='$value[5]'>";
-            // echo "<img src='$value[6]'>";
-            // echo $value[7]."<br />";
-            // echo $tab[$i]['note']."<br />";
-            // echo $value[10]."<br />";
-            // echo $value[11]."<br />";
-            // echo $value[12]."<br />";
-            // echo $value[13]."<br />";  
-            echo "<span class='prix_typo'>" . $tab[$i]['prix'] . "€</span><br />";
-            //echo $tab[$i]['date']."</span><br />";
-            echo "</button>";
-            echo "</form>";
-
-            if ($temp % 3 === 0) {
-                echo '</section>';
-                echo '<section  class="rowSection">';
-            }
-
-            $temp++;
-            $i++;
+        $tour  = 0;
+        $page = 1;
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
         }
+        // var_dump($tab);
+        for ($i = (self::PAR_PAGE_2) * ($page - 1); $i < self::PAR_PAGE_2 * $page && $i < count($tab); $i++) {
+            echo '<section class="rowSection">';
+
+            while (isset($tab)) {
+                if ($temp == 4) {
+                    $temp = 1;
+                }
+                if (!isset($tab[$i])) {
+
+                    break;
+                }
+                echo "<form action='article.php' method='get' class='form_article'>";
+                echo "<button type='submit' class='buttom_comp' name='articleSelected' value= '" . $tab[$i]['id'] . "'>";
+
+                echo "<p class='typo_comp'>" . $tab[$i]['titre'] . "<u></u></p>";
+
+                echo "<img src='" . $tab[$i]['image'] . "' class='dimension_image'>";
+
+                echo "<span class='prix_typo'>" . $tab[$i]['prix'] . "€</span><br />";
+                //echo $tab[$i]['date']."</span><br />";
+                echo "</button>";
+                echo "</form>";
+
+                if ($temp % 3 === 0) {
+                    echo '</section>';
+                    echo '<section  class="rowSection">';
+                }
+
+                if ($tour == 10) {
+                    $tour = 0;
+                    echo '</section>';
+                    break;
+                }
+                $tour++;
+                $temp++;
+                $i++;
+            }
+            echo "</section>";
+        }
+        // echo '</section>';
+
+        $page_item = '';
+        $start = 0;
+
+        $limite = " limite " . $start . "," . self::PAR_PAGE_2;
+        $string_url = "";
+        $url_array = array();
+        foreach ($_GET as $key => $value) {
+
+            $string_url .= $key . '=' . $value . "&";
+
+            $url_array[] .= $value;
+        }
+
+        $limite = " limite " . $start . "," . self::PAR_PAGE_2;
+        $row_count = count($tab);
+        if (!empty($row_count)) {
+            $page_count = ceil($row_count / self::PAR_PAGE_2);
+            if ($page_count > 1) {
+                for ($i = 1; $i <= $page_count; $i++) {
+                    if ($i == $page) {
+                        $page_item .=  "<section class='pageNumber'><a href='articles.php?" . $string_url . "page=$i'>$i</a>  </section> ";
+                    } else {
+                        $page_item .=  "<section class='pageNumber'><a href='articles.php?" . $string_url . "page=$i'>$i</a>  </section> ";
+                    }
+                    // GTX_1000=16&RTX_2000=17&RTX_3000=1&RX_5000=13&RX_6000=15&search_GC=Envoyer
+                    // GTX_1000=16&RTX_2000=17&RTX_3000=1&RX_5000=13&RX_6000=15&=?&page=2
+
+
+
+
+                }
+            }
+            $page_item .= '</div>';
+        }
+        echo '</section>';
+
+        echo "<form method='get' action='articles.php' class='pagination'>";
+
+        echo $page_item;
+
+        echo "</form>";
     }
     public function DisplayOneArticle($id)
     {
+        // var_dump($_SESSION['user']['sub']);
         $modelArticle = new \Model\Display();
         $tab = $modelArticle->selectOne('articles', '*', 'id', $id);
         $like = 0;
@@ -159,20 +270,27 @@ class DisplayArticle extends Controller
 
             $like = $modelArticle->detectLike($_SESSION['utilisateur']['id'], $id);
             $modelArticle = new \Model\Article();
+            // var_dump($like);
             $modelArticle->IncrementView($id, $_SESSION['utilisateur']['id']);
+        } elseif (isset($_SESSION['user']['sub'])) {
+
+            $like = $modelArticle->detectLike($_SESSION['user']['sub'], $id);
+            $modelArticle = new \Model\Article();
+            // var_dump($like);
+            $modelArticle->IncrementView($id, $_SESSION['user']['sub']);
         }
         if ($like) {
-
-            $heartLike = 'far fa-heart';
+            $heartLike = 'fas  fa-heart';
         } else {
 
-            $heartLike = 'fas fa-heart';
+            $heartLike = 'far fa-heart';
         }
         foreach ($tab as $key => $value) {
             //	id titre presentation description image  image_2 image_3 note prix id_utilisateur id_type  id_gamme  id_marque id_generation promo date 
             echo " <section class='main_article'> 
             
             <div class='box_article_titre'>
+                <input type='hidden' id='hiddenSingleArticle' value='" . $value['id'] . "'
                 <h1 class='titre_article'>" . $value['titre'] . "</h1>
             </div>
             <div class='flex_presentation'>
@@ -213,110 +331,153 @@ class DisplayArticle extends Controller
         $tab = $modelDisplay->selectAll('articles');
         $i = 0;
 
+        $page = 1;
+        $tour  = 0;
         $temp = 1;
-        echo '<section class="rowSection">';
-        foreach ($tab as $value) {
-            if ($temp == 4) { //  ?a c'est le fun qui peut me test svp ??
-                $temp = 1;
-            }
-            echo "<form action='article.php' method='get' class='form_article'>";
-            echo "<button type='submit' class='buttom_comp' name='articleSelected' value= '" . $tab[$i]['id'] . "'>";
-
-
-
-            echo "<p class='typo_comp'>" . $tab[$i]['titre'] . "<u></u></p>";
-
-            // echo "<p class='typo_comp'><u>".$titre."</u></p>";
-            echo "<img src='" . $tab[$i]['image'] . "' class='dimension_image'>";
-
-            // echo $value[2]."<br />";
-            // echo $value[3]."<br />";
-            // echo "<img src='$value[5]'>";
-            // echo "<img src='$value[6]'>";
-            // echo $value[7]."<br />";
-            // echo $tab[$i]['note']."<br />";
-            // echo $value[10]."<br />";
-            // echo $value[11]."<br />";
-            // echo $value[12]."<br />";
-            // echo $value[13]."<br />";  
-            echo "<span class='prix_typo'>" . $tab[$i]['prix'] . "€</span><br />";
-            // echo $tab[$i]['date']."</span><br />";
-            echo "</button>";
-            echo "</form>";
-
-            if ($temp % 3 === 0) {
-                echo '</section>';
-                echo '<section  class="rowSection">';
-            }
-
-            $temp++;
-            $i++;
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
         }
+
+        $pageArticles = '';
+        for ($i = (self::PAR_PAGE) * ($page - 1); $i < self::PAR_PAGE * $page && $i < count($tab); $i++) {
+            if (!isset($tab[$i])) {
+                break;
+            }
+            echo '<section class="rowSection">';
+            foreach ($tab as $value) {
+                if ($temp == 4) { //  ?a c'est le fun qui peut me test svp ??
+                    $temp = 1;
+                }
+                echo "<form action='article.php' method='get' class='form_article'>";
+                echo "<button type='submit' class='buttom_comp' name='articleSelected' value= '" . $tab[$i]['id'] . "'>";
+
+
+
+                echo "<p class='typo_comp'>" . $tab[$i]['titre'] . "<u></u></p>";
+
+                echo "<img src='" . $tab[$i]['image'] . "' class='dimension_image'>";
+                echo "<span class='prix_typo'>" . $tab[$i]['prix'] . "€</span><br />";
+                echo "</button>";
+                echo "</form>";
+                if ($temp % 3 === 0) {
+                    echo '</section>';
+                    echo '<section  class="rowSection">';
+                }
+                if ($tour == 10) {
+                    $tour = 0;
+                    echo '</section>';
+                    break;
+                }
+                $tour++;
+                $temp++;
+                $i++;
+            }
+            echo "</section>";
+        }
+        $page_item = '';
+        $start = 0;
+
+        $limite = " limite " . $start . "," . self::PAR_PAGE_2;
+
+        $row_count = count($tab);
+        if (!empty($row_count)) {
+            $page_count = ceil($row_count / self::PAR_PAGE_2);
+            if ($page_count > 1) {
+                for ($i = 1; $i <= $page_count; $i++) {
+                    if ($i == $page) {
+                        $page_item .=  "<section class='pageNumber'><a href='articles.php?typeSelected=27&All_CG=?&page=$i'>$i</a>  </section> ";
+                    } else {
+                        $page_item .=  "<section class='pageNumber'><a href='articles.php?typeSelected=27&All_CG=?&page=$i'>$i</a>  </section> ";
+                    }
+                }
+            }
+            $page_item .= '</div>';
+        }
+
+        echo "</section>";
+        echo "<form method='get' action='admin.php' class='pagination'>";
+
+        echo $page_item;
+
+        echo "</form>";
     }
     public function displayArticleByType($id_type)
     {
         $modelDisplay = new \Model\Display();
         $tab = $modelDisplay->selectAllWhereFetchAll('articles', 'id_type', $_GET['typeSelected']);
         $i = 0;
-
+        $tour = 0;
         $temp = 1;
-        echo '<section class="rowSection">';
-        foreach ($tab as $value) {
-            if ($temp == 4) { //  ?a c'est le fun qui peut me test svp ??
-                $temp = 1;
-            }
-            echo "<form action='article.php' method='get' class='form_article'>";
-            echo "<button type='submit' class='buttom_comp' name='articleSelected' value= '" . $tab[$i]['id'] . "'>";
 
+        $page = 1;
 
-
-            echo "<p class='typo_comp'>" . $tab[$i]['titre'] . "<u></u></p>";
-
-            // echo "<p class='typo_comp'><u>".$titre."</u></p>";
-            echo "<img src='" . $tab[$i]['image'] . "' class='dimension_image'>";
-
-            // echo $value[2]."<br />";
-            // echo $value[3]."<br />";
-            // echo "<img src='$value[5]'>";
-            // echo "<img src='$value[6]'>";
-            // echo $value[7]."<br />";
-            // echo $tab[$i]['note']."<br />";
-            // echo $value[10]."<br />";
-            // echo $value[11]."<br />";
-            // echo $value[12]."<br />";
-            // echo $value[13]."<br />";  
-            echo "<span class='prix_typo'>" . $tab[$i]['prix'] . "€</span><br />";
-            // echo $tab[$i]['date']."</span><br />";
-            echo "</button>";
-            echo "</form>";
-
-            if ($temp % 3 === 0) {
-                echo '</section>';
-                echo '<section  class="rowSection">';
-            }
-
-            $temp++;
-            $i++;
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
         }
+        echo '<section class="rowSection">';
+        // echo "<table>";
+        for ($i = (self::PAR_PAGE_2) * ($page - 1); $i < self::PAR_PAGE_2 * $page && $i < count($tab); $i++) {
+
+            while (isset($tab[$i])) {
+                if ($temp == 4) { //  ?a c'est le fun qui peut me test svp ??
+                    $temp = 1;
+                }
+                if (!isset($tab[$i])) {
+
+                    break;
+                }
+                echo "<form action='article.php' method='get' class='form_article'>";
+                echo "<button type='submit' class='buttom_comp' name='articleSelected' value= '" . $tab[$i]['id'] . "'>";
+
+                echo "<p class='typo_comp'>" . $tab[$i]['titre'] . "<u></u></p>";
+
+                echo "<img src='" . $tab[$i]['image'] . "' class='dimension_image'>";
+
+                echo "<span class='prix_typo'>" . $tab[$i]['prix'] . "€</span><br />";
+                echo "</button>";
+                echo "</form>";
+
+                if ($temp % 3 === 0) {
+                    echo '</section>';
+                    echo '<section  class="rowSection">';
+                }
+                if ($tour == 10) {
+                    $tour = 0;
+                    echo '</section>';
+                    break;
+                }
+                $tour++;
+                $temp++;
+                $i++;
+            }
+        }
+
+        $page_item = '';
+        $start = 0;
+
+        $limite = " limite " . $start . "," . self::PAR_PAGE_2;
+
+        $row_count = count($tab);
+        if (!empty($row_count)) {
+            $page_count = ceil($row_count / self::PAR_PAGE_2);
+            if ($page_count > 1) {
+                for ($i = 1; $i <= $page_count; $i++) {
+                    if ($i == $page) {
+                        $page_item .=  "<section class='pageNumber'><a href='articles.php?typeSelected=27&All_CG=?&page=$i'>$i</a>  </section> ";
+                    } else {
+                        $page_item .=  "<section class='pageNumber'><a href='articles.php?typeSelected=27&All_CG=?&page=$i'>$i</a>  </section> ";
+                    }
+                }
+            }
+            $page_item .= '</div>';
+        }
+        echo "<form method='get' action='admin.php' class='pagination'>";
+
+        echo $page_item;
+
+        echo "</form>";
+        echo '</section>';
     }
-    //   public function showFivePopularArticles(){
-    //     echo '<h1 id="titre_cate">Nos produits populaires</h2>
-    //     <div class="flex_accueil">';
-
-    //     $modelArticle = new \Model\Article();
-    //     $tab = $modelArticle->findFivePopularArticles();
-    //         foreach($tab as $key => $value)
-    //     {
-    //         echo"
-    //         <div class='box_flex_accueil'>
-    //         <span class='typo_comp_accueil'>".$value[1]."</span>
-    //         <img class='second_img' src='".$value[4]."'>
-    //         <p class='prix_accueil'>".$value[8]."€</p>
-    //         </div>";
-    //     }
-
-    //     echo '</div>';
-    // }
     public function showFivePopularArticles()
     {
 

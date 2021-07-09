@@ -11,6 +11,9 @@ $footer = "css/footer.css";
 $logo = "images/logo.jpg";
 $chemin_logo = "index.php";
 $logo_header = "images/logo.jpg";
+
+$autocomplete_path = "libraries/js/header.js";
+
 require('libraries/Controller/Display.php');
 require('libraries/Model/Article.php');
 require_once('libraries/config/utils.php');
@@ -31,14 +34,14 @@ $admin = "view/admin.php";
 $deconnexion = "view/deconnexion.php";
 $marques = 'view/marques.php';
 $editeurs = 'view/editeurs.php';
+$contact = "view/contact.php";
+
 //HEADER
 $all_ArticlesPath = 'view/articles.php?';
 $typePath = 'view/articles.php?typeSelected';
 $marquePath = 'view/articles.php?marqueSelected';
 $gammePath =  'view/articles.php?gammeSelected';
-
-
-
+$headerJS = 'libraries/js/header.js';
 
 require('require/html_/header.php');
 

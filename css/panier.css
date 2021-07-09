@@ -93,12 +93,16 @@ table{
     padding: 30px;
     border-radius: 1em;
     margin-top: 1em;
+    background-color: #D4C2FC;
+
 }
 
 .btn_display_adress_flex {
     display: flex;
     flex-direction: row;
     margin-left: 2%;
+    align-items: center;
+    justify-content: center;
 }
 
 #profil_photo {
@@ -206,9 +210,6 @@ h3 {
     align-self: center;
 }
 
-body {
-    background-color: whitesmoke;
-}
 
 #center_info_profil {
     margin-top: 2vh;
@@ -224,4 +225,135 @@ main{
 }
 .paniervide{
     text-align: center;
+}
+@media (min-width: 1250px) and (max-width: 1949px) {
+  
+
+}
+
+@media (min-width: 1250px) and (max-width: 1549px) {
+  
+
+    
+} 
+@media (min-width: 1000px) and (max-width: 1249px) {
+    .button_display_adress{
+        width:15vw;
+    }
+    .adressMenuBlock{
+     width:35vh;   
+    }
+
+}
+@media (min-width: 750px) and (max-width: 1000px) {
+  
+    .img_panier{
+        height:150px;
+        width:150px;
+    }
+    .paiement_button_disabled{
+        width:20vh;
+    }
+
+    .adress_block{
+        flex-direction: column;
+    }
+    input{
+        width:20vw;
+    }
+    .btn_display_adress_flex{
+
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+    main{
+        min-height:70vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .adressMenuBlock{
+        margin-top: 40px;
+    }
+    .test{
+        margin-top: 40px;
+    }
+            
+}
+@media (min-width: 500px) and (max-width: 750px) {
+    .img_panier{
+        height:150px;
+        width:150px;
+    }
+    .paiement_button_disabled{
+        width:20vh;
+    }
+
+    .adress_block{
+        flex-direction: column;
+    }
+    input{
+        width:20vw;
+    }
+    .btn_display_adress_flex{
+
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+    main{
+        min-height:70vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .adressMenuBlock{
+        margin-top: 40px;
+    }
+    .test{
+        margin-top: 40px;
+        
+    }
+}
+@media (max-width: 499px) {
+
+    .paiement_button_disabled{
+        width:30vh;
+    }
+    .img_panier{
+        height:100px;
+        width:100px;
+    }
+    td{
+        padding:0px;
+    }
+    .adress_block{
+        flex-direction: column;
+    }
+    input{
+        width:30vw;
+    }
+    .btn_display_adress_flex{
+
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+    main{
+        min-height:70vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .adressMenuBlock{
+        margin-top: 40px;
+        width:80vw;
+        padding:15px;
+        
+    }
+    .test{
+        margin-top: 40px;
+        
+    }
 }

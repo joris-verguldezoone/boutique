@@ -51,6 +51,17 @@ abstract class Model
         $fetch = $result->fetchAll();
         return $fetch;
     }
+    public function selectAllWhereTwoValue($nomTable, $colonne, $colonne2, $value, $value2)
+    {
+        $sql = "SELECT * FROM $nomTable WHERE $colonne = :value AND $colonne2 = :value2";
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(":value", $value);
+        $result->bindValue(":value2", $value2);
+        $result->execute();
+
+        $fetch = $result->fetchAll();
+        return $fetch;
+    }
     public function selectAllWhere($nomTable, $colonne, $value)
     { // select * where value = value
         $sql = "SELECT * FROM $nomTable WHERE $colonne= ?";
@@ -107,6 +118,20 @@ abstract class Model
         $fetch = $result->fetchAll();
         return $fetch;
     }
+    public function checkThreeValue($nomTable, $colonne, $colonne2, $colonne3, $value, $value2, $value3)
+    {
+
+        $sql = "SELECT $colonne, $colonne2 FROM $nomTable WHERE $colonne = :value AND $colonne2 = :value2 AND $colonne3 = :value3";
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(':value', $value);
+        $result->bindValue(':value2', $value2);
+        $result->bindValue(':value3', $value3);
+        $result->execute();
+
+        $fetch = $result->fetchAll();
+        // echo json_encode($fetch);
+        return $fetch;
+    }
     // GENERIC INSERT
     public function insertOneValue($nomTable, $colonne, $value)
     {
@@ -138,6 +163,13 @@ abstract class Model
         $sql = "DELETE FROM $nomTable WHERE id = :id";
         $result = $this->pdo->prepare($sql);
         $result->bindvalue(':id', $id, \PDO::PARAM_INT);
+        $result->execute();
+    }
+    public function deleteOneWhereValue($nomTable, $col, $value)
+    {
+        $sql = "DELETE FROM $nomTable WHERE $col = :value";
+        $result = $this->pdo->prepare($sql);
+        $result->bindvalue(':value', $value, \PDO::PARAM_STR);
         $result->execute();
     }
     // GENERIC UPDATE 
@@ -204,7 +236,7 @@ abstract class Model
     {
         $sql = "SELECT id FROM likey WHERE id_utilisateur = :id_utilisateur AND id_article = :id_article";
         $result = $this->pdo->prepare($sql);
-        $result->bindValue(':id_utilisateur', $id_utilisateur, \PDO::PARAM_INT);
+        $result->bindValue(':id_utilisateur', $id_utilisateur, \PDO::PARAM_STR);
         $result->bindValue(':id_article', $id_article, \PDO::PARAM_INT);
 
         $result->execute();
@@ -223,14 +255,14 @@ abstract class Model
             $sql = "INSERT INTO likey (id_article, id_utilisateur) VALUES (:id_article, :id_utilisateur)";
             $result = $this->pdo->prepare($sql);
             $result->bindValue(':id_article', $id_article, \PDO::PARAM_INT);
-            $result->bindValue(':id_utilisateur', $id_utilisateur, \PDO::PARAM_INT);
+            $result->bindValue(':id_utilisateur', $id_utilisateur, \PDO::PARAM_STR);
 
             $result->execute();
         } else {
             $sql = "DELETE FROM likey WHERE id_article = :id_article AND id_utilisateur = :id_utilisateur";
             $result = $this->pdo->prepare($sql);
             $result->bindValue(':id_article', $id_article, \PDO::PARAM_INT);
-            $result->bindValue(':id_utilisateur', $id_utilisateur, \PDO::PARAM_INT);
+            $result->bindValue(':id_utilisateur', $id_utilisateur, \PDO::PARAM_STR);
 
             $result->execute();
         }
@@ -288,5 +320,23 @@ abstract class Model
         $fetch = $result->fetchAll();
 
         return $fetch;
+    }
+    public function multipleSelect($tab, $table, $colonne)
+    {
+        // tab c'est un tableau 
+        if ($tab != null) {
+            // je remplace les valeurs de tab par des ? pour les binder
+            $in  = str_repeat('?,', count($tab) - 1) . '?';
+            // je donne un tableau de ? 
+            $sql = "SELECT * FROM $table WHERE $colonne IN ($in)";
+            $result = $this->pdo->prepare($sql);
+            // je donne le bind 
+            $result->execute($tab);
+            $data = $result->fetchAll();
+
+            return $data;
+        } else {
+            return $data = "Ne correspond à aucun élément , il ne doit plus y avoir de stock ou l'article n'existe plus";
+        }
     }
 }

@@ -19,6 +19,9 @@ $footer = "../css/footer.css";
 $logo = "../images/logo.jpg";
 $chemin_logo = "../index.php";
 $logo_header = "../images/logo.jpg";
+
+$autocomplete_path = "../libraries/js/header.js";
+
 //PATHS
 $index = "../index.php";
 $inscription = "inscription.php";
@@ -31,34 +34,41 @@ $admin = "admin.php";
 $deconnexion = "deconnexion.php";
 $marques = 'marques.php';
 $editeurs = 'editeurs.php';
+$contact = "contact.php";
+
 
 //HEADER
 $all_ArticlesPath = 'articles.php?';
 $typePath = 'articles.php?typeSelected';
 $marquePath = 'articles.php?marqueSelected';
 $gammePath =  'articles.php?gammeSelected';
+$headerJS = '../libraries/js/header.js';
+
 require('../require/html_/header.php');
 
 
 
 $model = new \Model\Panier();
-$tab = $model->selectAllWhereFetchAll('panier','id_utilisateur',$_SESSION['utilisateur']['id']);
+if (isset($_SESSION['utilisateur'])) {
+    $tab = $model->selectAllWhereFetchAll('panier', 'id_utilisateur', $_SESSION['utilisateur']['id']);
+} elseif (isset($_SESSION['user'])) {
 
-foreach($tab as $value){
+    $tab = $model->selectAllWhereFetchAll('panier', 'id_utilisateur', $_SESSION['user']['sub']);
+}
+
+foreach ($tab as $value) {
 
     $id_utilisateur = $value['id_utilisateur'];
     $id_article = $value['id_article'];
     $image_article = $value['image_article'];
     $titre = $value['titre'];
     $prix = $value['prix'];
-    
+
     $model->insertCommande($id_utilisateur, $id_article, $image_article, $titre, $prix, $_SESSION['adresseSelected']);
 }
-    $model->deleteOneWhereId('panier' ,$_SESSION['utilisateur']['id']);
+
 
 $http = new \Http();
 $http->redirect('confirmation.php');
 
 ob_end_flush();
-?>
-

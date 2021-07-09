@@ -32,6 +32,7 @@ echo "
     <link rel='preconnect' href='https://fonts.gstatic.com'>
     <link href='https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Roboto&display=swap' rel='stylesheet'>
     <title>$Pagenom</title>
+    <script src='$autocomplete_path'></script>
 </head>
 <body>
     <header>
@@ -122,8 +123,13 @@ echo "
         </div>
 
         <form  class='searchBar' action='" . $articles . "' method='GET'>
-        <input class='input_searchbar' type='text' name='searchBarText' placeholder='GDDR6X...'>
+        <div id='flex-div-search'>
+            <input id='text_search' type='text' name='searchBarText' placeholder='GDDR6X...' autocomplete='off'>
+            <div id='matchList'></div>
+        </div>
         <button type='submit' id='submitSearchBar' name='submitSearchBar'><i class='fas fa-search searchIcon'></i></button>
+        <input type='hidden' id='result' name='result'>
+
         </form>";
 
 
