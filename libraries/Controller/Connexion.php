@@ -54,8 +54,4 @@ class Connexion extends Controller
         }
         echo $errorLog; // on aurait pu mettre un return mais flemme :-) pour un prochain projet
     }
-
-    public function isConnected()
-    {
-    }
 }

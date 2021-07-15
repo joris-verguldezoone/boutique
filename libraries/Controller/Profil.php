@@ -88,21 +88,14 @@ class Profil extends Controller
             }
 
             if (!empty($image)) {
-                if ($image_len >= 255) {
-                    if ($image_len <= 3) {
-                        $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs', 'login', $login); // je trouve mon id en dehors des session 
 
-                        $modelProfil->updateOneValue('utilisateurs', 'image', 'id', $image, $_SESSION['utilisateur']['id']);
+                $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs', 'login', $login); // je trouve mon id en dehors des session 
 
-                        $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs', 'id', $_SESSION['utilisateur']['id']); // je trouve mon id en dehors des session 
-                        $_SESSION['utilisateur'] = $fetch_utilisateur;
-                        echo "changement(s) effectué(s) image";
-                    } else {
-                        $errorLog = 'url trop court';
-                    }
-                } else {
-                    $errorLog = 'Nombre de caractères maximum pour url fixé à 255';
-                }
+                $modelProfil->updateOneValue('utilisateurs', 'image', 'id', $image, $_SESSION['utilisateur']['id']);
+
+                $fetch_utilisateur = $modelProfil->selectAllWhere('utilisateurs', 'id', $_SESSION['utilisateur']['id']); // je trouve mon id en dehors des session 
+                $_SESSION['utilisateur'] = $fetch_utilisateur;
+                echo "changement(s) effectué(s) image";
             }
         }
         echo $errorLog;

@@ -56,3 +56,7 @@ require_once('../require/html_/header.php');
 session_destroy();
 header('Location: ' . $index);
 ob_end_flush();
+?>
+<script src='../libraries//js/googleOauth.js'>
+    signOut()
+</script>

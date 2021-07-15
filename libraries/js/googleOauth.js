@@ -1,6 +1,7 @@
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
-
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.disconnect();
     console.log(googleUser.getAuthResponse())
     var token = googleUser.getAuthResponse().id_token
     console.log(token)
@@ -22,7 +23,7 @@ function signOut() {
         console.log('User signed out.');
     });
     $.ajax({
-        url: 'log_out',
+        url: 'deconnexion.php',
         dateType: 'json',
         type: 'POST',
 

@@ -212,14 +212,31 @@ abstract class Model
         $result->bindValue(":value4", $value4, \PDO::PARAM_INT);
         $result->execute();
     }
-    public function rowCount($nomTable, $value1, $value2)
+    public function rowCount($nomTable, $col, $value)
     {
-        $sql = "SELECT COUNT(*) FROM $nomTable WHERE $value1 = ?";
+        $sql = "SELECT COUNT(*) FROM $nomTable WHERE $col = ?";
         $result = $this->pdo->prepare($sql);
-        $result->execute([$value2]);
+        $result->execute([$value]);
 
         $fetch = $result->fetchAll();
         return $fetch;
+    }
+    public function fetchOneValueCol($table, $col, $value)
+    {
+        $sql = "SELECT * FROM $table WHERE $col = :value ";
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(':value', $value);
+        $result->execute();
+        $fetch = $result->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $fetch;
+    }
+    public function alreadyExist($table, $column, $value)
+    {
+        $query = $this->pdo->prepare('SELECT ' . $column . ' FROM ' . $table . ' WHERE ' . $column . ' = ?');
+        $query->execute([$value]);
+
+        return $query->fetch(\PDO::FETCH_ASSOC);
     }
     public function likeCheck($nomTable, $colonne1, $colonne2, $value1, $value2)
     {
@@ -338,5 +355,20 @@ abstract class Model
         } else {
             return $data = "Ne correspond à aucun élément , il ne doit plus y avoir de stock ou l'article n'existe plus";
         }
+    }
+    public function insertNotif($id_google, $id_group, $name, $type)
+    {
+        $sql = "INSERT INTO notification (id_google, id_group, name, type) VALUES (:id_google, :id_group, :name, :type)";
+        $result = $this->pdo->prepare($sql);
+
+        $result->bindValue(":id_google", $id_google, \PDO::PARAM_STR);
+        $result->bindValue(":id_group", $id_group, \PDO::PARAM_STR);
+        $result->bindValue(":name", $name, \PDO::PARAM_STR);
+        $result->bindValue(":type", $type, \PDO::PARAM_STR);
+        var_dump($id_google);
+        var_dump($id_group);
+        var_dump($name);
+        var_dump($type);
+        $result->execute();
     }
 }

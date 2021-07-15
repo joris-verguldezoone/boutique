@@ -6,9 +6,11 @@ if (!isset($_SESSION)) {
 require_once('libraries/Controller/Commentaire.php');
 require_once('libraries/Model/Commentaire.php');
 require_once('libraries/Model/Autocompletion.php');
+require_once('libraries/Controller/Chat.php');
+require_once('libraries/Model/Chat.php');
 
 $controllerCommentaire = new \controller\Commentaire;
-
+$controllerChat = new \controller\Chat;
 
 if (isset($_SESSION['user'])) {
     $id_utilisateur = $_SESSION['user']['sub'];
@@ -83,6 +85,28 @@ if (isset($_GET['text_search'])) {
 
 // chat 
 
-if (isset($_POST['getSessionVar'])) {
-    echo json_encode($user);
+
+if (isset($_POST['createGroupChat'])) {
+    $objet = $_POST['objet'];
+    $test = $controllerChat->createGroupConversation($objet);
+    var_dump($test);
+}
+if (isset($_POST['fetchGroupConversation'])) {
+    $result = $controllerChat->loadConversation();
+
+    echo json_encode($result);
+}
+if (isset($_POST['who_am_i'])) {
+    echo json_encode($id_utilisateur);
+}
+if (isset($_POST['hidden_group_id'])) {
+    $groupID = $_POST['hidden_group_id'];
+    $result = $controllerChat->fetchConversation($groupID);
+    echo json_encode($result);
+}
+if (isset($_POST['sendMessages'])) {
+    $groupID =  $controllerChat->secure($_POST['hidden_group_id2']);
+    $msg_content = $controllerChat->secure($_POST['msg_content']);
+    $result = $controllerChat->sendMessages($groupID, $msg_content);
+    echo json_encode($result);
 }

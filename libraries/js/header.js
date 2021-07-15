@@ -6,13 +6,11 @@ var loc = window.location.pathname;
 var path;
 if (loc.indexOf("view") > 0) {
     path = '../routeurJS.php'
-    console.log(path)
 }
 else {
     path = 'routeurJS.php'
 }
-console.log(loc)
-console.log(path)
+
 // addEventListener('input', function (evt) { // a revoir pour le input, pas bien compris 
 $('#text_search').keyup(function () {
     console.log(text_search.value)
@@ -47,7 +45,6 @@ $('#matchList').on('click', 'a', function (e) {
     // dont allow the <a> to perform its default functionality
     e.preventDefault();
     // get content of <a> tag
-    console.log($(this).text());
 
     document.getElementById('text_search').value = $(this).text();
 
@@ -69,6 +66,5 @@ $('#matchList').on('click', 'a', function (e) {
         }
         // console.log(data)
         document.getElementById('result').value = str_result
-        console.log(document.getElementById('result').value)
     })
 });
